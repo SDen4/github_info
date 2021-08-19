@@ -2,7 +2,7 @@ import React from 'react';
 
 import Root from '../view/Root';
 
-import './App.css';
+import './styles.css';
 
 function App() {
   return (
