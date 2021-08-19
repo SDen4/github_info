@@ -1,0 +1,18 @@
+.root_wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100vh;
+  background: center / contain no-repeat url('./assets/img/github-logo.png'),
+    radial-gradient(gray -155%, black 95%);
+  color: #d3d3d3;
+  padding: 20px;
+}
+
+.root_header {
+  text-align: left;
+  width: 100%;
+  font-size: 32px;
+}
