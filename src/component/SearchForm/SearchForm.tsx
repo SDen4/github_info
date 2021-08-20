@@ -5,9 +5,17 @@ import './styles.css';
 
 const SearchForm: React.FC = () => {
   const [searchText, setSearchText] = useState<string>('');
+  const [disabledBtn, setDisabledBtn] = useState(true);
 
   const changeTextHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchText(event?.target.value);
+    let textValue = event?.target.value;
+    setSearchText(textValue);
+
+    if (textValue.trim()) {
+      setDisabledBtn(false);
+    } else {
+      setDisabledBtn(true);
+    }
   };
 
   const onSubmitHandler = (event: React.SyntheticEvent) => {
@@ -25,7 +33,7 @@ const SearchForm: React.FC = () => {
         value={searchText}
         onChange={changeTextHandler}
       />
-      <SubmitButton>Search</SubmitButton>
+      <SubmitButton disabled={disabledBtn}>Search</SubmitButton>
     </form>
   );
 };
