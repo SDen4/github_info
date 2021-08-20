@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Input from '../../component/Input';
+import SearchForm from '../../component/SearchForm';
 
 import './styles.css';
 
@@ -9,7 +9,7 @@ const Root: React.FC = () => {
     <div className="root_wrapper">
       <header className="root_header">Find github&apos;s user</header>
       <section className="root_section">
-        <Input />
+        <SearchForm />
       </section>
     </div>
   );
