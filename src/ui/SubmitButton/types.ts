@@ -1,4 +1,4 @@
 export interface IButton {
   children?: React.ReactNode;
-  onClick: () => void;
+  // onClick: (event: React.SyntheticEvent) => void;
 }

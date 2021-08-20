@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Button from '../../ui/Button';
+import SubmitButton from '../../ui/SubmitButton';
 
 import './styles.css';
 
@@ -10,13 +10,14 @@ const SearchForm: React.FC = () => {
     setSearchText(event?.target.value);
   };
 
-  const onclickHandler = () => {
+  const onSubmitHandler = (event: React.SyntheticEvent) => {
+    event.preventDefault();
     // eslint-disable-next-line no-console
-    console.log('click!');
+    console.log(searchText);
   };
 
   return (
-    <form className="form">
+    <form className="form" onSubmit={onSubmitHandler}>
       <input
         className="input"
         type="text"
@@ -24,7 +25,7 @@ const SearchForm: React.FC = () => {
         value={searchText}
         onChange={changeTextHandler}
       />
-      <Button onClick={onclickHandler}>Search</Button>
+      <SubmitButton>Search</SubmitButton>
     </form>
   );
 };
