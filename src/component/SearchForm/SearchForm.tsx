@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Button from '../../ui/Button';
 
 import './styles.css';
 
@@ -9,8 +10,13 @@ const SearchForm: React.FC = () => {
     setSearchText(event?.target.value);
   };
 
+  const onclickHandler = () => {
+    // eslint-disable-next-line no-console
+    console.log('click!');
+  };
+
   return (
-    <form>
+    <form className="form">
       <input
         className="input"
         type="text"
@@ -18,7 +24,7 @@ const SearchForm: React.FC = () => {
         value={searchText}
         onChange={changeTextHandler}
       />
-      <button type="submit">Search</button>
+      <Button onClick={onclickHandler}>Search</Button>
     </form>
   );
 };
