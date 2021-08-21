@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import SubmitButton from '../../ui/SubmitButton';
 
 import './styles.css';
@@ -6,6 +6,12 @@ import './styles.css';
 const SearchForm: React.FC = () => {
   const [searchText, setSearchText] = useState<string>('');
   const [disabledBtn, setDisabledBtn] = useState(true);
+
+  // auto focus on input
+  const ref: any = useRef(null);
+  useEffect(() => {
+    ref.current.focus();
+  }, []);
 
   const changeTextHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     let textValue = event?.target.value;
@@ -27,6 +33,7 @@ const SearchForm: React.FC = () => {
   return (
     <form className="form" onSubmit={onSubmitHandler}>
       <input
+        ref={ref}
         className="input"
         type="text"
         placeholder="Enter the github login"
