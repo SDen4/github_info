@@ -1,28 +1,32 @@
 import React from 'react';
 
+import { CardType } from './types';
+
 import './styles.css';
 
-const Card: React.FC = () => {
+const Card: React.FC<CardType> = ({ user }) => {
+  // eslint-disable-next-line no-console
+  console.log('userin card', user);
   return (
     <div className="card">
       <div className="card_element">
         <div className="card_photo_wrapper">
-          <img src="" alt="User's avatar" />
+          <img src={user.avatarUrl} alt="User's avatar" />
         </div>
       </div>
 
       <div className="card_element">
-        <h2>Name</h2>
-        <h3>github login</h3>
+        <h2>{user.name}</h2>
+        <h3>{user.login}</h3>
         <div className="card_followers_wrapper">
           <div className="card_followers_unit">
             <span>Followers:</span>
-            <a href="https://somedomain.com">3</a>
+            <a href="?">{user.followersNum}</a>
           </div>
 
           <div className="card_followers_unit">
             <span>Following:</span>
-            <a href="https://somedomain.com">1</a>
+            <a href="?">{user.followingNum}</a>
           </div>
         </div>
       </div>

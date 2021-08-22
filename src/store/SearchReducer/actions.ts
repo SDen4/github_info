@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { SEARCH_LOGIN_SAGA, FETCH_LOGIN } from './constants';
 
 export const searchSaga = (login: string) => {
@@ -7,10 +8,24 @@ export const searchSaga = (login: string) => {
   } as const;
 };
 
-export const fetchLogin = (login: string) => {
+export const fetchLogin = (
+  name: string,
+  login: string,
+  followers_url: string,
+  following_url: string,
+  followers: number,
+  following: number,
+  avatar_url?: string,
+) => {
   return {
     type: FETCH_LOGIN,
+    name,
     login,
+    followers_url,
+    following_url,
+    followers,
+    following,
+    avatar_url,
   } as const;
 };
 

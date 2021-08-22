@@ -5,7 +5,15 @@ import { InitialStateType } from './types';
 import { ActionsType } from './actions';
 
 const initialState: InitialStateType = {
-  login: '',
+  user: {
+    name: '',
+    login: '',
+    followersUrl: '',
+    followingUrl: '',
+    avatarUrl: '',
+    followersNum: 0,
+    followingNum: 0,
+  },
 };
 
 export const SearchReducer = (
@@ -16,7 +24,15 @@ export const SearchReducer = (
     case FETCH_LOGIN:
       return {
         ...state,
-        login: action.login,
+        user: {
+          name: action.name,
+          login: action.login,
+          followersUrl: action.followers_url,
+          followingUrl: action.following_url,
+          avatarUrl: action.avatar_url,
+          followersNum: action.followers,
+          followingNum: action.following,
+        },
       };
 
     default:
