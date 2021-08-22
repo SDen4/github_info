@@ -1,4 +1,5 @@
 import React from 'react';
+import Card from '../../component/Card';
 
 import SearchForm from '../../component/SearchForm';
 
@@ -10,6 +11,10 @@ const Root: React.FC = () => {
       <header className="root_header">Find github&apos;s user</header>
       <section className="root_section">
         <SearchForm />
+      </section>
+
+      <section className="root_section">
+        <Card />
       </section>
     </div>
   );
