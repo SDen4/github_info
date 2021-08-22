@@ -1,7 +1,7 @@
 import React from 'react';
-import Card from '../../component/Card';
+import Card from '../../components/Card';
 
-import SearchForm from '../../component/SearchForm';
+import SearchForm from '../../components/SearchForm';
 
 import './styles.css';
 
