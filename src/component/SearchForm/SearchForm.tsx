@@ -1,11 +1,16 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { searchSaga } from '../../store/SearchReducer/actions';
+
 import SubmitButton from '../../ui/SubmitButton';
 
 import './styles.css';
 
 const SearchForm: React.FC = () => {
-  const [searchText, setSearchText] = useState<string>('');
+  const [searchLogin, setsearchLogin] = useState<string>('');
   const [disabledBtn, setDisabledBtn] = useState(true);
+  const dispatch = useDispatch();
 
   // auto focus on input
   const ref: any = useRef(null);
@@ -15,7 +20,7 @@ const SearchForm: React.FC = () => {
 
   const changeTextHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     let textValue = event?.target.value;
-    setSearchText(textValue);
+    setsearchLogin(textValue);
 
     if (textValue.trim()) {
       setDisabledBtn(false);
@@ -26,8 +31,9 @@ const SearchForm: React.FC = () => {
 
   const onSubmitHandler = (event: React.SyntheticEvent) => {
     event.preventDefault();
+    dispatch(searchSaga(searchLogin));
     // eslint-disable-next-line no-console
-    console.log(searchText);
+    console.log(searchLogin);
   };
 
   return (
@@ -37,7 +43,7 @@ const SearchForm: React.FC = () => {
         className="input"
         type="text"
         placeholder="Enter the github login"
-        value={searchText}
+        value={searchLogin}
         onChange={changeTextHandler}
       />
       <SubmitButton disabled={disabledBtn}>Search</SubmitButton>

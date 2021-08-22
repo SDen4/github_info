@@ -1,20 +1,28 @@
-import { call, takeEvery } from 'redux-saga/effects';
-import { SEARCH_SAGA } from '../constants';
-import {} from '../actions';
+import { put, takeEvery } from 'redux-saga/effects';
 
-async function fetchPosts() {
-  // const response = await fetch(
-  //   'https://jsonplaceholder.typicode.com/posts?_limit=5',
-  // );
-  // return await response.json();
+import { SEARCH_LOGIN_SAGA } from '../constants';
+import { fetchLogin } from '../actions';
+import { SearchSagaWorkerType } from '../types';
+import { API } from '../../../api/API';
+
+async function getUserInfo(login: string) {
+  const response = await API.get(`${login}`).then((res) => res.data);
+  // eslint-disable-next-line no-console
+  console.log(response);
+  return response;
 }
 
-function* sagaWorker() {
+function* sagaWorker(action: SearchSagaWorkerType) {
   try {
+    yield put(fetchLogin(action.login));
+
+    yield getUserInfo(action.login);
+
     // yield put(showLoader());
-    const payload: string = yield call(fetchPosts);
+    // const payload: string = yield call(fetchPosts);
+    // console.log(payload);
+
     // eslint-disable-next-line no-console
-    console.log(payload);
     // yield put({ type: FETCH_POSTS, payload });
     // yield put(hideLoader());
   } catch (error) {
@@ -24,5 +32,5 @@ function* sagaWorker() {
 }
 
 export function* SearchSagaWatcher() {
-  yield takeEvery(SEARCH_SAGA, sagaWorker);
+  yield takeEvery(SEARCH_LOGIN_SAGA, sagaWorker);
 }

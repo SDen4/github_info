@@ -1,1 +1,3 @@
-export const SEARCH_SAGA = 'SEARCH_SAGA';
+export const SEARCH_LOGIN_SAGA = 'SEARCH_LOGIN_SAGA';
+
+export const FETCH_LOGIN = 'FETCH_LOGIN';
