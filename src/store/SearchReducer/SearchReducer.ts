@@ -1,4 +1,4 @@
-import { FETCH_LOGIN } from './constants';
+import { FETCH_LOGIN, CARD_OPEN_FLAG } from './constants';
 
 import { InitialStateType } from './types';
 
@@ -14,6 +14,7 @@ const initialState: InitialStateType = {
     followersNum: 0,
     followingNum: 0,
   },
+  cardOpened: false,
 };
 
 export const SearchReducer = (
@@ -33,6 +34,12 @@ export const SearchReducer = (
           followersNum: action.followers,
           followingNum: action.following,
         },
+      };
+
+    case CARD_OPEN_FLAG:
+      return {
+        ...state,
+        cardOpened: action.cardOPenedFlag,
       };
 
     default:

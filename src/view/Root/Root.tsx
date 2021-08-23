@@ -20,7 +20,7 @@ const Root: React.FC = () => {
       </section>
 
       <section className="root_section">
-        <Card user={storeData.user} />
+        {storeData.cardOpened && <Card user={storeData.user} />}
       </section>
     </div>
   );

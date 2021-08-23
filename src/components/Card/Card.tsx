@@ -1,12 +1,19 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+
+import { cardOPenedFlag } from '../../store/SearchReducer/actions';
 
 import { CardType } from './types';
 
 import './styles.css';
 
 const Card: React.FC<CardType> = ({ user }) => {
-  // eslint-disable-next-line no-console
-  console.log('userin card', user);
+  const dispatch = useDispatch();
+
+  const onClickCloseBtnHandler = () => {
+    dispatch(cardOPenedFlag(false));
+  };
+
   return (
     <div className="card">
       <div className="card_element">
@@ -29,6 +36,15 @@ const Card: React.FC<CardType> = ({ user }) => {
             <a href="?">{user.followingNum}</a>
           </div>
         </div>
+      </div>
+
+      <div className="card_close_btn_wrapper">
+        <button
+          className="card_close_btn"
+          type="button"
+          aria-label="Close"
+          onClick={onClickCloseBtnHandler}
+        />
       </div>
     </div>
   );

@@ -1,11 +1,12 @@
 .card {
   display: flex;
+  position: relative;
   width: 100%;
   padding: 15px 20px;
   border: 1px solid #d3d3d3;
   border-radius: 5px;
   margin-top: 30px;
-  background-color: transparent;
+  background-color: rgba(55, 55, 55, 0.8);
   color: #d3d3d3;
 }
 
@@ -62,4 +63,34 @@
 .card_followers_unit a {
   color: #FF8C00;
   text-decoration: none;
+}
+
+.card_close_btn {
+  display: block;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 20px;
+  height: 20px;
+  border: 0;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.card_close_btn:after, .card_close_btn:before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 3px;
+  border-radius: 2px;
+  background-color: #FF8C00;
+  position: absolute;
+  top: 8px;
+  left: 0;
+  transform: rotate(45deg);
+}
+
+.card_close_btn:before {
+  transform: rotate(-45deg);
 }

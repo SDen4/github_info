@@ -23,6 +23,7 @@ export interface UserType {
 
 export interface InitialStateType {
   user: UserType;
+  cardOpened: boolean;
 }
 
 export interface SearchSagaWorkerType {

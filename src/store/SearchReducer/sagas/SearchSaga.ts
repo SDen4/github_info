@@ -1,23 +1,21 @@
 import { takeEvery, put } from 'redux-saga/effects';
 
 import { SEARCH_LOGIN_SAGA } from '../constants';
-import { fetchLogin } from '../actions';
+import { cardOPenedFlag, fetchLogin } from '../actions';
 import { SearchSagaWorkerType, UserInnerType } from '../types';
+
 import { API } from '../../../api/API';
 
 async function getUserInfo(login: string) {
   const response = await API.get(`${login}`).then((res) => res.data);
-  // eslint-disable-next-line no-console
-  console.log(response);
   return response;
 }
 
 function* sagaWorker(action: SearchSagaWorkerType) {
   try {
-    // const allData: { [key: string]: string | number } = yield getUserInfo(
     const allData: UserInnerType = yield getUserInfo(action.login);
     // eslint-disable-next-line no-console
-    console.log(allData);
+    // console.log(allData);
 
     yield put(
       fetchLogin(
@@ -31,16 +29,10 @@ function* sagaWorker(action: SearchSagaWorkerType) {
       ),
     );
 
-    // yield put(showLoader());
-    // const payload: string = yield call(fetchPosts);
-    // console.log(payload);
-
-    // eslint-disable-next-line no-console
-    // yield put({ type: FETCH_POSTS, payload });
-    // yield put(hideLoader());
+    yield put(cardOPenedFlag(true));
   } catch (error) {
-    // yield put(showAlert('Something wrong...'));
-    // yield put(hideLoader());
+    // eslint-disable-next-line no-console
+    console.log(error);
   }
 }
 

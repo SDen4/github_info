@@ -32,8 +32,8 @@ const SearchForm: React.FC = () => {
   const onSubmitHandler = (event: React.SyntheticEvent) => {
     event.preventDefault();
     dispatch(searchSaga(searchLogin));
-    // eslint-disable-next-line no-console
-    console.log(searchLogin);
+    setsearchLogin('');
+    setDisabledBtn(true);
   };
 
   return (

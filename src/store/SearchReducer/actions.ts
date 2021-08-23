@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import { SEARCH_LOGIN_SAGA, FETCH_LOGIN } from './constants';
+import { SEARCH_LOGIN_SAGA, FETCH_LOGIN, CARD_OPEN_FLAG } from './constants';
 
 export const searchSaga = (login: string) => {
   return {
@@ -29,7 +29,15 @@ export const fetchLogin = (
   } as const;
 };
 
+export const cardOPenedFlag = (cardOPenedFlag: boolean) => {
+  return {
+    type: CARD_OPEN_FLAG,
+    cardOPenedFlag,
+  } as const;
+};
+
 type searchSagaType = ReturnType<typeof searchSaga>;
 type fetchLoginType = ReturnType<typeof fetchLogin>;
+type cardOPenedFlagType = ReturnType<typeof cardOPenedFlag>;
 
-export type ActionsType = searchSagaType | fetchLoginType;
+export type ActionsType = searchSagaType | fetchLoginType | cardOPenedFlagType;
