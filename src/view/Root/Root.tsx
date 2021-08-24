@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 
 import Card from '../../components/Card';
 import SearchForm from '../../components/SearchForm';
+import Loader from '../../ui/Loader';
 
 import { AppStateType } from '../../store/RootReducer';
 // import { SearchReducer } from '../../store/SearchReducer/SearchReducer';
@@ -20,6 +21,7 @@ const Root: React.FC = () => {
       </section>
 
       <section className="root_section">
+        <Loader />
         {storeData.cardOpened && <Card user={storeData.user} />}
       </section>
     </div>
