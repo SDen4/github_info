@@ -24,6 +24,7 @@ export interface UserType {
 export interface InitialStateType {
   user: UserType;
   cardOpened: boolean;
+  loading: boolean;
 }
 
 export interface SearchSagaWorkerType {

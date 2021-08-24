@@ -21,7 +21,7 @@ const Root: React.FC = () => {
       </section>
 
       <section className="root_section">
-        <Loader />
+        {storeData.loading && <Loader />}
         {storeData.cardOpened && <Card user={storeData.user} />}
       </section>
     </div>
