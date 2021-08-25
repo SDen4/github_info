@@ -20,6 +20,7 @@ export const fetchLogin = (
   following_url: string,
   followers: number,
   following: number,
+  created_at: Date,
   avatar_url?: string,
 ) => {
   return {
@@ -30,6 +31,7 @@ export const fetchLogin = (
     following_url,
     followers,
     following,
+    created_at,
     avatar_url,
   } as const;
 };

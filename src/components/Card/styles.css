@@ -18,12 +18,16 @@
   margin-right: 20px;
 }
 
+.card_element h2, h3 {
+  color: #FF8C00;
+}
+
 .card_element:last-child {
   margin-right: 0;
 }
 
 .card_element h2, h3 {
-  margin-top: 0;
+  margin: 0;
 }
 
 .card_photo_wrapper {
@@ -46,6 +50,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .card_followers_unit {
@@ -93,4 +98,19 @@
 
 .card_close_btn:before {
   transform: rotate(-45deg);
+}
+
+.card_sub_element {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  margin-bottom: 20px;
+}
+
+.card_sub_element:last-child {
+  margin-bottom: 0;
+}
+
+.card_user_info {
+  color: #FF8C00;
 }

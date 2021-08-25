@@ -1,6 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
+import { dateFormatter } from '../../utils/dateFormatter';
+
 import { cardOPenedFlag } from '../../store/SearchReducer/actions';
 
 import { CardType } from './types';
@@ -23,8 +25,12 @@ const Card: React.FC<CardType> = ({ user }) => {
       </div>
 
       <div className="card_element">
-        <h2>{user.name}</h2>
-        <h3>{user.login}</h3>
+        <div className="card_sub_element">
+          <h2>
+            {user.name} ({user.login})
+          </h2>
+        </div>
+
         <div className="card_followers_wrapper">
           <div className="card_followers_unit">
             <span>Followers:</span>
@@ -34,6 +40,13 @@ const Card: React.FC<CardType> = ({ user }) => {
           <div className="card_followers_unit">
             <span>Following:</span>
             <a href="?">{user.followingNum}</a>
+          </div>
+        </div>
+
+        <div className="card_sub_element">
+          <span>Created at &nbsp;</span>
+          <div className="card_user_info">
+            {dateFormatter(user.dataCreated)}
           </div>
         </div>
       </div>

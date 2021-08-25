@@ -8,6 +8,7 @@ export interface UserInnerType {
   following_url: string;
   followers: number;
   following: number;
+  created_at: Date;
   avatar_url: string;
 }
 
@@ -19,6 +20,7 @@ export interface UserType {
   avatarUrl?: string;
   followersNum: number;
   followingNum: number;
+  dataCreated: Date;
 }
 
 export interface InitialStateType {

@@ -18,7 +18,7 @@ function* sagaWorker(action: SearchSagaWorkerType) {
 
     const allData: UserInnerType = yield getUserInfo(action.login);
     // eslint-disable-next-line no-console
-    // console.log(allData);
+    console.log(allData);
 
     yield put(
       fetchLogin(
@@ -28,6 +28,7 @@ function* sagaWorker(action: SearchSagaWorkerType) {
         allData.following_url,
         allData.followers,
         allData.following,
+        new Date(allData.created_at),
         allData.avatar_url,
       ),
     );
