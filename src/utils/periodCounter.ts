@@ -17,11 +17,15 @@ export const periodCounter = (dataCreated: Date): string => {
       24,
   );
 
+  const yearsStr = years > 1 ? `${years} years` : `${years} year`;
+  const monthsStr = months > 1 ? `${months} months` : `${months} month`;
+  const daysStr = days > 1 ? `${days} days` : `${days} day`;
+
   if (years >= 1) {
-    return `${years} year(s), ${months} month(s), ${days} day(s) ago`;
+    return `${yearsStr}, ${monthsStr} and ${daysStr} ago`;
   }
   if (months >= 1) {
-    return `${months} month(s), ${days} day(s) ago`;
+    return `${monthsStr} and ${daysStr} ago`;
   }
-  return `${days} day(s) ago`;
+  return `${daysStr} ago`;
 };
