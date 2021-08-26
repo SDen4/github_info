@@ -22,6 +22,8 @@ export const fetchLogin = (
   following: number,
   created_at: Date,
   avatar_url?: string,
+  company?: string,
+  email?: string,
 ) => {
   return {
     type: FETCH_LOGIN,
@@ -33,6 +35,8 @@ export const fetchLogin = (
     following,
     created_at,
     avatar_url,
+    company,
+    email,
   } as const;
 };
 

@@ -31,6 +31,20 @@ const Card: React.FC<CardType> = ({ user }) => {
           </h2>
         </div>
 
+        {user.company && (
+          <div className="card_sub_element">
+            <span>Company:&nbsp;</span>
+            <div className="card_user_info">{user.company}</div>
+          </div>
+        )}
+
+        {user.email && (
+          <div className="card_sub_element">
+            <span>Email:&nbsp;</span>
+            <div className="card_user_info">{user.email}</div>
+          </div>
+        )}
+
         <div className="card_followers_wrapper">
           <div className="card_followers_unit">
             <span>Followers:</span>
@@ -44,7 +58,7 @@ const Card: React.FC<CardType> = ({ user }) => {
         </div>
 
         <div className="card_sub_element">
-          <span>Created at &nbsp;</span>
+          <span>Created at&nbsp;</span>
           <div className="card_user_info">
             {dateFormatter(user.dataCreated)}
           </div>

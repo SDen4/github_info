@@ -14,6 +14,8 @@ const initialState: InitialStateType = {
     followersNum: 0,
     followingNum: 0,
     dataCreated: new Date(),
+    company: '',
+    email: '',
   },
   cardOpened: false,
   loading: false,
@@ -36,6 +38,8 @@ export const SearchReducer = (
           followersNum: action.followers,
           followingNum: action.following,
           dataCreated: action.created_at,
+          company: action.company,
+          email: action.email,
         },
       };
 

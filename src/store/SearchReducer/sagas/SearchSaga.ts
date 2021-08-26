@@ -30,6 +30,8 @@ function* sagaWorker(action: SearchSagaWorkerType) {
         allData.following,
         new Date(allData.created_at),
         allData.avatar_url,
+        allData.company,
+        allData.email,
       ),
     );
 
