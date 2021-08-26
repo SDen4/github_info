@@ -5,7 +5,7 @@ export const dateFormatter = (dataCreated: Date): string => {
       : dataCreated.getDate();
 
   const month =
-    dataCreated.getMonth() < 10
+    dataCreated.getMonth() < 9
       ? `0${dataCreated.getMonth() + 1}`
       : dataCreated.getMonth() + 1;
 
