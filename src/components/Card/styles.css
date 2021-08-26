@@ -44,6 +44,7 @@
   display: block;
   max-width: 100%;
   max-height: 100%;
+  min-width: 100%;
 }
 
 .card_followers_wrapper {

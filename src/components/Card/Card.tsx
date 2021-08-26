@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 
 import { dateFormatter } from '../../utils/dateFormatter';
+import { periodCounter } from '../../utils/periodCounter';
 
 import { cardOPenedFlag } from '../../store/SearchReducer/actions';
 
@@ -61,6 +62,9 @@ const Card: React.FC<CardType> = ({ user }) => {
           <span>Created at&nbsp;</span>
           <div className="card_user_info">
             {dateFormatter(user.dataCreated)}
+          </div>
+          <div className="card_user_info">
+            &nbsp;({periodCounter(user.dataCreated)})
           </div>
         </div>
       </div>

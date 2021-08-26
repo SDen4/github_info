@@ -1,4 +1,4 @@
-export const dateFormatter = (dataCreated: Date) => {
+export const dateFormatter = (dataCreated: Date): string => {
   const day =
     dataCreated.getDate() < 10
       ? `0${dataCreated.getDate()}`
@@ -11,5 +11,5 @@ export const dateFormatter = (dataCreated: Date) => {
 
   const year = dataCreated.getFullYear();
 
-  return ` ${day}.${month}.${year}`;
+  return ` ${day}.${month}.${year}. `;
 };
