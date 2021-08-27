@@ -31,6 +31,7 @@ export interface InitialStateType {
   user: UserType;
   cardOpened: boolean;
   loading: boolean;
+  error: boolean;
 }
 
 export interface SearchSagaWorkerType {

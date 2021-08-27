@@ -3,4 +3,9 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  padding-top: 50px;
+}
+
+.error_user_info {
+  color: #FF8C00;
 }

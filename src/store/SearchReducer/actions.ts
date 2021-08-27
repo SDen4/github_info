@@ -4,6 +4,7 @@ import {
   FETCH_LOGIN,
   CARD_OPEN_FLAG,
   LOADING,
+  ERROR,
 } from './constants';
 
 export const searchSaga = (login: string) => {
@@ -54,13 +55,22 @@ export const loadingFlag = (loadingFlag: boolean) => {
   } as const;
 };
 
+export const errorFlag = (errorFlag: boolean) => {
+  return {
+    type: ERROR,
+    errorFlag,
+  } as const;
+};
+
 type searchSagaType = ReturnType<typeof searchSaga>;
 type fetchLoginType = ReturnType<typeof fetchLogin>;
 type cardOPenedFlagType = ReturnType<typeof cardOPenedFlag>;
 type loadingFlagType = ReturnType<typeof loadingFlag>;
+type errorFlagType = ReturnType<typeof errorFlag>;
 
 export type ActionsType =
   | searchSagaType
   | fetchLoginType
   | cardOPenedFlagType
-  | loadingFlagType;
+  | loadingFlagType
+  | errorFlagType;

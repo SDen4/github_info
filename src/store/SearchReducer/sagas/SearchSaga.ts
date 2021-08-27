@@ -1,7 +1,7 @@
 import { takeEvery, put } from 'redux-saga/effects';
 
 import { SEARCH_LOGIN_SAGA } from '../constants';
-import { cardOPenedFlag, fetchLogin, loadingFlag } from '../actions';
+import { cardOPenedFlag, errorFlag, fetchLogin, loadingFlag } from '../actions';
 import { SearchSagaWorkerType, UserInnerType } from '../types';
 
 import { API } from '../../../api/API';
@@ -13,6 +13,7 @@ async function getUserInfo(login: string) {
 
 function* sagaWorker(action: SearchSagaWorkerType) {
   try {
+    yield put(errorFlag(false));
     yield put(cardOPenedFlag(false));
     yield put(loadingFlag(true));
 
@@ -40,6 +41,8 @@ function* sagaWorker(action: SearchSagaWorkerType) {
   } catch (error) {
     // eslint-disable-next-line no-console
     console.log(error);
+    yield put(loadingFlag(false));
+    yield put(errorFlag(true));
   }
 }
 

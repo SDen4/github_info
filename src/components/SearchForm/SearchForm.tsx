@@ -6,8 +6,9 @@ import { searchSaga } from '../../store/SearchReducer/actions';
 import SubmitButton from '../../ui/SubmitButton';
 
 import './styles.css';
+import { ISearch } from './types';
 
-const SearchForm: React.FC = () => {
+const SearchForm: React.FC<ISearch> = ({ search }) => {
   const [searchLogin, setsearchLogin] = useState<string>('');
   const [disabledBtn, setDisabledBtn] = useState(true);
   const dispatch = useDispatch();
@@ -32,6 +33,9 @@ const SearchForm: React.FC = () => {
   const onSubmitHandler = (event: React.SyntheticEvent) => {
     event.preventDefault();
     dispatch(searchSaga(searchLogin));
+
+    search(searchLogin);
+
     setsearchLogin('');
     setDisabledBtn(true);
   };

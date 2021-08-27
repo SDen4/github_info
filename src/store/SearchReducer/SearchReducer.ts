@@ -1,4 +1,4 @@
-import { FETCH_LOGIN, CARD_OPEN_FLAG, LOADING } from './constants';
+import { FETCH_LOGIN, CARD_OPEN_FLAG, LOADING, ERROR } from './constants';
 
 import { InitialStateType } from './types';
 
@@ -19,6 +19,7 @@ const initialState: InitialStateType = {
   },
   cardOpened: false,
   loading: false,
+  error: false,
 };
 
 export const SearchReducer = (
@@ -53,6 +54,12 @@ export const SearchReducer = (
       return {
         ...state,
         loading: action.loadingFlag,
+      };
+
+    case ERROR:
+      return {
+        ...state,
+        error: action.errorFlag,
       };
 
     default:
