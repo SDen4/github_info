@@ -5,7 +5,10 @@ import clsx from 'clsx';
 import { dateFormatter } from '../../utils/dateFormatter';
 import { periodCounter } from '../../utils/periodCounter';
 
-import { cardOPenedFlag } from '../../store/SearchReducer/actions';
+import {
+  cardOPenedFlag,
+  fetchUsersListSaga,
+} from '../../store/SearchReducer/actions';
 
 import { CardType } from './types';
 
@@ -16,6 +19,10 @@ const Card: React.FC<CardType> = ({ user }) => {
 
   const onClickCloseBtnHandler = () => {
     dispatch(cardOPenedFlag(false));
+  };
+
+  const onBtnClickHandler = (requestType: string) => {
+    dispatch(fetchUsersListSaga(user.login, requestType));
   };
 
   return (
@@ -73,6 +80,7 @@ const Card: React.FC<CardType> = ({ user }) => {
             <button
               type="button"
               className={clsx('card_user_info', 'card_user_info_btn')}
+              onClick={() => onBtnClickHandler('followers')}
             >
               {user.followersNum}
             </button>
@@ -83,6 +91,7 @@ const Card: React.FC<CardType> = ({ user }) => {
             <button
               type="button"
               className={clsx('card_user_info', 'card_user_info_btn')}
+              onClick={() => onBtnClickHandler('following')}
             >
               {user.followingNum}
             </button>

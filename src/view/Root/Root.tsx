@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import Card from '../../components/Card';
+import Error from '../../components/Error';
+import UsersList from '../../components/UsersList';
 import SearchForm from '../../components/SearchForm';
 import Loader from '../../ui/Loader';
 
 import { AppStateType } from '../../store/RootReducer';
 
 import './styles.css';
-import Error from '../../components/Error';
 
 const Root: React.FC = () => {
   const storeData = useSelector<AppStateType, any>((store) => store.search);
@@ -28,6 +29,7 @@ const Root: React.FC = () => {
       <section className="root_section">
         {storeData.loading && <Loader />}
         {storeData.cardOpened && <Card user={storeData.user} />}
+        {storeData.usersListOpened && <UsersList users={storeData.usersList} />}
         {storeData.error && <Error userName={user} />}
       </section>
     </div>

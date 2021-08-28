@@ -1,4 +1,11 @@
-import { FETCH_LOGIN, CARD_OPEN_FLAG, LOADING, ERROR } from './constants';
+import {
+  FETCH_LOGIN,
+  CARD_OPEN_FLAG,
+  LOADING,
+  ERROR,
+  USERS_LIST_OPENED_FLAG,
+  FETCH_USERS_LIST,
+} from './constants';
 
 import { InitialStateType } from './types';
 
@@ -19,6 +26,8 @@ const initialState: InitialStateType = {
     reposNum: 0,
     reposUrl: '',
   },
+  usersList: [],
+  usersListOpened: false,
   cardOpened: false,
   loading: false,
   error: false,
@@ -64,6 +73,18 @@ export const SearchReducer = (
       return {
         ...state,
         error: action.errorFlag,
+      };
+
+    case USERS_LIST_OPENED_FLAG:
+      return {
+        ...state,
+        usersListOpened: action.userListFlag,
+      };
+
+    case FETCH_USERS_LIST:
+      return {
+        ...state,
+        usersList: action.usersList,
       };
 
     default:

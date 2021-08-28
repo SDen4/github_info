@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import { SEARCH_LOGIN_SAGA } from './constants';
+import { SEARCH_LOGIN_SAGA, FETCH_USERS_LIST_SAGA } from './constants';
 
 export interface UserInnerType {
   name: string;
@@ -33,6 +33,8 @@ export interface UserType {
 
 export interface InitialStateType {
   user: UserType;
+  usersList: UserType[];
+  usersListOpened: boolean;
   cardOpened: boolean;
   loading: boolean;
   error: boolean;
@@ -41,4 +43,10 @@ export interface InitialStateType {
 export interface SearchSagaWorkerType {
   type: typeof SEARCH_LOGIN_SAGA;
   login: string;
+}
+
+export interface IFetchUsersListSagaWorker {
+  type: typeof FETCH_USERS_LIST_SAGA;
+  login: string;
+  requestType: string;
 }

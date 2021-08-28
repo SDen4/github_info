@@ -5,7 +5,12 @@ import {
   CARD_OPEN_FLAG,
   LOADING,
   ERROR,
+  USERS_LIST_OPENED_FLAG,
+  FETCH_USERS_LIST_SAGA,
+  FETCH_USERS_LIST,
 } from './constants';
+
+import { UserType } from './types';
 
 export const searchSaga = (login: string) => {
   return {
@@ -66,15 +71,41 @@ export const errorFlag = (errorFlag: boolean) => {
   } as const;
 };
 
+export const userListOpenedFlag = (userListFlag: boolean) => {
+  return {
+    type: USERS_LIST_OPENED_FLAG,
+    userListFlag,
+  } as const;
+};
+
+export const fetchUsersListSaga = (login: string, requestType: string) => {
+  return {
+    type: FETCH_USERS_LIST_SAGA,
+    login,
+    requestType,
+  } as const;
+};
+
+export const fetchUsersList = (usersList: UserType[]) => {
+  return {
+    type: FETCH_USERS_LIST,
+    usersList,
+  } as const;
+};
+
 type searchSagaType = ReturnType<typeof searchSaga>;
 type fetchLoginType = ReturnType<typeof fetchLogin>;
 type cardOPenedFlagType = ReturnType<typeof cardOPenedFlag>;
 type loadingFlagType = ReturnType<typeof loadingFlag>;
 type errorFlagType = ReturnType<typeof errorFlag>;
+type userListOpenedFlagType = ReturnType<typeof userListOpenedFlag>;
+type fetchUsersListType = ReturnType<typeof fetchUsersList>;
 
 export type ActionsType =
   | searchSagaType
   | fetchLoginType
   | cardOPenedFlagType
   | loadingFlagType
-  | errorFlagType;
+  | errorFlagType
+  | userListOpenedFlagType
+  | fetchUsersListType;
