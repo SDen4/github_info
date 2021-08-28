@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import clsx from 'clsx';
 
 import { dateFormatter } from '../../utils/dateFormatter';
 import { periodCounter } from '../../utils/periodCounter';
@@ -42,26 +43,45 @@ const Card: React.FC<CardType> = ({ user }) => {
         {user.email && (
           <div className="card_sub_element">
             <span>Email:&nbsp;</span>
-            <div className="card_user_info">{user.email}</div>
+            <a href={`mailto:${user.email}`} className="card_user_info">
+              {user.email}
+            </a>
           </div>
         )}
 
-        {user.reposNum && (
+        {user.reposNum ? (
           <div className="card_sub_element">
             <span>Public repositories:&nbsp;</span>
-            <div className="card_user_info">{user.reposNum}</div>
+            <button
+              type="button"
+              className={clsx('card_user_info', 'card_user_info_btn')}
+            >
+              {user.reposNum}
+            </button>
           </div>
+        ) : (
+          ''
         )}
 
         <div className="card_followers_wrapper">
           <div className="card_followers_unit">
-            <span>Followers:</span>
-            <a href="?">{user.followersNum}</a>
+            <span>Followers:&nbsp;</span>
+            <button
+              type="button"
+              className={clsx('card_user_info', 'card_user_info_btn')}
+            >
+              {user.followersNum}
+            </button>
           </div>
 
           <div className="card_followers_unit">
-            <span>Following:</span>
-            <a href="?">{user.followingNum}</a>
+            <span>Following:&nbsp;</span>
+            <button
+              type="button"
+              className={clsx('card_user_info', 'card_user_info_btn')}
+            >
+              {user.followingNum}
+            </button>
           </div>
         </div>
 

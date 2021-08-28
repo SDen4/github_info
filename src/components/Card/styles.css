@@ -62,15 +62,6 @@
   margin-right: 0;
 }
 
-.card_followers_unit span {
-  margin-right: 10px;
-}
-
-.card_followers_unit a {
-  color: #FF8C00;
-  text-decoration: none;
-}
-
 .card_close_btn {
   display: block;
   position: absolute;
@@ -84,7 +75,15 @@
   cursor: pointer;
 }
 
+.card_close_btn:hover.card_close_btn:after {
+  background-color:tomato;
+}
+.card_close_btn:hover.card_close_btn:before {
+  background-color:tomato;
+}
+
 .card_close_btn:after, .card_close_btn:before {
+  transition: .3s;
   content: "";
   display: block;
   width: 20px;
@@ -113,5 +112,24 @@
 }
 
 .card_user_info {
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  outline: none;
+  text-decoration: none;
+  transition: .3s;
+  font-size: 14px;
   color: #FF8C00;
+}
+
+.card_user_info_btn {
+  cursor: pointer;
+}
+
+a.card_user_info:hover {
+  color:tomato
+}
+
+.card_user_info_btn:hover {
+  color:tomato
 }
