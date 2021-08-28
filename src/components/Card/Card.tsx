@@ -28,9 +28,13 @@ const Card: React.FC<CardType> = ({ user }) => {
 
       <div className="card_element">
         <div className="card_sub_element">
-          <h2>
-            {user.name} ({user.login})
-          </h2>
+          {user.name ? (
+            <h2>
+              {user.name} &#40;{user.login}&#41;
+            </h2>
+          ) : (
+            <h2>{user.login}</h2>
+          )}
         </div>
 
         {user.company && (
