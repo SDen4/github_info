@@ -33,6 +33,8 @@ function* sagaWorker(action: SearchSagaWorkerType) {
         allData.avatar_url,
         allData.company,
         allData.email,
+        allData.public_repos,
+        allData.repos_url,
       ),
     );
 

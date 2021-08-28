@@ -46,6 +46,13 @@ const Card: React.FC<CardType> = ({ user }) => {
           </div>
         )}
 
+        {user.reposNum && (
+          <div className="card_sub_element">
+            <span>Public repositories:&nbsp;</span>
+            <div className="card_user_info">{user.reposNum}</div>
+          </div>
+        )}
+
         <div className="card_followers_wrapper">
           <div className="card_followers_unit">
             <span>Followers:</span>

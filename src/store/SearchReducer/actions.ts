@@ -25,6 +25,8 @@ export const fetchLogin = (
   avatar_url?: string,
   company?: string,
   email?: string,
+  public_repos?: number,
+  repos_url?: string,
 ) => {
   return {
     type: FETCH_LOGIN,
@@ -38,6 +40,8 @@ export const fetchLogin = (
     avatar_url,
     company,
     email,
+    public_repos,
+    repos_url,
   } as const;
 };
 

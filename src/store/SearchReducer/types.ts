@@ -12,6 +12,8 @@ export interface UserInnerType {
   avatar_url: string;
   company?: string;
   email?: string;
+  public_repos?: number;
+  repos_url?: string;
 }
 
 export interface UserType {
@@ -25,6 +27,8 @@ export interface UserType {
   dataCreated: Date;
   company?: string;
   email?: string;
+  reposNum?: number;
+  reposUrl?: string;
 }
 
 export interface InitialStateType {

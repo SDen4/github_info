@@ -16,6 +16,8 @@ const initialState: InitialStateType = {
     dataCreated: new Date(),
     company: '',
     email: '',
+    reposNum: 0,
+    reposUrl: '',
   },
   cardOpened: false,
   loading: false,
@@ -41,6 +43,8 @@ export const SearchReducer = (
           dataCreated: action.created_at,
           company: action.company,
           email: action.email,
+          reposNum: action.public_repos,
+          reposUrl: action.repos_url,
         },
       };
 
