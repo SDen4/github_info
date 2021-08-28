@@ -19,13 +19,20 @@ export const periodCounter = (dataCreated: Date): string => {
 
   const yearsStr = years > 1 ? `${years} years` : `${years} year`;
   const monthsStr = months > 1 ? `${months} months` : `${months} month`;
-  const daysStr = days > 1 ? `${days} days` : `${days} day`;
+  let daysStr = '';
+  if (days === 0) {
+    daysStr = 'ago';
+  } else if (days === 1) {
+    daysStr = `and ${days} day ago`;
+  } else {
+    daysStr = `and ${days} days ago`;
+  }
 
   if (years >= 1) {
-    return `${yearsStr}, ${monthsStr} and ${daysStr} ago`;
+    return `${yearsStr}, ${monthsStr} ${daysStr}`;
   }
   if (months >= 1) {
-    return `${monthsStr} and ${daysStr} ago`;
+    return `${monthsStr} ${daysStr}`;
   }
-  return `${daysStr} ago`;
+  return `${daysStr}`;
 };
