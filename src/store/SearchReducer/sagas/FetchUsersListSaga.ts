@@ -7,7 +7,7 @@ import {
   loadingFlag,
   userListOpenedFlag,
 } from '../actions';
-import { IFetchUsersListSagaWorker, UserType } from '../types';
+import { IFetchUsersListSagaWorker, UserInnerType } from '../types';
 
 import { API } from '../../../api/API';
 
@@ -15,8 +15,6 @@ async function getUserInfo(login: string, requestType: string) {
   const response = await API.get(`${login}/${requestType}`).then(
     (res) => res.data,
   );
-  // eslint-disable-next-line no-console
-  console.log(response);
   return response;
 }
 
@@ -25,14 +23,12 @@ function* sagaWorker(action: IFetchUsersListSagaWorker) {
     yield put(cardOPenedFlag(false));
     yield put(loadingFlag(true));
 
-    const allData: UserType[] = yield getUserInfo(
+    const allData: UserInnerType[] = yield getUserInfo(
       action.login,
       action.requestType,
     );
-    // eslint-disable-next-line no-console
-    console.log(allData);
 
-    yield put(fetchUsersList(allData));
+    yield put(fetchUsersList(allData, action.requestType));
 
     yield put(loadingFlag(false));
     yield put(userListOpenedFlag(true));

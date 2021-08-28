@@ -27,6 +27,7 @@ const initialState: InitialStateType = {
     reposUrl: '',
   },
   usersList: [],
+  lastRequestType: '',
   usersListOpened: false,
   cardOpened: false,
   loading: false,
@@ -85,6 +86,7 @@ export const SearchReducer = (
       return {
         ...state,
         usersList: action.usersList,
+        lastRequestType: action.lastRequestType,
       };
 
     default:

@@ -15,3 +15,18 @@
   width: 100%;
   list-style: none;
 }
+
+.list_error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.list_error h2 {
+  padding-top: 50px;
+}
+
+.list_error_login {
+  color: #FF8C00;
+}

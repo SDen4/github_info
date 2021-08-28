@@ -10,7 +10,7 @@ import {
   FETCH_USERS_LIST,
 } from './constants';
 
-import { UserType } from './types';
+import { UserInnerType } from './types';
 
 export const searchSaga = (login: string) => {
   return {
@@ -86,10 +86,14 @@ export const fetchUsersListSaga = (login: string, requestType: string) => {
   } as const;
 };
 
-export const fetchUsersList = (usersList: UserType[]) => {
+export const fetchUsersList = (
+  usersList: UserInnerType[],
+  lastRequestType: string,
+) => {
   return {
     type: FETCH_USERS_LIST,
     usersList,
+    lastRequestType,
   } as const;
 };
 

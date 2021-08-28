@@ -33,7 +33,8 @@ export interface UserType {
 
 export interface InitialStateType {
   user: UserType;
-  usersList: UserType[];
+  usersList: UserInnerType[];
+  lastRequestType: string;
   usersListOpened: boolean;
   cardOpened: boolean;
   loading: boolean;
