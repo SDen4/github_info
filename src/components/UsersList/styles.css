@@ -1,0 +1,17 @@
+.list_wrapper, .list_wrapper_ul {
+  width: 100%;
+}
+
+.list_wrapper_ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+}
+
+.list_wrapper_ul li {
+  width: 100%;
+  list-style: none;
+}

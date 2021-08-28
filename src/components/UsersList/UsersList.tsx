@@ -1,16 +1,21 @@
 import React from 'react';
-import { UserType } from '../../store/SearchReducer/types';
+import { UserInnerType } from '../../store/SearchReducer/types';
+import UserItem from '../UserItem';
 
 import { IUsersList } from './types';
+
+import './styles.css';
 
 const UsersList: React.FC<IUsersList> = ({ users }) => {
   // eslint-disable-next-line no-console
   console.log(users);
   return (
     <div className="list_wrapper">
-      <ul>
-        {users.map((el: UserType) => (
-          <li key={el.login}>{el.login}</li>
+      <ul className="list_wrapper_ul">
+        {users.map((el: UserInnerType) => (
+          <li key={el.login}>
+            <UserItem user={el} />
+          </li>
         ))}
       </ul>
     </div>
