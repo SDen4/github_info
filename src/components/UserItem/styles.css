@@ -33,16 +33,29 @@
   align-items: center;
 }
 
-.user_info_unit h2 {
-  margin: 0;
-  color: #FF8C00;
-}
-
 .user_info_unit {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   margin-right: 20px;
+}
+
+.user_info_unit button {
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.user_info_unit:hover button h2 {
+  transition: .3s;
+  color: tomato;
+}
+
+.user_info_unit h2 {
+  margin: 0;
+  color: #FF8C00;
 }
 
 .user_info_unit:last-child {
