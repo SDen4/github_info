@@ -5,6 +5,8 @@ import Card from '../../components/Card';
 import Error from '../../components/Error';
 import UsersList from '../../components/UsersList';
 import SearchForm from '../../components/SearchForm';
+import SearchHistoryList from '../../components/SearchHistoryList';
+import SearchHistoryHeader from '../../components/SearchHistoryHeader';
 import Loader from '../../ui/Loader';
 
 import { AppStateType } from '../../store/RootReducer';
@@ -16,7 +18,6 @@ import {
 import './styles.css';
 import clsx from 'clsx';
 import { InitialStateType } from '../../store/SearchReducer/types';
-import SearchHistoryHeader from '../../components/SearchHistoryHeader';
 
 const Root: React.FC = () => {
   const dispatch = useDispatch();
@@ -57,16 +58,22 @@ const Root: React.FC = () => {
       </section>
 
       <section className="root_section">
-        {storeData.loading && <Loader />}
-        {storeData.cardOpened && <Card user={storeData.user} />}
-        {storeData.usersListOpened && (
-          <UsersList
-            users={storeData.usersList}
-            login={storeData.user.login}
-            requestType={storeData.lastRequestType}
-          />
-        )}
-        {storeData.error && <Error userName={user} />}
+        <div className={clsx('root_sub_section', 'root_sub_section_left')}>
+          {storeData.loading && <Loader />}
+          {storeData.cardOpened && <Card user={storeData.user} />}
+          {storeData.usersListOpened && (
+            <UsersList
+              users={storeData.usersList}
+              login={storeData.user.login}
+              requestType={storeData.lastRequestType}
+            />
+          )}
+          {storeData.error && <Error userName={user} />}
+        </div>
+
+        <div className={clsx('root_sub_section', 'root_sub_section_right')}>
+          <SearchHistoryList searchList={storeData.searchHistory} />
+        </div>
       </section>
     </div>
   );

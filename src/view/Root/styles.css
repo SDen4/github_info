@@ -23,9 +23,17 @@
 
 .root_section {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: flex-start;
   width: 100%;
+}
+
+.root_sub_section_left {
+ width: 68%;
+}
+
+.root_sub_section_right {
+  width: 30%;
 }
 
 .root_section_search {
