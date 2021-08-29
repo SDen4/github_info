@@ -82,14 +82,16 @@ const Root: React.FC = () => {
           {storeData.error && <Error userName={user} />}
         </div>
 
-        <div
-          className={clsx(
-            styles.root_sub_section,
-            styles.root_sub_section_right,
-          )}
-        >
-          <SearchHistoryList searchList={storeData.searchHistory} />
-        </div>
+        {storeData.searchHistoryListFlag && (
+          <div
+            className={clsx(
+              styles.root_sub_section,
+              styles.root_sub_section_right,
+            )}
+          >
+            <SearchHistoryList searchList={storeData.searchHistory} />
+          </div>
+        )}
       </section>
     </div>
   );

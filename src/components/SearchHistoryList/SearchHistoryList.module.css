@@ -13,6 +13,12 @@
   color: #d3d3d3;
 }
 
+.shl_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .shl_wrapper h3 {
   color: #d3d3d3;
   margin-bottom: 20px;

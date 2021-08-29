@@ -6,6 +6,7 @@ import {
   USERS_LIST_OPENED_FLAG,
   FETCH_USERS_LIST,
   FETCH_SEARCH_HISTORY,
+  SEARCH_HISTORY_LIST_FLAG,
 } from './constants';
 
 import { InitialStateType } from './types';
@@ -34,6 +35,7 @@ const initialState: InitialStateType = {
   loading: false,
   error: false,
   searchHistory: [],
+  searchHistoryListFlag: false,
 };
 
 export const SearchReducer = (
@@ -95,6 +97,12 @@ export const SearchReducer = (
       return {
         ...state,
         searchHistory: [...state.searchHistory, action.searchHistory],
+      };
+
+    case SEARCH_HISTORY_LIST_FLAG:
+      return {
+        ...state,
+        searchHistoryListFlag: !state.searchHistoryListFlag,
       };
 
     default:

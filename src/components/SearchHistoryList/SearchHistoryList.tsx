@@ -1,7 +1,10 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-import { searchSaga } from '../../store/SearchReducer/actions';
+import {
+  // searchHistoryLIstFlag,
+  searchSaga,
+} from '../../store/SearchReducer/actions';
 
 import { dateFormatter } from '../../utils/dateFormatter';
 
@@ -16,12 +19,27 @@ const SearchHistoryList: React.FC<ISearchHistoryList> = ({ searchList }) => {
     dispatch(searchSaga(login));
   };
 
+  // const onClickCloseBtnHandler = () => {
+  //   dispatch(searchHistoryLIstFlag());
+  // };
+
   return (
     <div className={styles.shl_wrapper}>
-      <h3>Search history list</h3>
+      <div className={styles.shl_header}>
+        <h3>Search history list</h3>{' '}
+        {/* <div className={styles.card_close_btn_wrapper}>
+          <button
+            className={styles.card_close_btn}
+            type="button"
+            aria-label="Close"
+            onClick={onClickCloseBtnHandler}
+          />
+        </div> */}
+      </div>
+
       <ol>
         {searchList.map((el) => (
-          <li key={el.login}>
+          <li key={el.login + Math.random}>
             <button
               className={styles.shl_button}
               type="button"

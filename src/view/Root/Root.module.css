@@ -29,11 +29,13 @@
 }
 
 .root_sub_section_left {
- width: 68%;
+  width: 100%;
+ min-width: 60%;
 }
 
 .root_sub_section_right {
-  width: 30%;
+  width: 38%;
+  margin-left: 20px;
 }
 
 .root_section_search {

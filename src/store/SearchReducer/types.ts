@@ -45,6 +45,7 @@ export interface InitialStateType {
   loading: boolean;
   error: boolean;
   searchHistory: ISearhHistoryItem[];
+  searchHistoryListFlag: boolean;
 }
 
 export interface SearchSagaWorkerType {
