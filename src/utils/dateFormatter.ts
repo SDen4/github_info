@@ -11,5 +11,5 @@ export const dateFormatter = (dataCreated: Date): string => {
 
   const year = dataCreated.getFullYear();
 
-  return ` ${day}.${month}.${year}. `;
+  return `${day}.${month}.${year}`;
 };

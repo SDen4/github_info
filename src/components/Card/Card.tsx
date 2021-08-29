@@ -100,12 +100,14 @@ const Card: React.FC<CardType> = ({ user }) => {
         </div>
 
         <div className={styles.card_sub_element}>
-          <span>Created at&nbsp;</span>
-          <div className={styles.card_user_info}>
-            {dateFormatter(user.dataCreated)}
-          </div>
-          <div className={styles.card_user_info}>
-            &nbsp;({periodCounter(user.dataCreated)})
+          <span>Created&nbsp;at:&nbsp;</span>
+          <div className={styles.card_user_info_wrapper}>
+            <div className={styles.card_user_info}>
+              {dateFormatter(user.dataCreated)}
+            </div>
+            <div className={styles.card_user_info}>
+              ({periodCounter(user.dataCreated)})
+            </div>
           </div>
         </div>
       </div>

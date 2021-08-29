@@ -23,7 +23,7 @@
   color: #FF8C00;
 }
 
-.card_element:last-child {
+.card_element:last-of-type {
   margin-right: 0;
 }
 
@@ -63,48 +63,10 @@
   margin-right: 0;
 }
 
-/* .card_close_btn {
-  display: block;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 20px;
-  height: 20px;
-  border: 0;
-  background-color: transparent;
-  outline: none;
-  cursor: pointer;
-}
-
-.card_close_btn:hover.card_close_btn:after {
-  background-color:tomato;
-}
-.card_close_btn:hover.card_close_btn:before {
-  background-color:tomato;
-}
-
-.card_close_btn:after, .card_close_btn:before {
-  transition: .3s;
-  content: "";
-  display: block;
-  width: 20px;
-  height: 3px;
-  border-radius: 2px;
-  background-color: #FF8C00;
-  position: absolute;
-  top: 8px;
-  left: 0;
-  transform: rotate(45deg);
-}
-
-.card_close_btn:before {
-  transform: rotate(-45deg);
-} */
-
 .card_sub_element {
   display: flex;
   justify-content: flex-start;
-  align-items: flex-end;
+  align-items: flex-start;
   margin-bottom: 20px;
 }
 
@@ -121,6 +83,14 @@
   transition: .3s;
   font-size: 14px;
   color: #FF8C00;
+}
+
+.card_user_info_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 2px;
 }
 
 .card_user_info_btn {
