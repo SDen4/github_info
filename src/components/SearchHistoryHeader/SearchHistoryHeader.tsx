@@ -2,13 +2,13 @@ import React from 'react';
 
 import { ISearchHistoryHeader } from './types';
 
-import './styles.css';
+import styles from './SearchHistoryHeader.module.css';
 
 const SearchHistoryHeader: React.FC<ISearchHistoryHeader> = ({
   historyLength,
 }) => {
   return (
-    <button type="button" className="shh_wrapper">
+    <button type="button" className={styles.shh_wrapper}>
       Search history <span>({historyLength})</span>
     </button>
   );

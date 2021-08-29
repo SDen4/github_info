@@ -4,13 +4,13 @@ import UserItem from '../UserItem';
 
 import { IUsersList } from './types';
 
-import './styles.css';
+import styles from './UsersList.module.css';
 
 const UsersList: React.FC<IUsersList> = ({ users, login, requestType }) => {
   return (
-    <div className="list_wrapper">
+    <div className={styles.list_wrapper}>
       {users.length ? (
-        <ul className="list_wrapper_ul">
+        <ul className={styles.list_wrapper_ul}>
           {users.map((el: UserInnerType) => (
             <li key={el.login}>
               <UserItem user={el} />
@@ -18,10 +18,10 @@ const UsersList: React.FC<IUsersList> = ({ users, login, requestType }) => {
           ))}
         </ul>
       ) : (
-        <div className="list_error">
+        <div className={styles.list_error}>
           <h2>
             It seems the user
-            <span className="list_error_login"> {login} </span>
+            <span className={styles.list_error_login}> {login} </span>
             hasn&#39;t any {requestType}
           </h2>
         </div>

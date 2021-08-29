@@ -1,11 +1,11 @@
 import React from 'react';
 
-import './styles.css';
+import styles from './Loader.module.css';
 
 const Loader: React.FC = () => {
   return (
-    <div className="loader_wrapper">
-      <div className="lds-default">
+    <div className={styles.loader_wrapper}>
+      <div className={styles.lds_default}>
         <div />
         <div />
         <div />

@@ -5,6 +5,7 @@ import { ISearchHistoryList } from './types';
 import styles from './SearchHistoryList.module.css';
 
 const SearchHistoryList: React.FC<ISearchHistoryList> = ({ searchList }) => {
+  // eslint-disable-next-line no-console
   console.log(searchList);
   return (
     <div className={styles.shl_wrapper}>

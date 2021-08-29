@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import clsx from 'clsx';
 
 import Card from '../../components/Card';
 import Error from '../../components/Error';
@@ -14,10 +15,9 @@ import {
   cardOPenedFlag,
   userListOpenedFlag,
 } from '../../store/SearchReducer/actions';
-
-import './styles.css';
-import clsx from 'clsx';
 import { InitialStateType } from '../../store/SearchReducer/types';
+
+import styles from './Root.module.css';
 
 const Root: React.FC = () => {
   const dispatch = useDispatch();
@@ -36,8 +36,8 @@ const Root: React.FC = () => {
   };
 
   return (
-    <div className="root_wrapper">
-      <header className="root_header">
+    <div className={styles.root_wrapper}>
+      <header className={styles.root_header}>
         <h1>Find github&apos;s user</h1>
 
         {storeData.searchHistory.length ? (
@@ -47,18 +47,29 @@ const Root: React.FC = () => {
         )}
       </header>
 
-      <section className={clsx('root_section', 'root_section_search')}>
+      <section
+        className={clsx(styles.root_section, styles.root_section_search)}
+      >
         <SearchForm search={search} />
 
         {storeData.usersListOpened && (
-          <button type="button" onClick={backBtnHandler} className="root_btn">
+          <button
+            type="button"
+            onClick={backBtnHandler}
+            className={styles.root_btn}
+          >
             Back
           </button>
         )}
       </section>
 
-      <section className="root_section">
-        <div className={clsx('root_sub_section', 'root_sub_section_left')}>
+      <section className={styles.root_section}>
+        <div
+          className={clsx(
+            styles.root_sub_section,
+            styles.root_sub_section_left,
+          )}
+        >
           {storeData.loading && <Loader />}
           {storeData.cardOpened && <Card user={storeData.user} />}
           {storeData.usersListOpened && (
@@ -71,7 +82,12 @@ const Root: React.FC = () => {
           {storeData.error && <Error userName={user} />}
         </div>
 
-        <div className={clsx('root_sub_section', 'root_sub_section_right')}>
+        <div
+          className={clsx(
+            styles.root_sub_section,
+            styles.root_sub_section_right,
+          )}
+        >
           <SearchHistoryList searchList={storeData.searchHistory} />
         </div>
       </section>

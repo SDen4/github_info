@@ -5,8 +5,9 @@ import { searchSaga } from '../../store/SearchReducer/actions';
 
 import SubmitButton from '../../ui/SubmitButton';
 
-import './styles.css';
 import { ISearch } from './types';
+
+import styles from './SearchForm.module.css';
 
 const SearchForm: React.FC<ISearch> = ({ search }) => {
   const [searchLogin, setsearchLogin] = useState<string>('');
@@ -41,10 +42,10 @@ const SearchForm: React.FC<ISearch> = ({ search }) => {
   };
 
   return (
-    <form className="form" onSubmit={onSubmitHandler}>
+    <form className={styles.form} onSubmit={onSubmitHandler}>
       <input
         ref={ref}
-        className="input"
+        className={styles.input}
         type="text"
         placeholder="Enter the github login"
         value={searchLogin}

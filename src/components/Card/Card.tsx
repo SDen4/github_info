@@ -12,7 +12,7 @@ import {
 
 import { CardType } from './types';
 
-import './styles.css';
+import styles from './Card.module.css';
 
 const Card: React.FC<CardType> = ({ user }) => {
   const dispatch = useDispatch();
@@ -26,15 +26,15 @@ const Card: React.FC<CardType> = ({ user }) => {
   };
 
   return (
-    <div className="card">
-      <div className="card_element">
-        <div className="card_photo_wrapper">
+    <div className={styles.card}>
+      <div className={styles.card_element}>
+        <div className={styles.card_photo_wrapper}>
           <img src={user.avatarUrl} alt="User's avatar" />
         </div>
       </div>
 
-      <div className="card_element">
-        <div className="card_sub_element">
+      <div className={styles.card_element}>
+        <div className={styles.card_sub_element}>
           {user.name ? (
             <h2>
               {user.name} &#40;{user.login}&#41;
@@ -45,27 +45,27 @@ const Card: React.FC<CardType> = ({ user }) => {
         </div>
 
         {user.company && (
-          <div className="card_sub_element">
+          <div className={styles.card_sub_element}>
             <span>Company:&nbsp;</span>
-            <div className="card_user_info">{user.company}</div>
+            <div className={styles.card_user_info}>{user.company}</div>
           </div>
         )}
 
         {user.email && (
-          <div className="card_sub_element">
+          <div className={styles.card_sub_element}>
             <span>Email:&nbsp;</span>
-            <a href={`mailto:${user.email}`} className="card_user_info">
+            <a href={`mailto:${user.email}`} className={styles.card_user_info}>
               {user.email}
             </a>
           </div>
         )}
 
         {user.reposNum ? (
-          <div className="card_sub_element">
+          <div className={styles.card_sub_element}>
             <span>Public repositories:&nbsp;</span>
             <button
               type="button"
-              className={clsx('card_user_info', 'card_user_info_btn')}
+              className={clsx(styles.card_user_info, styles.card_user_info_btn)}
             >
               {user.reposNum}
             </button>
@@ -74,23 +74,23 @@ const Card: React.FC<CardType> = ({ user }) => {
           ''
         )}
 
-        <div className="card_followers_wrapper">
-          <div className="card_followers_unit">
+        <div className={styles.card_followers_wrapper}>
+          <div className={styles.card_followers_unit}>
             <span>Followers:&nbsp;</span>
             <button
               type="button"
-              className={clsx('card_user_info', 'card_user_info_btn')}
+              className={clsx(styles.card_user_info, styles.card_user_info_btn)}
               onClick={() => onBtnClickHandler('followers')}
             >
               {user.followersNum}
             </button>
           </div>
 
-          <div className="card_followers_unit">
+          <div className={styles.card_followers_unit}>
             <span>Following:&nbsp;</span>
             <button
               type="button"
-              className={clsx('card_user_info', 'card_user_info_btn')}
+              className={clsx(styles.card_user_info, styles.card_user_info_btn)}
               onClick={() => onBtnClickHandler('following')}
             >
               {user.followingNum}
@@ -98,20 +98,20 @@ const Card: React.FC<CardType> = ({ user }) => {
           </div>
         </div>
 
-        <div className="card_sub_element">
+        <div className={styles.card_sub_element}>
           <span>Created at&nbsp;</span>
-          <div className="card_user_info">
+          <div className={styles.card_user_info}>
             {dateFormatter(user.dataCreated)}
           </div>
-          <div className="card_user_info">
+          <div className={styles.card_user_info}>
             &nbsp;({periodCounter(user.dataCreated)})
           </div>
         </div>
       </div>
 
-      <div className="card_close_btn_wrapper">
+      <div className={styles.card_close_btn_wrapper}>
         <button
-          className="card_close_btn"
+          className={styles.card_close_btn}
           type="button"
           aria-label="Close"
           onClick={onClickCloseBtnHandler}
