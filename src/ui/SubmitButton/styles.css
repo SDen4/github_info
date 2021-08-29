@@ -25,4 +25,5 @@
 
 .button_unactive:hover {
   cursor: default;
+  opacity: 0.7;
 }
