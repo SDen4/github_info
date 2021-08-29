@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  position: relative;
   box-sizing: border-box;
   width: 100%;
   padding: 5px 10px;
@@ -11,12 +12,6 @@
   margin-top: 30px;
   background-color: rgba(55, 55, 55, 0.8);
   color: #d3d3d3;
-}
-
-.shl_header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .shl_wrapper h3 {

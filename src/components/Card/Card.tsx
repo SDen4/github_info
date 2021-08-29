@@ -13,6 +13,7 @@ import {
 import { CardType } from './types';
 
 import styles from './Card.module.css';
+import CloseButton from '../../ui/CloseButton';
 
 const Card: React.FC<CardType> = ({ user }) => {
   const dispatch = useDispatch();
@@ -109,14 +110,7 @@ const Card: React.FC<CardType> = ({ user }) => {
         </div>
       </div>
 
-      <div className={styles.card_close_btn_wrapper}>
-        <button
-          className={styles.card_close_btn}
-          type="button"
-          aria-label="Close"
-          onClick={onClickCloseBtnHandler}
-        />
-      </div>
+      <CloseButton onClick={onClickCloseBtnHandler} />
     </div>
   );
 };

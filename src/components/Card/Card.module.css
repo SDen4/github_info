@@ -63,7 +63,7 @@
   margin-right: 0;
 }
 
-.card_close_btn {
+/* .card_close_btn {
   display: block;
   position: absolute;
   top: 20px;
@@ -99,7 +99,7 @@
 
 .card_close_btn:before {
   transform: rotate(-45deg);
-}
+} */
 
 .card_sub_element {
   display: flex;
