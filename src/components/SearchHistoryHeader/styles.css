@@ -1,0 +1,17 @@
+.shh_wrapper {
+  background-color: rgba(55, 55, 55, 0.8);
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+  padding: 10px 15px;
+  color: #d3d3d3;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.shh_wrapper span {
+  color: #FF8C00;
+}
+
+.shh_wrapper:hover {
+  border: 1px solid #FF8C00;
+}

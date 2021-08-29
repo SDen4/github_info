@@ -16,6 +16,7 @@ import {
 import './styles.css';
 import clsx from 'clsx';
 import { InitialStateType } from '../../store/SearchReducer/types';
+import SearchHistoryHeader from '../../components/SearchHistoryHeader';
 
 const Root: React.FC = () => {
   const dispatch = useDispatch();
@@ -35,7 +36,16 @@ const Root: React.FC = () => {
 
   return (
     <div className="root_wrapper">
-      <header className="root_header">Find github&apos;s user</header>
+      <header className="root_header">
+        <h1>Find github&apos;s user</h1>
+
+        {storeData.searchHistory.length ? (
+          <SearchHistoryHeader historyLength={storeData.searchHistory.length} />
+        ) : (
+          ''
+        )}
+      </header>
+
       <section className={clsx('root_section', 'root_section_search')}>
         <SearchForm search={search} />
 
