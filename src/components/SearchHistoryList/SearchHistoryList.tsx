@@ -38,8 +38,9 @@ const SearchHistoryList: React.FC<ISearchHistoryList> = ({ searchList }) => {
       </div>
 
       <ol>
-        {searchList.map((el) => (
-          <li key={el.login + Math.random}>
+        {searchList.map((el, i) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <li key={`${el.login} + ${i}`}>
             <button
               className={styles.shl_button}
               type="button"
