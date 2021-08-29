@@ -99,7 +99,12 @@ const Card: React.FC<CardType> = ({ user }) => {
           </div>
         </div>
 
-        <div className={styles.card_sub_element}>
+        <div
+          className={clsx(
+            styles.card_sub_element,
+            styles.card_sub_element_create,
+          )}
+        >
           <span>Created&nbsp;at:&nbsp;</span>
           <div className={styles.card_user_info_wrapper}>
             <div className={styles.card_user_info}>

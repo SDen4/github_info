@@ -66,8 +66,12 @@
 .card_sub_element {
   display: flex;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: flex-end;
   margin-bottom: 20px;
+}
+
+.card_sub_element_create {
+  align-items: flex-start;
 }
 
 .card_sub_element:last-child {
