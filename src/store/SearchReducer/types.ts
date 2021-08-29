@@ -31,6 +31,11 @@ export interface UserType {
   reposUrl?: string;
 }
 
+export interface ISearhHistoryItem {
+  login: string;
+  dateOfSearch: Date;
+}
+
 export interface InitialStateType {
   user: UserType;
   usersList: UserInnerType[];
@@ -39,6 +44,7 @@ export interface InitialStateType {
   cardOpened: boolean;
   loading: boolean;
   error: boolean;
+  searchHistory: ISearhHistoryItem[];
 }
 
 export interface SearchSagaWorkerType {

@@ -8,9 +8,10 @@ import {
   USERS_LIST_OPENED_FLAG,
   FETCH_USERS_LIST_SAGA,
   FETCH_USERS_LIST,
+  FETCH_SEARCH_HISTORY,
 } from './constants';
 
-import { UserInnerType } from './types';
+import { ISearhHistoryItem, UserInnerType } from './types';
 
 export const searchSaga = (login: string) => {
   return {
@@ -97,6 +98,13 @@ export const fetchUsersList = (
   } as const;
 };
 
+export const fetchSearhHistory = (searchHistory: ISearhHistoryItem) => {
+  return {
+    type: FETCH_SEARCH_HISTORY,
+    searchHistory,
+  } as const;
+};
+
 type searchSagaType = ReturnType<typeof searchSaga>;
 type fetchLoginType = ReturnType<typeof fetchLogin>;
 type cardOPenedFlagType = ReturnType<typeof cardOPenedFlag>;
@@ -104,6 +112,7 @@ type loadingFlagType = ReturnType<typeof loadingFlag>;
 type errorFlagType = ReturnType<typeof errorFlag>;
 type userListOpenedFlagType = ReturnType<typeof userListOpenedFlag>;
 type fetchUsersListType = ReturnType<typeof fetchUsersList>;
+type fetchSearhHistoryType = ReturnType<typeof fetchSearhHistory>;
 
 export type ActionsType =
   | searchSagaType
@@ -112,4 +121,5 @@ export type ActionsType =
   | loadingFlagType
   | errorFlagType
   | userListOpenedFlagType
-  | fetchUsersListType;
+  | fetchUsersListType
+  | fetchSearhHistoryType;

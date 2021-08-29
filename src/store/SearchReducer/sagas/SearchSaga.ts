@@ -5,10 +5,15 @@ import {
   cardOPenedFlag,
   errorFlag,
   fetchLogin,
+  fetchSearhHistory,
   loadingFlag,
   userListOpenedFlag,
 } from '../actions';
-import { SearchSagaWorkerType, UserInnerType } from '../types';
+import {
+  ISearhHistoryItem,
+  SearchSagaWorkerType,
+  UserInnerType,
+} from '../types';
 
 import { API } from '../../../api/API';
 
@@ -44,6 +49,12 @@ function* sagaWorker(action: SearchSagaWorkerType) {
         allData.repos_url,
       ),
     );
+
+    const newHIstoryItem: ISearhHistoryItem = yield {
+      login: allData.login,
+      dateOfSearch: new Date(),
+    };
+    yield put(fetchSearhHistory(newHIstoryItem));
 
     yield put(loadingFlag(false));
     yield put(cardOPenedFlag(true));
