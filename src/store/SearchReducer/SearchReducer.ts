@@ -7,6 +7,7 @@ import {
   FETCH_USERS_LIST,
   FETCH_SEARCH_HISTORY,
   SEARCH_HISTORY_LIST_FLAG,
+  FETCH_ALL_HISTORY,
 } from './constants';
 
 import { InitialStateType } from './types';
@@ -97,6 +98,12 @@ export const SearchReducer = (
       return {
         ...state,
         searchHistory: [...state.searchHistory, action.searchHistory],
+      };
+
+    case FETCH_ALL_HISTORY:
+      return {
+        ...state,
+        searchHistory: action.allSearchHistory,
       };
 
     case SEARCH_HISTORY_LIST_FLAG:

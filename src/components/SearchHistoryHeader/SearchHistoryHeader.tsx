@@ -15,6 +15,7 @@ const SearchHistoryHeader: React.FC<ISearchHistoryHeader> = ({
   const onSearchHistoryBtnHandler = () => {
     dispatch(searchHistoryLIstFlag());
   };
+
   return (
     <button
       type="button"

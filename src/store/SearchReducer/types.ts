@@ -51,6 +51,7 @@ export interface InitialStateType {
 export interface SearchSagaWorkerType {
   type: typeof SEARCH_LOGIN_SAGA;
   login: string;
+  history: ISearhHistoryItem[];
 }
 
 export interface IFetchUsersListSagaWorker {

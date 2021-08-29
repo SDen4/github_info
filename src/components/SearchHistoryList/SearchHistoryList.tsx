@@ -18,7 +18,7 @@ const SearchHistoryList: React.FC<ISearchHistoryList> = ({ searchList }) => {
   const dispatch = useDispatch();
 
   const searchHistoriListBtnHandler = (login: string) => {
-    dispatch(searchSaga(login));
+    dispatch(searchSaga(login, searchList));
   };
 
   const onClickCloseBtnHandler = () => {
@@ -31,19 +31,21 @@ const SearchHistoryList: React.FC<ISearchHistoryList> = ({ searchList }) => {
       <CloseButton onClick={onClickCloseBtnHandler} />
 
       <ol>
-        {searchList.map((el, i) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <li key={`${el.login} + ${i}`}>
-            <button
-              className={styles.shl_button}
-              type="button"
-              onClick={() => searchHistoriListBtnHandler(el.login)}
-            >
-              {el.login}
-            </button>
-            <span> ({dateFormatter(el.dateOfSearch)})</span>
-          </li>
-        ))}
+        {searchList.map((el, i) => {
+          return (
+            // eslint-disable-next-line react/no-array-index-key
+            <li key={`${el.login} + ${i}`}>
+              <button
+                className={styles.shl_button}
+                type="button"
+                onClick={() => searchHistoriListBtnHandler(el.login)}
+              >
+                {el.login}
+              </button>
+              <span> ({dateFormatter(new Date(el.dateOfSearch))})</span>
+            </li>
+          );
+        })}
       </ol>
     </div>
   );

@@ -50,11 +50,15 @@ function* sagaWorker(action: SearchSagaWorkerType) {
       ),
     );
 
-    const newHIstoryItem: ISearhHistoryItem = yield {
+    const newHistoryItem: ISearhHistoryItem = yield {
       login: allData.login,
       dateOfSearch: new Date(),
     };
-    yield put(fetchSearhHistory(newHIstoryItem));
+    yield put(fetchSearhHistory(newHistoryItem));
+    yield localStorage.setItem(
+      'saves',
+      JSON.stringify([...action.history, newHistoryItem]),
+    );
 
     yield put(loadingFlag(false));
     yield put(cardOPenedFlag(true));

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
@@ -13,6 +13,7 @@ import Loader from '../../ui/Loader';
 import { AppStateType } from '../../store/RootReducer';
 import {
   cardOPenedFlag,
+  getLocalHistorySaga,
   userListOpenedFlag,
 } from '../../store/SearchReducer/actions';
 import { InitialStateType } from '../../store/SearchReducer/types';
@@ -25,6 +26,11 @@ const Root: React.FC = () => {
     (store) => store.search,
   );
   const [user, setUser] = useState<string>('');
+
+  // get elements from localstorage
+  useEffect(() => {
+    dispatch(getLocalHistorySaga());
+  }, [dispatch]);
 
   const search = (searchLogin: string) => {
     setUser(searchLogin);
@@ -50,7 +56,7 @@ const Root: React.FC = () => {
       <section
         className={clsx(styles.root_section, styles.root_section_search)}
       >
-        <SearchForm search={search} />
+        <SearchForm search={search} history={storeData.searchHistory} />
 
         {storeData.usersListOpened && (
           <button
@@ -77,6 +83,7 @@ const Root: React.FC = () => {
               users={storeData.usersList}
               login={storeData.user.login}
               requestType={storeData.lastRequestType}
+              history={storeData.searchHistory}
             />
           )}
           {storeData.error && <Error userName={user} />}

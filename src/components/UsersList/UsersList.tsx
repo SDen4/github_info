@@ -6,14 +6,19 @@ import { IUsersList } from './types';
 
 import styles from './UsersList.module.css';
 
-const UsersList: React.FC<IUsersList> = ({ users, login, requestType }) => {
+const UsersList: React.FC<IUsersList> = ({
+  users,
+  login,
+  requestType,
+  history,
+}) => {
   return (
     <div className={styles.list_wrapper}>
       {users.length ? (
         <ul className={styles.list_wrapper_ul}>
           {users.map((el: UserInnerType) => (
             <li key={el.login}>
-              <UserItem user={el} />
+              <UserItem user={el} history={history} />
             </li>
           ))}
         </ul>
