@@ -10,8 +10,6 @@ function* sagaWorker() {
       localStorage.getItem('saves') || '[]',
     );
 
-    console.log(saved);
-
     yield put(fetchAllHistory(saved));
   } catch (error) {
     // eslint-disable-next-line no-console

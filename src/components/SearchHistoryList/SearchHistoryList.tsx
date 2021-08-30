@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 
 import {
+  fetchAllHistory,
   searchHistoryLIstFlag,
   searchSaga,
 } from '../../store/SearchReducer/actions';
@@ -21,32 +22,44 @@ const SearchHistoryList: React.FC<ISearchHistoryList> = ({ searchList }) => {
     dispatch(searchSaga(login, searchList));
   };
 
-  const onClickCloseBtnHandler = () => {
+  const closeBtnHandler = () => {
     dispatch(searchHistoryLIstFlag());
+  };
+
+  const clearBtnHandler = () => {
+    closeBtnHandler();
+    dispatch(fetchAllHistory([]));
+    localStorage.clear();
   };
 
   return (
     <div className={styles.shl_wrapper}>
       <h3>Search history list</h3>
-      <CloseButton onClick={onClickCloseBtnHandler} />
+      <CloseButton onClick={closeBtnHandler} />
 
       <ol>
-        {searchList.map((el, i) => {
-          return (
-            // eslint-disable-next-line react/no-array-index-key
-            <li key={`${el.login} + ${i}`}>
-              <button
-                className={styles.shl_button}
-                type="button"
-                onClick={() => searchHistoriListBtnHandler(el.login)}
-              >
-                {el.login}
-              </button>
-              <span> ({dateFormatter(new Date(el.dateOfSearch))})</span>
-            </li>
-          );
-        })}
+        {searchList.map((el, i) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <li key={`${el.login} + ${i}`}>
+            <button
+              className={styles.shl_button}
+              type="button"
+              onClick={() => searchHistoriListBtnHandler(el.login)}
+            >
+              {el.login}
+            </button>
+            <span> ({dateFormatter(new Date(el.dateOfSearch))})</span>
+          </li>
+        ))}
       </ol>
+
+      <button
+        className={styles.clearButton}
+        type="button"
+        onClick={clearBtnHandler}
+      >
+        Clear history
+      </button>
     </div>
   );
 };
