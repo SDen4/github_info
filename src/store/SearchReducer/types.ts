@@ -38,11 +38,22 @@ export interface ISearhHistoryItem {
   dateOfSearch: Date;
 }
 
+export interface IRepoItem {
+  name: string;
+  html_url: string;
+  description: string;
+  created_at: Date;
+  updated_at: Date;
+  language: string;
+}
+
 export interface InitialStateType {
   user: UserType;
   usersList: UserInnerType[];
+  reposList: IRepoItem[];
   lastRequestType: string;
   usersListOpened: boolean;
+  reposListOpened: boolean;
   cardOpened: boolean;
   loading: boolean;
   error: boolean;
