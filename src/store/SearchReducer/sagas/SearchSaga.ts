@@ -47,6 +47,7 @@ function* sagaWorker(action: SearchSagaWorkerType) {
         allData.email,
         allData.public_repos,
         allData.repos_url,
+        allData.location,
       ),
     );
 

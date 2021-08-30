@@ -52,6 +52,13 @@ const Card: React.FC<CardType> = ({ user }) => {
           </div>
         )}
 
+        {user.location && (
+          <div className={styles.card_sub_element}>
+            <span>Location:&nbsp;</span>
+            <div className={styles.card_user_info}>{user.location}</div>
+          </div>
+        )}
+
         {user.email && (
           <div className={styles.card_sub_element}>
             <span>Email:&nbsp;</span>

@@ -14,6 +14,7 @@ export interface UserInnerType {
   email?: string;
   public_repos?: number;
   repos_url?: string;
+  location?: string;
 }
 
 export interface UserType {
@@ -29,6 +30,7 @@ export interface UserType {
   email?: string;
   reposNum?: number;
   reposUrl?: string;
+  location?: string;
 }
 
 export interface ISearhHistoryItem {
