@@ -1,3 +1,16 @@
 .reposWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
   width: 100%;
+  margin-top: 30px;
+}
+
+.reposItem {
+  margin-bottom: 15px;
+}
+
+.reposItem:last-child {
+  margin-bottom: 0;
 }

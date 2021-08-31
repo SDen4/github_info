@@ -1,3 +1,29 @@
 .repoItemWrapper {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
   width: 100%;
+  padding: 15px 20px;
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+  background-color: rgba(55, 55, 55, 0.8);
+  color: #d3d3d3;
+}
+
+.repoItemUnit {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.repoItemLink {
+  color: #FF8C00;
+  text-decoration: none;
+  transition: .3s;
+}
+
+.repoLink:hover {
+  color: tomato;
 }
