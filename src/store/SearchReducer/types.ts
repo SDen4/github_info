@@ -1,5 +1,9 @@
 /* eslint-disable camelcase */
-import { SEARCH_LOGIN_SAGA, FETCH_USERS_LIST_SAGA } from './constants';
+import {
+  SEARCH_LOGIN_SAGA,
+  FETCH_USERS_LIST_SAGA,
+  REPOS_LIST_SAGA,
+} from './constants';
 
 export interface UserInnerType {
   name: string;
@@ -71,4 +75,9 @@ export interface IFetchUsersListSagaWorker {
   type: typeof FETCH_USERS_LIST_SAGA;
   login: string;
   requestType: string;
+}
+
+export interface IReposListSagaWorker {
+  type: typeof REPOS_LIST_SAGA;
+  login: string;
 }

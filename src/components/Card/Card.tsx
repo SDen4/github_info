@@ -8,6 +8,7 @@ import { periodCounter } from '../../utils/periodCounter';
 import {
   cardOPenedFlag,
   fetchUsersListSaga,
+  reposListSaga,
 } from '../../store/SearchReducer/actions';
 
 import { CardType } from './types';
@@ -24,6 +25,10 @@ const Card: React.FC<CardType> = ({ user }) => {
 
   const onBtnClickHandler = (requestType: string) => {
     dispatch(fetchUsersListSaga(user.login, requestType));
+  };
+
+  const onReposClickHandler = () => {
+    dispatch(reposListSaga(user.login));
   };
 
   return (
@@ -74,6 +79,7 @@ const Card: React.FC<CardType> = ({ user }) => {
             <button
               type="button"
               className={clsx(styles.card_user_info, styles.card_user_info_btn)}
+              onClick={onReposClickHandler}
             >
               {user.reposNum}
             </button>

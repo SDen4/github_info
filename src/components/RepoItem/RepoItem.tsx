@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 
 import { IRepoItemInt } from './types';
 
@@ -16,20 +17,21 @@ const RepoItem: React.FC<IRepoItemInt> = ({ repoItem }) => {
         <span>{repoItem.description}</span>
       </div>
 
-      <div className={styles.repoItemUnit}>
-        <>
+      <div className={clsx(styles.repoItemUnit, styles.repoItemUnitDates)}>
+        <div className={styles.repoSubUnit}>
           <span>Create at:</span>
-          <span>{dateFormatter(repoItem.created_at)}</span>
-        </>
-        <>
-          <span>Update at:</span>
-          <span>{dateFormatter(repoItem.updated_at)}</span>
-        </>
-      </div>
+          <span>{dateFormatter(new Date(repoItem.created_at))}</span>
+        </div>
 
-      <div className={styles.repoItemUnit}>
-        <span>Language: </span>
-        <span>{repoItem.language}</span>
+        <div className={styles.repoSubUnit}>
+          <span>Update at:</span>
+          <span>{dateFormatter(new Date(repoItem.updated_at))}</span>
+        </div>
+
+        <div className={styles.repoSubUnit}>
+          <span>Language: </span>
+          <span>{repoItem.language}</span>
+        </div>
       </div>
     </div>
   );

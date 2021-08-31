@@ -19,6 +19,7 @@ import {
 import { InitialStateType } from '../../store/SearchReducer/types';
 
 import styles from './Root.module.css';
+import ReposList from '../../components/ReposList';
 
 const Root: React.FC = () => {
   const dispatch = useDispatch();
@@ -85,6 +86,9 @@ const Root: React.FC = () => {
               requestType={storeData.lastRequestType}
               history={storeData.searchHistory}
             />
+          )}
+          {storeData.reposListOpened && (
+            <ReposList reposList={storeData.reposList} />
           )}
           {storeData.error && <Error userName={user} />}
         </div>

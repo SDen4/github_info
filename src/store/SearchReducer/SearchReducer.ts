@@ -6,8 +6,10 @@ import {
   USERS_LIST_OPENED_FLAG,
   FETCH_USERS_LIST,
   FETCH_SEARCH_HISTORY,
+  FETCH_REPOS_LIST,
   SEARCH_HISTORY_LIST_FLAG,
   FETCH_ALL_HISTORY,
+  REPOS_OPENED_LIST_FLAG,
 } from './constants';
 
 import { InitialStateType } from './types';
@@ -114,6 +116,18 @@ export const SearchReducer = (
       return {
         ...state,
         searchHistoryListFlag: !state.searchHistoryListFlag,
+      };
+
+    case FETCH_REPOS_LIST:
+      return {
+        ...state,
+        reposList: action.reposList,
+      };
+
+    case REPOS_OPENED_LIST_FLAG:
+      return {
+        ...state,
+        reposListOpened: action.reposListFlag,
       };
 
     default:

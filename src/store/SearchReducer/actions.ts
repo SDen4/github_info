@@ -12,9 +12,12 @@ import {
   SEARCH_HISTORY_LIST_FLAG,
   FETCH_ALL_HISTORY,
   GET_LOCAL_HISTORY_SAGA,
+  REPOS_LIST_SAGA,
+  FETCH_REPOS_LIST,
+  REPOS_OPENED_LIST_FLAG,
 } from './constants';
 
-import { ISearhHistoryItem, UserInnerType } from './types';
+import { IRepoItem, ISearhHistoryItem, UserInnerType } from './types';
 
 export const searchSaga = (login: string, history: ISearhHistoryItem[]) => {
   return {
@@ -130,6 +133,27 @@ export const getLocalHistorySaga = () => {
   } as const;
 };
 
+export const reposListSaga = (login: string) => {
+  return {
+    type: REPOS_LIST_SAGA,
+    login,
+  } as const;
+};
+
+export const fetchReposList = (reposList: IRepoItem[]) => {
+  return {
+    type: FETCH_REPOS_LIST,
+    reposList,
+  } as const;
+};
+
+export const reposOpenedListFlag = (reposListFlag: boolean) => {
+  return {
+    type: REPOS_OPENED_LIST_FLAG,
+    reposListFlag,
+  } as const;
+};
+
 type searchSagaType = ReturnType<typeof searchSaga>;
 type fetchLoginType = ReturnType<typeof fetchLogin>;
 type cardOPenedFlagType = ReturnType<typeof cardOPenedFlag>;
@@ -140,6 +164,8 @@ type fetchUsersListType = ReturnType<typeof fetchUsersList>;
 type fetchSearhHistoryType = ReturnType<typeof fetchSearhHistory>;
 type searchHistoryLIstFlagType = ReturnType<typeof searchHistoryLIstFlag>;
 type fetchAllHistoryType = ReturnType<typeof fetchAllHistory>;
+type fetchReposListType = ReturnType<typeof fetchReposList>;
+type reposOpenedListFlagType = ReturnType<typeof reposOpenedListFlag>;
 
 export type ActionsType =
   | searchSagaType
@@ -151,4 +177,6 @@ export type ActionsType =
   | fetchUsersListType
   | fetchSearhHistoryType
   | searchHistoryLIstFlagType
-  | fetchAllHistoryType;
+  | fetchAllHistoryType
+  | fetchReposListType
+  | reposOpenedListFlagType;
