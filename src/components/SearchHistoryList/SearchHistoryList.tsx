@@ -2,8 +2,8 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 
 import {
-  fetchAllHistory,
   searchHistoryLIstFlag,
+  searchHistoryModalFlag,
   searchSaga,
 } from '../../store/SearchReducer/actions';
 
@@ -27,9 +27,7 @@ const SearchHistoryList: React.FC<ISearchHistoryList> = ({ searchList }) => {
   };
 
   const clearBtnHandler = () => {
-    closeBtnHandler();
-    dispatch(fetchAllHistory([]));
-    localStorage.clear();
+    dispatch(searchHistoryModalFlag(true));
   };
 
   return (
@@ -58,7 +56,7 @@ const SearchHistoryList: React.FC<ISearchHistoryList> = ({ searchList }) => {
         type="button"
         onClick={clearBtnHandler}
       >
-        Clear history
+        Delete history
       </button>
     </div>
   );

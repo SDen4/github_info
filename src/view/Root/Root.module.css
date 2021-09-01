@@ -4,6 +4,7 @@
   align-items: flex-start;
   justify-content: flex-start;
   box-sizing: border-box;
+  position: relative;
   width: 100%;
   min-height: 100vh;
   background: center / contain no-repeat url('./assets/img/github-logo.png'),

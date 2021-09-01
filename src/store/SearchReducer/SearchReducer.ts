@@ -10,6 +10,7 @@ import {
   SEARCH_HISTORY_LIST_FLAG,
   FETCH_ALL_HISTORY,
   REPOS_OPENED_LIST_FLAG,
+  SEARCH_HISTORY_MODAL_FLAG,
 } from './constants';
 
 import { InitialStateType } from './types';
@@ -42,6 +43,7 @@ const initialState: InitialStateType = {
   error: false,
   searchHistory: [],
   searchHistoryListFlag: false,
+  searchHistoryModalFlag: false,
 };
 
 export const SearchReducer = (
@@ -128,6 +130,12 @@ export const SearchReducer = (
       return {
         ...state,
         reposListOpened: action.reposListFlag,
+      };
+
+    case SEARCH_HISTORY_MODAL_FLAG:
+      return {
+        ...state,
+        searchHistoryModalFlag: action.searchHistoryModalFlag,
       };
 
     default:

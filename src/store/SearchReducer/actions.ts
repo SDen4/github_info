@@ -15,6 +15,7 @@ import {
   REPOS_LIST_SAGA,
   FETCH_REPOS_LIST,
   REPOS_OPENED_LIST_FLAG,
+  SEARCH_HISTORY_MODAL_FLAG,
 } from './constants';
 
 import { IRepoItem, ISearhHistoryItem, UserInnerType } from './types';
@@ -154,6 +155,12 @@ export const reposOpenedListFlag = (reposListFlag: boolean) => {
   } as const;
 };
 
+export const searchHistoryModalFlag = (searchHistoryModalFlag: boolean) => {
+  return {
+    type: SEARCH_HISTORY_MODAL_FLAG,
+    searchHistoryModalFlag,
+  } as const;
+};
 type searchSagaType = ReturnType<typeof searchSaga>;
 type fetchLoginType = ReturnType<typeof fetchLogin>;
 type cardOPenedFlagType = ReturnType<typeof cardOPenedFlag>;
@@ -166,6 +173,7 @@ type searchHistoryLIstFlagType = ReturnType<typeof searchHistoryLIstFlag>;
 type fetchAllHistoryType = ReturnType<typeof fetchAllHistory>;
 type fetchReposListType = ReturnType<typeof fetchReposList>;
 type reposOpenedListFlagType = ReturnType<typeof reposOpenedListFlag>;
+type searchHistoryModalFlagType = ReturnType<typeof searchHistoryModalFlag>;
 
 export type ActionsType =
   | searchSagaType
@@ -179,4 +187,5 @@ export type ActionsType =
   | searchHistoryLIstFlagType
   | fetchAllHistoryType
   | fetchReposListType
-  | reposOpenedListFlagType;
+  | reposOpenedListFlagType
+  | searchHistoryModalFlagType;

@@ -108,7 +108,9 @@ const Root: React.FC = () => {
         )}
       </section>
 
-      <SearchHistoryModal />
+      {storeData.searchHistoryModalFlag && (
+        <SearchHistoryModal historyLength={storeData.searchHistory.length} />
+      )}
     </div>
   );
 };
