@@ -21,6 +21,7 @@ import { InitialStateType } from '../../store/SearchReducer/types';
 
 import styles from './Root.module.css';
 import ReposList from '../../components/ReposList';
+import SearchHistoryModal from '../../components/SearchHistoryModal';
 
 const Root: React.FC = () => {
   const dispatch = useDispatch();
@@ -106,6 +107,8 @@ const Root: React.FC = () => {
           </div>
         )}
       </section>
+
+      <SearchHistoryModal />
     </div>
   );
 };

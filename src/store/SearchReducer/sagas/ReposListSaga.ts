@@ -22,11 +22,9 @@ function* sagaWorker(action: IReposListSagaWorker) {
     yield put(loadingFlag(true));
 
     const allRepos: IRepoItem[] = yield getReposInfo(action.login);
-    console.log(allRepos);
+
     yield put(fetchReposList(allRepos));
-
     yield put(reposOpenedListFlag(true));
-
     yield put(loadingFlag(false));
   } catch (error) {
     // eslint-disable-next-line no-console
