@@ -6,7 +6,6 @@ import {
   fetchReposList,
   loadingFlag,
   reposOpenedListFlag,
-  userListOpenedFlag,
 } from '../actions';
 import { IRepoItem, IReposListSagaWorker } from '../types';
 
@@ -29,7 +28,6 @@ function* sagaWorker(action: IReposListSagaWorker) {
     yield put(reposOpenedListFlag(true));
 
     yield put(loadingFlag(false));
-    yield put(userListOpenedFlag(true));
   } catch (error) {
     // eslint-disable-next-line no-console
     console.log(error);

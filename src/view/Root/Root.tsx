@@ -14,6 +14,7 @@ import { AppStateType } from '../../store/RootReducer';
 import {
   cardOPenedFlag,
   getLocalHistorySaga,
+  reposOpenedListFlag,
   userListOpenedFlag,
 } from '../../store/SearchReducer/actions';
 import { InitialStateType } from '../../store/SearchReducer/types';
@@ -39,6 +40,7 @@ const Root: React.FC = () => {
 
   const backBtnHandler = () => {
     dispatch(userListOpenedFlag(false));
+    dispatch(reposOpenedListFlag(false));
     dispatch(cardOPenedFlag(true));
   };
 
@@ -59,7 +61,7 @@ const Root: React.FC = () => {
       >
         <SearchForm search={search} history={storeData.searchHistory} />
 
-        {storeData.usersListOpened && (
+        {(storeData.usersListOpened || storeData.reposListOpened) && (
           <button
             type="button"
             onClick={backBtnHandler}
