@@ -9,6 +9,11 @@
   transition: .3s;
 }
 
+.button span {
+  color: #FF8C00;
+  margin-left: 5px;
+}
+
 .button:hover {
   border: 1px solid #FF8C00;
 }

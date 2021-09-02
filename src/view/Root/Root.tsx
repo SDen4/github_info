@@ -59,7 +59,7 @@ const Root: React.FC = () => {
           ) : (
             ''
           )}
-          <FavoriteButton />
+          <FavoriteButton starNum={5} />
         </div>
       </header>
 
