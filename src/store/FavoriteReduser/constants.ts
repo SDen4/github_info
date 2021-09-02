@@ -1,0 +1,1 @@
+export const FAVORITE_BTN_FLAG = 'FAVORITE_BTN_FLAG';

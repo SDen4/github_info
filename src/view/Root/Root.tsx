@@ -17,18 +17,27 @@ import {
   reposOpenedListFlag,
   userListOpenedFlag,
 } from '../../store/SearchReducer/actions';
-import { InitialStateType } from '../../store/SearchReducer/types';
 
-import styles from './Root.module.css';
+import { InitialStateType } from '../../store/SearchReducer/types';
+import { InitialFavoriteStateType } from '../../store/FavoriteReduser/types';
+
 import ReposList from '../../components/ReposList';
 import SearchHistoryModal from '../../components/SearchHistoryModal';
 import FavoriteButton from '../../components/FavoriteButton';
 
+import styles from './Root.module.css';
+
 const Root: React.FC = () => {
   const dispatch = useDispatch();
+
   const storeData = useSelector<AppStateType, InitialStateType>(
     (store) => store.search,
   );
+
+  const favorite = useSelector<AppStateType, InitialFavoriteStateType>(
+    (store) => store.favorite,
+  );
+
   const [user, setUser] = useState<string>('');
 
   // get elements from localstorage
@@ -59,7 +68,7 @@ const Root: React.FC = () => {
           ) : (
             ''
           )}
-          <FavoriteButton starNum={5} />
+          {favorite.favoriteBtnFlag && <FavoriteButton starNum={5} />}
         </div>
       </header>
 
