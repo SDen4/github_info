@@ -61,3 +61,9 @@
   cursor: pointer;
   opacity: 1;
 }
+
+.buttonsWrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}

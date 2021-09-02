@@ -10,7 +10,12 @@ const RepoItem: React.FC<IRepoItemInt> = ({ repoItem }) => {
   return (
     <div className={styles.repoItemWrapper}>
       <div className={styles.repoItemUnit}>
-        <a href={repoItem.html_url} className={styles.repoItemLink}>
+        <a
+          href={repoItem.html_url}
+          className={styles.repoItemLink}
+          target="_blank"
+          rel="noreferrer"
+        >
           {repoItem.name}
         </a>
 

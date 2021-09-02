@@ -22,6 +22,7 @@ import { InitialStateType } from '../../store/SearchReducer/types';
 import styles from './Root.module.css';
 import ReposList from '../../components/ReposList';
 import SearchHistoryModal from '../../components/SearchHistoryModal';
+import FavoriteButton from '../../components/FavoriteButton';
 
 const Root: React.FC = () => {
   const dispatch = useDispatch();
@@ -50,11 +51,16 @@ const Root: React.FC = () => {
       <header className={styles.root_header}>
         <h1>Find github&apos;s user</h1>
 
-        {storeData.searchHistory.length ? (
-          <SearchHistoryHeader historyLength={storeData.searchHistory.length} />
-        ) : (
-          ''
-        )}
+        <div className={styles.buttonsWrapper}>
+          {storeData.searchHistory.length ? (
+            <SearchHistoryHeader
+              historyLength={storeData.searchHistory.length}
+            />
+          ) : (
+            ''
+          )}
+          <FavoriteButton />
+        </div>
       </header>
 
       <section
