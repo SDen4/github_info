@@ -9,27 +9,23 @@
   margin-left: 10px;
   color: #d3d3d3;
   cursor: pointer;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .button span {
-  color: #FF8C00;
+  color: #ff8c00;
 }
 
 .button span:last-child {
   margin-left: 5px;
 }
 
-.button span:first-child {
-  margin-top: -5px;
-}
-
 .button:hover {
-  border: 1px solid #FF8C00;
+  border: 1px solid #ff8c00;
 }
 
 .star {
   display: inline-block;
   font-size: 24px;
-  color: #FF8C00;
+  color: #ff8c00;
 }
