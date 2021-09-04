@@ -5,13 +5,14 @@
   padding: 10px 15px;
   color: #d3d3d3;
   cursor: pointer;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .shh_wrapper span {
-  color: #FF8C00;
+  color: #ff8c00;
 }
 
-.shh_wrapper:hover {
-  border: 1px solid #FF8C00;
+.shh_wrapper:hover,
+.shh_wrapper_active {
+  border: 1px solid #ff8c00;
 }

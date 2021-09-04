@@ -20,7 +20,8 @@
   margin-left: 5px;
 }
 
-.button:hover {
+.button:hover,
+.button_active {
   border: 1px solid #ff8c00;
 }
 

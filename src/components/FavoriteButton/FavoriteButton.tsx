@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import clsx from 'clsx';
 
 import { favoriteListFlag } from '../../store/FavoriteReduser/actions';
 import { searchHistoryLIstFlag } from '../../store/SearchReducer/actions';
@@ -26,7 +27,10 @@ const FavoriteButton: React.FC<IFavoriteButton> = ({
   return (
     <button
       type="button"
-      className={styles.button}
+      className={clsx(
+        favoriteListStatus && styles.button_active,
+        styles.button,
+      )}
       onClick={showFavoriteListHandler}
     >
       <span className={styles.star}>&#9733;</span>

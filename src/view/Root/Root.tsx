@@ -67,6 +67,7 @@ const Root: React.FC = () => {
           {storeData.searchHistory.length ? (
             <SearchHistoryHeader
               historyLength={storeData.searchHistory.length}
+              searchHistoryListStatus={storeData.searchHistoryListFlag}
               historyBtnStatus={storeData.searchHistoryListFlag}
             />
           ) : (
