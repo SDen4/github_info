@@ -39,11 +39,7 @@ const Modal: React.FC<ISearchHistoryModal> = ({ textModal, type }) => {
   return (
     <div className={styles.modalWrapper}>
       <div className={styles.modal}>
-        <span>
-          {textModal}
-          {/* Are you sure to delete all ({itemsLength}{' '}
-          {itemsLength > 1 ? 'items' : 'item'}) search history? */}
-        </span>
+        <span>{textModal}</span>
         <div className={styles.btnsWrapper}>
           <button type="button" onClick={() => onBtnsHandler(true)}>
             Delete

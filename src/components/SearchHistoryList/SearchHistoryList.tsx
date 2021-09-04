@@ -30,7 +30,9 @@ const SearchHistoryList: React.FC<ISearchHistoryList> = ({ searchList }) => {
     dispatch(
       modalFlag(
         true,
-        'Are you sure to delete all items of search history?',
+        `Are you sure to delete ${searchList.length > 1 ? 'all' : ''} ${
+          searchList.length > 1 ? `(${searchList.length})` : ''
+        } ${searchList.length > 1 ? 'items' : 'the item'} of search history?`,
         'search',
       ),
     );

@@ -26,7 +26,13 @@ const FavoriteList: React.FC<IFavoriteList> = ({
 
   const clearBtnHandler = () => {
     dispatch(
-      modalFlag(true, 'Are you sure to delete all favorite users?', 'favorite'),
+      modalFlag(
+        true,
+        `Are you sure to delete ${favoriteList.length > 1 ? 'all' : ''} your ${
+          favoriteList.length > 1 ? `(${favoriteList.length})` : ''
+        } favorite ${favoriteList.length > 1 ? 'users' : 'user'}?`,
+        'favorite',
+      ),
     );
   };
 
