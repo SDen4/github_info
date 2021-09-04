@@ -84,22 +84,6 @@ const Root: React.FC = () => {
         </div>
       </header>
 
-      <section
-        className={clsx(styles.root_section, styles.root_section_search)}
-      >
-        <SearchForm search={search} history={storeData.searchHistory} />
-
-        {(storeData.usersListOpened || storeData.reposListOpened) && (
-          <button
-            type="button"
-            onClick={backBtnHandler}
-            className={styles.root_btn}
-          >
-            Back
-          </button>
-        )}
-      </section>
-
       <section className={styles.root_section}>
         <div
           className={clsx(
@@ -107,6 +91,22 @@ const Root: React.FC = () => {
             styles.root_sub_section_left,
           )}
         >
+          <section
+            className={clsx(styles.root_section, styles.root_section_search)}
+          >
+            <SearchForm search={search} history={storeData.searchHistory} />
+
+            {(storeData.usersListOpened || storeData.reposListOpened) && (
+              <button
+                type="button"
+                onClick={backBtnHandler}
+                className={styles.root_btn}
+              >
+                Back
+              </button>
+            )}
+          </section>
+
           {storeData.loading && <Loader />}
           {storeData.cardOpened && (
             <Card user={storeData.user} favorites={favorite.favoriteList} />
