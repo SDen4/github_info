@@ -138,7 +138,10 @@ const Root: React.FC = () => {
               styles.root_sub_section_right,
             )}
           >
-            <FavoriteList favoriteList={favorite.favoriteList} />
+            <FavoriteList
+              favoriteList={favorite.favoriteList}
+              searchList={storeData.searchHistory}
+            />
           </div>
         )}
       </section>

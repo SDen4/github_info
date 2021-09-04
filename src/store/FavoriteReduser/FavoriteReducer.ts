@@ -1,5 +1,6 @@
 import {
   FAVORITE_BTN_FLAG,
+  FAVORITE_LIST_FLAG,
   FAVORITE_LIST_ADD,
   FAVORITE_LIST,
 } from './constants';
@@ -35,6 +36,12 @@ export const FavoriteReducer = (
       return {
         ...state,
         favoriteList: [...state.favoriteList, action.favoriteList],
+      };
+
+    case FAVORITE_LIST_FLAG:
+      return {
+        ...state,
+        favoriteListFlag: !state.favoriteListFlag,
       };
 
     default:

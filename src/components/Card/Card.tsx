@@ -37,7 +37,6 @@ const Card: React.FC<CardType> = ({ user, favorites }) => {
   };
 
   const onClickAddBtnHandler = () => {
-    // const newFavoriteUser = user.login;
     if (favorites.find((e) => e === user.login)) {
       return;
     }
