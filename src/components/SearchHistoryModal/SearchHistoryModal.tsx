@@ -23,7 +23,7 @@ const SearchHistoryModal: React.FC<ISearchHistoryModal> = ({
       dispatch(searchHistoryLIstFlag(false));
       dispatch(fetchAllHistory([]));
       dispatch(searchHistoryModalFlag(false));
-      localStorage.clear();
+      localStorage.removeItem('saves');
     } else {
       dispatch(searchHistoryModalFlag(false));
     }
