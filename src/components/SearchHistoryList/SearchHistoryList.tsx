@@ -33,7 +33,9 @@ const SearchHistoryList: React.FC<ISearchHistoryList> = ({ searchList }) => {
   return (
     <div className={styles.shl_wrapper}>
       <h3>Search history list</h3>
-      <CloseButton onClick={closeBtnHandler} />
+      <div className={styles.closeBtnWrapper}>
+        <CloseButton onClick={closeBtnHandler} />
+      </div>
 
       <ol>
         {searchList.map((el, i) => (

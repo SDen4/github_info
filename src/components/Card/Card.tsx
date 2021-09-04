@@ -130,7 +130,9 @@ const Card: React.FC<CardType> = ({ user }) => {
         </div>
       </div>
 
-      <CloseButton onClick={onClickCloseBtnHandler} />
+      <div className={styles.closeBtnWrapper}>
+        <CloseButton onClick={onClickCloseBtnHandler} />
+      </div>
     </div>
   );
 };
