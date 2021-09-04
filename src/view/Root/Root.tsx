@@ -131,7 +131,10 @@ const Root: React.FC = () => {
               styles.root_sub_section_right,
             )}
           >
-            <SearchHistoryList searchList={storeData.searchHistory} />
+            <SearchHistoryList
+              searchList={storeData.searchHistory}
+              currentUserLogin={storeData.user.login}
+            />
           </div>
         )}
 
@@ -145,6 +148,7 @@ const Root: React.FC = () => {
             <FavoriteList
               favoriteList={favorite.favoriteList}
               searchList={storeData.searchHistory}
+              currentUserLogin={storeData.user.login}
             />
           </div>
         )}

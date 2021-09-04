@@ -15,10 +15,16 @@ import { ISearchHistoryList } from './types';
 
 import styles from './SearchHistoryList.module.css';
 
-const SearchHistoryList: React.FC<ISearchHistoryList> = ({ searchList }) => {
+const SearchHistoryList: React.FC<ISearchHistoryList> = ({
+  searchList,
+  currentUserLogin,
+}) => {
   const dispatch = useDispatch();
 
   const searchHistoriListBtnHandler = (login: string) => {
+    if (login === currentUserLogin) {
+      return;
+    }
     dispatch(searchSaga(login, searchList));
   };
 

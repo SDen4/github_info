@@ -13,6 +13,7 @@ import styles from './FavoriteList.module.css';
 const FavoriteList: React.FC<IFavoriteList> = ({
   favoriteList,
   searchList,
+  currentUserLogin,
 }) => {
   const dispatch = useDispatch();
 
@@ -21,6 +22,9 @@ const FavoriteList: React.FC<IFavoriteList> = ({
   };
 
   const searchHistoriListBtnHandler = (login: string) => {
+    if (login === currentUserLogin) {
+      return;
+    }
     dispatch(searchSaga(login, searchList));
   };
 

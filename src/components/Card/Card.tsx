@@ -9,6 +9,7 @@ import { periodCounter } from '../../utils/periodCounter';
 
 import {
   cardOPenedFlag,
+  fetchLogin,
   fetchUsersListSaga,
   reposListSaga,
 } from '../../store/SearchReducer/actions';
@@ -26,6 +27,9 @@ const Card: React.FC<CardType> = ({ user, favorites }) => {
 
   const onClickCloseBtnHandler = () => {
     dispatch(cardOPenedFlag(false));
+    dispatch(
+      fetchLogin('', '', '', '', 0, 0, new Date(), '', '', '', 0, '', ''),
+    );
   };
 
   const onBtnClickHandler = (requestType: string) => {
