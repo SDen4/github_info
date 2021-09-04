@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import {
   searchHistoryLIstFlag,
-  searchHistoryModalFlag,
+  modalFlag,
   searchSaga,
 } from '../../store/SearchReducer/actions';
 
@@ -27,7 +27,13 @@ const SearchHistoryList: React.FC<ISearchHistoryList> = ({ searchList }) => {
   };
 
   const clearBtnHandler = () => {
-    dispatch(searchHistoryModalFlag(true));
+    dispatch(
+      modalFlag(
+        true,
+        'Are you sure to delete all items of search history?',
+        'search',
+      ),
+    );
   };
 
   return (

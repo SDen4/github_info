@@ -43,7 +43,9 @@ const initialState: InitialStateType = {
   error: false,
   searchHistory: [],
   searchHistoryListFlag: false,
-  searchHistoryModalFlag: false,
+  modalFlag: false,
+  modalText: '',
+  modalType: 'search',
 };
 
 export const SearchReducer = (
@@ -135,7 +137,9 @@ export const SearchReducer = (
     case SEARCH_HISTORY_MODAL_FLAG:
       return {
         ...state,
-        searchHistoryModalFlag: action.searchHistoryModalFlag,
+        modalFlag: action.modalFlag,
+        modalText: action.text,
+        modalType: action.modalType,
       };
 
     default:

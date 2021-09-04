@@ -156,10 +156,16 @@ export const reposOpenedListFlag = (reposListFlag: boolean) => {
   } as const;
 };
 
-export const searchHistoryModalFlag = (searchHistoryModalFlag: boolean) => {
+export const modalFlag = (
+  modalFlag: boolean,
+  text: string,
+  modalType: 'search' | 'favorite',
+) => {
   return {
     type: SEARCH_HISTORY_MODAL_FLAG,
-    searchHistoryModalFlag,
+    modalFlag,
+    text,
+    modalType,
   } as const;
 };
 type searchSagaType = ReturnType<typeof searchSaga>;
@@ -174,7 +180,7 @@ type searchHistoryLIstFlagType = ReturnType<typeof searchHistoryLIstFlag>;
 type fetchAllHistoryType = ReturnType<typeof fetchAllHistory>;
 type fetchReposListType = ReturnType<typeof fetchReposList>;
 type reposOpenedListFlagType = ReturnType<typeof reposOpenedListFlag>;
-type searchHistoryModalFlagType = ReturnType<typeof searchHistoryModalFlag>;
+type modalFlagType = ReturnType<typeof modalFlag>;
 
 export type ActionsType =
   | searchSagaType
@@ -189,4 +195,4 @@ export type ActionsType =
   | fetchAllHistoryType
   | fetchReposListType
   | reposOpenedListFlagType
-  | searchHistoryModalFlagType;
+  | modalFlagType;

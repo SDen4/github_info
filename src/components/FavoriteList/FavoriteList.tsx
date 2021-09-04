@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import CloseButton from '../../ui/CloseButton';
 
-import { searchSaga } from '../../store/SearchReducer/actions';
+import { modalFlag, searchSaga } from '../../store/SearchReducer/actions';
 import { favoriteListFlag } from '../../store/FavoriteReduser/actions';
 
 import { IFavoriteList } from './types';
@@ -22,6 +22,12 @@ const FavoriteList: React.FC<IFavoriteList> = ({
 
   const searchHistoriListBtnHandler = (login: string) => {
     dispatch(searchSaga(login, searchList));
+  };
+
+  const clearBtnHandler = () => {
+    dispatch(
+      modalFlag(true, 'Are you sure to delete all favorite users?', 'favorite'),
+    );
   };
 
   return (
@@ -45,8 +51,12 @@ const FavoriteList: React.FC<IFavoriteList> = ({
         ))}
       </ol>
 
-      <button className={styles.clearButton} type="button" onClick={() => null}>
-        Delete all favorites users
+      <button
+        className={styles.clearButton}
+        type="button"
+        onClick={clearBtnHandler}
+      >
+        Delete all favorite users
       </button>
     </div>
   );

@@ -25,7 +25,7 @@ import { getFavoriteListSaga } from '../../store/FavoriteReduser/actions';
 import ReposList from '../../components/ReposList';
 import FavoriteList from '../../components/FavoriteList';
 import FavoriteButton from '../../components/FavoriteButton';
-import SearchHistoryModal from '../../components/SearchHistoryModal';
+import Modal from '../../components/Modal';
 
 import styles from './Root.module.css';
 
@@ -150,8 +150,8 @@ const Root: React.FC = () => {
         )}
       </section>
 
-      {storeData.searchHistoryModalFlag && (
-        <SearchHistoryModal historyLength={storeData.searchHistory.length} />
+      {storeData.modalFlag && (
+        <Modal textModal={storeData.modalText} type={storeData.modalType} />
       )}
     </div>
   );

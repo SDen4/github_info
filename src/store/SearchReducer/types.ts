@@ -63,7 +63,9 @@ export interface InitialStateType {
   error: boolean;
   searchHistory: ISearhHistoryItem[];
   searchHistoryListFlag: boolean;
-  searchHistoryModalFlag: boolean;
+  modalFlag: boolean;
+  modalText: string;
+  modalType: 'search' | 'favorite';
 }
 
 export interface SearchSagaWorkerType {
