@@ -131,6 +131,9 @@ const Card: React.FC<CardType> = ({ user }) => {
       </div>
 
       <div className={styles.closeBtnWrapper}>
+        <button type="button" className={styles.button}>
+          <span className={styles.star}>&#9733;</span>
+        </button>
         <CloseButton onClick={onClickCloseBtnHandler} />
       </div>
     </div>

@@ -110,8 +110,33 @@ a.card_user_info:hover {
 }
 
 .closeBtnWrapper {
-  display: block;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   position: absolute;
   top: 10px;
   right: 10px;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 8px;
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  outline: none;
+}
+
+.star {
+  display: inline-block;
+  margin-top: -5px;
+  font-size: 24px;
+  color: #d3d3d3;
+  transition: .3s;
+}
+
+.star:hover {
+  color: #FF8C00;
 }
