@@ -5,8 +5,10 @@ import {
   cardOPenedFlag,
   errorFlag,
   fetchLogin,
+  fetchReposList,
   fetchSearhHistory,
   loadingFlag,
+  reposOpenedListFlag,
   userListOpenedFlag,
 } from '../actions';
 import {
@@ -27,6 +29,8 @@ function* sagaWorker(action: SearchSagaWorkerType) {
     yield put(errorFlag(false));
     yield put(userListOpenedFlag(false));
     yield put(cardOPenedFlag(false));
+    yield put(reposOpenedListFlag(false));
+    yield put(fetchReposList([]));
     yield put(loadingFlag(true));
 
     const allData: UserInnerType = yield getUserInfo(action.login);
