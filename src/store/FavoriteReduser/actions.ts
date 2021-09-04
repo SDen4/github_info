@@ -6,9 +6,10 @@ import {
   FAVORITE_LIST_SAGA,
 } from './constants';
 
-export const setFavoriteBtnFlag = () => {
+export const setFavoriteBtnFlag = (favoriteBtnFlag: boolean) => {
   return {
     type: FAVORITE_BTN_FLAG,
+    favoriteBtnFlag,
   } as const;
 };
 

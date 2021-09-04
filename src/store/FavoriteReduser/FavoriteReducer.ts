@@ -10,6 +10,7 @@ import { ActionsType } from './actions';
 
 const InitialState: InitialFavoriteStateType = {
   favoriteBtnFlag: false,
+  favoriteListFlag: false,
   favoriteList: [],
 };
 
@@ -21,7 +22,7 @@ export const FavoriteReducer = (
     case FAVORITE_BTN_FLAG:
       return {
         ...state,
-        favoriteBtnFlag: !state.favoriteBtnFlag,
+        favoriteBtnFlag: action.favoriteBtnFlag,
       };
 
     case FAVORITE_LIST:

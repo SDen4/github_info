@@ -22,8 +22,9 @@ import { InitialStateType } from '../../store/SearchReducer/types';
 import { InitialFavoriteStateType } from '../../store/FavoriteReduser/types';
 
 import ReposList from '../../components/ReposList';
-import SearchHistoryModal from '../../components/SearchHistoryModal';
+import FavoriteList from '../../components/FavoriteList';
 import FavoriteButton from '../../components/FavoriteButton';
+import SearchHistoryModal from '../../components/SearchHistoryModal';
 
 import styles from './Root.module.css';
 
@@ -68,7 +69,9 @@ const Root: React.FC = () => {
           ) : (
             ''
           )}
-          {favorite.favoriteBtnFlag && <FavoriteButton starNum={5} />}
+          {favorite.favoriteBtnFlag && (
+            <FavoriteButton starNum={favorite.favoriteList.length} />
+          )}
         </div>
       </header>
 
@@ -96,7 +99,9 @@ const Root: React.FC = () => {
           )}
         >
           {storeData.loading && <Loader />}
-          {storeData.cardOpened && <Card user={storeData.user} />}
+          {storeData.cardOpened && (
+            <Card user={storeData.user} favorites={favorite.favoriteList} />
+          )}
           {storeData.usersListOpened && (
             <UsersList
               users={storeData.usersList}
@@ -119,6 +124,17 @@ const Root: React.FC = () => {
             )}
           >
             <SearchHistoryList searchList={storeData.searchHistory} />
+          </div>
+        )}
+
+        {favorite.favoriteListFlag && (
+          <div
+            className={clsx(
+              styles.root_sub_section,
+              styles.root_sub_section_right,
+            )}
+          >
+            <FavoriteList favoriteList={favorite.favoriteList} />
           </div>
         )}
       </section>
