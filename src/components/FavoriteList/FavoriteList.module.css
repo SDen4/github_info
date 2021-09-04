@@ -9,7 +9,6 @@
   padding: 5px 10px 10px;
   border: 1px solid #d3d3d3;
   border-radius: 5px;
-  margin-top: 30px;
   background-color: rgba(55, 55, 55, 0.8);
   color: #d3d3d3;
 }
@@ -20,7 +19,7 @@
 }
 
 .shl_wrapper ol {
-  margin:0;
+  margin: 0;
 }
 
 .shl_wrapper ol li span {
@@ -34,9 +33,9 @@
   border: 0;
   outline: none;
   cursor: pointer;
-  color: #FF8C00;
+  color: #ff8c00;
   font-size: 16px;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .shl_button:hover {
@@ -49,10 +48,10 @@
   border-radius: 5px;
   outline: none;
   padding: 5px 10px;
-  background-color: #FF8C00;
+  background-color: #ff8c00;
   color: #d3d3d3;
   cursor: pointer;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .clearButton:hover {
