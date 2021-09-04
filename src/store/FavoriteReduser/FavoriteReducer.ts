@@ -1,4 +1,8 @@
-import { FAVORITE_BTN_FLAG } from './constants';
+import {
+  FAVORITE_BTN_FLAG,
+  FAVORITE_LIST_ADD,
+  FAVORITE_LIST,
+} from './constants';
 
 import { InitialFavoriteStateType } from './types';
 
@@ -6,6 +10,7 @@ import { ActionsType } from './actions';
 
 const InitialState: InitialFavoriteStateType = {
   favoriteBtnFlag: false,
+  favoriteList: [],
 };
 
 export const FavoriteReducer = (
@@ -16,7 +21,19 @@ export const FavoriteReducer = (
     case FAVORITE_BTN_FLAG:
       return {
         ...state,
-        favoriteBtnFlag: action.favoriteBtnFlag,
+        favoriteBtnFlag: !state.favoriteBtnFlag,
+      };
+
+    case FAVORITE_LIST:
+      return {
+        ...state,
+        favoriteList: action.favoriteList,
+      };
+
+    case FAVORITE_LIST_ADD:
+      return {
+        ...state,
+        favoriteList: [...state.favoriteList, action.favoriteList],
       };
 
     default:
