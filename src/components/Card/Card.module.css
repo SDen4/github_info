@@ -19,15 +19,17 @@
   margin-right: 20px;
 }
 
-.card_element h2, h3 {
-  color: #FF8C00;
+.card_element h2,
+h3 {
+  color: #ff8c00;
 }
 
 .card_element:last-of-type {
   margin-right: 0;
 }
 
-.card_element h2, h3 {
+.card_element h2,
+h3 {
   margin: 0;
 }
 
@@ -84,9 +86,9 @@
   background-color: transparent;
   outline: none;
   text-decoration: none;
-  transition: .3s;
+  transition: 0.3s;
   font-size: 14px;
-  color: #FF8C00;
+  color: #ff8c00;
 }
 
 .card_user_info_wrapper {
@@ -102,11 +104,11 @@
 }
 
 a.card_user_info:hover {
-  color:tomato
+  color: tomato;
 }
 
 .card_user_info_btn:hover {
-  color:tomato
+  color: tomato;
 }
 
 .closeBtnWrapper {
@@ -114,7 +116,7 @@ a.card_user_info:hover {
   justify-content: flex-start;
   align-items: center;
   position: absolute;
-  top: 10px;
+  top: 2px;
   right: 10px;
 }
 
@@ -131,12 +133,11 @@ a.card_user_info:hover {
 
 .star {
   display: inline-block;
-  margin-top: -5px;
   font-size: 24px;
   color: #d3d3d3;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .star:hover {
-  color: #FF8C00;
+  color: #ff8c00;
 }
