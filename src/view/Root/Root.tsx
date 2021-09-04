@@ -20,6 +20,7 @@ import {
 
 import { InitialStateType } from '../../store/SearchReducer/types';
 import { InitialFavoriteStateType } from '../../store/FavoriteReduser/types';
+import { getFavoriteListSaga } from '../../store/FavoriteReduser/actions';
 
 import ReposList from '../../components/ReposList';
 import FavoriteList from '../../components/FavoriteList';
@@ -44,6 +45,7 @@ const Root: React.FC = () => {
   // get elements from localstorage
   useEffect(() => {
     dispatch(getLocalHistorySaga());
+    dispatch(getFavoriteListSaga());
   }, [dispatch]);
 
   const search = (searchLogin: string) => {
@@ -69,8 +71,10 @@ const Root: React.FC = () => {
           ) : (
             ''
           )}
-          {favorite.favoriteBtnFlag && (
+          {favorite.favoriteList.length ? (
             <FavoriteButton starNum={favorite.favoriteList.length} />
+          ) : (
+            ''
           )}
         </div>
       </header>

@@ -7,7 +7,7 @@ import { FAVORITE_LIST_SAGA } from '../constants';
 function* sagaWorker() {
   try {
     const saved: string[] = yield JSON.parse(
-      localStorage.getItem('favorites') || '[]',
+      localStorage.getItem('favorite') || '[]',
     );
 
     yield put(fetchFavoriteList(saved));
@@ -17,6 +17,6 @@ function* sagaWorker() {
   }
 }
 
-export function* FetchFavoriteListSagaWatcher() {
+export function* GetFavoriteListSagaWatcher() {
   yield takeEvery(FAVORITE_LIST_SAGA, sagaWorker);
 }

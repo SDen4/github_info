@@ -27,7 +27,7 @@ export const fetchFavoriteListAdd = (favoriteList: string) => {
   } as const;
 };
 
-export const fetchFavoriteListSaga = () => {
+export const getFavoriteListSaga = () => {
   return {
     type: FAVORITE_LIST_SAGA,
   } as const;
@@ -36,10 +36,10 @@ export const fetchFavoriteListSaga = () => {
 type setFavoriteBtnFlagType = ReturnType<typeof setFavoriteBtnFlag>;
 type fetchFavoriteListType = ReturnType<typeof fetchFavoriteList>;
 type fetchFavoriteListAddType = ReturnType<typeof fetchFavoriteListAdd>;
-type fetchFavoriteListSagaType = ReturnType<typeof fetchFavoriteListSaga>;
+type getFavoriteListSagaType = ReturnType<typeof getFavoriteListSaga>;
 
 export type ActionsType =
   | setFavoriteBtnFlagType
   | fetchFavoriteListAddType
   | fetchFavoriteListType
-  | fetchFavoriteListSagaType;
+  | getFavoriteListSagaType;
