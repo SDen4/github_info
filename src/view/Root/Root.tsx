@@ -67,12 +67,16 @@ const Root: React.FC = () => {
           {storeData.searchHistory.length ? (
             <SearchHistoryHeader
               historyLength={storeData.searchHistory.length}
+              historyBtnStatus={storeData.searchHistoryListFlag}
             />
           ) : (
             ''
           )}
           {favorite.favoriteList.length ? (
-            <FavoriteButton starNum={favorite.favoriteList.length} />
+            <FavoriteButton
+              starNum={favorite.favoriteList.length}
+              favoriteListStatus={favorite.favoriteListFlag}
+            />
           ) : (
             ''
           )}

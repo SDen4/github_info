@@ -41,7 +41,7 @@ export const FavoriteReducer = (
     case FAVORITE_LIST_FLAG:
       return {
         ...state,
-        favoriteListFlag: !state.favoriteListFlag,
+        favoriteListFlag: action.favoriteListFlag,
       };
 
     default:

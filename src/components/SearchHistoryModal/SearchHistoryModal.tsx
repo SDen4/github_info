@@ -20,7 +20,7 @@ const SearchHistoryModal: React.FC<ISearchHistoryModal> = ({
 
   const onBtnsHandler = (delStatus: boolean) => {
     if (delStatus) {
-      dispatch(searchHistoryLIstFlag());
+      dispatch(searchHistoryLIstFlag(false));
       dispatch(fetchAllHistory([]));
       dispatch(searchHistoryModalFlag(false));
       localStorage.clear();

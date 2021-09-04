@@ -1,12 +1,14 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+
+import CloseButton from '../../ui/CloseButton';
+
+import { searchSaga } from '../../store/SearchReducer/actions';
+import { favoriteListFlag } from '../../store/FavoriteReduser/actions';
 
 import { IFavoriteList } from './types';
 
 import styles from './FavoriteList.module.css';
-import CloseButton from '../../ui/CloseButton';
-import { useDispatch } from 'react-redux';
-import { favoriteListFlag } from '../../store/FavoriteReduser/actions';
-import { searchSaga } from '../../store/SearchReducer/actions';
 
 const FavoriteList: React.FC<IFavoriteList> = ({
   favoriteList,
@@ -15,7 +17,7 @@ const FavoriteList: React.FC<IFavoriteList> = ({
   const dispatch = useDispatch();
 
   const closeBtnHandler = () => {
-    dispatch(favoriteListFlag());
+    dispatch(favoriteListFlag(false));
   };
 
   const searchHistoriListBtnHandler = (login: string) => {
@@ -24,7 +26,7 @@ const FavoriteList: React.FC<IFavoriteList> = ({
 
   return (
     <div className={styles.shl_wrapper}>
-      <h3>Search history list</h3>
+      <h3>Favorite list</h3>
       <div className={styles.closeBtnWrapper}>
         <CloseButton onClick={closeBtnHandler} />
       </div>

@@ -117,7 +117,7 @@ export const SearchReducer = (
     case SEARCH_HISTORY_LIST_FLAG:
       return {
         ...state,
-        searchHistoryListFlag: !state.searchHistoryListFlag,
+        searchHistoryListFlag: action.searchHistoryListFlag,
       };
 
     case FETCH_REPOS_LIST:

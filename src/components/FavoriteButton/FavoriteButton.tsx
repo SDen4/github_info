@@ -2,15 +2,25 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 
 import { favoriteListFlag } from '../../store/FavoriteReduser/actions';
+import { searchHistoryLIstFlag } from '../../store/SearchReducer/actions';
 
 import { IFavoriteButton } from './types';
 
 import styles from './FavoriteButton.module.css';
 
-const FavoriteButton: React.FC<IFavoriteButton> = ({ starNum }) => {
+const FavoriteButton: React.FC<IFavoriteButton> = ({
+  starNum,
+  favoriteListStatus,
+}) => {
   const dispatch = useDispatch();
+
   const showFavoriteListHandler = () => {
-    dispatch(favoriteListFlag());
+    if (favoriteListStatus) {
+      dispatch(favoriteListFlag(false));
+    } else {
+      dispatch(favoriteListFlag(true));
+      dispatch(searchHistoryLIstFlag(false));
+    }
   };
 
   return (

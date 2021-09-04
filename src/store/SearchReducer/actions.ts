@@ -115,9 +115,10 @@ export const fetchSearhHistory = (searchHistory: ISearhHistoryItem) => {
   } as const;
 };
 
-export const searchHistoryLIstFlag = () => {
+export const searchHistoryLIstFlag = (searchHistoryListFlag: boolean) => {
   return {
     type: SEARCH_HISTORY_LIST_FLAG,
+    searchHistoryListFlag,
   } as const;
 };
 

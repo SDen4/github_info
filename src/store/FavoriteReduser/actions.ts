@@ -34,9 +34,10 @@ export const getFavoriteListSaga = () => {
   } as const;
 };
 
-export const favoriteListFlag = () => {
+export const favoriteListFlag = (favoriteListFlag: boolean) => {
   return {
     type: FAVORITE_LIST_FLAG,
+    favoriteListFlag,
   } as const;
 };
 

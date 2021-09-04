@@ -23,7 +23,7 @@ const SearchHistoryList: React.FC<ISearchHistoryList> = ({ searchList }) => {
   };
 
   const closeBtnHandler = () => {
-    dispatch(searchHistoryLIstFlag());
+    dispatch(searchHistoryLIstFlag(false));
   };
 
   const clearBtnHandler = () => {
