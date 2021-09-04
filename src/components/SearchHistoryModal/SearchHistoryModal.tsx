@@ -43,7 +43,9 @@ const SearchHistoryModal: React.FC<ISearchHistoryModal> = ({
             Cansel
           </button>
         </div>
-        <CloseButton onClick={() => onBtnsHandler(false)} />
+        <div className={styles.closeBtnWrapper}>
+          <CloseButton onClick={() => onBtnsHandler(false)} />
+        </div>
       </div>
     </div>
   );
