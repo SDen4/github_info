@@ -4,4 +4,5 @@ export interface ISearch {
   search: any;
   history: ISearhHistoryItem[];
   favoritesList: string[];
+  currentUser: string;
 }

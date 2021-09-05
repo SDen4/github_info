@@ -108,6 +108,7 @@ const Root: React.FC = () => {
               search={search}
               history={storeData.searchHistory}
               favoritesList={favorite.favoriteList}
+              currentUser={storeData.user.login}
             />
 
             {(storeData.usersListOpened || storeData.reposListOpened) && (
