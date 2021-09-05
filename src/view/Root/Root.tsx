@@ -20,7 +20,10 @@ import {
 
 import { InitialStateType } from '../../store/SearchReducer/types';
 import { InitialFavoriteStateType } from '../../store/FavoriteReduser/types';
-import { getFavoriteListSaga } from '../../store/FavoriteReduser/actions';
+import {
+  favoriteListFlag,
+  getFavoriteListSaga,
+} from '../../store/FavoriteReduser/actions';
 
 import ReposList from '../../components/ReposList';
 import FavoriteList from '../../components/FavoriteList';
@@ -41,6 +44,13 @@ const Root: React.FC = () => {
   );
 
   const [user, setUser] = useState<string>('');
+
+  // close favorite list if there are no any items
+  useEffect(() => {
+    if (!favorite.favoriteList.length) {
+      dispatch(favoriteListFlag(false));
+    }
+  }, [dispatch, favorite.favoriteList]);
 
   // get elements from localstorage
   useEffect(() => {

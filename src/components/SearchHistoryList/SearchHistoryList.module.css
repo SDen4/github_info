@@ -27,6 +27,10 @@
   font-size: 13px;
 }
 
+.shl_wrapper li {
+  margin-bottom: 10px;
+}
+
 .shl_button {
   background-color: transparent;
   padding: 0;

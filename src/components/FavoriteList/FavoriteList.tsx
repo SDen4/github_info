@@ -4,7 +4,11 @@ import { useDispatch } from 'react-redux';
 import CloseButton from '../../ui/CloseButton';
 
 import { modalFlag, searchSaga } from '../../store/SearchReducer/actions';
-import { favoriteListFlag } from '../../store/FavoriteReduser/actions';
+import {
+  favoriteListFlag,
+  favoriteUserFlag,
+  fetchFavoriteList,
+} from '../../store/FavoriteReduser/actions';
 
 import { IFavoriteList } from './types';
 
@@ -40,6 +44,15 @@ const FavoriteList: React.FC<IFavoriteList> = ({
     );
   };
 
+  const deleteBtnHandler = (delElem: string) => {
+    const newFavoriteUsersList = favoriteList.filter((el) => el !== delElem);
+    dispatch(fetchFavoriteList(newFavoriteUsersList));
+    localStorage.setItem('favorite', JSON.stringify(newFavoriteUsersList));
+    if (currentUserLogin === delElem) {
+      dispatch(favoriteUserFlag(false));
+    }
+  };
+
   return (
     <div className={styles.shl_wrapper}>
       <h3>Favorite list</h3>
@@ -58,7 +71,11 @@ const FavoriteList: React.FC<IFavoriteList> = ({
               >
                 {el}
               </button>
-              <button type="button" className={styles.deleteListItemBtn}>
+              <button
+                type="button"
+                className={styles.deleteListItemBtn}
+                onClick={() => deleteBtnHandler(el)}
+              >
                 {' '}
               </button>
             </div>

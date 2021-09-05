@@ -15,7 +15,6 @@ import {
 } from '../../store/SearchReducer/actions';
 
 import {
-  favoriteListFlag,
   favoriteUserFlag,
   fetchFavoriteList,
   fetchFavoriteListAdd,
@@ -48,7 +47,6 @@ const Card: React.FC<CardType> = ({ user, favorites, favoriteUserStatus }) => {
     if (favoriteUserStatus) {
       const newFavoriteUsersList = favorites.filter((el) => el !== user.login);
       dispatch(favoriteUserFlag(false));
-      dispatch(favoriteListFlag(false));
       dispatch(fetchFavoriteList(newFavoriteUsersList));
       localStorage.setItem('favorite', JSON.stringify(newFavoriteUsersList));
     } else {
