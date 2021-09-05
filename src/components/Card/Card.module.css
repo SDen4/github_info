@@ -134,6 +134,7 @@ a.card_user_info:hover {
 .star {
   display: inline-block;
   font-size: 24px;
+  line-height: 20px;
   color: #d3d3d3;
   transition: 0.3s;
 }
