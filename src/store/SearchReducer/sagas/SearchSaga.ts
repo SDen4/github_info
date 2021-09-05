@@ -23,7 +23,7 @@ import {
 import { API } from '../../../api/API';
 
 async function getUserInfo(login: string) {
-  const response = await API.get(`${login}`).then((res) => res.data);
+  const response = await API.get(`${login.trim()}`).then((res) => res.data);
   return response;
 }
 
