@@ -3,6 +3,7 @@
   border: 1px solid #d3d3d3;
   border-radius: 5px;
   padding: 10px 15px;
+  min-height: 38px;
   color: #d3d3d3;
   cursor: pointer;
   transition: 0.3s;
