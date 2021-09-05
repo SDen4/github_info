@@ -1,4 +1,12 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+
+import {
+  cardOPenedFlag,
+  reposOpenedListFlag,
+  userListOpenedFlag,
+} from '../../store/SearchReducer/actions';
+
 import { UserInnerType } from '../../store/SearchReducer/types';
 import UserItem from '../UserItem';
 
@@ -12,6 +20,14 @@ const UsersList: React.FC<IUsersList> = ({
   requestType,
   history,
 }) => {
+  const dispatch = useDispatch();
+
+  const loginBtnHandler = () => {
+    dispatch(userListOpenedFlag(false));
+    dispatch(reposOpenedListFlag(false));
+    dispatch(cardOPenedFlag(true));
+  };
+
   return (
     <div className={styles.list_wrapper}>
       {users.length ? (
@@ -26,7 +42,16 @@ const UsersList: React.FC<IUsersList> = ({
         <div className={styles.list_error}>
           <h2>
             It seems the user
-            <span className={styles.list_error_login}> {login} </span>
+            <span className={styles.list_error_login}>
+              {' '}
+              <button
+                type="button"
+                onClick={loginBtnHandler}
+                className={styles.card_login}
+              >
+                {login}
+              </button>{' '}
+            </span>
             hasn&#39;t any {requestType}
           </h2>
         </div>
