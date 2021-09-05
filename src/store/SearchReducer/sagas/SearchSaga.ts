@@ -37,8 +37,6 @@ function* sagaWorker(action: SearchSagaWorkerType) {
     yield put(loadingFlag(true));
 
     const allData: UserInnerType = yield getUserInfo(action.login);
-    // eslint-disable-next-line no-console
-    // console.log(allData);
 
     yield put(
       fetchLogin(

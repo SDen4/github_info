@@ -71,11 +71,19 @@ const Card: React.FC<CardType> = ({ user, favorites, favoriteUserStatus }) => {
       <div className={styles.card_element}>
         <div className={styles.card_sub_element}>
           {user.name ? (
-            <h2>
+            <a
+              href={`https://github.com/${user.login}`}
+              className={styles.card_login}
+            >
               {user.name} &#40;{user.login}&#41;
-            </h2>
+            </a>
           ) : (
-            <h2>{user.login}</h2>
+            <a
+              href={`https://github.com/${user.login}`}
+              className={styles.card_login}
+            >
+              {user.login}
+            </a>
           )}
         </div>
 

@@ -80,6 +80,18 @@ h3 {
   margin-bottom: 0;
 }
 
+.card_login {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ff8c00;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.card_login:hover {
+  color: tomato;
+}
+
 .card_user_info {
   border: 0;
   padding: 0;
@@ -139,6 +151,7 @@ a.card_user_info:hover {
   transition: 0.3s;
 }
 
-.star:hover, .star_active {
+.star:hover,
+.star_active {
   color: #ff8c00;
 }
