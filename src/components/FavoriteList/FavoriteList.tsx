@@ -50,13 +50,18 @@ const FavoriteList: React.FC<IFavoriteList> = ({
       <ol>
         {favoriteList.map((el) => (
           <li key={el}>
-            <button
-              className={styles.shl_button}
-              type="button"
-              onClick={() => searchHistoriListBtnHandler(el)}
-            >
-              {el}
-            </button>
+            <div className={styles.itemWrapper}>
+              <button
+                className={styles.shl_button}
+                type="button"
+                onClick={() => searchHistoriListBtnHandler(el)}
+              >
+                {el}
+              </button>
+              <button type="button" className={styles.deleteListItemBtn}>
+                {' '}
+              </button>
+            </div>
           </li>
         ))}
       </ol>
