@@ -9,7 +9,7 @@ import { ISearch } from './types';
 
 import styles from './SearchForm.module.css';
 
-const SearchForm: React.FC<ISearch> = ({ search, history }) => {
+const SearchForm: React.FC<ISearch> = ({ search, history, favoritesList }) => {
   const [searchLogin, setsearchLogin] = useState<string>('');
   const [disabledBtn, setDisabledBtn] = useState(true);
   const dispatch = useDispatch();
@@ -33,7 +33,7 @@ const SearchForm: React.FC<ISearch> = ({ search, history }) => {
 
   const onSubmitHandler = (event: React.SyntheticEvent) => {
     event.preventDefault();
-    dispatch(searchSaga(searchLogin, history));
+    dispatch(searchSaga(searchLogin, history, favoritesList));
 
     search(searchLogin);
 

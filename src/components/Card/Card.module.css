@@ -139,6 +139,6 @@ a.card_user_info:hover {
   transition: 0.3s;
 }
 
-.star:hover {
+.star:hover, .star_active {
   color: #ff8c00;
 }

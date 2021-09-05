@@ -20,11 +20,16 @@ import {
 
 import { IRepoItem, ISearhHistoryItem, UserInnerType } from './types';
 
-export const searchSaga = (login: string, history: ISearhHistoryItem[]) => {
+export const searchSaga = (
+  login: string,
+  history: ISearhHistoryItem[],
+  favoritesList?: string[],
+) => {
   return {
     type: SEARCH_LOGIN_SAGA,
     login,
     history,
+    favoritesList,
   } as const;
 };
 

@@ -14,6 +14,7 @@ import { ISearchHistoryModal } from './types';
 import styles from './Modal.module.css';
 import {
   favoriteListFlag,
+  favoriteUserFlag,
   fetchFavoriteList,
 } from '../../store/FavoriteReduser/actions';
 
@@ -28,6 +29,7 @@ const Modal: React.FC<ISearchHistoryModal> = ({ textModal, type }) => {
         localStorage.removeItem('saves');
       } else if (type === 'favorite') {
         dispatch(favoriteListFlag(false));
+        dispatch(favoriteUserFlag(false));
         dispatch(fetchFavoriteList([]));
         localStorage.removeItem('favorite');
       }

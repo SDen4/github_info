@@ -25,7 +25,7 @@ const FavoriteList: React.FC<IFavoriteList> = ({
     if (login === currentUserLogin) {
       return;
     }
-    dispatch(searchSaga(login, searchList));
+    dispatch(searchSaga(login, searchList, favoriteList));
   };
 
   const clearBtnHandler = () => {

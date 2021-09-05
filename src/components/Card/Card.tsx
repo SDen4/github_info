@@ -14,6 +14,8 @@ import {
   reposListSaga,
 } from '../../store/SearchReducer/actions';
 import {
+  favoriteUserFlag,
+  fetchFavoriteList,
   fetchFavoriteListAdd,
   setFavoriteBtnFlag,
 } from '../../store/FavoriteReduser/actions';
@@ -22,7 +24,7 @@ import { CardType } from './types';
 
 import styles from './Card.module.css';
 
-const Card: React.FC<CardType> = ({ user, favorites }) => {
+const Card: React.FC<CardType> = ({ user, favorites, favoriteUserStatus }) => {
   const dispatch = useDispatch();
 
   const onClickCloseBtnHandler = () => {
@@ -41,16 +43,20 @@ const Card: React.FC<CardType> = ({ user, favorites }) => {
   };
 
   const onClickAddBtnHandler = () => {
-    if (favorites.find((e) => e === user.login)) {
-      return;
+    if (favoriteUserStatus) {
+      const newFavoriteUsersList = favorites.filter((el) => el !== user.login);
+      dispatch(favoriteUserFlag(false));
+      dispatch(fetchFavoriteList(newFavoriteUsersList));
+      localStorage.setItem('favorite', JSON.stringify(newFavoriteUsersList));
+    } else {
+      dispatch(favoriteUserFlag(true));
+      dispatch(fetchFavoriteListAdd(user.login));
+      localStorage.setItem(
+        'favorite',
+        JSON.stringify([...favorites, user.login]),
+      );
+      dispatch(setFavoriteBtnFlag(true));
     }
-
-    dispatch(fetchFavoriteListAdd(user.login));
-    localStorage.setItem(
-      'favorite',
-      JSON.stringify([...favorites, user.login]),
-    );
-    dispatch(setFavoriteBtnFlag(true));
   };
 
   return (
@@ -158,7 +164,14 @@ const Card: React.FC<CardType> = ({ user, favorites }) => {
           className={styles.button}
           onClick={onClickAddBtnHandler}
         >
-          <span className={styles.star}>&#9733;</span>
+          <span
+            className={clsx(
+              favoriteUserStatus && styles.star_active,
+              styles.star,
+            )}
+          >
+            &#9733;
+          </span>
         </button>
         <CloseButton onClick={onClickCloseBtnHandler} />
       </div>

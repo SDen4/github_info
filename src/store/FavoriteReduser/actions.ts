@@ -5,6 +5,7 @@ import {
   FAVORITE_LIST_ADD,
   FAVORITE_LIST_SAGA,
   FAVORITE_LIST_FLAG,
+  FAVORITE_USER_FLAG,
 } from './constants';
 
 export const setFavoriteBtnFlag = (favoriteBtnFlag: boolean) => {
@@ -41,15 +42,24 @@ export const favoriteListFlag = (favoriteListFlag: boolean) => {
   } as const;
 };
 
+export const favoriteUserFlag = (favoriteUserFlag: boolean) => {
+  return {
+    type: FAVORITE_USER_FLAG,
+    favoriteUserFlag,
+  } as const;
+};
+
 type setFavoriteBtnFlagType = ReturnType<typeof setFavoriteBtnFlag>;
 type fetchFavoriteListType = ReturnType<typeof fetchFavoriteList>;
 type fetchFavoriteListAddType = ReturnType<typeof fetchFavoriteListAdd>;
 type getFavoriteListSagaType = ReturnType<typeof getFavoriteListSaga>;
 type favoriteListFlagType = ReturnType<typeof favoriteListFlag>;
+type favoriteUserFlagType = ReturnType<typeof favoriteUserFlag>;
 
 export type ActionsType =
   | setFavoriteBtnFlagType
   | fetchFavoriteListAddType
   | fetchFavoriteListType
   | getFavoriteListSagaType
-  | favoriteListFlagType;
+  | favoriteListFlagType
+  | favoriteUserFlagType;

@@ -18,6 +18,7 @@ import styles from './SearchHistoryList.module.css';
 const SearchHistoryList: React.FC<ISearchHistoryList> = ({
   searchList,
   currentUserLogin,
+  favoritesList,
 }) => {
   const dispatch = useDispatch();
 
@@ -25,7 +26,7 @@ const SearchHistoryList: React.FC<ISearchHistoryList> = ({
     if (login === currentUserLogin) {
       return;
     }
-    dispatch(searchSaga(login, searchList));
+    dispatch(searchSaga(login, searchList, favoritesList));
   };
 
   const closeBtnHandler = () => {
@@ -46,7 +47,7 @@ const SearchHistoryList: React.FC<ISearchHistoryList> = ({
 
   return (
     <div className={styles.shl_wrapper}>
-      <h3>Search history list</h3>
+      <h3>Search list</h3>
       <div className={styles.closeBtnWrapper}>
         <CloseButton onClick={closeBtnHandler} />
       </div>

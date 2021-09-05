@@ -1,6 +1,8 @@
 import { takeEvery, put } from 'redux-saga/effects';
 
 import { SEARCH_LOGIN_SAGA } from '../constants';
+
+import { favoriteUserFlag } from '../../FavoriteReduser/actions';
 import {
   cardOPenedFlag,
   errorFlag,
@@ -11,6 +13,7 @@ import {
   reposOpenedListFlag,
   userListOpenedFlag,
 } from '../actions';
+
 import {
   ISearhHistoryItem,
   SearchSagaWorkerType,
@@ -35,7 +38,7 @@ function* sagaWorker(action: SearchSagaWorkerType) {
 
     const allData: UserInnerType = yield getUserInfo(action.login);
     // eslint-disable-next-line no-console
-    console.log(allData);
+    // console.log(allData);
 
     yield put(
       fetchLogin(
@@ -54,6 +57,12 @@ function* sagaWorker(action: SearchSagaWorkerType) {
         allData.location,
       ),
     );
+
+    if (action.favoritesList?.find((el) => el === allData.login)) {
+      yield put(favoriteUserFlag(true));
+    } else {
+      yield put(favoriteUserFlag(false));
+    }
 
     const newHistoryItem: ISearhHistoryItem = yield {
       login: allData.login,

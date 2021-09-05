@@ -94,7 +94,11 @@ const Root: React.FC = () => {
           <section
             className={clsx(styles.root_section, styles.root_section_search)}
           >
-            <SearchForm search={search} history={storeData.searchHistory} />
+            <SearchForm
+              search={search}
+              history={storeData.searchHistory}
+              favoritesList={favorite.favoriteList}
+            />
 
             {(storeData.usersListOpened || storeData.reposListOpened) && (
               <button
@@ -109,7 +113,11 @@ const Root: React.FC = () => {
 
           {storeData.loading && <Loader />}
           {storeData.cardOpened && (
-            <Card user={storeData.user} favorites={favorite.favoriteList} />
+            <Card
+              user={storeData.user}
+              favorites={favorite.favoriteList}
+              favoriteUserStatus={favorite.favoriteUser}
+            />
           )}
           {storeData.usersListOpened && (
             <UsersList
@@ -134,6 +142,7 @@ const Root: React.FC = () => {
           >
             <SearchHistoryList
               searchList={storeData.searchHistory}
+              favoritesList={favorite.favoriteList}
               currentUserLogin={storeData.user.login}
             />
           </div>
