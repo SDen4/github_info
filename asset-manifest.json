@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/github_info/static/css/main.8061c9ea.chunk.css",
+    "main.css": "/github_info/static/css/main.665e9fb7.chunk.css",
     "main.js": "/github_info/static/js/main.a2f2d4e8.chunk.js",
     "main.js.map": "/github_info/static/js/main.a2f2d4e8.chunk.js.map",
     "runtime-main.js": "/github_info/static/js/runtime-main.4913d469.js",
@@ -8,7 +8,7 @@
     "static/js/2.f2c21a6d.chunk.js": "/github_info/static/js/2.f2c21a6d.chunk.js",
     "static/js/2.f2c21a6d.chunk.js.map": "/github_info/static/js/2.f2c21a6d.chunk.js.map",
     "index.html": "/github_info/index.html",
-    "static/css/main.8061c9ea.chunk.css.map": "/github_info/static/css/main.8061c9ea.chunk.css.map",
+    "static/css/main.665e9fb7.chunk.css.map": "/github_info/static/css/main.665e9fb7.chunk.css.map",
     "static/js/2.f2c21a6d.chunk.js.LICENSE.txt": "/github_info/static/js/2.f2c21a6d.chunk.js.LICENSE.txt",
     "static/media/Root.module.css": "/github_info/static/media/github-logo.198b40bb.png",
     "static/media/UserItem.module.css": "/github_info/static/media/unnamed.e1d04b92.jpg"
@@ -16,7 +16,7 @@
   "entrypoints": [
     "static/js/runtime-main.4913d469.js",
     "static/js/2.f2c21a6d.chunk.js",
-    "static/css/main.8061c9ea.chunk.css",
+    "static/css/main.665e9fb7.chunk.css",
     "static/js/main.a2f2d4e8.chunk.js"
   ]
 }
