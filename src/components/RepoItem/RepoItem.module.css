@@ -28,10 +28,11 @@
   align-items: flex-start;
   flex-direction: column;
   margin-right: 10px;
+  min-width: 90px;
 }
 
 .repoSubUnit span:last-child {
-  color: #FF8C00;
+  color: #ff8c00;
 }
 
 .repoItemUnit:last-child {
@@ -39,9 +40,9 @@
 }
 
 .repoItemLink {
-  color: #FF8C00;
+  color: #ff8c00;
   text-decoration: none;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .repoLink:hover {
