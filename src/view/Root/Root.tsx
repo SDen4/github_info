@@ -155,6 +155,8 @@ const Root: React.FC = () => {
               searchList={storeData.searchHistory}
               favoritesList={favorite.favoriteList}
               currentUserLogin={storeData.user.login}
+              userListOpened={storeData.usersListOpened}
+              reposListOpened={storeData.reposListOpened}
             />
           </div>
         )}
@@ -170,6 +172,8 @@ const Root: React.FC = () => {
               favoriteList={favorite.favoriteList}
               searchList={storeData.searchHistory}
               currentUserLogin={storeData.user.login}
+              userListOpened={storeData.usersListOpened}
+              reposListOpened={storeData.reposListOpened}
             />
           </div>
         )}

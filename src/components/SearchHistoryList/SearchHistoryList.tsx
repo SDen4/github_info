@@ -5,6 +5,9 @@ import {
   searchHistoryLIstFlag,
   modalFlag,
   searchSaga,
+  userListOpenedFlag,
+  reposOpenedListFlag,
+  cardOPenedFlag,
 } from '../../store/SearchReducer/actions';
 
 import CloseButton from '../../ui/CloseButton';
@@ -19,11 +22,21 @@ const SearchHistoryList: React.FC<ISearchHistoryList> = ({
   searchList,
   currentUserLogin,
   favoritesList,
+  userListOpened,
+  reposListOpened,
 }) => {
   const dispatch = useDispatch();
 
   const searchHistoriListBtnHandler = (login: string) => {
     if (login === currentUserLogin) {
+      if (userListOpened) {
+        dispatch(userListOpenedFlag(false));
+        dispatch(cardOPenedFlag(true));
+      }
+      if (reposListOpened) {
+        dispatch(reposOpenedListFlag(false));
+        dispatch(cardOPenedFlag(true));
+      }
       return;
     }
     dispatch(searchSaga(login, searchList, favoritesList));

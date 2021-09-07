@@ -4,4 +4,6 @@ export interface ISearchHistoryList {
   searchList: ISearhHistoryItem[];
   currentUserLogin: string;
   favoritesList: string[];
+  userListOpened: boolean;
+  reposListOpened: boolean;
 }

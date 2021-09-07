@@ -3,7 +3,13 @@ import { useDispatch } from 'react-redux';
 
 import CloseButton from '../../ui/CloseButton';
 
-import { modalFlag, searchSaga } from '../../store/SearchReducer/actions';
+import {
+  cardOPenedFlag,
+  modalFlag,
+  reposOpenedListFlag,
+  searchSaga,
+  userListOpenedFlag,
+} from '../../store/SearchReducer/actions';
 import {
   favoriteListFlag,
   favoriteUserFlag,
@@ -18,6 +24,8 @@ const FavoriteList: React.FC<IFavoriteList> = ({
   favoriteList,
   searchList,
   currentUserLogin,
+  userListOpened,
+  reposListOpened,
 }) => {
   const dispatch = useDispatch();
 
@@ -27,6 +35,14 @@ const FavoriteList: React.FC<IFavoriteList> = ({
 
   const searchHistoriListBtnHandler = (login: string) => {
     if (login === currentUserLogin) {
+      if (userListOpened) {
+        dispatch(userListOpenedFlag(false));
+        dispatch(cardOPenedFlag(true));
+      }
+      if (reposListOpened) {
+        dispatch(reposOpenedListFlag(false));
+        dispatch(cardOPenedFlag(true));
+      }
       return;
     }
     dispatch(searchSaga(login, searchList, favoriteList));
