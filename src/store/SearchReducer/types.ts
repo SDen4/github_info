@@ -35,6 +35,7 @@ export interface UserType {
   reposNum?: number;
   reposUrl?: string;
   location?: string;
+  lastActivityDate?: string;
 }
 
 export interface ISearhHistoryItem {

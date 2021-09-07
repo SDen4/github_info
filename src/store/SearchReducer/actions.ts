@@ -47,6 +47,7 @@ export const fetchLogin = (
   public_repos?: number,
   repos_url?: string,
   location?: string,
+  lastActivityDate?: string,
 ) => {
   return {
     type: FETCH_LOGIN,
@@ -63,6 +64,7 @@ export const fetchLogin = (
     public_repos,
     repos_url,
     location,
+    lastActivityDate,
   } as const;
 };
 

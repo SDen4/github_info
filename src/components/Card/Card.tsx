@@ -165,6 +165,15 @@ const Card: React.FC<CardType> = ({ user, favorites, favoriteUserStatus }) => {
             </div>
           </div>
         </div>
+
+        {user.lastActivityDate && (
+          <div className={styles.card_sub_element}>
+            <span>Last&nbsp;activity&nbsp;at:&nbsp;</span>
+            <div className={styles.card_user_info}>
+              {dateFormatter(new Date(user.lastActivityDate))}
+            </div>
+          </div>
+        )}
       </div>
 
       <div className={styles.closeBtnWrapper}>

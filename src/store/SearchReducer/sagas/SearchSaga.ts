@@ -27,6 +27,14 @@ async function getUserInfo(login: string) {
   return response;
 }
 
+async function getLastActivityDate(login: string) {
+  const response = await API.get(`${login.trim()}/events`)
+    .then((res) => res.data[0].created_at)
+    // eslint-disable-next-line no-console
+    .catch((error) => console.log(error));
+  return response;
+}
+
 function* sagaWorker(action: SearchSagaWorkerType) {
   try {
     yield put(errorFlag(false));
@@ -37,6 +45,7 @@ function* sagaWorker(action: SearchSagaWorkerType) {
     yield put(loadingFlag(true));
 
     const allData: UserInnerType = yield getUserInfo(action.login);
+    const lastActivityDate: string = yield getLastActivityDate(action.login);
 
     yield put(
       fetchLogin(
@@ -53,6 +62,7 @@ function* sagaWorker(action: SearchSagaWorkerType) {
         allData.public_repos,
         allData.repos_url,
         allData.location,
+        lastActivityDate,
       ),
     );
 

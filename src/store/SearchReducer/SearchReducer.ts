@@ -32,6 +32,7 @@ const initialState: InitialStateType = {
     reposNum: 0,
     reposUrl: '',
     location: '',
+    lastActivityDate: '',
   },
   usersList: [],
   reposList: [],
@@ -70,6 +71,7 @@ export const SearchReducer = (
           reposNum: action.public_repos,
           reposUrl: action.repos_url,
           location: action.location,
+          lastActivityDate: action.lastActivityDate,
         },
       };
 
