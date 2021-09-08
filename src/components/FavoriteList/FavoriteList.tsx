@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import CloseButton from '../../ui/CloseButton';
@@ -28,6 +28,9 @@ const FavoriteList: React.FC<IFavoriteList> = ({
   reposListOpened,
 }) => {
   const dispatch = useDispatch();
+
+  const [deleteModal, setDeleteModal] = useState<boolean>(false);
+  const [deletedElem, setDeletedElem] = useState<string>('');
 
   const closeBtnHandler = () => {
     dispatch(favoriteListFlag(false));
@@ -60,6 +63,11 @@ const FavoriteList: React.FC<IFavoriteList> = ({
     );
   };
 
+  const openDeleteModal = (delElem: string) => {
+    setDeleteModal(true);
+    setDeletedElem(delElem);
+  };
+
   const deleteBtnHandler = (delElem: string) => {
     const newFavoriteUsersList = favoriteList.filter((el) => el !== delElem);
     dispatch(fetchFavoriteList(newFavoriteUsersList));
@@ -67,6 +75,13 @@ const FavoriteList: React.FC<IFavoriteList> = ({
     if (currentUserLogin === delElem) {
       dispatch(favoriteUserFlag(false));
     }
+    setDeleteModal(false);
+    setDeletedElem('');
+  };
+
+  const cancelDelete = () => {
+    setDeleteModal(false);
+    setDeletedElem('');
   };
 
   return (
@@ -90,7 +105,7 @@ const FavoriteList: React.FC<IFavoriteList> = ({
               <button
                 type="button"
                 className={styles.deleteListItemBtn}
-                onClick={() => deleteBtnHandler(el)}
+                onClick={() => openDeleteModal(el)}
               >
                 {' '}
               </button>
@@ -106,6 +121,24 @@ const FavoriteList: React.FC<IFavoriteList> = ({
       >
         Delete all favorite users
       </button>
+
+      {deleteModal && (
+        <div className={styles.miniModal}>
+          <span>
+            Are you sure to delete user{' '}
+            <span className={styles.deletedUserLogin}>{deletedElem}</span> from
+            favorite list?
+          </span>
+          <div className={styles.btnsWrapper}>
+            <button type="button" onClick={() => deleteBtnHandler(deletedElem)}>
+              Delete
+            </button>
+            <button type="button" onClick={() => cancelDelete()}>
+              Cansel
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

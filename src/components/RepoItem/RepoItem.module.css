@@ -31,6 +31,10 @@
   min-width: 90px;
 }
 
+.repoSubUnit:last-child {
+  margin-right: 0;
+}
+
 .repoSubUnit span:last-child {
   color: #ff8c00;
 }

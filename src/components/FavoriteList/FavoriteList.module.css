@@ -102,3 +102,57 @@
   top: 7px;
   left: 2px;
 }
+.miniModal {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: rgba(55, 55, 55, 0.95);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.miniModal span {
+  text-align: center;
+}
+
+.btnsWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.btnsWrapper button {
+  padding: 10px 15px;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-right: 20px;
+  background-color: #ff8c00;
+  outline: none;
+  transition: 0.3s;
+}
+
+.btnsWrapper button:hover {
+  background-color: tomato;
+}
+
+.btnsWrapper button:last-child {
+  background: linear-gradient(rgb(0%, 39%, 0%, 1), rgba(0, 128, 0, 1));
+  opacity: 0.8;
+  margin-right: 0;
+}
+
+.btnsWrapper button:last-child:hover {
+  opacity: 1;
+}
+
+.deletedUserLogin {
+  color: #ff8c00;
+}
