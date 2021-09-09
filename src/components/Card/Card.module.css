@@ -155,3 +155,24 @@ a.card_user_info:hover {
 .star_active {
   color: #ff8c00;
 }
+
+.downloadBtn {
+  border: 1px solid #d3d3d3;
+  border-radius: 3px;
+  padding: 0 5px;
+  transition: 0.3s;
+}
+
+.downloadBtn span {
+  color: #d3d3d3;
+  font-size: 20px;
+  transition: 0.3s;
+}
+
+.downloadBtn:hover {
+  border: 1px solid #ff8c00;
+}
+
+.downloadBtn:hover span {
+  color: #ff8c00;
+}

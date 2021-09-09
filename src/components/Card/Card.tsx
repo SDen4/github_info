@@ -179,6 +179,13 @@ const Card: React.FC<CardType> = ({ user, favorites, favoriteUserStatus }) => {
       <div className={styles.closeBtnWrapper}>
         <button
           type="button"
+          className={clsx(styles.button, styles.downloadBtn)}
+        >
+          <span>&#10515;</span>
+        </button>
+
+        <button
+          type="button"
           className={styles.button}
           onClick={onClickAddBtnHandler}
         >
@@ -191,6 +198,7 @@ const Card: React.FC<CardType> = ({ user, favorites, favoriteUserStatus }) => {
             &#9733;
           </span>
         </button>
+
         <CloseButton onClick={onClickCloseBtnHandler} />
       </div>
     </div>
