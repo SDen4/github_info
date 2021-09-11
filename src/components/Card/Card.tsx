@@ -22,8 +22,10 @@ import {
 } from '../../store/FavoriteReduser/actions';
 
 import { CardType } from './types';
+import { UserType } from '../../store/SearchReducer/types';
 
 import styles from './Card.module.css';
+import { fileText } from './assets/fileText';
 
 const Card: React.FC<CardType> = ({ user, favorites, favoriteUserStatus }) => {
   const dispatch = useDispatch();
@@ -58,6 +60,25 @@ const Card: React.FC<CardType> = ({ user, favorites, favoriteUserStatus }) => {
       );
       dispatch(setFavoriteBtnFlag(true));
     }
+  };
+
+  const onDownloadHandler = (user: UserType) => {
+    let element = document.createElement('a');
+
+    const text = fileText(user);
+
+    element.setAttribute(
+      'href',
+      `data:text/plain;charset=utf-8,${encodeURIComponent(text)}`,
+    );
+    element.setAttribute('download', `${user.login}.doc`);
+
+    element.style.display = 'none';
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
   };
 
   return (
@@ -180,6 +201,7 @@ const Card: React.FC<CardType> = ({ user, favorites, favoriteUserStatus }) => {
         <button
           type="button"
           className={clsx(styles.button, styles.downloadBtn)}
+          onClick={() => onDownloadHandler(user)}
         >
           <span>&#10515;</span>
         </button>

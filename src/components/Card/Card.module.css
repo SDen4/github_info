@@ -159,7 +159,9 @@ a.card_user_info:hover {
 .downloadBtn {
   border: 1px solid #d3d3d3;
   border-radius: 3px;
-  padding: 0 5px;
+  padding: 0;
+  width: 22px;
+  height: 22px;
   transition: 0.3s;
 }
 
