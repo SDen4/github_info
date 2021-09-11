@@ -1,44 +1,51 @@
 /* eslint-disable indent */
 import { UserType } from '../../../store/SearchReducer/types';
 import { dateFormatter } from '../../../utils/dateFormatter';
+import { periodCounter } from '../../../utils/periodCounter';
 
 export const fileText = (user: UserType) => {
+  const noneVar = '-';
+
   return `
-    User information.
+    User information report for ${dateFormatter(new Date())}.
 
 
-    Login: ${user.login}, name: ${user.name || '-'}
+    Login: ${user.login}, name: ${user.name || noneVar}
     
     Followers quantity: ${user.followersNum}. Following quantity: ${
     user.followingNum
   }
 
-    Location: ${user.location || '?'}
+    Location: ${user.location || noneVar}
 
-    Company: ${user.company || '?'}
+    Company: ${user.company || noneVar}
 
-    Email: ${user.email || '?'}
+    Email: ${user.email || noneVar}
 
-    Date of creation Github account: ${dateFormatter(user.dataCreated) || '?'}
+    Date of creation Github account: ${
+      dateFormatter(user.dataCreated) || noneVar
+    }
+    (${periodCounter(user.dataCreated)})
 
     Date of last activity on Github: ${
       (user.lastActivityDate &&
         dateFormatter(new Date(user.lastActivityDate))) ||
-      '?'
+      noneVar
     }
 
-    Public repositories quantity: ${user.reposNum || '?'}
+    Public repositories quantity: ${user.reposNum || noneVar}
 
 
     Links.
     
-
-    Followers: ${user.followersUrl}
-
-    Following: ${user.followingUrl}
+    User page: https://github.com/${user.login}
 
     Repositories: ${user.reposUrl}
 
     Avatar: ${user.avatarUrl}
+
+    Followers: ${user.followersUrl}
+
+    Following: ${user.followingUrl}
     `;
 };
