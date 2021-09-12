@@ -69,7 +69,9 @@ const FavoriteList: React.FC<IFavoriteList> = ({
   };
 
   const deleteBtnHandler = (delElem: string) => {
-    const newFavoriteUsersList = favoriteList.filter((el) => el !== delElem);
+    const newFavoriteUsersList = favoriteList.filter(
+      (el) => el.name !== delElem,
+    );
     dispatch(fetchFavoriteList(newFavoriteUsersList));
     localStorage.setItem('favorite', JSON.stringify(newFavoriteUsersList));
     if (currentUserLogin === delElem) {
@@ -93,19 +95,19 @@ const FavoriteList: React.FC<IFavoriteList> = ({
 
       <ol>
         {favoriteList.map((el) => (
-          <li key={el}>
+          <li key={el.name}>
             <div className={styles.itemWrapper}>
               <button
                 className={styles.shl_button}
                 type="button"
-                onClick={() => searchHistoriListBtnHandler(el)}
+                onClick={() => searchHistoriListBtnHandler(el.name)}
               >
-                {el}
+                {el.name}
               </button>
               <button
                 type="button"
                 className={styles.deleteListItemBtn}
-                onClick={() => openDeleteModal(el)}
+                onClick={() => openDeleteModal(el.name)}
               >
                 {' '}
               </button>

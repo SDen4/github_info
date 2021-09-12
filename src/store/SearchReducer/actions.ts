@@ -1,4 +1,5 @@
 /* eslint-disable camelcase */
+import { FavoriteUser } from '../FavoriteReduser/types';
 import {
   SEARCH_LOGIN_SAGA,
   FETCH_LOGIN,
@@ -23,7 +24,7 @@ import { IRepoItem, ISearhHistoryItem, UserInnerType } from './types';
 export const searchSaga = (
   login: string,
   history: ISearhHistoryItem[],
-  favoritesList?: string[],
+  favoritesList?: FavoriteUser[],
 ) => {
   return {
     type: SEARCH_LOGIN_SAGA,

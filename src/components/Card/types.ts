@@ -1,7 +1,8 @@
+import { FavoriteUser } from '../../store/FavoriteReduser/types';
 import { UserType } from '../../store/SearchReducer/types';
 
 export interface CardType {
   user: UserType;
-  favorites: string[];
+  favorites: FavoriteUser[];
   favoriteUserStatus: boolean;
 }

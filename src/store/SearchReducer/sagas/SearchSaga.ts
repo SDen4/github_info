@@ -66,7 +66,7 @@ function* sagaWorker(action: SearchSagaWorkerType) {
       ),
     );
 
-    if (action.favoritesList?.find((el) => el === allData.login)) {
+    if (action.favoritesList?.find((el) => el.name === allData.login)) {
       yield put(favoriteUserFlag(true));
     } else {
       yield put(favoriteUserFlag(false));

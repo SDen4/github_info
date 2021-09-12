@@ -4,9 +4,11 @@ import { fetchFavoriteList } from '../actions';
 
 import { FAVORITE_LIST_SAGA } from '../constants';
 
+import { FavoriteUser } from '../types';
+
 function* sagaWorker() {
   try {
-    const saved: string[] = yield JSON.parse(
+    const saved: FavoriteUser[] = yield JSON.parse(
       localStorage.getItem('favorite') || '[]',
     );
 

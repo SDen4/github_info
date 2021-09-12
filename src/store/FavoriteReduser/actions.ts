@@ -8,6 +8,7 @@ import {
   FAVORITE_USER_FLAG,
   NOTE_FLAG,
 } from './constants';
+import { FavoriteUser } from './types';
 
 export const setFavoriteBtnFlag = (favoriteBtnFlag: boolean) => {
   return {
@@ -16,14 +17,14 @@ export const setFavoriteBtnFlag = (favoriteBtnFlag: boolean) => {
   } as const;
 };
 
-export const fetchFavoriteList = (favoriteList: string[]) => {
+export const fetchFavoriteList = (favoriteList: FavoriteUser[]) => {
   return {
     type: FAVORITE_LIST,
     favoriteList,
   } as const;
 };
 
-export const fetchFavoriteListAdd = (favoriteList: string) => {
+export const fetchFavoriteListAdd = (favoriteList: FavoriteUser) => {
   return {
     type: FAVORITE_LIST_ADD,
     favoriteList,

@@ -1,7 +1,8 @@
+import { FavoriteUser } from '../../store/FavoriteReduser/types';
 import { ISearhHistoryItem } from '../../store/SearchReducer/types';
 
 export interface IFavoriteList {
-  favoriteList: string[];
+  favoriteList: FavoriteUser[];
   searchList: ISearhHistoryItem[];
   currentUserLogin: string;
   userListOpened: boolean;

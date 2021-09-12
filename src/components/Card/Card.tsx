@@ -49,16 +49,19 @@ const Card: React.FC<CardType> = ({ user, favorites, favoriteUserStatus }) => {
 
   const onClickAddBtnHandler = () => {
     if (favoriteUserStatus) {
-      const newFavoriteUsersList = favorites.filter((el) => el !== user.login);
+      const newFavoriteUsersList = favorites.filter(
+        (el) => el.name !== user.login,
+      );
       dispatch(favoriteUserFlag(false));
       dispatch(fetchFavoriteList(newFavoriteUsersList));
       localStorage.setItem('favorite', JSON.stringify(newFavoriteUsersList));
     } else {
       dispatch(favoriteUserFlag(true));
-      dispatch(fetchFavoriteListAdd(user.login));
+      const newfavoriteUser = { name: user.login };
+      dispatch(fetchFavoriteListAdd(newfavoriteUser));
       localStorage.setItem(
         'favorite',
-        JSON.stringify([...favorites, user.login]),
+        JSON.stringify([...favorites, newfavoriteUser]),
       );
       dispatch(setFavoriteBtnFlag(true));
     }

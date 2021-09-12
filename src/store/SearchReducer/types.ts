@@ -1,4 +1,5 @@
 /* eslint-disable camelcase */
+import { FavoriteUser } from '../FavoriteReduser/types';
 import {
   SEARCH_LOGIN_SAGA,
   FETCH_USERS_LIST_SAGA,
@@ -73,7 +74,7 @@ export interface SearchSagaWorkerType {
   type: typeof SEARCH_LOGIN_SAGA;
   login: string;
   history: ISearhHistoryItem[];
-  favoritesList?: string[];
+  favoritesList?: FavoriteUser[];
 }
 
 export interface IFetchUsersListSagaWorker {

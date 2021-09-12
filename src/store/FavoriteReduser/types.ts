@@ -1,7 +1,12 @@
+export interface FavoriteUser {
+  name: string;
+  note?: string;
+}
+
 export interface InitialFavoriteStateType {
   favoriteBtnFlag: boolean;
   favoriteListFlag: boolean;
-  favoriteList: string[];
+  favoriteList: FavoriteUser[];
   favoriteUser: boolean;
   noteFlag: boolean;
 }
