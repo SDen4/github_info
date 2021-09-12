@@ -132,7 +132,7 @@ const Root: React.FC = () => {
                 favoriteUserStatus={favorite.favoriteUser}
               />
 
-              <Note />
+              {favorite.noteFlag && <Note />}
             </>
           )}
           {storeData.usersListOpened && (

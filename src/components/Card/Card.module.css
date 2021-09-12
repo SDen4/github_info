@@ -178,3 +178,19 @@ a.card_user_info:hover {
 .downloadBtn:hover span {
   color: #ff8c00;
 }
+
+.addNoteBtn {
+  padding: 0;
+}
+
+.addNoteBtn span {
+  color: #d3d3d3;
+  font-size: 28px;
+  margin-right: 8px;
+  margin-top: -2px;
+  transition: 0.3s;
+}
+
+.addNoteBtn:hover span {
+  color: #ff8c00;
+}

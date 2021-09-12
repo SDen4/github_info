@@ -3,4 +3,5 @@ export interface InitialFavoriteStateType {
   favoriteListFlag: boolean;
   favoriteList: string[];
   favoriteUser: boolean;
+  noteFlag: boolean;
 }

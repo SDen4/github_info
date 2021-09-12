@@ -18,6 +18,7 @@ import {
   favoriteUserFlag,
   fetchFavoriteList,
   fetchFavoriteListAdd,
+  noteFlag,
   setFavoriteBtnFlag,
 } from '../../store/FavoriteReduser/actions';
 
@@ -80,6 +81,10 @@ const Card: React.FC<CardType> = ({ user, favorites, favoriteUserStatus }) => {
     element.click();
 
     document.body.removeChild(element);
+  };
+
+  const addNoteHandler = () => {
+    dispatch(noteFlag(true));
   };
 
   return (
@@ -199,6 +204,14 @@ const Card: React.FC<CardType> = ({ user, favorites, favoriteUserStatus }) => {
       </div>
 
       <div className={styles.closeBtnWrapper}>
+        <button
+          type="button"
+          className={clsx(styles.button, styles.addNoteBtn)}
+          onClick={addNoteHandler}
+        >
+          <span>🗎</span>
+        </button>
+
         <button
           type="button"
           className={clsx(styles.button, styles.downloadBtn)}
