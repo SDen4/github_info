@@ -29,7 +29,12 @@ import { fileText } from './assets/fileText';
 
 import styles from './Card.module.css';
 
-const Card: React.FC<CardType> = ({ user, favorites, favoriteUserStatus }) => {
+const Card: React.FC<CardType> = ({
+  user,
+  favorites,
+  favoriteUserStatus,
+  noteUserStatus,
+}) => {
   const dispatch = useDispatch();
 
   const onClickCloseBtnHandler = () => {
@@ -209,7 +214,11 @@ const Card: React.FC<CardType> = ({ user, favorites, favoriteUserStatus }) => {
       <div className={styles.closeBtnWrapper}>
         <button
           type="button"
-          className={clsx(styles.button, styles.addNoteBtn)}
+          className={clsx(
+            noteUserStatus && styles.buttonActive,
+            styles.button,
+            styles.addNoteBtn,
+          )}
           onClick={addNoteHandler}
         >
           <span>🗎</span>

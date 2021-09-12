@@ -2,7 +2,11 @@ import { takeEvery, put } from 'redux-saga/effects';
 
 import { SEARCH_LOGIN_SAGA } from '../constants';
 
-import { favoriteUserFlag } from '../../FavoriteReduser/actions';
+import {
+  favoriteUserFlag,
+  noteBtnFlag,
+  noteSave,
+} from '../../FavoriteReduser/actions';
 import {
   cardOPenedFlag,
   errorFlag,
@@ -41,6 +45,8 @@ function* sagaWorker(action: SearchSagaWorkerType) {
     yield put(userListOpenedFlag(false));
     yield put(cardOPenedFlag(false));
     yield put(reposOpenedListFlag(false));
+    yield put(noteBtnFlag(false));
+    yield put(noteSave(''));
     yield put(fetchReposList([]));
     yield put(loadingFlag(true));
 
@@ -68,6 +74,16 @@ function* sagaWorker(action: SearchSagaWorkerType) {
 
     if (action.favoritesList?.find((el) => el.name === allData.login)) {
       yield put(favoriteUserFlag(true));
+
+      if (action.favoritesList?.find((el) => el.note !== '')) {
+        yield put(noteBtnFlag(true));
+        const noteToWrite: string = yield action.favoritesList?.find(
+          (el) => el.name === action.login,
+        )?.note;
+        yield put(noteSave(noteToWrite));
+      } else {
+        yield put(noteBtnFlag(false));
+      }
     } else {
       yield put(favoriteUserFlag(false));
     }

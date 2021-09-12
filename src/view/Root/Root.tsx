@@ -3,9 +3,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
 import Card from '../../components/Card';
+import Note from '../../components/Note';
 import Error from '../../components/Error';
+import Modal from '../../components/Modal';
+import ReposList from '../../components/ReposList';
 import UsersList from '../../components/UsersList';
 import SearchForm from '../../components/SearchForm';
+import FavoriteList from '../../components/FavoriteList';
+import FavoriteButton from '../../components/FavoriteButton';
 import SearchHistoryList from '../../components/SearchHistoryList';
 import SearchHistoryHeader from '../../components/SearchHistoryHeader';
 import Loader from '../../ui/Loader';
@@ -17,21 +22,15 @@ import {
   reposOpenedListFlag,
   userListOpenedFlag,
 } from '../../store/SearchReducer/actions';
-
-import { InitialStateType } from '../../store/SearchReducer/types';
-import { InitialFavoriteStateType } from '../../store/FavoriteReduser/types';
 import {
   favoriteListFlag,
   getFavoriteListSaga,
 } from '../../store/FavoriteReduser/actions';
 
-import ReposList from '../../components/ReposList';
-import FavoriteList from '../../components/FavoriteList';
-import FavoriteButton from '../../components/FavoriteButton';
-import Modal from '../../components/Modal';
+import { InitialStateType } from '../../store/SearchReducer/types';
+import { InitialFavoriteStateType } from '../../store/FavoriteReduser/types';
 
 import styles from './Root.module.css';
-import Note from '../../components/Note';
 
 const Root: React.FC = () => {
   const dispatch = useDispatch();
@@ -130,9 +129,16 @@ const Root: React.FC = () => {
                 user={storeData.user}
                 favorites={favorite.favoriteList}
                 favoriteUserStatus={favorite.favoriteUser}
+                noteUserStatus={favorite.noteBtnFlag}
               />
 
-              {favorite.noteFlag && <Note />}
+              {favorite.noteFlag && (
+                <Note
+                  note={favorite.note}
+                  login={storeData.user.login}
+                  favorites={favorite.favoriteList}
+                />
+              )}
             </>
           )}
           {storeData.usersListOpened && (

@@ -6,3 +6,5 @@ export const FAVORITE_LIST = 'FAVORITE_LIST';
 export const FAVORITE_USER_FLAG = 'FAVORITE_USER_FLAG';
 
 export const NOTE_FLAG = 'NOTE_FLAG';
+export const NOTE_BTN_FLAG = 'NOTE_BTN_FLAG';
+export const NOTE_SAVE = 'NOTE_SAVE';

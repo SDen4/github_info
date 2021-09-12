@@ -7,6 +7,8 @@ import {
   FAVORITE_LIST_FLAG,
   FAVORITE_USER_FLAG,
   NOTE_FLAG,
+  NOTE_SAVE,
+  NOTE_BTN_FLAG,
 } from './constants';
 import { FavoriteUser } from './types';
 
@@ -58,6 +60,20 @@ export const noteFlag = (noteFlag: boolean) => {
   } as const;
 };
 
+export const noteSave = (note: string) => {
+  return {
+    type: NOTE_SAVE,
+    note,
+  } as const;
+};
+
+export const noteBtnFlag = (noteBtnFlag: boolean) => {
+  return {
+    type: NOTE_BTN_FLAG,
+    noteBtnFlag,
+  } as const;
+};
+
 type setFavoriteBtnFlagType = ReturnType<typeof setFavoriteBtnFlag>;
 type fetchFavoriteListType = ReturnType<typeof fetchFavoriteList>;
 type fetchFavoriteListAddType = ReturnType<typeof fetchFavoriteListAdd>;
@@ -65,6 +81,8 @@ type getFavoriteListSagaType = ReturnType<typeof getFavoriteListSaga>;
 type favoriteListFlagType = ReturnType<typeof favoriteListFlag>;
 type favoriteUserFlagType = ReturnType<typeof favoriteUserFlag>;
 type noteFlagType = ReturnType<typeof noteFlag>;
+type noteSaveType = ReturnType<typeof noteSave>;
+type noteBtnFlagType = ReturnType<typeof noteBtnFlag>;
 
 export type ActionsType =
   | setFavoriteBtnFlagType
@@ -73,4 +91,6 @@ export type ActionsType =
   | getFavoriteListSagaType
   | favoriteListFlagType
   | favoriteUserFlagType
-  | noteFlagType;
+  | noteFlagType
+  | noteSaveType
+  | noteBtnFlagType;

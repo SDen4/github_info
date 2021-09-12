@@ -5,6 +5,8 @@ import {
   FAVORITE_LIST,
   FAVORITE_USER_FLAG,
   NOTE_FLAG,
+  NOTE_SAVE,
+  NOTE_BTN_FLAG,
 } from './constants';
 
 import { InitialFavoriteStateType } from './types';
@@ -17,6 +19,8 @@ const InitialState: InitialFavoriteStateType = {
   favoriteList: [],
   favoriteUser: false,
   noteFlag: false,
+  noteBtnFlag: false,
+  note: '',
 };
 
 export const FavoriteReducer = (
@@ -59,6 +63,12 @@ export const FavoriteReducer = (
         ...state,
         noteFlag: action.noteFlag,
       };
+
+    case NOTE_SAVE:
+      return { ...state, note: action.note };
+
+    case NOTE_BTN_FLAG:
+      return { ...state, noteBtnFlag: action.noteBtnFlag };
 
     default:
       return state;
