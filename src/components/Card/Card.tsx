@@ -24,8 +24,9 @@ import {
 import { CardType } from './types';
 import { UserType } from '../../store/SearchReducer/types';
 
-import styles from './Card.module.css';
 import { fileText } from './assets/fileText';
+
+import styles from './Card.module.css';
 
 const Card: React.FC<CardType> = ({ user, favorites, favoriteUserStatus }) => {
   const dispatch = useDispatch();
