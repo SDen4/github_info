@@ -31,6 +31,7 @@ import FavoriteButton from '../../components/FavoriteButton';
 import Modal from '../../components/Modal';
 
 import styles from './Root.module.css';
+import Note from '../../components/Note';
 
 const Root: React.FC = () => {
   const dispatch = useDispatch();
@@ -124,11 +125,15 @@ const Root: React.FC = () => {
 
           {storeData.loading && <Loader />}
           {storeData.cardOpened && (
-            <Card
-              user={storeData.user}
-              favorites={favorite.favoriteList}
-              favoriteUserStatus={favorite.favoriteUser}
-            />
+            <>
+              <Card
+                user={storeData.user}
+                favorites={favorite.favoriteList}
+                favoriteUserStatus={favorite.favoriteUser}
+              />
+
+              <Note />
+            </>
           )}
           {storeData.usersListOpened && (
             <UsersList
