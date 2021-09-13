@@ -3,7 +3,7 @@ import { UserType } from '../../../store/SearchReducer/types';
 import { dateFormatter } from '../../../utils/dateFormatter';
 import { periodCounter } from '../../../utils/periodCounter';
 
-export const fileText = (user: UserType) => {
+export const fileText = (user: UserType, note: string) => {
   const noneVar = '-';
 
   return `
@@ -47,5 +47,10 @@ export const fileText = (user: UserType) => {
     Followers: ${user.followersUrl}
 
     Following: ${user.followingUrl}
+
+    
+    Your notes:
+
+    "${note}"
     `;
 };

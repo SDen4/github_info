@@ -23,7 +23,6 @@ import {
 } from '../../store/FavoriteReduser/actions';
 
 import { CardType } from './types';
-import { UserType } from '../../store/SearchReducer/types';
 
 import { fileText } from './assets/fileText';
 
@@ -34,6 +33,7 @@ const Card: React.FC<CardType> = ({
   favorites,
   favoriteUserStatus,
   noteUserStatus,
+  note,
 }) => {
   const dispatch = useDispatch();
 
@@ -72,10 +72,10 @@ const Card: React.FC<CardType> = ({
     }
   };
 
-  const onDownloadHandler = (user: UserType) => {
+  const onDownloadHandler = () => {
     let element = document.createElement('a');
 
-    const text = fileText(user);
+    const text = fileText(user, note);
 
     element.setAttribute(
       'href',
@@ -227,7 +227,7 @@ const Card: React.FC<CardType> = ({
         <button
           type="button"
           className={clsx(styles.button, styles.downloadBtn)}
-          onClick={() => onDownloadHandler(user)}
+          onClick={onDownloadHandler}
         >
           <span>&#10515;</span>
         </button>

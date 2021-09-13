@@ -130,6 +130,7 @@ const Root: React.FC = () => {
                 favorites={favorite.favoriteList}
                 favoriteUserStatus={favorite.favoriteUser}
                 noteUserStatus={favorite.noteBtnFlag}
+                note={favorite.note}
               />
 
               {favorite.noteFlag && (

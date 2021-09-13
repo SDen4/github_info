@@ -6,4 +6,5 @@ export interface CardType {
   favorites: FavoriteUser[];
   favoriteUserStatus: boolean;
   noteUserStatus: boolean;
+  note: string;
 }
