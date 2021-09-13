@@ -221,7 +221,7 @@ const Card: React.FC<CardType> = ({
           )}
           onClick={addNoteHandler}
         >
-          <span>🗎</span>
+          <span>&#9998;</span>
         </button>
 
         <button
