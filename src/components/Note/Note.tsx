@@ -57,6 +57,11 @@ const Note: React.FC<INote> = ({ login, favorites, note }) => {
     dispatch(setFavoriteBtnFlag(true));
   };
 
+  const onDeleteHandler = () => {
+    setValue('');
+    ref.current.focus();
+  };
+
   return (
     <div className={styles.component}>
       <form className={styles.form} onSubmit={onSubmitHandler}>
@@ -65,6 +70,17 @@ const Note: React.FC<INote> = ({ login, favorites, note }) => {
           <button type="button" onClick={onCancelHandler}>
             Cancel
           </button>
+
+          {value && (
+            <button
+              type="button"
+              className={styles.button_delete}
+              onClick={onDeleteHandler}
+            >
+              Delete
+            </button>
+          )}
+
           <button
             type="submit"
             className={clsx(!value && styles.button_unactive)}
