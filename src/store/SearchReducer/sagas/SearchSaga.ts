@@ -74,18 +74,23 @@ function* sagaWorker(action: SearchSagaWorkerType) {
 
     if (action.favoritesList?.find((el) => el.name === allData.login)) {
       yield put(favoriteUserFlag(true));
-
-      if (action.favoritesList?.find((el) => el.note !== '')) {
-        yield put(noteBtnFlag(true));
-        const noteToWrite: string = yield action.favoritesList?.find(
-          (el) => el.name === action.login,
-        )?.note;
-        yield put(noteSave(noteToWrite));
-      } else {
-        yield put(noteBtnFlag(false));
-      }
     } else {
       yield put(favoriteUserFlag(false));
+    }
+
+    if (
+      action.favoritesList?.find((el) => el.name === allData.login)?.note
+        ?.length
+    ) {
+      yield put(noteBtnFlag(true));
+
+      const noteToWrite: string = yield action.favoritesList?.find(
+        (el) => el.name === action.login,
+      )?.note;
+
+      yield put(noteSave(noteToWrite));
+    } else {
+      yield put(noteBtnFlag(false));
     }
 
     const newHistoryItem: ISearhHistoryItem = yield {

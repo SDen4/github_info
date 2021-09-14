@@ -4,6 +4,7 @@ import clsx from 'clsx';
 
 import {
   favoriteUserFlag,
+  fetchFavoriteList,
   fetchFavoriteListAdd,
   noteBtnFlag,
   noteFlag,
@@ -24,6 +25,7 @@ const Note: React.FC<INote> = ({ login, favorites, note }) => {
   }, []);
 
   const [value, setValue] = useState<string>(note);
+  const [isModalOpened, setIsModalOpened] = useState<boolean>(false);
 
   const onChangeHandler: React.ChangeEventHandler<HTMLTextAreaElement> = (
     event,
@@ -47,19 +49,37 @@ const Note: React.FC<INote> = ({ login, favorites, note }) => {
     dispatch(noteBtnFlag(true));
     setValue('');
 
-    dispatch(favoriteUserFlag(true));
     const newfavoriteUser = { name: login, note: value };
     dispatch(fetchFavoriteListAdd(newfavoriteUser));
     localStorage.setItem(
       'favorite',
       JSON.stringify([...favorites, newfavoriteUser]),
     );
+
+    dispatch(favoriteUserFlag(true));
     dispatch(setFavoriteBtnFlag(true));
   };
 
-  const onDeleteHandler = () => {
-    setValue('');
-    ref.current.focus();
+  const onBtnModalHandler = (action: boolean) => {
+    if (action) {
+      setValue('');
+
+      const newfavoriteUserList = favorites.map((el) => {
+        if (el.name === login) {
+          return { name: login };
+        }
+        return el;
+      });
+
+      localStorage.setItem('favorite', JSON.stringify(newfavoriteUserList));
+
+      dispatch(noteSave(''));
+      dispatch(fetchFavoriteList(newfavoriteUserList));
+      dispatch(noteFlag(false));
+      dispatch(noteBtnFlag(false));
+    } else {
+      setIsModalOpened(false);
+    }
   };
 
   return (
@@ -75,7 +95,7 @@ const Note: React.FC<INote> = ({ login, favorites, note }) => {
             <button
               type="button"
               className={styles.button_delete}
-              onClick={onDeleteHandler}
+              onClick={() => setIsModalOpened(true)}
             >
               Delete
             </button>
@@ -90,6 +110,20 @@ const Note: React.FC<INote> = ({ login, favorites, note }) => {
           </button>
         </div>
       </form>
+
+      {isModalOpened && (
+        <div className={styles.noteModal}>
+          <span>Are you sure to delete note?</span>
+          <div className={styles.btnsModalWrapper}>
+            <button type="button" onClick={() => onBtnModalHandler(true)}>
+              Delete
+            </button>
+            <button type="button" onClick={() => onBtnModalHandler(false)}>
+              Cansel
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

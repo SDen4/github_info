@@ -1,5 +1,6 @@
 .component {
   display: flex;
+  position: relative;
   box-sizing: border-box;
   width: 100%;
   padding: 15px 20px;
@@ -25,7 +26,7 @@
   max-width: 100%;
   min-height: 200px;
   max-height: 200px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   padding: 10px 20px;
   border-radius: 5px;
   border: 1px solid #d3d3d3;
@@ -87,4 +88,50 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+}
+
+.noteModal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(211, 211, 211, 0.7);
+}
+
+.btnsModalWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.btnsModalWrapper button {
+  padding: 10px 15px;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-right: 20px;
+  background-color: #ff8c00;
+  outline: none;
+  transition: 0.3s;
+}
+
+.btnsModalWrapper button:hover {
+  background-color: tomato;
+}
+
+.btnsModalWrapper button:last-child {
+  background: linear-gradient(rgb(0%, 39%, 0%, 1), rgba(0, 128, 0, 1));
+  opacity: 0.8;
+  margin-right: 0;
+}
+
+.btnsModalWrapper button:last-child:hover {
+  opacity: 1;
 }
