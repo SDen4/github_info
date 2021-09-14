@@ -44,20 +44,40 @@ const Note: React.FC<INote> = ({ login, favorites, note }) => {
   const onSubmitHandler = (event: React.SyntheticEvent) => {
     event.preventDefault();
 
-    dispatch(noteSave(value));
-    dispatch(noteFlag(false));
-    dispatch(noteBtnFlag(true));
-    setValue('');
+    if (favorites.find((el) => el.name === login)) {
+      // user is in favorites yet
 
-    const newfavoriteUser = { name: login, note: value };
-    dispatch(fetchFavoriteListAdd(newfavoriteUser));
-    localStorage.setItem(
-      'favorite',
-      JSON.stringify([...favorites, newfavoriteUser]),
-    );
+      dispatch(noteSave(value));
+      dispatch(noteFlag(false));
+      dispatch(noteBtnFlag(true));
+      setValue('');
 
-    dispatch(favoriteUserFlag(true));
-    dispatch(setFavoriteBtnFlag(true));
+      const newfavoriteUser = { name: login, note: value };
+      const findUser: any = favorites.find((el) => el.name === login);
+      const index = favorites.indexOf(findUser);
+      const newFavorites = [...favorites];
+      newFavorites[index] = newfavoriteUser;
+
+      dispatch(fetchFavoriteList(newFavorites));
+      localStorage.setItem('favorite', JSON.stringify(newFavorites));
+    } else {
+      // user isn't in favorites yet
+
+      dispatch(noteSave(value));
+      dispatch(noteFlag(false));
+      dispatch(noteBtnFlag(true));
+      setValue('');
+
+      const newfavoriteUser = { name: login, note: value };
+      dispatch(fetchFavoriteListAdd(newfavoriteUser));
+      localStorage.setItem(
+        'favorite',
+        JSON.stringify([...favorites, newfavoriteUser]),
+      );
+
+      dispatch(favoriteUserFlag(true));
+      dispatch(setFavoriteBtnFlag(true));
+    }
   };
 
   const onBtnModalHandler = (action: boolean) => {
