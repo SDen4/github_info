@@ -133,7 +133,10 @@ const Note: React.FC<INote> = ({ login, favorites, note }) => {
 
       {isModalOpened && (
         <div className={styles.noteModal}>
-          <span>Are you sure to delete note?</span>
+          <span>
+            Are you sure to delete the note of{' '}
+            <span className={styles.colorText}>{login}</span>?
+          </span>
           <div className={styles.btnsModalWrapper}>
             <button type="button" onClick={() => onBtnModalHandler(true)}>
               Delete

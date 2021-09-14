@@ -135,3 +135,8 @@
 .btnsModalWrapper button:last-child:hover {
   opacity: 1;
 }
+
+.colorText {
+  font-weight: bold;
+  color: #ff8c00;
+}
