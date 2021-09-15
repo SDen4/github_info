@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import clsx from 'clsx';
 
 import CloseButton from '../../ui/CloseButton';
 
@@ -109,10 +110,10 @@ const FavoriteList: React.FC<IFavoriteList> = ({
 
               <button
                 type="button"
-                className={styles.deleteListItemBtn}
+                className={clsx(styles.deleteListItemBtn, styles.tooltip)}
                 onClick={() => openDeleteModal(el.name)}
               >
-                {' '}
+                <div className={styles.tooltipText}>Delete</div>
               </button>
             </div>
           </li>

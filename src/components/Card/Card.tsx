@@ -218,23 +218,28 @@ const Card: React.FC<CardType> = ({
             noteUserStatus && styles.buttonActive,
             styles.button,
             styles.addNoteBtn,
+            styles.tooltip,
           )}
           onClick={addNoteHandler}
         >
           <span>&#9998;</span>
+          <div className={styles.tooltipText}>
+            {noteUserStatus ? 'Show note' : 'Add note'}
+          </div>
         </button>
 
         <button
           type="button"
-          className={clsx(styles.button, styles.downloadBtn)}
+          className={clsx(styles.button, styles.downloadBtn, styles.tooltip)}
           onClick={onDownloadHandler}
         >
           <span>&#10515;</span>
+          <div className={styles.tooltipText}>Download .doc file</div>
         </button>
 
         <button
           type="button"
-          className={styles.button}
+          className={clsx(styles.button, styles.tooltip)}
           onClick={onClickAddBtnHandler}
         >
           <span
@@ -245,6 +250,9 @@ const Card: React.FC<CardType> = ({
           >
             &#9733;
           </span>
+          <div className={styles.tooltipText}>
+            {favoriteUserStatus ? 'Remove from favorites' : 'Add to favorites'}
+          </div>
         </button>
 
         <CloseButton onClick={onClickCloseBtnHandler} />

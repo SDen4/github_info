@@ -199,3 +199,24 @@ a.card_user_info:hover {
 .buttonActive span {
   color: #ff8c00;
 }
+
+.tooltip {
+  position: relative;
+}
+.tooltip:hover .tooltipText {
+  opacity: 1;
+  right: 30px;
+}
+.tooltip .tooltipText {
+  position: absolute;
+  top: 30px;
+  right: 999px;
+  padding: 5px;
+  border-radius: 8px;
+  background-color: rgba(211, 211, 211, 0.7);
+  color: black;
+  font-size: 13px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.5s;
+}

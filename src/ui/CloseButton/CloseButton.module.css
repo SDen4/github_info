@@ -9,20 +9,21 @@
 }
 
 .close_btn:hover.close_btn:after {
-  background-color:tomato;
+  background-color: tomato;
 }
 .close_btn:hover.close_btn:before {
-  background-color:tomato;
+  background-color: tomato;
 }
 
-.close_btn:after, .close_btn:before {
-  transition: .3s;
-  content: "";
+.close_btn:after,
+.close_btn:before {
+  transition: 0.3s;
+  content: '';
   display: block;
   width: 20px;
   height: 3px;
   border-radius: 2px;
-  background-color: #FF8C00;
+  background-color: #ff8c00;
   position: absolute;
   top: 8px;
   left: 0;
@@ -31,4 +32,25 @@
 
 .close_btn:before {
   transform: rotate(-45deg);
+}
+
+.tooltip {
+  position: relative;
+}
+.tooltip:hover .tooltipText {
+  opacity: 1;
+  right: 20px;
+}
+.tooltip .tooltipText {
+  position: absolute;
+  top: 25px;
+  right: 9999px;
+  padding: 5px;
+  border-radius: 8px;
+  background-color: rgba(211, 211, 211, 0.7);
+  color: black;
+  font-size: 13px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.7s;
 }
