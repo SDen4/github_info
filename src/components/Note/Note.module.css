@@ -140,3 +140,15 @@
   font-weight: bold;
   color: #ff8c00;
 }
+
+.formBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.lettersQuantity {
+  color: #d3d3d3;
+  font-size: 16px;
+}

@@ -106,28 +106,34 @@ const Note: React.FC<INote> = ({ login, favorites, note }) => {
     <div className={styles.component}>
       <form className={styles.form} onSubmit={onSubmitHandler}>
         <textarea onChange={onChangeHandler} value={value} ref={ref} />
-        <div className={styles.btnsWrapper}>
-          <button type="button" onClick={onCancelHandler}>
-            Cancel
-          </button>
 
-          {value && (
-            <button
-              type="button"
-              className={styles.button_delete}
-              onClick={() => setIsModalOpened(true)}
-            >
-              Delete
+        <div className={styles.formBottom}>
+          <div className={styles.lettersQuantity}>
+            {value.length ? `Characters: ${value.length}` : ''}
+          </div>
+          <div className={styles.btnsWrapper}>
+            <button type="button" onClick={onCancelHandler}>
+              Cancel
             </button>
-          )}
 
-          <button
-            type="submit"
-            className={clsx(!value && styles.button_unactive)}
-            disabled={!value}
-          >
-            Save and add to favorites
-          </button>
+            {value && (
+              <button
+                type="button"
+                className={styles.button_delete}
+                onClick={() => setIsModalOpened(true)}
+              >
+                Delete
+              </button>
+            )}
+
+            <button
+              type="submit"
+              className={clsx(!value && styles.button_unactive)}
+              disabled={!value}
+            >
+              Save and add to favorites
+            </button>
+          </div>
         </div>
       </form>
 
