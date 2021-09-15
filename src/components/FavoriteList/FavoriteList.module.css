@@ -156,3 +156,8 @@
 .deletedUserLogin {
   color: #ff8c00;
 }
+
+.icon {
+  margin: -6px 0 0 3px;
+  font-size: 12px;
+}

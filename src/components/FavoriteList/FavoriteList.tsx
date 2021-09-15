@@ -104,6 +104,9 @@ const FavoriteList: React.FC<IFavoriteList> = ({
               >
                 {el.name}
               </button>
+
+              {el.note && <div className={styles.icon}>&#9998;</div>}
+
               <button
                 type="button"
                 className={styles.deleteListItemBtn}
