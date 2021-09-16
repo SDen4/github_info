@@ -128,7 +128,7 @@ a.card_user_info:hover {
   justify-content: flex-start;
   align-items: center;
   position: absolute;
-  top: 6px;
+  top: 0;
   right: 10px;
 }
 
