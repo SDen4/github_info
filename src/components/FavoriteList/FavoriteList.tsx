@@ -87,6 +87,24 @@ const FavoriteList: React.FC<IFavoriteList> = ({
     setDeletedElem('');
   };
 
+  const onDownloadHandler = () => {
+    // let element = document.createElement('a');
+    // const usersArr = favoriteList.map((el) => {
+    //   console.log(el);
+    //   return fileText(el, el.note);
+    // });
+    // const text = fileText(user, note);
+    // element.setAttribute(
+    //   'href',
+    //   `data:text/plain;charset=utf-8,${encodeURIComponent(text)}`,
+    // );
+    // element.setAttribute('download', `${user.login}.doc`);
+    // element.style.display = 'none';
+    // document.body.appendChild(element);
+    // element.click();
+    // document.body.removeChild(element);
+  };
+
   return (
     <div className={styles.shl_wrapper}>
       <h3>Favorite list</h3>
@@ -94,7 +112,7 @@ const FavoriteList: React.FC<IFavoriteList> = ({
         <button
           type="button"
           className={clsx(styles.button, styles.downloadBtn, styles.tooltip)}
-          onClick={() => null}
+          onClick={onDownloadHandler}
         >
           <span>&#10515;</span>
           <div className={clsx(styles.tooltipText, styles.tooltipTextDownload)}>
