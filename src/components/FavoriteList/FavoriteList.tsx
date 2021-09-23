@@ -94,7 +94,7 @@ const FavoriteList: React.FC<IFavoriteList> = ({
         <CloseButton onClick={closeBtnHandler} />
       </div>
 
-      <ol>
+      <ol className={styles.list}>
         {favoriteList.map((el) => (
           <li key={el.name}>
             <div className={styles.itemWrapper}>
