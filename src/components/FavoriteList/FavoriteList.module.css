@@ -31,10 +31,16 @@
   font-size: 13px;
 }
 
+.list {
+  width: 100%;
+  box-sizing: border-box;
+}
+
 .itemWrapper {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
+  width: 25%;
 }
 
 .shl_button {
@@ -80,7 +86,9 @@
 .deleteListItemBtn {
   position: relative;
   width: 16px;
+  min-width: 16px;
   height: 16px;
+  min-height: 16px;
   border-radius: 50%;
   border: 0;
   margin-left: 10px;
