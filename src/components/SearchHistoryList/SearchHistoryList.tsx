@@ -17,6 +17,7 @@ import { dateFormatter } from '../../utils/dateFormatter';
 import { ISearchHistoryList } from './types';
 
 import styles from './SearchHistoryList.module.css';
+import { timeFormatter } from '../../utils/timeFormatter';
 
 const SearchHistoryList: React.FC<ISearchHistoryList> = ({
   searchList,
@@ -76,7 +77,9 @@ const SearchHistoryList: React.FC<ISearchHistoryList> = ({
             >
               {el.login}
             </button>
-            <span> ({dateFormatter(new Date(el.dateOfSearch))})</span>
+            <span>{` (${dateFormatter(
+              new Date(el.dateOfSearch),
+            )}, ${timeFormatter(new Date(el.dateOfSearch))})`}</span>
           </li>
         ))}
       </ol>
