@@ -9,10 +9,10 @@ export const timeFormatter = (incomeDate: Date): string => {
       ? `0${incomeDate.getMinutes()}`
       : incomeDate.getMinutes();
 
-  const secund =
+  const second =
     incomeDate.getSeconds() < 10
       ? `0${incomeDate.getSeconds()}`
       : incomeDate.getSeconds();
 
-  return `${hour}:${minute}:${secund}`;
+  return `${hour}:${minute}:${second}`;
 };
