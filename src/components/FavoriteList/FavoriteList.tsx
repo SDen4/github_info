@@ -87,23 +87,23 @@ const FavoriteList: React.FC<IFavoriteList> = ({
     setDeletedElem('');
   };
 
-  const onDownloadHandler = () => {
-    // let element = document.createElement('a');
-    // const usersArr = favoriteList.map((el) => {
-    //   console.log(el);
-    //   return fileText(el, el.note);
-    // });
-    // const text = fileText(user, note);
-    // element.setAttribute(
-    //   'href',
-    //   `data:text/plain;charset=utf-8,${encodeURIComponent(text)}`,
-    // );
-    // element.setAttribute('download', `${user.login}.doc`);
-    // element.style.display = 'none';
-    // document.body.appendChild(element);
-    // element.click();
-    // document.body.removeChild(element);
-  };
+  // const onDownloadHandler = () => {
+  // let element = document.createElement('a');
+  // const usersArr = favoriteList.map((el) => {
+  //   console.log(el);
+  //   return fileText(el, el.note);
+  // });
+  // const text = fileText(user, note);
+  // element.setAttribute(
+  //   'href',
+  //   `data:text/plain;charset=utf-8,${encodeURIComponent(text)}`,
+  // );
+  // element.setAttribute('download', `${user.login}.doc`);
+  // element.style.display = 'none';
+  // document.body.appendChild(element);
+  // element.click();
+  // document.body.removeChild(element);
+  // };
 
   return (
     <div className={styles.shl_wrapper}>
