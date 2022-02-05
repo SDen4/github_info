@@ -21,3 +21,5 @@ export const ERROR = 'ERROR';
 export const REPOS_LIST_SAGA = 'REPOS_LIST_SAGA';
 export const FETCH_REPOS_LIST = 'FETCH_REPOS_LIST';
 export const REPOS_OPENED_LIST_FLAG = 'REPOS_OPENED_LIST_FLAG';
+
+export const SEARCH_START = 'SEARCH_START';

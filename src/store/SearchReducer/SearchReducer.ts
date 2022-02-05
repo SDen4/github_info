@@ -11,6 +11,7 @@ import {
   FETCH_ALL_HISTORY,
   REPOS_OPENED_LIST_FLAG,
   SEARCH_HISTORY_MODAL_FLAG,
+  SEARCH_START,
 } from './constants';
 
 import { InitialStateType } from './types';
@@ -142,6 +143,17 @@ export const SearchReducer = (
         modalFlag: action.modalFlag,
         modalText: action.text,
         modalType: action.modalType,
+      };
+
+    case SEARCH_START:
+      return {
+        ...state,
+        error: false,
+        usersListOpened: false,
+        cardOpened: false,
+        reposListOpened: false,
+        reposList: [],
+        loading: false,
       };
 
     default:

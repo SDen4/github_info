@@ -11,11 +11,9 @@ import {
   cardOPenedFlag,
   errorFlag,
   fetchLogin,
-  fetchReposList,
   fetchSearhHistory,
   loadingFlag,
-  reposOpenedListFlag,
-  userListOpenedFlag,
+  searhStart,
 } from '../actions';
 
 import {
@@ -41,14 +39,10 @@ async function getLastActivityDate(login: string) {
 
 function* sagaWorker(action: SearchSagaWorkerType) {
   try {
-    yield put(errorFlag(false));
-    yield put(userListOpenedFlag(false));
-    yield put(cardOPenedFlag(false));
-    yield put(reposOpenedListFlag(false));
-    yield put(noteBtnFlag(false));
+    yield put(searhStart());
+
     yield put(noteSave(''));
-    yield put(fetchReposList([]));
-    yield put(loadingFlag(true));
+    yield put(noteBtnFlag(false));
 
     const allData: UserInnerType = yield getUserInfo(action.login);
     const lastActivityDate: string = yield getLastActivityDate(action.login);
