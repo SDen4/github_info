@@ -1,4 +1,4 @@
-import { takeEvery, put } from 'redux-saga/effects';
+import { takeEvery, put, all } from 'redux-saga/effects';
 
 import { SEARCH_LOGIN_SAGA } from '../constants';
 
@@ -16,11 +16,7 @@ import {
   searhStart,
 } from '../actions';
 
-import {
-  ISearhHistoryItem,
-  SearchSagaWorkerType,
-  UserInnerType,
-} from '../types';
+import { ISearhHistoryItem, SearchSagaWorkerType } from '../types';
 
 import { API } from '../../../api/API';
 
@@ -44,8 +40,10 @@ function* sagaWorker(action: SearchSagaWorkerType) {
     yield put(noteSave(''));
     yield put(noteBtnFlag(false));
 
-    const allData: UserInnerType = yield getUserInfo(action.login);
-    const lastActivityDate: string = yield getLastActivityDate(action.login);
+    const { allData, lastActivityDate } = yield all({
+      allData: getUserInfo(action.login),
+      lastActivityDate: getLastActivityDate(action.login),
+    });
 
     yield put(
       fetchLogin(

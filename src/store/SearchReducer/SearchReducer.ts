@@ -77,28 +77,16 @@ export const SearchReducer = (
       };
 
     case CARD_OPEN_FLAG:
-      return {
-        ...state,
-        cardOpened: action.cardOPenedFlag,
-      };
+      return { ...state, cardOpened: action.cardOPenedFlag };
 
     case LOADING:
-      return {
-        ...state,
-        loading: action.loadingFlag,
-      };
+      return { ...state, loading: action.loadingFlag };
 
     case ERROR:
-      return {
-        ...state,
-        error: action.errorFlag,
-      };
+      return { ...state, error: action.errorFlag };
 
     case USERS_LIST_OPENED_FLAG:
-      return {
-        ...state,
-        usersListOpened: action.userListFlag,
-      };
+      return { ...state, usersListOpened: action.userListFlag };
 
     case FETCH_USERS_LIST:
       return {
@@ -114,22 +102,13 @@ export const SearchReducer = (
       };
 
     case FETCH_ALL_HISTORY:
-      return {
-        ...state,
-        searchHistory: action.allSearchHistory,
-      };
+      return { ...state, searchHistory: action.allSearchHistory };
 
     case SEARCH_HISTORY_LIST_FLAG:
-      return {
-        ...state,
-        searchHistoryListFlag: action.searchHistoryListFlag,
-      };
+      return { ...state, searchHistoryListFlag: action.searchHistoryListFlag };
 
     case FETCH_REPOS_LIST:
-      return {
-        ...state,
-        reposList: action.reposList,
-      };
+      return { ...state, reposList: action.reposList };
 
     case REPOS_OPENED_LIST_FLAG:
       return {
