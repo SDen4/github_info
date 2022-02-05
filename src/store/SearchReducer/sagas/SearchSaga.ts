@@ -35,10 +35,7 @@ async function getLastActivityDate(login: string) {
 
 function* sagaWorker(action: SearchSagaWorkerType) {
   try {
-    yield put(searhStart());
-
-    yield put(noteSave(''));
-    yield put(noteBtnFlag(false));
+    yield all([put(searhStart()), put(noteSave('')), put(noteBtnFlag(false))]);
 
     const { allData, lastActivityDate } = yield all({
       allData: getUserInfo(action.login),

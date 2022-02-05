@@ -132,7 +132,7 @@ export const SearchReducer = (
         cardOpened: false,
         reposListOpened: false,
         reposList: [],
-        loading: false,
+        loading: true,
       };
 
     default:
