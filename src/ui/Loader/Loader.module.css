@@ -16,7 +16,7 @@
   position: absolute;
   width: 6px;
   height: 6px;
-  background: #fff;
+  background: #ff8c00;
   border-radius: 50%;
   animation: lds_default 1.2s linear infinite;
 }
@@ -81,7 +81,10 @@
   left: 62px;
 }
 @keyframes lds_default {
-  0%, 20%, 80%, 100% {
+  0%,
+  20%,
+  80%,
+  100% {
     transform: scale(1);
   }
   50% {
