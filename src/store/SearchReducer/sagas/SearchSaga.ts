@@ -92,13 +92,11 @@ function* sagaWorker(action: SearchSagaWorkerType) {
       JSON.stringify([...action.history, newHistoryItem]),
     );
 
-    yield put(loadingFlag(false));
-    yield put(cardOPenedFlag(true));
+    yield all([put(cardOPenedFlag(true)), put(loadingFlag(false))]);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.log(error);
-    yield put(loadingFlag(false));
-    yield put(errorFlag(true));
+    yield all([put(loadingFlag(false)), put(errorFlag(true))]);
   }
 }
 
