@@ -13,9 +13,9 @@ import FavoriteList from '../../components/FavoriteList';
 import FavoriteButton from '../../components/FavoriteButton';
 import SearchHistoryList from '../../components/SearchHistoryList';
 import SearchHistoryHeader from '../../components/SearchHistoryHeader';
+
 import Loader from '../../ui/Loader';
 
-import { AppStateType } from '../../store/RootReducer';
 import {
   cardOPenedFlag,
   getLocalHistorySaga,
@@ -27,21 +27,16 @@ import {
   getFavoriteListSaga,
 } from '../../store/FavoriteReduser/actions';
 
-import { InitialStateType } from '../../store/SearchReducer/types';
-import { InitialFavoriteStateType } from '../../store/FavoriteReduser/types';
+import { selectFavorite } from '../../store/SearchReducer/selectors/selectors';
+import { selectSearch } from '../../store/FavoriteReduser/selectors/selectors';
 
 import styles from './Root.module.css';
 
 const Root: React.FC = () => {
   const dispatch = useDispatch();
 
-  const storeData = useSelector<AppStateType, InitialStateType>(
-    (store) => store.search,
-  );
-
-  const favorite = useSelector<AppStateType, InitialFavoriteStateType>(
-    (store) => store.favorite,
-  );
+  const search = useSelector(selectSearch);
+  const favorite = useSelector(selectFavorite);
 
   const [user, setUser] = useState<string>('');
 
@@ -58,7 +53,7 @@ const Root: React.FC = () => {
     dispatch(getFavoriteListSaga());
   }, [dispatch]);
 
-  const search = (searchLogin: string) => {
+  const searchFunc = (searchLogin: string) => {
     setUser(searchLogin);
   };
 
@@ -74,11 +69,11 @@ const Root: React.FC = () => {
         <h1>Find github&apos;s user</h1>
 
         <div className={styles.buttonsWrapper}>
-          {storeData.searchHistory.length ? (
+          {search.searchHistory.length ? (
             <SearchHistoryHeader
-              historyLength={storeData.searchHistory.length}
-              searchHistoryListStatus={storeData.searchHistoryListFlag}
-              historyBtnStatus={storeData.searchHistoryListFlag}
+              historyLength={search.searchHistory.length}
+              searchHistoryListStatus={search.searchHistoryListFlag}
+              historyBtnStatus={search.searchHistoryListFlag}
             />
           ) : (
             ''
@@ -105,13 +100,13 @@ const Root: React.FC = () => {
             className={clsx(styles.root_section, styles.root_section_search)}
           >
             <SearchForm
-              search={search}
-              history={storeData.searchHistory}
+              search={searchFunc}
+              history={search.searchHistory}
               favoritesList={favorite.favoriteList}
-              currentUser={storeData.user.login}
+              currentUser={search.user.login}
             />
 
-            {(storeData.usersListOpened || storeData.reposListOpened) && (
+            {(search.usersListOpened || search.reposListOpened) && (
               <button
                 type="button"
                 onClick={backBtnHandler}
@@ -122,11 +117,11 @@ const Root: React.FC = () => {
             )}
           </section>
 
-          {storeData.loading && <Loader />}
-          {storeData.cardOpened && (
+          {search.loading && <Loader />}
+          {search.cardOpened && (
             <>
               <Card
-                user={storeData.user}
+                user={search.user}
                 favorites={favorite.favoriteList}
                 favoriteUserStatus={favorite.favoriteUser}
                 noteUserStatus={favorite.noteBtnFlag}
@@ -136,27 +131,25 @@ const Root: React.FC = () => {
               {favorite.noteFlag && (
                 <Note
                   note={favorite.note}
-                  login={storeData.user.login}
+                  login={search.user.login}
                   favorites={favorite.favoriteList}
                 />
               )}
             </>
           )}
-          {storeData.usersListOpened && (
+          {search.usersListOpened && (
             <UsersList
-              users={storeData.usersList}
-              login={storeData.user.login}
-              requestType={storeData.lastRequestType}
-              history={storeData.searchHistory}
+              users={search.usersList}
+              login={search.user.login}
+              requestType={search.lastRequestType}
+              history={search.searchHistory}
             />
           )}
-          {storeData.reposListOpened && (
-            <ReposList reposList={storeData.reposList} />
-          )}
-          {storeData.error && <Error userName={user} />}
+          {search.reposListOpened && <ReposList reposList={search.reposList} />}
+          {search.error && <Error userName={user} />}
         </div>
 
-        {storeData.searchHistoryListFlag && (
+        {search.searchHistoryListFlag && (
           <div
             className={clsx(
               styles.root_sub_section,
@@ -164,11 +157,11 @@ const Root: React.FC = () => {
             )}
           >
             <SearchHistoryList
-              searchList={storeData.searchHistory}
+              searchList={search.searchHistory}
               favoritesList={favorite.favoriteList}
-              currentUserLogin={storeData.user.login}
-              userListOpened={storeData.usersListOpened}
-              reposListOpened={storeData.reposListOpened}
+              currentUserLogin={search.user.login}
+              userListOpened={search.usersListOpened}
+              reposListOpened={search.reposListOpened}
             />
           </div>
         )}
@@ -182,17 +175,17 @@ const Root: React.FC = () => {
           >
             <FavoriteList
               favoriteList={favorite.favoriteList}
-              searchList={storeData.searchHistory}
-              currentUserLogin={storeData.user.login}
-              userListOpened={storeData.usersListOpened}
-              reposListOpened={storeData.reposListOpened}
+              searchList={search.searchHistory}
+              currentUserLogin={search.user.login}
+              userListOpened={search.usersListOpened}
+              reposListOpened={search.reposListOpened}
             />
           </div>
         )}
       </section>
 
-      {storeData.modalFlag && (
-        <Modal textModal={storeData.modalText} type={storeData.modalType} />
+      {search.modalFlag && (
+        <Modal textModal={search.modalText} type={search.modalType} />
       )}
     </div>
   );
