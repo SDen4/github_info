@@ -152,3 +152,22 @@
   color: #d3d3d3;
   font-size: 16px;
 }
+
+@media (max-width: 480px) {
+  .component {
+    padding: 10px;
+  }
+
+  .formBottom {
+    flex-direction: column;
+  }
+
+  .lettersQuantity {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .form button {
+    padding: 5px 10px;
+  }
+}

@@ -67,3 +67,17 @@
   justify-content: flex-start;
   align-items: center;
 }
+
+@media (max-width: 480px) {
+  .root_wrapper {
+    padding: 10px;
+  }
+
+  .root_header {
+    flex-direction: column;
+  }
+
+  .root_header h1 {
+    margin-bottom: 15px;
+  }
+}

@@ -13,3 +13,17 @@
   font-size: 24px;
   color: #d3d3d3;
 }
+
+@media (max-width: 480px) {
+  .form {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .input {
+    width: 228px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+}
