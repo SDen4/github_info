@@ -48,15 +48,25 @@
 }
 
 .user_info_unit:hover button h2 {
-  transition: .3s;
+  transition: 0.3s;
   color: tomato;
 }
 
 .user_info_unit h2 {
   margin: 0;
-  color: #FF8C00;
+  color: #ff8c00;
 }
 
 .user_info_unit:last-child {
   margin-right: 0;
+}
+
+@media (max-width: 480px) {
+  .user_item_wrapper {
+    align-items: center;
+  }
+
+  .user_info_unit h2 {
+    font-size: 24px;
+  }
 }

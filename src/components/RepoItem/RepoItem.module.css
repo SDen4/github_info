@@ -52,3 +52,23 @@
 .repoLink:hover {
   color: tomato;
 }
+
+@media (max-width: 480px) {
+  .repoItemWrapper {
+    flex-direction: column;
+    padding: 10px 10px 7px;
+  }
+
+  .repoItemUnit {
+    margin-right: 0;
+  }
+
+  .repoItemUnit span {
+    margin-bottom: 3px;
+  }
+
+  .repoItemLink,
+  .repoItemUnit > span {
+    margin-bottom: 10px;
+  }
+}
