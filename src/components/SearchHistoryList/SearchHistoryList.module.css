@@ -68,3 +68,13 @@
   top: 2px;
   right: 10px;
 }
+
+@media (max-width: 480px) {
+  .shl_wrapper h3 {
+    margin-top: 5px;
+  }
+
+  .shl_wrapper {
+    padding: 5px 10px 15px;
+  }
+}

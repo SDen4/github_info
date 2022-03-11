@@ -224,3 +224,13 @@
   right: 5px;
   z-index: 5;
 }
+
+@media (max-width: 480px) {
+  .shl_wrapper h3 {
+    margin-top: 5px;
+  }
+
+  .shl_wrapper {
+    padding: 5px 10px 15px;
+  }
+}

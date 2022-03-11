@@ -39,6 +39,25 @@ const Root: React.FC = () => {
   const favorite = useSelector(selectFavorite);
 
   const [user, setUser] = useState<string>('');
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+
+  const isCardOpen =
+    (!isMobile && search.cardOpened) ||
+    (isMobile &&
+      search.cardOpened &&
+      !search.searchHistoryListFlag &&
+      !favorite.favoriteListFlag);
+
+  // detect mobiles
+  useEffect(() => {
+    const width = document.documentElement.clientWidth;
+
+    if (width <= 480) {
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
+    }
+  }, []);
 
   // close favorite list if there are no any items
   useEffect(() => {
@@ -118,7 +137,7 @@ const Root: React.FC = () => {
           </section>
 
           {search.loading && <Loader />}
-          {search.cardOpened && (
+          {isCardOpen && (
             <>
               <Card
                 user={search.user}
