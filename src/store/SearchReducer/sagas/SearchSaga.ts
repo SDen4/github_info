@@ -3,6 +3,7 @@ import { takeEvery, put, all } from 'redux-saga/effects';
 import { SEARCH_LOGIN_SAGA } from '../constants';
 
 import {
+  favoriteListFlag,
   favoriteUserFlag,
   noteBtnFlag,
   noteSave,
@@ -13,6 +14,7 @@ import {
   fetchLogin,
   fetchSearhHistory,
   loadingFlag,
+  searchHistoryLIstFlag,
   searhStart,
 } from '../actions';
 
@@ -36,6 +38,22 @@ async function getLastActivityDate(login: string) {
 function* sagaWorker(action: SearchSagaWorkerType) {
   try {
     yield all([put(searhStart()), put(noteSave('')), put(noteBtnFlag(false))]);
+
+    // TEMP!!!
+    let isMobile: boolean = yield false;
+    const width: number = yield document.documentElement.clientWidth;
+
+    if (width <= 480) {
+      yield (isMobile = true);
+    } else {
+      yield (isMobile = false);
+    }
+
+    if (isMobile) {
+      yield put(searchHistoryLIstFlag(false));
+      yield put(favoriteListFlag(false));
+    }
+    // TEMP!!!
 
     const { allData, lastActivityDate } = yield all({
       allData: getUserInfo(action.login),
