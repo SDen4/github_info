@@ -12,6 +12,7 @@ import {
   REPOS_OPENED_LIST_FLAG,
   SEARCH_HISTORY_MODAL_FLAG,
   SEARCH_START,
+  SEARCH_IS_MOBILE,
 } from './constants';
 
 import { InitialStateType } from './types';
@@ -48,6 +49,7 @@ const initialState: InitialStateType = {
   modalFlag: false,
   modalText: '',
   modalType: 'search',
+  isMobile: false,
 };
 
 export const SearchReducer = (
@@ -134,6 +136,9 @@ export const SearchReducer = (
         reposList: [],
         loading: true,
       };
+
+    case SEARCH_IS_MOBILE:
+      return { ...state, isMobile: action.isMobile };
 
     default:
       return state;

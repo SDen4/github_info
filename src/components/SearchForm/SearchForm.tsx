@@ -14,6 +14,7 @@ const SearchForm: React.FC<ISearch> = ({
   history,
   favoritesList,
   currentUser,
+  isMobile,
 }) => {
   const [searchLogin, setsearchLogin] = useState<string>('');
   const [disabledBtn, setDisabledBtn] = useState(true);
@@ -45,7 +46,7 @@ const SearchForm: React.FC<ISearch> = ({
       return;
     }
 
-    dispatch(searchSaga(searchLogin, history, favoritesList));
+    dispatch(searchSaga(searchLogin, history, isMobile, favoritesList));
     search(searchLogin);
     setsearchLogin('');
     setDisabledBtn(true);

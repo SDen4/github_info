@@ -7,4 +7,5 @@ export interface IFavoriteList {
   currentUserLogin: string;
   userListOpened: boolean;
   reposListOpened: boolean;
+  isMobile: boolean;
 }

@@ -25,6 +25,7 @@ const SearchHistoryList: React.FC<ISearchHistoryList> = ({
   favoritesList,
   userListOpened,
   reposListOpened,
+  isMobile,
 }) => {
   const dispatch = useDispatch();
 
@@ -40,7 +41,7 @@ const SearchHistoryList: React.FC<ISearchHistoryList> = ({
       }
       return;
     }
-    dispatch(searchSaga(login, searchList, favoritesList));
+    dispatch(searchSaga(login, searchList, isMobile, favoritesList));
   };
 
   const closeBtnHandler = () => {

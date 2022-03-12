@@ -18,6 +18,8 @@ import {
   REPOS_OPENED_LIST_FLAG,
   SEARCH_HISTORY_MODAL_FLAG,
   SEARCH_START,
+  SEARCH_INIT_SAGA,
+  SEARCH_IS_MOBILE,
 } from './constants';
 
 import { IRepoItem, ISearhHistoryItem, UserInnerType } from './types';
@@ -25,12 +27,14 @@ import { IRepoItem, ISearhHistoryItem, UserInnerType } from './types';
 export const searchSaga = (
   login: string,
   history: ISearhHistoryItem[],
+  isMobile: boolean,
   favoritesList?: FavoriteUser[],
 ) => {
   return {
     type: SEARCH_LOGIN_SAGA,
     login,
     history,
+    isMobile,
     favoritesList,
   } as const;
 };
@@ -184,6 +188,19 @@ export const searhStart = () => {
   } as const;
 };
 
+export const searhInitFetch = () => {
+  return {
+    type: SEARCH_INIT_SAGA,
+  } as const;
+};
+
+export const searchIsMobile = (isMobile: boolean) => {
+  return {
+    type: SEARCH_IS_MOBILE,
+    isMobile,
+  } as const;
+};
+
 type searchSagaType = ReturnType<typeof searchSaga>;
 type fetchLoginType = ReturnType<typeof fetchLogin>;
 type cardOPenedFlagType = ReturnType<typeof cardOPenedFlag>;
@@ -198,6 +215,7 @@ type fetchReposListType = ReturnType<typeof fetchReposList>;
 type reposOpenedListFlagType = ReturnType<typeof reposOpenedListFlag>;
 type modalFlagType = ReturnType<typeof modalFlag>;
 type searhStartType = ReturnType<typeof searhStart>;
+type searchIsMobileType = ReturnType<typeof searchIsMobile>;
 
 export type ActionsType =
   | searchSagaType
@@ -213,4 +231,5 @@ export type ActionsType =
   | fetchReposListType
   | reposOpenedListFlagType
   | modalFlagType
-  | searhStartType;
+  | searhStartType
+  | searchIsMobileType;

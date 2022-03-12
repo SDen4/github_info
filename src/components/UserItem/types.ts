@@ -6,4 +6,5 @@ import {
 export interface IUserItem {
   user: UserInnerType;
   history: ISearhHistoryItem[];
+  isMobile: boolean;
 }

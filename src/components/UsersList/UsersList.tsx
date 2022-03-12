@@ -19,6 +19,7 @@ const UsersList: React.FC<IUsersList> = ({
   login,
   requestType,
   history,
+  isMobile,
 }) => {
   const dispatch = useDispatch();
 
@@ -34,7 +35,7 @@ const UsersList: React.FC<IUsersList> = ({
         <ul className={styles.list_wrapper_ul}>
           {users.map((el: UserInnerType) => (
             <li key={el.login}>
-              <UserItem user={el} history={history} />
+              <UserItem user={el} history={history} isMobile={isMobile} />
             </li>
           ))}
         </ul>

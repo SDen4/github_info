@@ -7,4 +7,5 @@ export interface ISearchHistoryList {
   favoritesList: FavoriteUser[];
   userListOpened: boolean;
   reposListOpened: boolean;
+  isMobile: boolean;
 }

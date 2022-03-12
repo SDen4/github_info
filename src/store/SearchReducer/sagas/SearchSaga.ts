@@ -39,21 +39,10 @@ function* sagaWorker(action: SearchSagaWorkerType) {
   try {
     yield all([put(searhStart()), put(noteSave('')), put(noteBtnFlag(false))]);
 
-    // TEMP!!!
-    let isMobile: boolean = yield false;
-    const width: number = yield document.documentElement.clientWidth;
-
-    if (width <= 480) {
-      yield (isMobile = true);
-    } else {
-      yield (isMobile = false);
-    }
-
-    if (isMobile) {
+    if (action.isMobile) {
       yield put(searchHistoryLIstFlag(false));
       yield put(favoriteListFlag(false));
     }
-    // TEMP!!!
 
     const { allData, lastActivityDate } = yield all({
       allData: getUserInfo(action.login),

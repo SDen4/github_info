@@ -8,4 +8,5 @@ export interface IUsersList {
   login: string;
   requestType: string;
   history: ISearhHistoryItem[];
+  isMobile: boolean;
 }

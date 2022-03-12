@@ -18,14 +18,11 @@ import Loader from '../../ui/Loader';
 
 import {
   cardOPenedFlag,
-  getLocalHistorySaga,
   reposOpenedListFlag,
+  searhInitFetch,
   userListOpenedFlag,
 } from '../../store/SearchReducer/actions';
-import {
-  favoriteListFlag,
-  getFavoriteListSaga,
-} from '../../store/FavoriteReduser/actions';
+import { favoriteListFlag } from '../../store/FavoriteReduser/actions';
 
 import { selectFavorite } from '../../store/SearchReducer/selectors/selectors';
 import { selectSearch } from '../../store/FavoriteReduser/selectors/selectors';
@@ -39,25 +36,17 @@ const Root: React.FC = () => {
   const favorite = useSelector(selectFavorite);
 
   const [user, setUser] = useState<string>('');
-  const [isMobile, setIsMobile] = useState<boolean>(false);
 
   const isCardOpen =
-    (!isMobile && search.cardOpened) ||
-    (isMobile &&
+    (!search.isMobile && search.cardOpened) ||
+    (search.isMobile &&
       search.cardOpened &&
       !search.searchHistoryListFlag &&
       !favorite.favoriteListFlag);
 
-  // detect mobiles
   useEffect(() => {
-    const width = document.documentElement.clientWidth;
-
-    if (width <= 480) {
-      setIsMobile(true);
-    } else {
-      setIsMobile(false);
-    }
-  }, []);
+    dispatch(searhInitFetch());
+  }, [dispatch]);
 
   // close favorite list if there are no any items
   useEffect(() => {
@@ -65,12 +54,6 @@ const Root: React.FC = () => {
       dispatch(favoriteListFlag(false));
     }
   }, [dispatch, favorite.favoriteList]);
-
-  // get elements from localstorage
-  useEffect(() => {
-    dispatch(getLocalHistorySaga());
-    dispatch(getFavoriteListSaga());
-  }, [dispatch]);
 
   const searchFunc = (searchLogin: string) => {
     setUser(searchLogin);
@@ -123,6 +106,7 @@ const Root: React.FC = () => {
               history={search.searchHistory}
               favoritesList={favorite.favoriteList}
               currentUser={search.user.login}
+              isMobile={search.isMobile}
             />
 
             {(search.usersListOpened || search.reposListOpened) && (
@@ -162,6 +146,7 @@ const Root: React.FC = () => {
               login={search.user.login}
               requestType={search.lastRequestType}
               history={search.searchHistory}
+              isMobile={search.isMobile}
             />
           )}
           {search.reposListOpened && <ReposList reposList={search.reposList} />}
@@ -181,6 +166,7 @@ const Root: React.FC = () => {
               currentUserLogin={search.user.login}
               userListOpened={search.usersListOpened}
               reposListOpened={search.reposListOpened}
+              isMobile={search.isMobile}
             />
           </div>
         )}
@@ -198,6 +184,7 @@ const Root: React.FC = () => {
               currentUserLogin={search.user.login}
               userListOpened={search.usersListOpened}
               reposListOpened={search.reposListOpened}
+              isMobile={search.isMobile}
             />
           </div>
         )}

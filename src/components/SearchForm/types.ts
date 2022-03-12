@@ -6,4 +6,5 @@ export interface ISearch {
   history: ISearhHistoryItem[];
   favoritesList: FavoriteUser[];
   currentUser: string;
+  isMobile: boolean;
 }

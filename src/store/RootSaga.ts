@@ -5,6 +5,7 @@ import { FetchUsersListSagaWatcher } from './SearchReducer/sagas/FetchUsersListS
 import { GetLocalHistorySagaWatcher } from './SearchReducer/sagas/GetLocalHistorySaga';
 import { ReposListSagaWatcher } from './SearchReducer/sagas/ReposListSaga';
 import { GetFavoriteListSagaWatcher } from './FavoriteReduser/sagas/GetFavoriteListSaga';
+import { InitFetchSagaWatcher } from './SearchReducer/sagas/InitFetchSaga';
 
 export default function* rootSaga() {
   yield all([
@@ -13,5 +14,6 @@ export default function* rootSaga() {
     fork(GetLocalHistorySagaWatcher),
     fork(ReposListSagaWatcher),
     fork(GetFavoriteListSagaWatcher),
+    fork(InitFetchSagaWatcher),
   ]);
 }

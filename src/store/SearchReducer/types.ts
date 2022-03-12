@@ -68,12 +68,14 @@ export interface InitialStateType {
   modalFlag: boolean;
   modalText: string;
   modalType: 'search' | 'favorite';
+  isMobile: boolean;
 }
 
 export interface SearchSagaWorkerType {
   type: typeof SEARCH_LOGIN_SAGA;
   login: string;
   history: ISearhHistoryItem[];
+  isMobile: boolean;
   favoritesList?: FavoriteUser[];
 }
 

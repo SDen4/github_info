@@ -7,11 +7,11 @@ import { IUserItem } from './types';
 
 import styles from './UserItem.module.css';
 
-const UserItem: React.FC<IUserItem> = ({ user, history }) => {
+const UserItem: React.FC<IUserItem> = ({ user, history, isMobile }) => {
   const dispatch = useDispatch();
 
   const itemBthHandler = () => {
-    dispatch(searchSaga(user.login, history));
+    dispatch(searchSaga(user.login, history, isMobile));
   };
 
   return (
