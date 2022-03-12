@@ -1,26 +1,6 @@
 /* eslint-disable camelcase */
 import { FavoriteUser } from '../FavoriteReduser/types';
-import {
-  SEARCH_LOGIN_SAGA,
-  FETCH_LOGIN,
-  CARD_OPEN_FLAG,
-  LOADING,
-  ERROR,
-  USERS_LIST_OPENED_FLAG,
-  FETCH_USERS_LIST_SAGA,
-  FETCH_USERS_LIST,
-  FETCH_SEARCH_HISTORY,
-  SEARCH_HISTORY_LIST_FLAG,
-  FETCH_ALL_HISTORY,
-  GET_LOCAL_HISTORY_SAGA,
-  REPOS_LIST_SAGA,
-  FETCH_REPOS_LIST,
-  REPOS_OPENED_LIST_FLAG,
-  SEARCH_HISTORY_MODAL_FLAG,
-  SEARCH_START,
-  SEARCH_INIT_SAGA,
-  SEARCH_IS_MOBILE,
-} from './constants';
+import * as CONST from './constants';
 
 import { IRepoItem, ISearhHistoryItem, UserInnerType } from './types';
 
@@ -31,7 +11,7 @@ export const searchSaga = (
   favoritesList?: FavoriteUser[],
 ) => {
   return {
-    type: SEARCH_LOGIN_SAGA,
+    type: CONST.SEARCH_LOGIN_SAGA,
     login,
     history,
     isMobile,
@@ -56,7 +36,7 @@ export const fetchLogin = (
   lastActivityDate?: string,
 ) => {
   return {
-    type: FETCH_LOGIN,
+    type: CONST.FETCH_LOGIN,
     name,
     login,
     followers_url,
@@ -76,35 +56,35 @@ export const fetchLogin = (
 
 export const cardOPenedFlag = (cardOPenedFlag: boolean) => {
   return {
-    type: CARD_OPEN_FLAG,
+    type: CONST.CARD_OPEN_FLAG,
     cardOPenedFlag,
   } as const;
 };
 
 export const loadingFlag = (loadingFlag: boolean) => {
   return {
-    type: LOADING,
+    type: CONST.LOADING,
     loadingFlag,
   } as const;
 };
 
 export const errorFlag = (errorFlag: boolean) => {
   return {
-    type: ERROR,
+    type: CONST.ERROR,
     errorFlag,
   } as const;
 };
 
 export const userListOpenedFlag = (userListFlag: boolean) => {
   return {
-    type: USERS_LIST_OPENED_FLAG,
+    type: CONST.USERS_LIST_OPENED_FLAG,
     userListFlag,
   } as const;
 };
 
 export const fetchUsersListSaga = (login: string, requestType: string) => {
   return {
-    type: FETCH_USERS_LIST_SAGA,
+    type: CONST.FETCH_USERS_LIST_SAGA,
     login,
     requestType,
   } as const;
@@ -115,7 +95,7 @@ export const fetchUsersList = (
   lastRequestType: string,
 ) => {
   return {
-    type: FETCH_USERS_LIST,
+    type: CONST.FETCH_USERS_LIST,
     usersList,
     lastRequestType,
   } as const;
@@ -123,48 +103,48 @@ export const fetchUsersList = (
 
 export const fetchSearhHistory = (searchHistory: ISearhHistoryItem) => {
   return {
-    type: FETCH_SEARCH_HISTORY,
+    type: CONST.FETCH_SEARCH_HISTORY,
     searchHistory,
   } as const;
 };
 
 export const searchHistoryLIstFlag = (searchHistoryListFlag: boolean) => {
   return {
-    type: SEARCH_HISTORY_LIST_FLAG,
+    type: CONST.SEARCH_HISTORY_LIST_FLAG,
     searchHistoryListFlag,
   } as const;
 };
 
 export const fetchAllHistory = (allSearchHistory: ISearhHistoryItem[]) => {
   return {
-    type: FETCH_ALL_HISTORY,
+    type: CONST.FETCH_ALL_HISTORY,
     allSearchHistory,
   } as const;
 };
 
 export const getLocalHistorySaga = () => {
   return {
-    type: GET_LOCAL_HISTORY_SAGA,
+    type: CONST.GET_LOCAL_HISTORY_SAGA,
   } as const;
 };
 
 export const reposListSaga = (login: string) => {
   return {
-    type: REPOS_LIST_SAGA,
+    type: CONST.REPOS_LIST_SAGA,
     login,
   } as const;
 };
 
 export const fetchReposList = (reposList: IRepoItem[]) => {
   return {
-    type: FETCH_REPOS_LIST,
+    type: CONST.FETCH_REPOS_LIST,
     reposList,
   } as const;
 };
 
 export const reposOpenedListFlag = (reposListFlag: boolean) => {
   return {
-    type: REPOS_OPENED_LIST_FLAG,
+    type: CONST.REPOS_OPENED_LIST_FLAG,
     reposListFlag,
   } as const;
 };
@@ -175,7 +155,7 @@ export const modalFlag = (
   modalType: 'search' | 'favorite',
 ) => {
   return {
-    type: SEARCH_HISTORY_MODAL_FLAG,
+    type: CONST.SEARCH_HISTORY_MODAL_FLAG,
     modalFlag,
     text,
     modalType,
@@ -184,19 +164,19 @@ export const modalFlag = (
 
 export const searhStart = () => {
   return {
-    type: SEARCH_START,
+    type: CONST.SEARCH_START,
   } as const;
 };
 
 export const searhInitFetch = () => {
   return {
-    type: SEARCH_INIT_SAGA,
+    type: CONST.SEARCH_INIT_SAGA,
   } as const;
 };
 
 export const searchIsMobile = (isMobile: boolean) => {
   return {
-    type: SEARCH_IS_MOBILE,
+    type: CONST.SEARCH_IS_MOBILE,
     isMobile,
   } as const;
 };

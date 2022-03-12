@@ -1,75 +1,65 @@
 /* eslint-disable camelcase */
-import {
-  FAVORITE_BTN_FLAG,
-  FAVORITE_LIST,
-  FAVORITE_LIST_ADD,
-  FAVORITE_LIST_SAGA,
-  FAVORITE_LIST_FLAG,
-  FAVORITE_USER_FLAG,
-  NOTE_FLAG,
-  NOTE_SAVE,
-  NOTE_BTN_FLAG,
-} from './constants';
+import * as CONST from './constants';
 import { FavoriteUser } from './types';
 
 export const setFavoriteBtnFlag = (favoriteBtnFlag: boolean) => {
   return {
-    type: FAVORITE_BTN_FLAG,
+    type: CONST.FAVORITE_BTN_FLAG,
     favoriteBtnFlag,
   } as const;
 };
 
 export const fetchFavoriteList = (favoriteList: FavoriteUser[]) => {
   return {
-    type: FAVORITE_LIST,
+    type: CONST.FAVORITE_LIST,
     favoriteList,
   } as const;
 };
 
 export const fetchFavoriteListAdd = (favoriteList: FavoriteUser) => {
   return {
-    type: FAVORITE_LIST_ADD,
+    type: CONST.FAVORITE_LIST_ADD,
     favoriteList,
   } as const;
 };
 
 export const getFavoriteListSaga = () => {
   return {
-    type: FAVORITE_LIST_SAGA,
+    type: CONST.FAVORITE_LIST_SAGA,
   } as const;
 };
 
 export const favoriteListFlag = (favoriteListFlag: boolean) => {
   return {
-    type: FAVORITE_LIST_FLAG,
+    type: CONST.FAVORITE_LIST_FLAG,
     favoriteListFlag,
   } as const;
 };
 
 export const favoriteUserFlag = (favoriteUserFlag: boolean) => {
   return {
-    type: FAVORITE_USER_FLAG,
+    type: CONST.FAVORITE_USER_FLAG,
     favoriteUserFlag,
   } as const;
 };
 
 export const noteFlag = (noteFlag: boolean) => {
   return {
-    type: NOTE_FLAG,
+    type: CONST.NOTE_FLAG,
     noteFlag,
   } as const;
 };
 
 export const noteSave = (note: string) => {
   return {
-    type: NOTE_SAVE,
+    type: CONST.NOTE_SAVE,
     note,
   } as const;
 };
 
 export const noteBtnFlag = (noteBtnFlag: boolean) => {
   return {
-    type: NOTE_BTN_FLAG,
+    type: CONST.NOTE_BTN_FLAG,
     noteBtnFlag,
   } as const;
 };

@@ -1,19 +1,4 @@
-import {
-  FETCH_LOGIN,
-  CARD_OPEN_FLAG,
-  LOADING,
-  ERROR,
-  USERS_LIST_OPENED_FLAG,
-  FETCH_USERS_LIST,
-  FETCH_SEARCH_HISTORY,
-  FETCH_REPOS_LIST,
-  SEARCH_HISTORY_LIST_FLAG,
-  FETCH_ALL_HISTORY,
-  REPOS_OPENED_LIST_FLAG,
-  SEARCH_HISTORY_MODAL_FLAG,
-  SEARCH_START,
-  SEARCH_IS_MOBILE,
-} from './constants';
+import * as CONST from './constants';
 
 import { InitialStateType } from './types';
 
@@ -57,7 +42,7 @@ export const SearchReducer = (
   action: ActionsType,
 ): typeof state => {
   switch (action.type) {
-    case FETCH_LOGIN:
+    case CONST.FETCH_LOGIN:
       return {
         ...state,
         user: {
@@ -78,47 +63,47 @@ export const SearchReducer = (
         },
       };
 
-    case CARD_OPEN_FLAG:
+    case CONST.CARD_OPEN_FLAG:
       return { ...state, cardOpened: action.cardOPenedFlag };
 
-    case LOADING:
+    case CONST.LOADING:
       return { ...state, loading: action.loadingFlag };
 
-    case ERROR:
+    case CONST.ERROR:
       return { ...state, error: action.errorFlag };
 
-    case USERS_LIST_OPENED_FLAG:
+    case CONST.USERS_LIST_OPENED_FLAG:
       return { ...state, usersListOpened: action.userListFlag };
 
-    case FETCH_USERS_LIST:
+    case CONST.FETCH_USERS_LIST:
       return {
         ...state,
         usersList: action.usersList,
         lastRequestType: action.lastRequestType,
       };
 
-    case FETCH_SEARCH_HISTORY:
+    case CONST.FETCH_SEARCH_HISTORY:
       return {
         ...state,
         searchHistory: [...state.searchHistory, action.searchHistory],
       };
 
-    case FETCH_ALL_HISTORY:
+    case CONST.FETCH_ALL_HISTORY:
       return { ...state, searchHistory: action.allSearchHistory };
 
-    case SEARCH_HISTORY_LIST_FLAG:
+    case CONST.SEARCH_HISTORY_LIST_FLAG:
       return { ...state, searchHistoryListFlag: action.searchHistoryListFlag };
 
-    case FETCH_REPOS_LIST:
+    case CONST.FETCH_REPOS_LIST:
       return { ...state, reposList: action.reposList };
 
-    case REPOS_OPENED_LIST_FLAG:
+    case CONST.REPOS_OPENED_LIST_FLAG:
       return {
         ...state,
         reposListOpened: action.reposListFlag,
       };
 
-    case SEARCH_HISTORY_MODAL_FLAG:
+    case CONST.SEARCH_HISTORY_MODAL_FLAG:
       return {
         ...state,
         modalFlag: action.modalFlag,
@@ -126,7 +111,7 @@ export const SearchReducer = (
         modalType: action.modalType,
       };
 
-    case SEARCH_START:
+    case CONST.SEARCH_START:
       return {
         ...state,
         error: false,
@@ -137,7 +122,7 @@ export const SearchReducer = (
         loading: true,
       };
 
-    case SEARCH_IS_MOBILE:
+    case CONST.SEARCH_IS_MOBILE:
       return { ...state, isMobile: action.isMobile };
 
     default:
