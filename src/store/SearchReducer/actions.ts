@@ -1,23 +1,7 @@
 /* eslint-disable camelcase */
-import { FavoriteUser } from '../FavoriteReduser/types';
 import * as CONST from './constants';
 
 import { IRepoItem, ISearhHistoryItem, UserInnerType } from './types';
-
-export const searchSaga = (
-  login: string,
-  history: ISearhHistoryItem[],
-  isMobile: boolean,
-  favoritesList?: FavoriteUser[],
-) => {
-  return {
-    type: CONST.SEARCH_LOGIN_SAGA,
-    login,
-    history,
-    isMobile,
-    favoritesList,
-  } as const;
-};
 
 export const fetchLogin = (
   name: string,
@@ -82,14 +66,6 @@ export const userListOpenedFlag = (userListFlag: boolean) => {
   } as const;
 };
 
-export const fetchUsersListSaga = (login: string, requestType: string) => {
-  return {
-    type: CONST.FETCH_USERS_LIST_SAGA,
-    login,
-    requestType,
-  } as const;
-};
-
 export const fetchUsersList = (
   usersList: UserInnerType[],
   lastRequestType: string,
@@ -119,19 +95,6 @@ export const fetchAllHistory = (allSearchHistory: ISearhHistoryItem[]) => {
   return {
     type: CONST.FETCH_ALL_HISTORY,
     allSearchHistory,
-  } as const;
-};
-
-export const getLocalHistorySaga = () => {
-  return {
-    type: CONST.GET_LOCAL_HISTORY_SAGA,
-  } as const;
-};
-
-export const reposListSaga = (login: string) => {
-  return {
-    type: CONST.REPOS_LIST_SAGA,
-    login,
   } as const;
 };
 
@@ -168,12 +131,6 @@ export const searhStart = () => {
   } as const;
 };
 
-export const searhInitFetch = () => {
-  return {
-    type: CONST.SEARCH_INIT_SAGA,
-  } as const;
-};
-
 export const searchIsMobile = (isMobile: boolean) => {
   return {
     type: CONST.SEARCH_IS_MOBILE,
@@ -181,7 +138,6 @@ export const searchIsMobile = (isMobile: boolean) => {
   } as const;
 };
 
-type searchSagaType = ReturnType<typeof searchSaga>;
 type fetchLoginType = ReturnType<typeof fetchLogin>;
 type cardOPenedFlagType = ReturnType<typeof cardOPenedFlag>;
 type loadingFlagType = ReturnType<typeof loadingFlag>;
@@ -198,7 +154,6 @@ type searhStartType = ReturnType<typeof searhStart>;
 type searchIsMobileType = ReturnType<typeof searchIsMobile>;
 
 export type ActionsType =
-  | searchSagaType
   | fetchLoginType
   | cardOPenedFlagType
   | loadingFlagType

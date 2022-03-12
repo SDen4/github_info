@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-import { searchSaga } from '../../store/SearchReducer/actions';
+import { searchSaga } from '../../store/SearchReducer/actionsSagas';
 
 import { IUserItem } from './types';
 

@@ -4,11 +4,11 @@ import { useDispatch } from 'react-redux';
 import {
   searchHistoryLIstFlag,
   modalFlag,
-  searchSaga,
   userListOpenedFlag,
   reposOpenedListFlag,
   cardOPenedFlag,
 } from '../../store/SearchReducer/actions';
+import { searchSaga } from '../../store/SearchReducer/actionsSagas';
 
 import CloseButton from '../../ui/CloseButton';
 

@@ -7,12 +7,11 @@ import CloseButton from '../../ui/CloseButton';
 import { dateFormatter } from '../../utils/dateFormatter';
 import { periodCounter } from '../../utils/periodCounter';
 
+import { cardOPenedFlag, fetchLogin } from '../../store/SearchReducer/actions';
 import {
-  cardOPenedFlag,
-  fetchLogin,
   fetchUsersListSaga,
   reposListSaga,
-} from '../../store/SearchReducer/actions';
+} from '../../store/SearchReducer/actionsSagas';
 
 import {
   favoriteUserFlag,

@@ -19,9 +19,9 @@ import Loader from '../../ui/Loader';
 import {
   cardOPenedFlag,
   reposOpenedListFlag,
-  searhInitFetch,
   userListOpenedFlag,
 } from '../../store/SearchReducer/actions';
+import { searhInitFetchSaga } from '../../store/SearchReducer/actionsSagas';
 import { favoriteListFlag } from '../../store/FavoriteReduser/actions';
 
 import { selectFavorite } from '../../store/SearchReducer/selectors/selectors';
@@ -45,7 +45,7 @@ const Root: React.FC = () => {
       !favorite.favoriteListFlag);
 
   useEffect(() => {
-    dispatch(searhInitFetch());
+    dispatch(searhInitFetchSaga());
   }, [dispatch]);
 
   // close favorite list if there are no any items

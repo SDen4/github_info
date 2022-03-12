@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { searchSaga } from '../../store/SearchReducer/actions';
+import { searchSaga } from '../../store/SearchReducer/actionsSagas';
 
 import SubmitButton from '../../ui/SubmitButton';
 

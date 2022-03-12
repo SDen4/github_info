@@ -8,9 +8,9 @@ import {
   cardOPenedFlag,
   modalFlag,
   reposOpenedListFlag,
-  searchSaga,
   userListOpenedFlag,
 } from '../../store/SearchReducer/actions';
+import { searchSaga } from '../../store/SearchReducer/actionsSagas';
 import {
   favoriteListFlag,
   favoriteUserFlag,

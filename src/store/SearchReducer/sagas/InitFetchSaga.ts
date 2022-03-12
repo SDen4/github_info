@@ -2,12 +2,8 @@ import { takeEvery, put, all } from 'redux-saga/effects';
 
 import { SEARCH_INIT_SAGA } from '../constants';
 
-import {
-  errorFlag,
-  getLocalHistorySaga,
-  loadingFlag,
-  searchIsMobile,
-} from '../actions';
+import { getLocalHistorySaga } from '../actionsSagas';
+import { errorFlag, loadingFlag, searchIsMobile } from '../actions';
 import { getFavoriteListSaga } from '../../FavoriteReduser/actions';
 
 function* sagaWorker() {
