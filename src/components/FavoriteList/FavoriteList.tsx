@@ -107,7 +107,7 @@ const FavoriteList: React.FC<IFavoriteList> = ({
   // };
 
   return (
-    <div className={styles.shl_wrapper}>
+    <div className={styles.shlWrapper}>
       <h3>Favorite list</h3>
       <div className={styles.closeBtnWrapper}>
         {/* <button
@@ -129,7 +129,7 @@ const FavoriteList: React.FC<IFavoriteList> = ({
           <li key={el.name}>
             <div className={styles.itemWrapper}>
               <button
-                className={styles.shl_button}
+                className={styles.shlButton}
                 type="button"
                 onClick={() => searchHistoriListBtnHandler(el.name)}
               >

@@ -1,13 +1,13 @@
-.list_wrapper {
+.listWrapper {
   margin-top: 30px;
 }
 
-.list_wrapper,
-.list_wrapper_ul {
+.listWrapper,
+.listWrapperUl {
   width: 100%;
 }
 
-.list_wrapper_ul {
+.listWrapperUl {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -16,32 +16,32 @@
   padding: 0;
 }
 
-.list_wrapper_ul li {
+.listWrapperUl li {
   width: 100%;
   list-style: none;
   margin-bottom: 15px;
 }
 
-.list_wrapper_ul li:last-child {
+.listWrapperUl li:last-child {
   margin-bottom: 0;
 }
 
-.list_error {
+.listError {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
 }
 
-.list_error h2 {
+.listError h2 {
   padding-top: 50px;
 }
 
-.list_error_login {
+.listErrorLogin {
   color: #ff8c00;
 }
 
-.card_login {
+.cardLogin {
   font-size: 28px;
   font-weight: bold;
   background-color: transparent;
@@ -52,6 +52,6 @@
   transition: 0.3s;
 }
 
-.card_login:hover {
+.cardLogin:hover {
   color: tomato;
 }

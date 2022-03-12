@@ -27,10 +27,7 @@ const FavoriteButton: React.FC<IFavoriteButton> = ({
   return (
     <button
       type="button"
-      className={clsx(
-        favoriteListStatus && styles.button_active,
-        styles.button,
-      )}
+      className={clsx(favoriteListStatus && styles.buttonActive, styles.button)}
       onClick={showFavoriteListHandler}
     >
       <span className={styles.star}>&#9733;</span>

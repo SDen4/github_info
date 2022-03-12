@@ -4,8 +4,8 @@ import styles from './Loader.module.css';
 
 const Loader: React.FC = () => {
   return (
-    <div className={styles.loader_wrapper}>
-      <div className={styles.lds_default}>
+    <div className={styles.loaderWrapper}>
+      <div className={styles.ldsDefault}>
         <div />
         <div />
         <div />

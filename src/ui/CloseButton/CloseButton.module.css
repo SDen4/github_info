@@ -1,4 +1,4 @@
-.close_btn {
+.closeBtn {
   position: relative;
   width: 20px;
   height: 20px;
@@ -8,15 +8,15 @@
   cursor: pointer;
 }
 
-.close_btn:hover.close_btn:after {
+.closeBtn:hover.closeBtn:after {
   background-color: tomato;
 }
-.close_btn:hover.close_btn:before {
+.closeBtn:hover.closeBtn:before {
   background-color: tomato;
 }
 
-.close_btn:after,
-.close_btn:before {
+.closeBtn:after,
+.closeBtn:before {
   transition: 0.3s;
   content: '';
   display: block;
@@ -30,7 +30,7 @@
   transform: rotate(45deg);
 }
 
-.close_btn:before {
+.closeBtn:before {
   transform: rotate(-45deg);
 }
 

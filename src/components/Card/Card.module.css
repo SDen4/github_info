@@ -11,7 +11,7 @@
   color: #d3d3d3;
 }
 
-.card_element {
+.cardElement {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -19,21 +19,17 @@
   margin-right: 20px;
 }
 
-.card_element h2,
+.cardElement h2,
 h3 {
   color: #ff8c00;
 }
 
-.card_element:last-of-type {
-  margin-right: 0;
-}
-
-.card_element h2,
+.cardElement h2,
 h3 {
   margin: 0;
 }
 
-.card_photo_wrapper {
+.cardPhotoWrapper {
   width: 200px;
   height: 200px;
   border-radius: 50%;
@@ -43,44 +39,44 @@ h3 {
   overflow: hidden;
 }
 
-.card_photo_wrapper img {
+.cardPhotoWrapper img {
   display: block;
   max-width: 100%;
   max-height: 100%;
   min-width: 100%;
 }
 
-.card_followers_wrapper {
+.cardFollowersWrapper {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   margin-bottom: 20px;
 }
 
-.card_followers_unit {
+.cardFollowersUnit {
   margin-right: 20px;
 }
 
-.card_followers_unit:last-child {
+.cardFollowersUnit:last-child {
   margin-right: 0;
 }
 
-.card_sub_element {
+.cardSubElem {
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
   margin-bottom: 20px;
 }
 
-.card_sub_element_create {
+.cardSubElemCreate {
   align-items: flex-start;
 }
 
-.card_sub_element:last-child {
+.cardSubElem:last-child {
   margin-bottom: 0;
 }
 
-.card_login {
+.cardLogin {
   font-size: 28px;
   font-weight: bold;
   color: #ff8c00;
@@ -88,11 +84,11 @@ h3 {
   transition: 0.3s;
 }
 
-.card_login:hover {
+.cardLogin:hover {
   color: tomato;
 }
 
-.card_user_info {
+.cardUserInfo {
   border: 0;
   padding: 0;
   background-color: transparent;
@@ -103,7 +99,7 @@ h3 {
   color: #ff8c00;
 }
 
-.card_user_info_wrapper {
+.cardUserInfoWrapper {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -111,15 +107,15 @@ h3 {
   margin-top: 2px;
 }
 
-.card_user_info_btn {
+.cardUserInfoBtn {
   cursor: pointer;
 }
 
-a.card_user_info:hover {
+a.cardUserInfo:hover {
   color: tomato;
 }
 
-.card_user_info_btn:hover {
+.cardUserInfoBtn:hover {
   color: tomato;
 }
 
@@ -152,7 +148,7 @@ a.card_user_info:hover {
 }
 
 .star:hover,
-.star_active {
+.starActive {
   color: #ff8c00;
 }
 
@@ -227,13 +223,13 @@ a.card_user_info:hover {
     padding: 10px;
   }
 
-  .card_element {
+  .cardElement {
     margin-right: 0;
     margin-top: 30px;
     align-items: center;
   }
 
-  .card_login {
+  .cardLogin {
     text-align: center;
   }
 }

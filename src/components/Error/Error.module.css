@@ -1,4 +1,4 @@
-.error_wrapper {
+.errorWrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -6,6 +6,6 @@
   padding-top: 50px;
 }
 
-.error_user_info {
-  color: #FF8C00;
+.errorUserInfo {
+  color: #ff8c00;
 }

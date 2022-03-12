@@ -96,60 +96,60 @@ const Card: React.FC<CardType> = ({
 
   return (
     <div className={styles.card}>
-      <div className={styles.card_element}>
-        <div className={styles.card_photo_wrapper}>
+      <aside className={styles.cardElement}>
+        <div className={styles.cardPhotoWrapper}>
           <img src={user.avatarUrl} alt="User's avatar" />
         </div>
-      </div>
+      </aside>
 
-      <div className={styles.card_element}>
-        <div className={styles.card_sub_element}>
+      <div className={styles.cardElement}>
+        <header className={styles.cardSubElem}>
           {user.name ? (
             <a
               href={`https://github.com/${user.login}`}
-              className={styles.card_login}
+              className={styles.cardLogin}
             >
               {user.name} &#40;{user.login}&#41;
             </a>
           ) : (
             <a
               href={`https://github.com/${user.login}`}
-              className={styles.card_login}
+              className={styles.cardLogin}
             >
               {user.login}
             </a>
           )}
-        </div>
+        </header>
 
         {user.company && (
-          <div className={styles.card_sub_element}>
+          <div className={styles.cardSubElem}>
             <span>Company:&nbsp;</span>
-            <div className={styles.card_user_info}>{user.company}</div>
+            <div className={styles.cardUserInfo}>{user.company}</div>
           </div>
         )}
 
         {user.location && (
-          <div className={styles.card_sub_element}>
+          <div className={styles.cardSubElem}>
             <span>Location:&nbsp;</span>
-            <div className={styles.card_user_info}>{user.location}</div>
+            <div className={styles.cardUserInfo}>{user.location}</div>
           </div>
         )}
 
         {user.email && (
-          <div className={styles.card_sub_element}>
+          <div className={styles.cardSubElem}>
             <span>Email:&nbsp;</span>
-            <a href={`mailto:${user.email}`} className={styles.card_user_info}>
+            <a href={`mailto:${user.email}`} className={styles.cardUserInfo}>
               {user.email}
             </a>
           </div>
         )}
 
         {user.reposNum ? (
-          <div className={styles.card_sub_element}>
+          <div className={styles.cardSubElem}>
             <span>Public repositories:&nbsp;</span>
             <button
               type="button"
-              className={clsx(styles.card_user_info, styles.card_user_info_btn)}
+              className={clsx(styles.cardUserInfo, styles.cardUserInfoBtn)}
               onClick={onReposClickHandler}
             >
               {user.reposNum}
@@ -159,23 +159,23 @@ const Card: React.FC<CardType> = ({
           ''
         )}
 
-        <div className={styles.card_followers_wrapper}>
-          <div className={styles.card_followers_unit}>
+        <div className={styles.cardFollowersWrapper}>
+          <div className={styles.cardFollowersUnit}>
             <span>Followers:&nbsp;</span>
             <button
               type="button"
-              className={clsx(styles.card_user_info, styles.card_user_info_btn)}
+              className={clsx(styles.cardUserInfo, styles.cardUserInfoBtn)}
               onClick={() => onBtnClickHandler('followers')}
             >
               {user.followersNum}
             </button>
           </div>
 
-          <div className={styles.card_followers_unit}>
+          <div className={styles.cardFollowersUnit}>
             <span>Following:&nbsp;</span>
             <button
               type="button"
-              className={clsx(styles.card_user_info, styles.card_user_info_btn)}
+              className={clsx(styles.cardUserInfo, styles.cardUserInfoBtn)}
               onClick={() => onBtnClickHandler('following')}
             >
               {user.followingNum}
@@ -183,27 +183,22 @@ const Card: React.FC<CardType> = ({
           </div>
         </div>
 
-        <div
-          className={clsx(
-            styles.card_sub_element,
-            styles.card_sub_element_create,
-          )}
-        >
+        <div className={clsx(styles.cardSubElem, styles.cardSubElemCreate)}>
           <span>Created&nbsp;at:&nbsp;</span>
-          <div className={styles.card_user_info_wrapper}>
-            <div className={styles.card_user_info}>
+          <div className={styles.cardUserInfoWrapper}>
+            <div className={styles.cardUserInfo}>
               {dateFormatter(user.dataCreated)}
             </div>
-            <div className={styles.card_user_info}>
+            <div className={styles.cardUserInfo}>
               ({periodCounter(user.dataCreated)})
             </div>
           </div>
         </div>
 
         {user.lastActivityDate && (
-          <div className={styles.card_sub_element}>
+          <div className={styles.cardSubElem}>
             <span>Last&nbsp;activity&nbsp;at:&nbsp;</span>
-            <div className={styles.card_user_info}>
+            <div className={styles.cardUserInfo}>
               {dateFormatter(new Date(user.lastActivityDate))}
             </div>
           </div>
@@ -243,7 +238,7 @@ const Card: React.FC<CardType> = ({
         >
           <span
             className={clsx(
-              favoriteUserStatus && styles.star_active,
+              favoriteUserStatus && styles.starActive,
               styles.star,
             )}
           >

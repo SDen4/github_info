@@ -6,10 +6,10 @@ import styles from './Error.module.css';
 
 const Error: React.FC<IError> = ({ userName }): JSX.Element => {
   return (
-    <div className={styles.error_wrapper}>
+    <div className={styles.errorWrapper}>
       <h2>
         User
-        <span className={styles.error_user_info}> {userName} </span>
+        <span className={styles.errorUserInfo}> {userName} </span>
         is not found...
       </h2>
     </div>

@@ -8,7 +8,7 @@ import styles from './CloseButton.module.css';
 const CloseButton: React.FC<ICloseButton> = ({ onClick }) => {
   return (
     <button
-      className={clsx(styles.close_btn, styles.tooltip)}
+      className={clsx(styles.closeBtn, styles.tooltip)}
       type="button"
       aria-label="Close"
       onClick={onClick}

@@ -29,8 +29,8 @@ const SearchHistoryHeader: React.FC<ISearchHistoryHeader> = ({
     <button
       type="button"
       className={clsx(
-        searchHistoryListStatus && styles.shh_wrapper_active,
-        styles.shh_wrapper,
+        searchHistoryListStatus && styles.shhWrapperActive,
+        styles.shhWrapper,
       )}
       onClick={onSearchHistoryBtnHandler}
     >

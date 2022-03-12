@@ -1,4 +1,4 @@
-.shh_wrapper {
+.shhWrapper {
   background-color: rgba(55, 55, 55, 0.8);
   border: 1px solid #d3d3d3;
   border-radius: 5px;
@@ -9,11 +9,11 @@
   transition: 0.3s;
 }
 
-.shh_wrapper span {
+.shhWrapper span {
   color: #ff8c00;
 }
 
-.shh_wrapper:hover,
-.shh_wrapper_active {
+.shhWrapper:hover,
+.shhWrapperActive {
   border: 1px solid #ff8c00;
 }

@@ -30,9 +30,9 @@ const UsersList: React.FC<IUsersList> = ({
   };
 
   return (
-    <div className={styles.list_wrapper}>
+    <div className={styles.listWrapper}>
       {users.length ? (
-        <ul className={styles.list_wrapper_ul}>
+        <ul className={styles.listWrapperUl}>
           {users.map((el: UserInnerType) => (
             <li key={el.login}>
               <UserItem user={el} history={history} isMobile={isMobile} />
@@ -40,15 +40,15 @@ const UsersList: React.FC<IUsersList> = ({
           ))}
         </ul>
       ) : (
-        <div className={styles.list_error}>
+        <div className={styles.listError}>
           <h2>
             It seems the user
-            <span className={styles.list_error_login}>
+            <span className={styles.listErrorLogin}>
               {' '}
               <button
                 type="button"
                 onClick={loginBtnHandler}
-                className={styles.card_login}
+                className={styles.cardLogin}
               >
                 {login}
               </button>{' '}

@@ -61,7 +61,7 @@ const SearchHistoryList: React.FC<ISearchHistoryList> = ({
   };
 
   return (
-    <div className={styles.shl_wrapper}>
+    <div className={styles.shlWrapper}>
       <h3>Search list</h3>
       <div className={styles.closeBtnWrapper}>
         <CloseButton onClick={closeBtnHandler} />
@@ -72,7 +72,7 @@ const SearchHistoryList: React.FC<ISearchHistoryList> = ({
           // eslint-disable-next-line react/no-array-index-key
           <li key={`${el.login} + ${i}`}>
             <button
-              className={styles.shl_button}
+              className={styles.shlButton}
               type="button"
               onClick={() => searchHistoriListBtnHandler(el.login)}
             >

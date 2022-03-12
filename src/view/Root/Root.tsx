@@ -66,8 +66,8 @@ const Root: React.FC = () => {
   };
 
   return (
-    <div className={styles.root_wrapper}>
-      <header className={styles.root_header}>
+    <div className={styles.rootWrapper}>
+      <header className={styles.rootHeader}>
         <h1>Find github&apos;s user</h1>
 
         <div className={styles.buttonsWrapper}>
@@ -91,16 +91,9 @@ const Root: React.FC = () => {
         </div>
       </header>
 
-      <section className={styles.root_section}>
-        <div
-          className={clsx(
-            styles.root_sub_section,
-            styles.root_sub_section_left,
-          )}
-        >
-          <section
-            className={clsx(styles.root_section, styles.root_section_search)}
-          >
+      <main className={styles.root}>
+        <section className={styles.rootSectionLeft}>
+          <div className={clsx(styles.root, styles.rootSectionSearch)}>
             <SearchForm
               search={searchFunc}
               history={search.searchHistory}
@@ -113,12 +106,12 @@ const Root: React.FC = () => {
               <button
                 type="button"
                 onClick={backBtnHandler}
-                className={styles.root_btn}
+                className={styles.rootBtn}
               >
                 Back
               </button>
             )}
-          </section>
+          </div>
 
           {search.loading && <Loader />}
           {isCardOpen && (
@@ -151,15 +144,10 @@ const Root: React.FC = () => {
           )}
           {search.reposListOpened && <ReposList reposList={search.reposList} />}
           {search.error && <Error userName={user} />}
-        </div>
+        </section>
 
         {search.searchHistoryListFlag && (
-          <div
-            className={clsx(
-              styles.root_sub_section,
-              styles.root_sub_section_right,
-            )}
-          >
+          <section className={styles.rootSectionRight}>
             <SearchHistoryList
               searchList={search.searchHistory}
               favoritesList={favorite.favoriteList}
@@ -168,16 +156,11 @@ const Root: React.FC = () => {
               reposListOpened={search.reposListOpened}
               isMobile={search.isMobile}
             />
-          </div>
+          </section>
         )}
 
         {favorite.favoriteListFlag && (
-          <div
-            className={clsx(
-              styles.root_sub_section,
-              styles.root_sub_section_right,
-            )}
-          >
+          <section className={styles.rootSectionRight}>
             <FavoriteList
               favoriteList={favorite.favoriteList}
               searchList={search.searchHistory}
@@ -186,9 +169,9 @@ const Root: React.FC = () => {
               reposListOpened={search.reposListOpened}
               isMobile={search.isMobile}
             />
-          </div>
+          </section>
         )}
-      </section>
+      </main>
 
       {search.modalFlag && (
         <Modal textModal={search.modalText} type={search.modalType} />

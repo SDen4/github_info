@@ -17,13 +17,13 @@
   opacity: 1;
 }
 
-.button_unactive {
+.buttonUnactive {
   background: linear-gradient(#a9a9a9, #d3d3d3);
   opacity: 0.7;
   color: rgba(0, 0, 0, 0.9);
 }
 
-.button_unactive:hover {
+.buttonUnactive:hover {
   cursor: default;
   opacity: 0.7;
 }

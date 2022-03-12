@@ -107,7 +107,7 @@ const Note: React.FC<INote> = ({ login, favorites, note }) => {
       <form className={styles.form} onSubmit={onSubmitHandler}>
         <textarea onChange={onChangeHandler} value={value} ref={ref} />
 
-        <div className={styles.formBottom}>
+        <footer className={styles.formFooter}>
           <div className={styles.lettersQuantity}>
             {value.length ? `Characters: ${value.length}` : ''}
           </div>
@@ -119,7 +119,7 @@ const Note: React.FC<INote> = ({ login, favorites, note }) => {
             {value && (
               <button
                 type="button"
-                className={styles.button_delete}
+                className={styles.buttonDel}
                 onClick={() => setIsModalOpened(true)}
               >
                 Delete
@@ -128,13 +128,13 @@ const Note: React.FC<INote> = ({ login, favorites, note }) => {
 
             <button
               type="submit"
-              className={clsx(!value && styles.button_unactive)}
+              className={clsx(!value && styles.buttonUnactive)}
               disabled={!value}
             >
               Save and add to favorites
             </button>
           </div>
-        </div>
+        </footer>
       </form>
 
       {isModalOpened && (
