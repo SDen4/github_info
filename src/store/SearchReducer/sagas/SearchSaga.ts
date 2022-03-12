@@ -14,7 +14,7 @@ import {
   fetchLogin,
   fetchSearhHistory,
   loadingFlag,
-  searchHistoryLIstFlag,
+  searchHistoryListFlag,
   searhStart,
 } from '../actions';
 
@@ -40,7 +40,7 @@ function* sagaWorker(action: SearchSagaWorkerType) {
     yield all([put(searhStart()), put(noteSave('')), put(noteBtnFlag(false))]);
 
     if (action.isMobile) {
-      yield put(searchHistoryLIstFlag(false));
+      yield put(searchHistoryListFlag(false));
       yield put(favoriteListFlag(false));
     }
 

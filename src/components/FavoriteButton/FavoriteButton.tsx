@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import clsx from 'clsx';
 
 import { favoriteListFlag } from '../../store/FavoriteReduser/actions';
-import { searchHistoryLIstFlag } from '../../store/SearchReducer/actions';
+import { searchHistoryListFlag } from '../../store/SearchReducer/actions';
 
 import { IFavoriteButton } from './types';
 
@@ -20,7 +20,7 @@ const FavoriteButton: React.FC<IFavoriteButton> = ({
       dispatch(favoriteListFlag(false));
     } else {
       dispatch(favoriteListFlag(true));
-      dispatch(searchHistoryLIstFlag(false));
+      dispatch(searchHistoryListFlag(false));
     }
   };
 

@@ -84,7 +84,7 @@ export const fetchSearhHistory = (searchHistory: ISearhHistoryItem) => {
   } as const;
 };
 
-export const searchHistoryLIstFlag = (searchHistoryListFlag: boolean) => {
+export const searchHistoryListFlag = (searchHistoryListFlag: boolean) => {
   return {
     type: CONST.SEARCH_HISTORY_LIST_FLAG,
     searchHistoryListFlag,
@@ -145,7 +145,7 @@ type errorFlagType = ReturnType<typeof errorFlag>;
 type userListOpenedFlagType = ReturnType<typeof userListOpenedFlag>;
 type fetchUsersListType = ReturnType<typeof fetchUsersList>;
 type fetchSearhHistoryType = ReturnType<typeof fetchSearhHistory>;
-type searchHistoryLIstFlagType = ReturnType<typeof searchHistoryLIstFlag>;
+type searchHistoryListFlagType = ReturnType<typeof searchHistoryListFlag>;
 type fetchAllHistoryType = ReturnType<typeof fetchAllHistory>;
 type fetchReposListType = ReturnType<typeof fetchReposList>;
 type reposOpenedListFlagType = ReturnType<typeof reposOpenedListFlag>;
@@ -161,7 +161,7 @@ export type ActionsType =
   | userListOpenedFlagType
   | fetchUsersListType
   | fetchSearhHistoryType
-  | searchHistoryLIstFlagType
+  | searchHistoryListFlagType
   | fetchAllHistoryType
   | fetchReposListType
   | reposOpenedListFlagType

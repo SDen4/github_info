@@ -1,6 +1,7 @@
 import { takeEvery, put, all } from 'redux-saga/effects';
 
 import { SEARCH_INIT_SAGA } from '../constants';
+import { mobileWidth } from '../../../constants/searchConstants';
 
 import { getLocalHistorySaga } from '../actionsSagas';
 import { errorFlag, loadingFlag, searchIsMobile } from '../actions';
@@ -10,7 +11,7 @@ function* sagaWorker() {
   try {
     // detect mobiles
     const width: number = yield document.documentElement.clientWidth;
-    if (width <= 480) {
+    if (width <= mobileWidth) {
       yield put(searchIsMobile(true));
     } else {
       yield put(searchIsMobile(false));

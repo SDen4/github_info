@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import clsx from 'clsx';
 
 import { favoriteListFlag } from '../../store/FavoriteReduser/actions';
-import { searchHistoryLIstFlag } from '../../store/SearchReducer/actions';
+import { searchHistoryListFlag } from '../../store/SearchReducer/actions';
 
 import { ISearchHistoryHeader } from './types';
 
@@ -18,10 +18,10 @@ const SearchHistoryHeader: React.FC<ISearchHistoryHeader> = ({
 
   const onSearchHistoryBtnHandler = () => {
     if (historyBtnStatus) {
-      dispatch(searchHistoryLIstFlag(false));
+      dispatch(searchHistoryListFlag(false));
     } else {
       dispatch(favoriteListFlag(false));
-      dispatch(searchHistoryLIstFlag(true));
+      dispatch(searchHistoryListFlag(true));
     }
   };
 

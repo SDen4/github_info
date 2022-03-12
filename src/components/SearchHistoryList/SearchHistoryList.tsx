@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 
 import {
-  searchHistoryLIstFlag,
+  searchHistoryListFlag,
   modalFlag,
   userListOpenedFlag,
   reposOpenedListFlag,
@@ -45,7 +45,7 @@ const SearchHistoryList: React.FC<ISearchHistoryList> = ({
   };
 
   const closeBtnHandler = () => {
-    dispatch(searchHistoryLIstFlag(false));
+    dispatch(searchHistoryListFlag(false));
   };
 
   const clearBtnHandler = () => {

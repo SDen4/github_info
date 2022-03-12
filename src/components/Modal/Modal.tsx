@@ -5,7 +5,7 @@ import CloseButton from '../../ui/CloseButton';
 
 import {
   fetchAllHistory,
-  searchHistoryLIstFlag,
+  searchHistoryListFlag,
   modalFlag,
 } from '../../store/SearchReducer/actions';
 
@@ -24,7 +24,7 @@ const Modal: React.FC<ISearchHistoryModal> = ({ textModal, type }) => {
   const onBtnsHandler = (delStatus: boolean) => {
     if (delStatus) {
       if (type === 'search') {
-        dispatch(searchHistoryLIstFlag(false));
+        dispatch(searchHistoryListFlag(false));
         dispatch(fetchAllHistory([]));
         localStorage.removeItem('saves');
       } else if (type === 'favorite') {

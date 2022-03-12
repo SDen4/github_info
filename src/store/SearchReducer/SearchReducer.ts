@@ -1,26 +1,12 @@
 import * as CONST from './constants';
+import { searchUserDefault } from '../../constants/searchConstants';
 
 import { InitialStateType } from './types';
 
 import { ActionsType } from './actions';
 
 const initialState: InitialStateType = {
-  user: {
-    name: '',
-    login: '',
-    followersUrl: '',
-    followingUrl: '',
-    avatarUrl: '',
-    followersNum: 0,
-    followingNum: 0,
-    dataCreated: new Date(),
-    company: '',
-    email: '',
-    reposNum: 0,
-    reposUrl: '',
-    location: '',
-    lastActivityDate: '',
-  },
+  user: searchUserDefault,
   usersList: [],
   reposList: [],
   lastRequestType: '',
@@ -98,10 +84,7 @@ export const SearchReducer = (
       return { ...state, reposList: action.reposList };
 
     case CONST.REPOS_OPENED_LIST_FLAG:
-      return {
-        ...state,
-        reposListOpened: action.reposListFlag,
-      };
+      return { ...state, reposListOpened: action.reposListFlag };
 
     case CONST.SEARCH_HISTORY_MODAL_FLAG:
       return {
