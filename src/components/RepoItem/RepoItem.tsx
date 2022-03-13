@@ -34,8 +34,12 @@ const RepoItem: React.FC<IRepoItemInt> = ({ repoItem }) => {
         </div>
 
         <div className={styles.repoSubUnit}>
-          <span>Language: </span>
-          <span>{repoItem.language}</span>
+          {repoItem.language && (
+            <>
+              <span>Language: </span>
+              <span>{repoItem.language}</span>
+            </>
+          )}
         </div>
       </div>
     </div>
