@@ -9,3 +9,7 @@
 .errorUserInfo {
   color: #ff8c00;
 }
+
+.errorWrapper h2 {
+  text-align: center;
+}

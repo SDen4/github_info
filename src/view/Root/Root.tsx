@@ -44,6 +44,13 @@ const Root: React.FC = () => {
       !search.searchHistoryListFlag &&
       !favorite.favoriteListFlag);
 
+  const isErrorOpen =
+    (!search.isMobile && search.error) ||
+    (search.isMobile &&
+      search.error &&
+      !search.searchHistoryListFlag &&
+      !favorite.favoriteListFlag);
+
   useEffect(() => {
     dispatch(searhInitFetchSaga());
   }, [dispatch]);
@@ -143,7 +150,7 @@ const Root: React.FC = () => {
             />
           )}
           {search.reposListOpened && <ReposList reposList={search.reposList} />}
-          {search.error && <Error userName={user} />}
+          {isErrorOpen && <Error userName={user} />}
         </section>
 
         {search.searchHistoryListFlag && (
