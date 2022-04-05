@@ -1,17 +1,12 @@
-import React, { memo, useEffect, useState } from 'react';
+import React, { memo, Suspense, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
-import Card from '../../components/Card';
 import Note from '../../components/Note';
 import Error from '../../components/Error';
 import Modal from '../../components/Modal';
-import ReposList from '../../components/ReposList';
-import UsersList from '../../components/UsersList';
 import SearchForm from '../../components/SearchForm';
-import FavoriteList from '../../components/FavoriteList';
 import FavoriteButton from '../../components/FavoriteButton';
-import SearchHistoryList from '../../components/SearchHistoryList';
 import SearchHistoryHeader from '../../components/SearchHistoryHeader';
 
 import Loader from '../../ui/Loader';
@@ -28,6 +23,16 @@ import { selectFavorite } from '../../store/SearchReducer/selectors/selectors';
 import { selectSearch } from '../../store/FavoriteReduser/selectors/selectors';
 
 import styles from './Root.module.css';
+
+const LazySearchHistoryList = React.lazy(
+  () => import('../../components/SearchHistoryList'),
+);
+const LazyFavoriteList = React.lazy(
+  () => import('../../components/FavoriteList'),
+);
+const LazyCard = React.lazy(() => import('../../components/Card'));
+const LazyReposList = React.lazy(() => import('../../components/ReposList'));
+const LazyUsersList = React.lazy(() => import('../../components/UsersList'));
 
 const Root: React.FC = () => {
   const dispatch = useDispatch();
@@ -123,14 +128,16 @@ const Root: React.FC = () => {
           {search.loading && <Loader />}
           {isCardOpen && (
             <>
-              <Card
-                user={search.user}
-                favorites={favorite.favoriteList}
-                favoriteUserStatus={favorite.favoriteUser}
-                noteUserStatus={favorite.noteBtnFlag}
-                note={favorite.note}
-                noteStoreFlag={favorite.noteFlag}
-              />
+              <Suspense fallback={<Loader />}>
+                <LazyCard
+                  user={search.user}
+                  favorites={favorite.favoriteList}
+                  favoriteUserStatus={favorite.favoriteUser}
+                  noteUserStatus={favorite.noteBtnFlag}
+                  note={favorite.note}
+                  noteStoreFlag={favorite.noteFlag}
+                />
+              </Suspense>
 
               {favorite.noteFlag && (
                 <Note
@@ -142,41 +149,51 @@ const Root: React.FC = () => {
             </>
           )}
           {search.usersListOpened && (
-            <UsersList
-              users={search.usersList}
-              login={search.user.login}
-              requestType={search.lastRequestType}
-              history={search.searchHistory}
-              isMobile={search.isMobile}
-            />
+            <Suspense fallback={<Loader />}>
+              <LazyUsersList
+                users={search.usersList}
+                login={search.user.login}
+                requestType={search.lastRequestType}
+                history={search.searchHistory}
+                isMobile={search.isMobile}
+              />
+            </Suspense>
           )}
-          {search.reposListOpened && <ReposList reposList={search.reposList} />}
+          {search.reposListOpened && (
+            <Suspense fallback={<Loader />}>
+              <LazyReposList reposList={search.reposList} />
+            </Suspense>
+          )}
           {isErrorOpen && <Error userName={user} />}
         </section>
 
         {search.searchHistoryListFlag && (
           <section className={styles.rootSectionRight}>
-            <SearchHistoryList
-              searchList={search.searchHistory}
-              favoritesList={favorite.favoriteList}
-              currentUserLogin={search.user.login}
-              userListOpened={search.usersListOpened}
-              reposListOpened={search.reposListOpened}
-              isMobile={search.isMobile}
-            />
+            <Suspense fallback={<Loader />}>
+              <LazySearchHistoryList
+                searchList={search.searchHistory}
+                favoritesList={favorite.favoriteList}
+                currentUserLogin={search.user.login}
+                userListOpened={search.usersListOpened}
+                reposListOpened={search.reposListOpened}
+                isMobile={search.isMobile}
+              />
+            </Suspense>
           </section>
         )}
 
         {favorite.favoriteListFlag && (
           <section className={styles.rootSectionRight}>
-            <FavoriteList
-              favoriteList={favorite.favoriteList}
-              searchList={search.searchHistory}
-              currentUserLogin={search.user.login}
-              userListOpened={search.usersListOpened}
-              reposListOpened={search.reposListOpened}
-              isMobile={search.isMobile}
-            />
+            <Suspense fallback={<Loader />}>
+              <LazyFavoriteList
+                favoriteList={favorite.favoriteList}
+                searchList={search.searchHistory}
+                currentUserLogin={search.user.login}
+                userListOpened={search.usersListOpened}
+                reposListOpened={search.reposListOpened}
+                isMobile={search.isMobile}
+              />
+            </Suspense>
           </section>
         )}
       </main>
