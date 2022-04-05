@@ -7,4 +7,5 @@ export interface CardType {
   favoriteUserStatus: boolean;
   noteUserStatus: boolean;
   note: string;
+  noteStoreFlag: boolean;
 }

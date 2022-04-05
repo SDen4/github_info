@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useDispatch } from 'react-redux';
 import clsx from 'clsx';
 
@@ -27,13 +27,15 @@ import { fileText } from './assets/fileText';
 
 import styles from './Card.module.css';
 
-const Card: React.FC<CardType> = ({
-  user,
-  favorites,
-  favoriteUserStatus,
-  noteUserStatus,
-  note,
-}) => {
+const Card: React.FC<CardType> = ({ ...args }): JSX.Element => {
+  const {
+    user,
+    favorites,
+    favoriteUserStatus,
+    noteUserStatus,
+    note,
+    noteStoreFlag,
+  } = args;
   const dispatch = useDispatch();
 
   const onClickCloseBtnHandler = () => {
@@ -91,7 +93,9 @@ const Card: React.FC<CardType> = ({
   };
 
   const addNoteHandler = () => {
-    dispatch(noteFlag(true));
+    if (!noteStoreFlag) {
+      dispatch(noteFlag(true));
+    }
   };
 
   return (
@@ -255,4 +259,4 @@ const Card: React.FC<CardType> = ({
   );
 };
 
-export default Card;
+export default memo(Card);

@@ -129,6 +129,7 @@ const Root: React.FC = () => {
                 favoriteUserStatus={favorite.favoriteUser}
                 noteUserStatus={favorite.noteBtnFlag}
                 note={favorite.note}
+                noteStoreFlag={favorite.noteFlag}
               />
 
               {favorite.noteFlag && (

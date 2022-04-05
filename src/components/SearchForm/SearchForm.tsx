@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, memo } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { searchSaga } from '../../store/SearchReducer/actionsSagas';
@@ -67,4 +67,4 @@ const SearchForm: React.FC<ISearch> = ({
   );
 };
 
-export default SearchForm;
+export default memo(SearchForm);

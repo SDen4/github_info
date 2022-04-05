@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useDispatch } from 'react-redux';
 import clsx from 'clsx';
 
@@ -36,4 +36,4 @@ const FavoriteButton: React.FC<IFavoriteButton> = ({
   );
 };
 
-export default FavoriteButton;
+export default memo(FavoriteButton);

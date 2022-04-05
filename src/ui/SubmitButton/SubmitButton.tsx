@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import clsx from 'clsx';
 
 import { IButton } from './types';
@@ -17,4 +17,4 @@ const SubmitButton: React.FC<IButton> = ({ children, disabled }) => {
   );
 };
 
-export default SubmitButton;
+export default memo(SubmitButton);

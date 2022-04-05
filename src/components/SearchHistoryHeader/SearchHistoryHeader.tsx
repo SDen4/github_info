@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useDispatch } from 'react-redux';
 import clsx from 'clsx';
 
@@ -39,4 +39,4 @@ const SearchHistoryHeader: React.FC<ISearchHistoryHeader> = ({
   );
 };
 
-export default SearchHistoryHeader;
+export default memo(SearchHistoryHeader);

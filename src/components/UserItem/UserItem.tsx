@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { searchSaga } from '../../store/SearchReducer/actionsSagas';
@@ -31,4 +31,4 @@ const UserItem: React.FC<IUserItem> = ({ user, history, isMobile }) => {
   );
 };
 
-export default UserItem;
+export default memo(UserItem);

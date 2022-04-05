@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import clsx from 'clsx';
 
 import { ICloseButton } from './types';
@@ -18,4 +18,4 @@ const CloseButton: React.FC<ICloseButton> = ({ onClick }) => {
   );
 };
 
-export default CloseButton;
+export default memo(CloseButton);

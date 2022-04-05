@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useDispatch } from 'react-redux';
 
 import {
@@ -61,4 +61,4 @@ const UsersList: React.FC<IUsersList> = ({
   );
 };
 
-export default UsersList;
+export default memo(UsersList);
