@@ -8,9 +8,15 @@ import SubmitButton from '../../ui/SubmitButton';
 import { ISearch } from './types';
 
 import styles from './SearchForm.module.css';
+import {
+  cardOPenedFlag,
+  reposOpenedListFlag,
+  userListOpenedFlag,
+} from '../../store/SearchReducer/actions';
 
 const SearchForm: React.FC<ISearch> = ({
   search,
+  searchState,
   history,
   favoritesList,
   currentUser,
@@ -52,6 +58,12 @@ const SearchForm: React.FC<ISearch> = ({
     setDisabledBtn(true);
   };
 
+  const backBtnHandler = () => {
+    dispatch(userListOpenedFlag(false));
+    dispatch(reposOpenedListFlag(false));
+    dispatch(cardOPenedFlag(true));
+  };
+
   return (
     <form className={styles.form} onSubmit={onSubmitHandler}>
       <input
@@ -62,7 +74,22 @@ const SearchForm: React.FC<ISearch> = ({
         value={searchLogin}
         onChange={changeTextHandler}
       />
-      <SubmitButton disabled={disabledBtn}>Search</SubmitButton>
+
+      <div className={styles.btnsWrapper}>
+        <SubmitButton disabled={disabledBtn}>Search</SubmitButton>
+
+        {isMobile &&
+          (searchState.usersListOpened || searchState.reposListOpened) && (
+            <button
+              type="button"
+              onClick={backBtnHandler}
+              className={styles.rootBtn}
+            >
+              Back
+            </button>
+            // eslint-disable-next-line indent
+          )}
+      </div>
     </form>
   );
 };

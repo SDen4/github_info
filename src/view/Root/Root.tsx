@@ -114,21 +114,24 @@ const Root: React.FC = () => {
           <div className={clsx(styles.root, styles.rootSectionSearch)}>
             <SearchForm
               search={searchFunc}
+              searchState={search}
               history={search.searchHistory}
               favoritesList={favorite.favoriteList}
               currentUser={search.user.login}
               isMobile={search.isMobile}
             />
 
-            {(search.usersListOpened || search.reposListOpened) && (
-              <button
-                type="button"
-                onClick={backBtnHandler}
-                className={styles.rootBtn}
-              >
-                Back
-              </button>
-            )}
+            {!search.isMobile &&
+              (search.usersListOpened || search.reposListOpened) && (
+                <button
+                  type="button"
+                  onClick={backBtnHandler}
+                  className={styles.rootBtn}
+                >
+                  Back
+                </button>
+                // eslint-disable-next-line indent
+              )}
           </div>
 
           {search.loading && <Loader />}
