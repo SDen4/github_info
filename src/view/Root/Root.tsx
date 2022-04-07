@@ -42,6 +42,12 @@ const Root: React.FC = () => {
 
   const [user, setUser] = useState<string>('');
 
+  // app height
+  const [appHeight, setAppHeight] = useState<number>(0);
+  useEffect(() => {
+    setAppHeight(window.innerHeight);
+  }, []);
+
   const isCardOpen =
     (!search.isMobile && search.cardOpened) ||
     (search.isMobile &&
@@ -78,7 +84,7 @@ const Root: React.FC = () => {
   };
 
   return (
-    <div className={styles.rootWrapper}>
+    <div className={styles.rootWrapper} style={{ minHeight: appHeight }}>
       <header className={styles.rootHeader}>
         <h1>Find github&apos;s user</h1>
 
