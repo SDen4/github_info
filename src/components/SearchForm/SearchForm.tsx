@@ -29,7 +29,11 @@ const SearchForm: React.FC<ISearch> = ({
   // auto focus on input
   const ref: any = useRef(null);
   useEffect(() => {
-    ref.current.focus();
+    setTimeout(() => {
+      if (ref?.current) {
+        ref.current.focus();
+      }
+    }, 500);
   }, []);
 
   const changeTextHandler = (event: React.ChangeEvent<HTMLInputElement>) => {

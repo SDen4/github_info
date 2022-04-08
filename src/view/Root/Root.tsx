@@ -46,14 +46,14 @@ const Root: React.FC = () => {
 
   // app height
   const [appHeight, setAppHeight] = useState<number>(0);
-  useEffect(() => setAppHeight(window.innerHeight), []);
+  useEffect(() => setAppHeight(window.outerHeight), []);
 
-  // // resize
-  // window.addEventListener(
-  //   'resize',
-  //   () => setAppHeight(window.innerHeight),
-  //   true,
-  // );
+  // resize
+  window.addEventListener(
+    'resize',
+    () => setAppHeight(window.outerHeight),
+    true,
+  );
   // app height
 
   const isCardOpen =
