@@ -48,6 +48,14 @@ const Root: React.FC = () => {
     setAppHeight(window.innerHeight);
   }, []);
 
+  // resize
+  window.addEventListener(
+    'resize',
+    () => setAppHeight(window.innerHeight),
+    true,
+  );
+  // app height
+
   const isCardOpen =
     (!search.isMobile && search.cardOpened) ||
     (search.isMobile &&
