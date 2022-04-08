@@ -108,9 +108,11 @@ const FavoriteList: React.FC<IFavoriteList> = ({
 
   return (
     <div className={styles.shlWrapper}>
-      <h3>Favorite list</h3>
-      <div className={styles.closeBtnWrapper}>
-        {/* <button
+      <div className={styles.listHeader}>
+        <h3>Favorite list</h3>
+        <CloseButton onClick={closeBtnHandler} />
+      </div>
+      {/* <button
           type="button"
           className={clsx(styles.button, styles.downloadBtn, styles.tooltip)}
           onClick={onDownloadHandler}
@@ -120,9 +122,6 @@ const FavoriteList: React.FC<IFavoriteList> = ({
             Download list
           </div>
         </button> */}
-
-        <CloseButton onClick={closeBtnHandler} />
-      </div>
 
       <ol className={styles.list}>
         {favoriteList.map((el) => (

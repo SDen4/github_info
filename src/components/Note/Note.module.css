@@ -4,7 +4,7 @@
   box-sizing: border-box;
   width: 100%;
   padding: 15px 20px;
-  border: 1px solid #d3d3d3;
+  border: 1px solid rgba(211, 211, 211, 0.2);
   border-radius: 5px;
   margin-top: 10px;
   background-color: rgba(55, 55, 55, 0.8);
@@ -29,7 +29,7 @@
   margin-bottom: 15px;
   padding: 10px 20px;
   border-radius: 5px;
-  border: 1px solid #d3d3d3;
+  border: 1px solid rgba(211, 211, 211, 0.2);
   background-color: black;
   color: #ff8c00;
   font-size: 16px;

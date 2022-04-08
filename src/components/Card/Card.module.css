@@ -4,7 +4,7 @@
   box-sizing: border-box;
   width: 100%;
   padding: 15px 20px;
-  border: 1px solid #d3d3d3;
+  border: 1px solid rgba(211, 211, 211, 0.2);
   border-radius: 5px;
   background-color: rgba(55, 55, 55, 0.8);
   color: #d3d3d3;
@@ -152,7 +152,7 @@ a.cardUserInfo:hover {
 }
 
 .downloadBtn {
-  border: 1px solid #d3d3d3;
+  border: 1px solid rgba(211, 211, 211, 0.2);
   border-radius: 3px;
   padding: 0;
   width: 22px;
@@ -220,6 +220,7 @@ a.cardUserInfo:hover {
   .card {
     flex-direction: column;
     padding: 10px;
+    border: 0;
   }
 
   .cardElement {

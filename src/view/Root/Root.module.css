@@ -41,8 +41,6 @@
 .rootSectionRight_Mobile {
   overflow-y: scroll;
   overflow-x: auto;
-  border: 1px solid #d3d3d3;
-  border-radius: 5px;
 }
 
 .rootSectionSearch {
@@ -94,6 +92,6 @@
 
   .rootSectionRight {
     width: 100%;
-    margin: 30px 0 0;
+    margin: 0;
   }
 }

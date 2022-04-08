@@ -62,10 +62,10 @@ const SearchHistoryList: React.FC<ISearchHistoryList> = ({
 
   return (
     <div className={styles.shlWrapper}>
-      <h3>Search list</h3>
-      <div className={styles.closeBtnWrapper}>
+      <header className={styles.listHeader}>
+        <h3>Search list</h3>
         <CloseButton onClick={closeBtnHandler} />
-      </div>
+      </header>
 
       <ol>
         {searchList.map((el, i) => (
