@@ -156,7 +156,7 @@ const Root: React.FC = () => {
                   className={clsx(
                     search.isMobile && styles.rootSectionRight_Mobile,
                   )}
-                  style={{ maxHeight: appHeight - 279 }}
+                  style={{ maxHeight: appHeight - 239 }}
                 >
                   <Suspense fallback={<Loader />}>
                     <LazyCard
@@ -183,7 +183,7 @@ const Root: React.FC = () => {
                   className={clsx(
                     search.isMobile && styles.rootSectionRight_Mobile,
                   )}
-                  style={{ maxHeight: appHeight - 279 }}
+                  style={{ maxHeight: appHeight - 239 }}
                 >
                   <Suspense fallback={<Loader />}>
                     <LazyUsersList
@@ -201,7 +201,7 @@ const Root: React.FC = () => {
                   className={clsx(
                     search.isMobile && styles.rootSectionRight_Mobile,
                   )}
-                  style={{ maxHeight: appHeight - 279 }}
+                  style={{ maxHeight: appHeight - 239 }}
                 >
                   <Suspense fallback={<Loader />}>
                     <LazyReposList reposList={search.reposList} />
@@ -217,7 +217,7 @@ const Root: React.FC = () => {
                   styles.rootSectionRight,
                   search.isMobile && styles.rootSectionRight_Mobile,
                 )}
-                style={{ maxHeight: appHeight - 279 }}
+                style={{ maxHeight: appHeight - 239 }}
               >
                 <Suspense fallback={<Loader />}>
                   <LazySearchHistoryList
@@ -238,7 +238,7 @@ const Root: React.FC = () => {
                   styles.rootSectionRight,
                   search.isMobile && styles.rootSectionRight_Mobile,
                 )}
-                style={{ maxHeight: appHeight - 279 }}
+                style={{ maxHeight: appHeight - 239 }}
               >
                 <Suspense fallback={<Loader />}>
                   <LazyFavoriteList

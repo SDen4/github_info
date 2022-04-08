@@ -13,7 +13,18 @@
   color: #ff8c00;
 }
 
-.shhWrapper:hover,
 .shhWrapperActive {
   border: 1px solid #ff8c00;
+}
+
+@media (min-width: 980px) {
+  .shhWrapper:hover {
+    border: 1px solid #ff8c00;
+  }
+}
+
+@media (max-width: 480px) {
+  .shhWrapper {
+    -webkit-tap-highlight-color: transparent;
+  }
 }

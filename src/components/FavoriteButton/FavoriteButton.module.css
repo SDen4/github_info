@@ -20,7 +20,6 @@
   margin-left: 5px;
 }
 
-.button:hover,
 .buttonActive {
   border: 1px solid #ff8c00;
 }
@@ -30,4 +29,16 @@
   font-size: 24px;
   line-height: 20px;
   color: #ff8c00;
+}
+
+@media (min-width: 980px) {
+  .button:hover {
+    border: 1px solid #ff8c00;
+  }
+}
+
+@media (max-width: 480px) {
+  .button {
+    -webkit-tap-highlight-color: transparent;
+  }
 }

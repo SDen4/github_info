@@ -78,8 +78,13 @@
     padding: 10px;
   }
 
+  .rootSectionSearch {
+    margin-bottom: 20px;
+  }
+
   .rootHeader {
     flex-direction: column;
+    margin-bottom: 20px;
   }
 
   .rootHeader h1 {
