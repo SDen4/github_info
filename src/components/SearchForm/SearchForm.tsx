@@ -52,6 +52,10 @@ const SearchForm: React.FC<ISearch> = ({
       return;
     }
 
+    if (isMobile) {
+      document.body.requestFullscreen();
+    }
+
     dispatch(searchSaga(searchLogin, history, isMobile, favoritesList));
     search(searchLogin);
     setsearchLogin('');

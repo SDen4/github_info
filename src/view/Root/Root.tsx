@@ -44,9 +44,7 @@ const Root: React.FC = () => {
 
   // app height
   const [appHeight, setAppHeight] = useState<number>(0);
-  useEffect(() => {
-    setAppHeight(window.innerHeight);
-  }, []);
+  useEffect(() => setAppHeight(window.innerHeight), []);
 
   // resize
   window.addEventListener(
