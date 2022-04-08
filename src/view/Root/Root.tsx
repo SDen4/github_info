@@ -46,12 +46,12 @@ const Root: React.FC = () => {
   const [appHeight, setAppHeight] = useState<number>(0);
   useEffect(() => setAppHeight(window.innerHeight), []);
 
-  // resize
-  window.addEventListener(
-    'resize',
-    () => setAppHeight(window.innerHeight),
-    true,
-  );
+  // // resize
+  // window.addEventListener(
+  //   'resize',
+  //   () => setAppHeight(window.innerHeight),
+  //   true,
+  // );
   // app height
 
   const isCardOpen =
@@ -142,7 +142,12 @@ const Root: React.FC = () => {
 
           {search.loading && <Loader />}
           {isCardOpen && (
-            <>
+            <div
+              className={clsx(
+                search.isMobile && styles.rootSectionRight_Mobile,
+              )}
+              style={{ maxHeight: appHeight - 279 }}
+            >
               <Suspense fallback={<Loader />}>
                 <LazyCard
                   user={search.user}
@@ -161,29 +166,49 @@ const Root: React.FC = () => {
                   favorites={favorite.favoriteList}
                 />
               )}
-            </>
+            </div>
           )}
           {search.usersListOpened && (
-            <Suspense fallback={<Loader />}>
-              <LazyUsersList
-                users={search.usersList}
-                login={search.user.login}
-                requestType={search.lastRequestType}
-                history={search.searchHistory}
-                isMobile={search.isMobile}
-              />
-            </Suspense>
+            <div
+              className={clsx(
+                search.isMobile && styles.rootSectionRight_Mobile,
+              )}
+              style={{ maxHeight: appHeight - 279 }}
+            >
+              <Suspense fallback={<Loader />}>
+                <LazyUsersList
+                  users={search.usersList}
+                  login={search.user.login}
+                  requestType={search.lastRequestType}
+                  history={search.searchHistory}
+                  isMobile={search.isMobile}
+                />
+              </Suspense>
+            </div>
           )}
           {search.reposListOpened && (
-            <Suspense fallback={<Loader />}>
-              <LazyReposList reposList={search.reposList} />
-            </Suspense>
+            <div
+              className={clsx(
+                search.isMobile && styles.rootSectionRight_Mobile,
+              )}
+              style={{ maxHeight: appHeight - 279 }}
+            >
+              <Suspense fallback={<Loader />}>
+                <LazyReposList reposList={search.reposList} />
+              </Suspense>
+            </div>
           )}
           {isErrorOpen && <Error userName={user} />}
         </section>
 
         {search.searchHistoryListFlag && (
-          <section className={styles.rootSectionRight}>
+          <section
+            className={clsx(
+              styles.rootSectionRight,
+              search.isMobile && styles.rootSectionRight_Mobile,
+            )}
+            style={{ maxHeight: appHeight - 279 }}
+          >
             <Suspense fallback={<Loader />}>
               <LazySearchHistoryList
                 searchList={search.searchHistory}
@@ -198,7 +223,13 @@ const Root: React.FC = () => {
         )}
 
         {favorite.favoriteListFlag && (
-          <section className={styles.rootSectionRight}>
+          <section
+            className={clsx(
+              styles.rootSectionRight,
+              search.isMobile && styles.rootSectionRight_Mobile,
+            )}
+            style={{ maxHeight: appHeight - 279 }}
+          >
             <Suspense fallback={<Loader />}>
               <LazyFavoriteList
                 favoriteList={favorite.favoriteList}

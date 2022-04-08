@@ -38,8 +38,16 @@
   margin: 71px 0 0 10px;
 }
 
+.rootSectionRight_Mobile {
+  overflow-y: scroll;
+  overflow-x: auto;
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+}
+
 .rootSectionSearch {
   justify-content: space-between;
+  margin-bottom: 30px;
 }
 
 .rootBtn {
