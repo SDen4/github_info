@@ -10,7 +10,10 @@ const StartMobile: React.FC<IStartMobile> = ({
 }): JSX.Element => {
   const onBtnClickHandler = () => {
     document.body.requestFullscreen();
-    startMobileApp();
+
+    setTimeout(() => {
+      startMobileApp();
+    }, 500);
   };
 
   return (
@@ -21,9 +24,8 @@ const StartMobile: React.FC<IStartMobile> = ({
           className={styles.button}
           onClick={onBtnClickHandler}
         >
-          Let&#39;s go!
+          Go!
         </button>
-        <div className={styles.flash} />
       </div>
     </div>
   );
