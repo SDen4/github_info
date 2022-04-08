@@ -1,0 +1,64 @@
+.startMobileWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+  background: center / contain no-repeat
+      url('../../view/Root/assets/img/github-logo.png'),
+    radial-gradient(gray -155%, black 95%);
+  padding: 20px;
+}
+
+.button__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  overflow: hidden;
+  border-radius: 30px;
+}
+.button {
+  background-color: #ff8c00;
+  color: white;
+  outline: none;
+  border-radius: inherit;
+  padding: 15px 30px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.flash {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30%;
+  height: 100%;
+  animation: 1.5s cubic-bezier(0.79, 0.32, 0.18, 0.81) infinite move;
+}
+
+.flash:after {
+  content: '';
+  width: 20px;
+  height: 140%;
+  transform: rotate(25deg);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.4)
+  );
+}
+
+@keyframes move {
+  from {
+    left: -45%;
+  }
+  to {
+    left: 105%;
+  }
+}

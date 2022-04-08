@@ -6,6 +6,7 @@ import Note from '../../components/Note';
 import Error from '../../components/Error';
 import Modal from '../../components/Modal';
 import SearchForm from '../../components/SearchForm';
+import StartMobile from '../../components/StartMobile';
 import FavoriteButton from '../../components/FavoriteButton';
 import SearchHistoryHeader from '../../components/SearchHistoryHeader';
 
@@ -41,6 +42,7 @@ const Root: React.FC = () => {
   const favorite = useSelector(selectFavorite);
 
   const [user, setUser] = useState<string>('');
+  const [isMobileStart, setIsMobileStart] = useState<boolean>(true);
 
   // app height
   const [appHeight, setAppHeight] = useState<number>(0);
@@ -89,165 +91,175 @@ const Root: React.FC = () => {
     dispatch(cardOPenedFlag(true));
   };
 
+  const startMobileApp = (): void => {
+    setIsMobileStart(false);
+  };
+
   return (
-    <div className={styles.rootWrapper} style={{ minHeight: appHeight }}>
-      <header className={styles.rootHeader}>
-        <h1>Find github&apos;s user</h1>
+    <>
+      {search.isMobile && isMobileStart ? (
+        <StartMobile appHeight={appHeight} startMobileApp={startMobileApp} />
+      ) : (
+        <div className={styles.rootWrapper} style={{ minHeight: appHeight }}>
+          <header className={styles.rootHeader}>
+            <h1>Find github&apos;s user</h1>
 
-        <div className={styles.buttonsWrapper}>
-          {search.searchHistory.length ? (
-            <SearchHistoryHeader
-              historyLength={search.searchHistory.length}
-              searchHistoryListStatus={search.searchHistoryListFlag}
-              historyBtnStatus={search.searchHistoryListFlag}
-            />
-          ) : (
-            ''
-          )}
-          {favorite.favoriteList.length ? (
-            <FavoriteButton
-              starNum={favorite.favoriteList.length}
-              favoriteListStatus={favorite.favoriteListFlag}
-            />
-          ) : (
-            ''
-          )}
-        </div>
-      </header>
-
-      <main className={styles.root}>
-        <section className={styles.rootSectionLeft}>
-          <div className={clsx(styles.root, styles.rootSectionSearch)}>
-            <SearchForm
-              search={searchFunc}
-              searchState={search}
-              history={search.searchHistory}
-              favoritesList={favorite.favoriteList}
-              currentUser={search.user.login}
-              isMobile={search.isMobile}
-            />
-
-            {!search.isMobile &&
-              (search.usersListOpened || search.reposListOpened) && (
-                <button
-                  type="button"
-                  onClick={backBtnHandler}
-                  className={styles.rootBtn}
-                >
-                  Back
-                </button>
-                // eslint-disable-next-line indent
-              )}
-          </div>
-
-          {search.loading && <Loader />}
-          {isCardOpen && (
-            <div
-              className={clsx(
-                search.isMobile && styles.rootSectionRight_Mobile,
-              )}
-              style={{ maxHeight: appHeight - 279 }}
-            >
-              <Suspense fallback={<Loader />}>
-                <LazyCard
-                  user={search.user}
-                  favorites={favorite.favoriteList}
-                  favoriteUserStatus={favorite.favoriteUser}
-                  noteUserStatus={favorite.noteBtnFlag}
-                  note={favorite.note}
-                  noteStoreFlag={favorite.noteFlag}
+            <div className={styles.buttonsWrapper}>
+              {search.searchHistory.length ? (
+                <SearchHistoryHeader
+                  historyLength={search.searchHistory.length}
+                  searchHistoryListStatus={search.searchHistoryListFlag}
+                  historyBtnStatus={search.searchHistoryListFlag}
                 />
-              </Suspense>
-
-              {favorite.noteFlag && (
-                <Note
-                  note={favorite.note}
-                  login={search.user.login}
-                  favorites={favorite.favoriteList}
+              ) : (
+                ''
+              )}
+              {favorite.favoriteList.length ? (
+                <FavoriteButton
+                  starNum={favorite.favoriteList.length}
+                  favoriteListStatus={favorite.favoriteListFlag}
                 />
+              ) : (
+                ''
               )}
             </div>
-          )}
-          {search.usersListOpened && (
-            <div
-              className={clsx(
-                search.isMobile && styles.rootSectionRight_Mobile,
-              )}
-              style={{ maxHeight: appHeight - 279 }}
-            >
-              <Suspense fallback={<Loader />}>
-                <LazyUsersList
-                  users={search.usersList}
-                  login={search.user.login}
-                  requestType={search.lastRequestType}
+          </header>
+
+          <main className={styles.root}>
+            <section className={styles.rootSectionLeft}>
+              <div className={clsx(styles.root, styles.rootSectionSearch)}>
+                <SearchForm
+                  search={searchFunc}
+                  searchState={search}
                   history={search.searchHistory}
+                  favoritesList={favorite.favoriteList}
+                  currentUser={search.user.login}
                   isMobile={search.isMobile}
                 />
-              </Suspense>
-            </div>
-          )}
-          {search.reposListOpened && (
-            <div
-              className={clsx(
-                search.isMobile && styles.rootSectionRight_Mobile,
+
+                {!search.isMobile &&
+                  (search.usersListOpened || search.reposListOpened) && (
+                    <button
+                      type="button"
+                      onClick={backBtnHandler}
+                      className={styles.rootBtn}
+                    >
+                      Back
+                    </button>
+                    // eslint-disable-next-line indent
+                  )}
+              </div>
+
+              {search.loading && <Loader />}
+              {isCardOpen && (
+                <div
+                  className={clsx(
+                    search.isMobile && styles.rootSectionRight_Mobile,
+                  )}
+                  style={{ maxHeight: appHeight - 279 }}
+                >
+                  <Suspense fallback={<Loader />}>
+                    <LazyCard
+                      user={search.user}
+                      favorites={favorite.favoriteList}
+                      favoriteUserStatus={favorite.favoriteUser}
+                      noteUserStatus={favorite.noteBtnFlag}
+                      note={favorite.note}
+                      noteStoreFlag={favorite.noteFlag}
+                    />
+                  </Suspense>
+
+                  {favorite.noteFlag && (
+                    <Note
+                      note={favorite.note}
+                      login={search.user.login}
+                      favorites={favorite.favoriteList}
+                    />
+                  )}
+                </div>
               )}
-              style={{ maxHeight: appHeight - 279 }}
-            >
-              <Suspense fallback={<Loader />}>
-                <LazyReposList reposList={search.reposList} />
-              </Suspense>
-            </div>
+              {search.usersListOpened && (
+                <div
+                  className={clsx(
+                    search.isMobile && styles.rootSectionRight_Mobile,
+                  )}
+                  style={{ maxHeight: appHeight - 279 }}
+                >
+                  <Suspense fallback={<Loader />}>
+                    <LazyUsersList
+                      users={search.usersList}
+                      login={search.user.login}
+                      requestType={search.lastRequestType}
+                      history={search.searchHistory}
+                      isMobile={search.isMobile}
+                    />
+                  </Suspense>
+                </div>
+              )}
+              {search.reposListOpened && (
+                <div
+                  className={clsx(
+                    search.isMobile && styles.rootSectionRight_Mobile,
+                  )}
+                  style={{ maxHeight: appHeight - 279 }}
+                >
+                  <Suspense fallback={<Loader />}>
+                    <LazyReposList reposList={search.reposList} />
+                  </Suspense>
+                </div>
+              )}
+              {isErrorOpen && <Error userName={user} />}
+            </section>
+
+            {search.searchHistoryListFlag && (
+              <section
+                className={clsx(
+                  styles.rootSectionRight,
+                  search.isMobile && styles.rootSectionRight_Mobile,
+                )}
+                style={{ maxHeight: appHeight - 279 }}
+              >
+                <Suspense fallback={<Loader />}>
+                  <LazySearchHistoryList
+                    searchList={search.searchHistory}
+                    favoritesList={favorite.favoriteList}
+                    currentUserLogin={search.user.login}
+                    userListOpened={search.usersListOpened}
+                    reposListOpened={search.reposListOpened}
+                    isMobile={search.isMobile}
+                  />
+                </Suspense>
+              </section>
+            )}
+
+            {favorite.favoriteListFlag && (
+              <section
+                className={clsx(
+                  styles.rootSectionRight,
+                  search.isMobile && styles.rootSectionRight_Mobile,
+                )}
+                style={{ maxHeight: appHeight - 279 }}
+              >
+                <Suspense fallback={<Loader />}>
+                  <LazyFavoriteList
+                    favoriteList={favorite.favoriteList}
+                    searchList={search.searchHistory}
+                    currentUserLogin={search.user.login}
+                    userListOpened={search.usersListOpened}
+                    reposListOpened={search.reposListOpened}
+                    isMobile={search.isMobile}
+                  />
+                </Suspense>
+              </section>
+            )}
+          </main>
+
+          {search.modalFlag && (
+            <Modal textModal={search.modalText} type={search.modalType} />
           )}
-          {isErrorOpen && <Error userName={user} />}
-        </section>
-
-        {search.searchHistoryListFlag && (
-          <section
-            className={clsx(
-              styles.rootSectionRight,
-              search.isMobile && styles.rootSectionRight_Mobile,
-            )}
-            style={{ maxHeight: appHeight - 279 }}
-          >
-            <Suspense fallback={<Loader />}>
-              <LazySearchHistoryList
-                searchList={search.searchHistory}
-                favoritesList={favorite.favoriteList}
-                currentUserLogin={search.user.login}
-                userListOpened={search.usersListOpened}
-                reposListOpened={search.reposListOpened}
-                isMobile={search.isMobile}
-              />
-            </Suspense>
-          </section>
-        )}
-
-        {favorite.favoriteListFlag && (
-          <section
-            className={clsx(
-              styles.rootSectionRight,
-              search.isMobile && styles.rootSectionRight_Mobile,
-            )}
-            style={{ maxHeight: appHeight - 279 }}
-          >
-            <Suspense fallback={<Loader />}>
-              <LazyFavoriteList
-                favoriteList={favorite.favoriteList}
-                searchList={search.searchHistory}
-                currentUserLogin={search.user.login}
-                userListOpened={search.usersListOpened}
-                reposListOpened={search.reposListOpened}
-                isMobile={search.isMobile}
-              />
-            </Suspense>
-          </section>
-        )}
-      </main>
-
-      {search.modalFlag && (
-        <Modal textModal={search.modalText} type={search.modalType} />
+        </div>
       )}
-    </div>
+    </>
   );
 };
 
