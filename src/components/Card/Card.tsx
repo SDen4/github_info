@@ -43,6 +43,10 @@ const Card: React.FC<CardType> = ({ ...args }): JSX.Element => {
     dispatch(
       fetchLogin('', '', '', '', 0, 0, new Date(), '', '', '', 0, '', ''),
     );
+
+    if (noteStoreFlag) {
+      dispatch(noteFlag(false));
+    }
   };
 
   const onBtnClickHandler = (requestType: string) => {
