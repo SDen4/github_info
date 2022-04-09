@@ -10,10 +10,7 @@ const StartMobile: React.FC<IStartMobile> = ({
 }): JSX.Element => {
   const onBtnClickHandler = () => {
     document.body.requestFullscreen();
-
-    setTimeout(() => {
-      startMobileApp();
-    }, 500);
+    startMobileApp();
   };
 
   return (

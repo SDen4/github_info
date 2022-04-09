@@ -33,7 +33,7 @@ const SearchForm: React.FC<ISearch> = ({
       if (ref?.current) {
         ref.current.focus();
       }
-    }, 500);
+    }, 700);
   }, []);
 
   const changeTextHandler = (event: React.ChangeEvent<HTMLInputElement>) => {

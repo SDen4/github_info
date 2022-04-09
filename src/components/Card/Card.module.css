@@ -83,10 +83,6 @@ h3 {
   transition: 0.3s;
 }
 
-.cardLogin:hover {
-  color: tomato;
-}
-
 .cardUserInfo {
   border: 0;
   padding: 0;
@@ -110,14 +106,6 @@ h3 {
   cursor: pointer;
 }
 
-a.cardUserInfo:hover {
-  color: tomato;
-}
-
-.cardUserInfoBtn:hover {
-  color: tomato;
-}
-
 .closeBtnWrapper {
   display: flex;
   justify-content: flex-start;
@@ -136,6 +124,7 @@ a.cardUserInfo:hover {
   background-color: transparent;
   border: 0;
   outline: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .star {
@@ -146,7 +135,6 @@ a.cardUserInfo:hover {
   transition: 0.3s;
 }
 
-.star:hover,
 .starActive {
   color: #ff8c00;
 }
@@ -166,14 +154,6 @@ a.cardUserInfo:hover {
   transition: 0.3s;
 }
 
-.downloadBtn:hover {
-  border: 1px solid #ff8c00;
-}
-
-.downloadBtn:hover span {
-  color: #ff8c00;
-}
-
 .addNoteBtn {
   padding: 0;
 }
@@ -187,10 +167,6 @@ a.cardUserInfo:hover {
   border: 1px solid transparent;
 }
 
-.addNoteBtn:hover span {
-  color: #ff8c00;
-}
-
 .buttonActive span {
   color: #ff8c00;
 }
@@ -198,22 +174,58 @@ a.cardUserInfo:hover {
 .tooltip {
   position: relative;
 }
-.tooltip:hover .tooltipText {
-  opacity: 1;
-  right: 30px;
-}
+
 .tooltip .tooltipText {
-  position: absolute;
-  top: 30px;
-  right: 999px;
-  padding: 5px;
-  border-radius: 8px;
-  background-color: rgba(211, 211, 211, 0.7);
-  color: black;
-  font-size: 13px;
-  white-space: nowrap;
-  opacity: 0;
-  transition: opacity 0.5s;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .tooltip:hover .tooltipText {
+    opacity: 1;
+    right: 30px;
+  }
+
+  .tooltip .tooltipText {
+    position: absolute;
+    top: 30px;
+    right: 3999px;
+    padding: 5px;
+    border-radius: 8px;
+    background-color: rgba(211, 211, 211, 0.7);
+    color: black;
+    font-size: 13px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+
+  .star:hover {
+    color: #ff8c00;
+  }
+
+  .addNoteBtn:hover span {
+    color: #ff8c00;
+  }
+
+  .cardLogin:hover {
+    color: tomato;
+  }
+
+  .downloadBtn:hover {
+    border: 1px solid #ff8c00;
+  }
+
+  .downloadBtn:hover span {
+    color: #ff8c00;
+  }
+
+  a.cardUserInfo:hover {
+    color: tomato;
+  }
+
+  .cardUserInfoBtn:hover {
+    color: tomato;
+  }
 }
 
 @media (max-width: 480px) {
