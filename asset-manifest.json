@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/github_info/static/css/main.9c885453.chunk.css",
+    "main.css": "/github_info/static/css/main.3f3bbeac.chunk.css",
     "main.js": "/github_info/static/js/main.12de1448.chunk.js",
     "main.js.map": "/github_info/static/js/main.12de1448.chunk.js.map",
     "runtime-main.js": "/github_info/static/js/runtime-main.392d86c8.js",
@@ -28,7 +28,7 @@
     "static/css/5.f99f8809.chunk.css.map": "/github_info/static/css/5.f99f8809.chunk.css.map",
     "static/css/6.0cb11fdb.chunk.css.map": "/github_info/static/css/6.0cb11fdb.chunk.css.map",
     "static/css/7.4e67a8a1.chunk.css.map": "/github_info/static/css/7.4e67a8a1.chunk.css.map",
-    "static/css/main.9c885453.chunk.css.map": "/github_info/static/css/main.9c885453.chunk.css.map",
+    "static/css/main.3f3bbeac.chunk.css.map": "/github_info/static/css/main.3f3bbeac.chunk.css.map",
     "static/js/2.94f2e5ff.chunk.js.LICENSE.txt": "/github_info/static/js/2.94f2e5ff.chunk.js.LICENSE.txt",
     "static/media/StartMobile.module.css": "/github_info/static/media/github-logo.198b40bb.png",
     "static/media/UserItem.module.css": "/github_info/static/media/unnamed.e1d04b92.jpg"
@@ -36,7 +36,7 @@
   "entrypoints": [
     "static/js/runtime-main.392d86c8.js",
     "static/js/2.94f2e5ff.chunk.js",
-    "static/css/main.9c885453.chunk.css",
+    "static/css/main.3f3bbeac.chunk.css",
     "static/js/main.12de1448.chunk.js"
   ]
 }
