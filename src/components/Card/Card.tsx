@@ -235,7 +235,8 @@ const Card: React.FC<CardType> = ({ ...args }): JSX.Element => {
           className={clsx(styles.button, styles.downloadBtn, styles.tooltip)}
           onClick={onDownloadHandler}
         >
-          <span>&#10515;</span>
+          <span className={styles.arrow}>&#8595;</span>
+          <div className={styles.line} />
           <div className={styles.tooltipText}>Download .doc file</div>
         </button>
 

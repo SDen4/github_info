@@ -111,7 +111,7 @@ h3 {
   justify-content: flex-start;
   align-items: center;
   position: absolute;
-  top: 0;
+  top: 5px;
   right: 10px;
 }
 
@@ -119,18 +119,19 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 4px 8px;
   cursor: pointer;
   background-color: transparent;
   border: 0;
+  padding: 0;
+  margin-right: 8px;
   outline: none;
   -webkit-tap-highlight-color: transparent;
 }
 
 .star {
   display: inline-block;
-  font-size: 24px;
-  line-height: 20px;
+  font-size: 22px;
+  line-height: 18px;
   color: #d3d3d3;
   transition: 0.3s;
 }
@@ -140,7 +141,7 @@ h3 {
 }
 
 .downloadBtn {
-  border: 1px solid rgba(211, 211, 211, 0.2);
+  border: 1px solid #d3d3d3;
   border-radius: 3px;
   padding: 0;
   width: 22px;
@@ -150,7 +151,7 @@ h3 {
 
 .downloadBtn span {
   color: #d3d3d3;
-  font-size: 20px;
+  font-size: 22px;
   transition: 0.3s;
 }
 
@@ -160,11 +161,9 @@ h3 {
 
 .addNoteBtn span {
   color: #d3d3d3;
-  font-size: 28px;
-  margin-right: 8px;
-  margin-top: 3px;
+  font-size: 22px;
   transition: 0.3s;
-  border: 1px solid transparent;
+  transform: rotate(-90deg);
 }
 
 .buttonActive span {
@@ -173,6 +172,21 @@ h3 {
 
 .tooltip {
   position: relative;
+}
+
+.arrow {
+  margin-top: -5px;
+  color: #d3d3d3;
+}
+
+.line {
+  width: 13px;
+  height: 1px;
+  position: absolute;
+  bottom: 3px;
+  left: 4px;
+  background-color: #d3d3d3;
+  transition: 0.3s;
 }
 
 @media (min-width: 768px) {
@@ -209,6 +223,10 @@ h3 {
 
   .downloadBtn:hover {
     border: 1px solid #ff8c00;
+  }
+
+  .downloadBtn:hover .line {
+    background-color: #ff8c00;
   }
 
   .downloadBtn:hover span {
