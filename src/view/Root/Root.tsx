@@ -96,11 +96,18 @@ const Root: React.FC = () => {
   };
 
   return (
-    <>
+    <div className={styles.appContainer}>
       {search.isMobile && isMobileStart ? (
         <StartMobile appHeight={appHeight} startMobileApp={startMobileApp} />
       ) : (
-        <div className={styles.rootWrapper} style={{ minHeight: appHeight }}>
+        <div
+          className={styles.rootWrapper}
+          style={
+            search.isMobile && isMobileStart
+              ? { minHeight: appHeight }
+              : { minHeight: '100vh' }
+          }
+        >
           <header className={styles.rootHeader}>
             <h1>Find github&apos;s user</h1>
 
@@ -259,7 +266,7 @@ const Root: React.FC = () => {
           )}
         </div>
       )}
-    </>
+    </div>
   );
 };
 

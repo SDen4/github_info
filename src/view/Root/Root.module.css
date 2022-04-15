@@ -1,3 +1,17 @@
+.appContainer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  /* max-height: 100vh; */
+  background: center / contain no-repeat url('./assets/img/github-logo.png'),
+    radial-gradient(gray -155%, black 95%);
+  box-sizing: border-box;
+  padding: 20px;
+}
+
 .rootWrapper {
   display: flex;
   flex-direction: column;
@@ -6,10 +20,15 @@
   box-sizing: border-box;
   position: relative;
   width: 100%;
-  background: center / contain no-repeat url('./assets/img/github-logo.png'),
-    radial-gradient(gray -155%, black 95%);
   color: #d3d3d3;
-  padding: 20px;
+  overflow-y: scroll;
+
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+}
+
+.rootWrapper::-webkit-scrollbar {
+  width: 0;
 }
 
 .rootHeader {
