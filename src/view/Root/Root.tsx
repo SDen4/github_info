@@ -154,6 +154,9 @@ const Root: React.FC = () => {
                   favoritesList={favorite.favoriteList}
                   currentUser={search.user.login}
                   isMobile={search.isMobile}
+                  searchHistoryListFlag={search.searchHistoryListFlag}
+                  favoriteListFlag={favorite.favoriteListFlag}
+                  cardOpened={search.cardOpened}
                 />
 
                 {!search.isMobile &&

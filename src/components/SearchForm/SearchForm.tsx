@@ -21,20 +21,27 @@ const SearchForm: React.FC<ISearch> = ({
   favoritesList,
   currentUser,
   isMobile,
+  searchHistoryListFlag,
+  favoriteListFlag,
+  cardOpened,
 }) => {
   const [searchLogin, setsearchLogin] = useState<string>('');
   const [disabledBtn, setDisabledBtn] = useState(true);
   const dispatch = useDispatch();
 
+  const focusInMobiles: boolean = isMobile
+    ? !searchHistoryListFlag && !favoriteListFlag && !cardOpened
+    : true;
+
   // auto focus on input
   const ref: any = useRef(null);
   useEffect(() => {
     setTimeout(() => {
-      if (ref?.current) {
+      if (ref?.current && focusInMobiles) {
         ref.current.focus();
       }
     }, 700);
-  }, []);
+  }, [focusInMobiles]);
 
   const changeTextHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     let textValue = event?.target.value;

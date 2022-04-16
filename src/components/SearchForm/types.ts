@@ -11,4 +11,7 @@ export interface ISearch {
   favoritesList: FavoriteUser[];
   currentUser: string;
   isMobile: boolean;
+  searchHistoryListFlag: boolean;
+  favoriteListFlag: boolean;
+  cardOpened: boolean;
 }
