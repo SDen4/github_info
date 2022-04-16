@@ -138,6 +138,13 @@ export const searchIsMobile = (isMobile: boolean) => {
   } as const;
 };
 
+export const searchIsMobileStart = (isMobileStart: boolean) => {
+  return {
+    type: CONST.SEARCH_IS_MOBILE_START,
+    isMobileStart,
+  } as const;
+};
+
 type fetchLoginType = ReturnType<typeof fetchLogin>;
 type cardOPenedFlagType = ReturnType<typeof cardOPenedFlag>;
 type loadingFlagType = ReturnType<typeof loadingFlag>;
@@ -152,6 +159,7 @@ type reposOpenedListFlagType = ReturnType<typeof reposOpenedListFlag>;
 type modalFlagType = ReturnType<typeof modalFlag>;
 type searhStartType = ReturnType<typeof searhStart>;
 type searchIsMobileType = ReturnType<typeof searchIsMobile>;
+type searchIsMobileStartType = ReturnType<typeof searchIsMobileStart>;
 
 export type ActionsType =
   | fetchLoginType
@@ -167,4 +175,5 @@ export type ActionsType =
   | reposOpenedListFlagType
   | modalFlagType
   | searhStartType
-  | searchIsMobileType;
+  | searchIsMobileType
+  | searchIsMobileStartType;

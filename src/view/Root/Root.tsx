@@ -15,6 +15,7 @@ import Loader from '../../ui/Loader';
 import {
   cardOPenedFlag,
   reposOpenedListFlag,
+  searchIsMobileStart,
   userListOpenedFlag,
 } from '../../store/SearchReducer/actions';
 import { searhInitFetchSaga } from '../../store/SearchReducer/actionsSagas';
@@ -42,19 +43,34 @@ const Root: React.FC = () => {
   const favorite = useSelector(selectFavorite);
 
   const [user, setUser] = useState<string>('');
-  const [isMobileStart, setIsMobileStart] = useState<boolean>(true);
 
   // app height
   const [appHeight, setAppHeight] = useState<number>(0);
   useEffect(() => setAppHeight(window.outerHeight), []);
 
-  // resize
-  window.addEventListener(
-    'resize',
-    () => setAppHeight(window.outerHeight),
-    true,
-  );
-  // app height
+  // resize & height
+  useEffect(() => {
+    if (appHeight !== window.outerHeight) {
+      window.addEventListener(
+        'resize',
+        () => setAppHeight(window.outerHeight),
+        true,
+      );
+    }
+  }, [appHeight]);
+
+  // set fullscreen in case of fullscreenchange
+  useEffect(() => {
+    if (search.isMobileStart) {
+      return;
+    }
+    window.addEventListener(
+      'fullscreenchange',
+      () => dispatch(searchIsMobileStart(true)),
+      true,
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [appHeight]);
 
   const isCardOpen =
     (!search.isMobile && search.cardOpened) ||
@@ -91,19 +107,17 @@ const Root: React.FC = () => {
     dispatch(cardOPenedFlag(true));
   };
 
-  const startMobileApp = (): void => {
-    setIsMobileStart(false);
-  };
-
   return (
     <div className={styles.appContainer}>
-      {search.isMobile && isMobileStart ? (
-        <StartMobile appHeight={appHeight} startMobileApp={startMobileApp} />
+      {search.isMobile && search.isMobileStart ? (
+        <StartMobile appHeight={appHeight} />
       ) : (
         <div
           className={styles.rootWrapper}
           style={
-            search.isMobile && isMobileStart ? { minHeight: appHeight } : {}
+            search.isMobile && search.isMobileStart
+              ? { minHeight: appHeight }
+              : {}
           }
         >
           <header className={styles.rootHeader}>

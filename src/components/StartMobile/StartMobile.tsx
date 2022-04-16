@@ -1,16 +1,22 @@
 import React, { memo } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { searchIsMobileStart } from '../../store/SearchReducer/actions';
 
 import { IStartMobile } from './types';
 
 import styles from './StartMobile.module.css';
 
-const StartMobile: React.FC<IStartMobile> = ({
-  appHeight,
-  startMobileApp,
-}): JSX.Element => {
+const StartMobile: React.FC<IStartMobile> = ({ appHeight }): JSX.Element => {
+  const dispatch = useDispatch();
+
   const onBtnClickHandler = () => {
     document.body.requestFullscreen();
-    startMobileApp();
+
+    const timer = window.setTimeout(() => {
+      dispatch(searchIsMobileStart(false));
+      window.clearTimeout(timer);
+    }, 50);
   };
 
   return (
