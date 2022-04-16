@@ -103,9 +103,7 @@ const Root: React.FC = () => {
         <div
           className={styles.rootWrapper}
           style={
-            search.isMobile && isMobileStart
-              ? { minHeight: appHeight }
-              : { minHeight: '100vh' }
+            search.isMobile && isMobileStart ? { minHeight: appHeight } : {}
           }
         >
           <header className={styles.rootHeader}>
