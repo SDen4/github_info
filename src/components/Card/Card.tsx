@@ -35,6 +35,8 @@ const Card: React.FC<CardType> = ({ ...args }): JSX.Element => {
     noteUserStatus,
     note,
     noteStoreFlag,
+    isMobile,
+    isLoading,
   } = args;
   const dispatch = useDispatch();
 
@@ -103,7 +105,7 @@ const Card: React.FC<CardType> = ({ ...args }): JSX.Element => {
   };
 
   return (
-    <div className={styles.card}>
+    <div className={clsx(styles.card, isMobile && isLoading && styles.hide)}>
       <aside className={styles.cardElement}>
         <div className={styles.cardPhotoWrapper}>
           <img src={user.avatarUrl} alt="User's avatar" />

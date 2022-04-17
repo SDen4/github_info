@@ -34,12 +34,25 @@ const SearchForm: React.FC<ISearch> = ({
   useEffect(() => {
     if (isMobile) {
       setFocusInMobiles(
-        !(searchHistoryListFlag || favoriteListFlag || cardOpened),
+        !(
+          searchHistoryListFlag ||
+          favoriteListFlag ||
+          cardOpened ||
+          searchState.reposListOpened ||
+          searchState.usersListOpened
+        ),
       );
     } else {
       setFocusInMobiles(true);
     }
-  }, [cardOpened, favoriteListFlag, isMobile, searchHistoryListFlag]);
+  }, [
+    cardOpened,
+    favoriteListFlag,
+    isMobile,
+    searchHistoryListFlag,
+    searchState.reposListOpened,
+    searchState.usersListOpened,
+  ]);
 
   // auto focus on input
   const ref: any = useRef(null);

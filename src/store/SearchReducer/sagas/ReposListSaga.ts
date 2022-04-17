@@ -18,13 +18,13 @@ async function getReposInfo(login: string) {
 
 function* sagaWorker(action: IReposListSagaWorker) {
   try {
-    yield put(cardOpenedFlag(false));
     yield put(loadingFlag(true));
 
     const allRepos: IRepoItem[] = yield getReposInfo(action.login);
 
     yield put(fetchReposList(allRepos));
     yield put(reposOpenedListFlag(true));
+    yield put(cardOpenedFlag(false));
     yield put(loadingFlag(false));
   } catch (error) {
     // eslint-disable-next-line no-console

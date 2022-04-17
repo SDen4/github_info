@@ -20,7 +20,6 @@ async function getUserInfo(login: string, requestType: string) {
 
 function* sagaWorker(action: IFetchUsersListSagaWorker) {
   try {
-    yield put(cardOpenedFlag(false));
     yield put(loadingFlag(true));
 
     const allData: UserInnerType[] = yield getUserInfo(
@@ -32,6 +31,7 @@ function* sagaWorker(action: IFetchUsersListSagaWorker) {
 
     yield put(loadingFlag(false));
     yield put(userListOpenedFlag(true));
+    yield put(cardOpenedFlag(false));
   } catch (error) {
     // eslint-disable-next-line no-console
     console.log(error);

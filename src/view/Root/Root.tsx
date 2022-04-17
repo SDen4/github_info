@@ -188,6 +188,8 @@ const Root: React.FC = () => {
                       noteUserStatus={favorite.noteBtnFlag}
                       note={favorite.note}
                       noteStoreFlag={favorite.noteFlag}
+                      isMobile={search.isMobile}
+                      isLoading={search.loading}
                     />
                   </Suspense>
 

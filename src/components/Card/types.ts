@@ -8,4 +8,6 @@ export interface CardType {
   noteUserStatus: boolean;
   note: string;
   noteStoreFlag: boolean;
+  isMobile: boolean;
+  isLoading: boolean;
 }
