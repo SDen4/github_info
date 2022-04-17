@@ -8,4 +8,5 @@ export interface ISearchHistoryList {
   userListOpened: boolean;
   reposListOpened: boolean;
   isMobile: boolean;
+  isLoading: boolean;
 }

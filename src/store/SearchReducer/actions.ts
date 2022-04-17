@@ -38,10 +38,10 @@ export const fetchLogin = (
   } as const;
 };
 
-export const cardOPenedFlag = (cardOPenedFlag: boolean) => {
+export const cardOpenedFlag = (cardOpenedFlag: boolean) => {
   return {
     type: CONST.CARD_OPEN_FLAG,
-    cardOPenedFlag,
+    cardOpenedFlag,
   } as const;
 };
 
@@ -146,7 +146,7 @@ export const searchIsMobileStart = (isMobileStart: boolean) => {
 };
 
 type fetchLoginType = ReturnType<typeof fetchLogin>;
-type cardOPenedFlagType = ReturnType<typeof cardOPenedFlag>;
+type cardOPenedFlagType = ReturnType<typeof cardOpenedFlag>;
 type loadingFlagType = ReturnType<typeof loadingFlag>;
 type errorFlagType = ReturnType<typeof errorFlag>;
 type userListOpenedFlagType = ReturnType<typeof userListOpenedFlag>;

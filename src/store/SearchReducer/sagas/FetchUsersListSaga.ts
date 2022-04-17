@@ -2,7 +2,7 @@ import { takeEvery, put } from 'redux-saga/effects';
 
 import { FETCH_USERS_LIST_SAGA } from '../constants';
 import {
-  cardOPenedFlag,
+  cardOpenedFlag,
   fetchUsersList,
   loadingFlag,
   userListOpenedFlag,
@@ -20,7 +20,7 @@ async function getUserInfo(login: string, requestType: string) {
 
 function* sagaWorker(action: IFetchUsersListSagaWorker) {
   try {
-    yield put(cardOPenedFlag(false));
+    yield put(cardOpenedFlag(false));
     yield put(loadingFlag(true));
 
     const allData: UserInnerType[] = yield getUserInfo(

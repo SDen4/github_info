@@ -51,7 +51,7 @@ export const SearchReducer = (
       };
 
     case CONST.CARD_OPEN_FLAG:
-      return { ...state, cardOpened: action.cardOPenedFlag };
+      return { ...state, cardOpened: action.cardOpenedFlag };
 
     case CONST.LOADING:
       return { ...state, loading: action.loadingFlag };

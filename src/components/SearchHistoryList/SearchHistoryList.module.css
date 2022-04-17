@@ -78,6 +78,10 @@
   );
 }
 
+.hide {
+  display: none;
+}
+
 @media (max-width: 480px) {
   .shlWrapper {
     border: 0;

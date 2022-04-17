@@ -2,7 +2,7 @@ import { takeEvery, put } from 'redux-saga/effects';
 
 import { REPOS_LIST_SAGA } from '../constants';
 import {
-  cardOPenedFlag,
+  cardOpenedFlag,
   fetchReposList,
   loadingFlag,
   reposOpenedListFlag,
@@ -18,7 +18,7 @@ async function getReposInfo(login: string) {
 
 function* sagaWorker(action: IReposListSagaWorker) {
   try {
-    yield put(cardOPenedFlag(false));
+    yield put(cardOpenedFlag(false));
     yield put(loadingFlag(true));
 
     const allRepos: IRepoItem[] = yield getReposInfo(action.login);

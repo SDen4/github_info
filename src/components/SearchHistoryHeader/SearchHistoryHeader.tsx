@@ -20,8 +20,8 @@ const SearchHistoryHeader: React.FC<ISearchHistoryHeader> = ({
     if (historyBtnStatus) {
       dispatch(searchHistoryListFlag(false));
     } else {
-      dispatch(favoriteListFlag(false));
       dispatch(searchHistoryListFlag(true));
+      dispatch(favoriteListFlag(false));
     }
   };
 

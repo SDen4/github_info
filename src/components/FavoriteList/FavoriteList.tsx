@@ -5,7 +5,6 @@ import clsx from 'clsx';
 import CloseButton from '../../ui/CloseButton';
 
 import {
-  cardOPenedFlag,
   modalFlag,
   reposOpenedListFlag,
   userListOpenedFlag,
@@ -28,6 +27,7 @@ const FavoriteList: React.FC<IFavoriteList> = ({
   userListOpened,
   reposListOpened,
   isMobile,
+  isLoading,
 }) => {
   const dispatch = useDispatch();
 
@@ -42,11 +42,9 @@ const FavoriteList: React.FC<IFavoriteList> = ({
     if (login === currentUserLogin) {
       if (userListOpened) {
         dispatch(userListOpenedFlag(false));
-        dispatch(cardOPenedFlag(true));
       }
       if (reposListOpened) {
         dispatch(reposOpenedListFlag(false));
-        dispatch(cardOPenedFlag(true));
       }
       return;
     }
@@ -107,7 +105,9 @@ const FavoriteList: React.FC<IFavoriteList> = ({
   // };
 
   return (
-    <div className={styles.shlWrapper}>
+    <div
+      className={clsx(styles.shlWrapper, isMobile && isLoading && styles.hide)}
+    >
       <div className={styles.listHeader}>
         <h3>Favorite list</h3>
         <CloseButton onClick={closeBtnHandler} />

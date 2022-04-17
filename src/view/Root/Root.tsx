@@ -13,7 +13,7 @@ import SearchHistoryHeader from '../../components/SearchHistoryHeader';
 import Loader from '../../ui/Loader';
 
 import {
-  cardOPenedFlag,
+  cardOpenedFlag,
   reposOpenedListFlag,
   searchIsMobileStart,
   userListOpenedFlag,
@@ -104,7 +104,7 @@ const Root: React.FC = () => {
   const backBtnHandler = () => {
     dispatch(userListOpenedFlag(false));
     dispatch(reposOpenedListFlag(false));
-    dispatch(cardOPenedFlag(true));
+    dispatch(cardOpenedFlag(true));
   };
 
   return (
@@ -249,6 +249,7 @@ const Root: React.FC = () => {
                     userListOpened={search.usersListOpened}
                     reposListOpened={search.reposListOpened}
                     isMobile={search.isMobile}
+                    isLoading={search.loading}
                   />
                 </Suspense>
               </section>
@@ -270,6 +271,7 @@ const Root: React.FC = () => {
                     userListOpened={search.usersListOpened}
                     reposListOpened={search.reposListOpened}
                     isMobile={search.isMobile}
+                    isLoading={search.loading}
                   />
                 </Suspense>
               </section>

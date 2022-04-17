@@ -1,12 +1,12 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import clsx from 'clsx';
 
 import {
   searchHistoryListFlag,
   modalFlag,
   userListOpenedFlag,
   reposOpenedListFlag,
-  cardOPenedFlag,
 } from '../../store/SearchReducer/actions';
 import { searchSaga } from '../../store/SearchReducer/actionsSagas';
 
@@ -26,6 +26,7 @@ const SearchHistoryList: React.FC<ISearchHistoryList> = ({
   userListOpened,
   reposListOpened,
   isMobile,
+  isLoading,
 }) => {
   const dispatch = useDispatch();
 
@@ -33,11 +34,9 @@ const SearchHistoryList: React.FC<ISearchHistoryList> = ({
     if (login === currentUserLogin) {
       if (userListOpened) {
         dispatch(userListOpenedFlag(false));
-        dispatch(cardOPenedFlag(true));
       }
       if (reposListOpened) {
         dispatch(reposOpenedListFlag(false));
-        dispatch(cardOPenedFlag(true));
       }
       return;
     }
@@ -61,7 +60,9 @@ const SearchHistoryList: React.FC<ISearchHistoryList> = ({
   };
 
   return (
-    <div className={styles.shlWrapper}>
+    <div
+      className={clsx(styles.shlWrapper, isMobile && isLoading && styles.hide)}
+    >
       <header className={styles.listHeader}>
         <h3>Search list</h3>
         <CloseButton onClick={closeBtnHandler} />

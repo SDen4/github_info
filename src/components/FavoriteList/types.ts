@@ -8,4 +8,5 @@ export interface IFavoriteList {
   userListOpened: boolean;
   reposListOpened: boolean;
   isMobile: boolean;
+  isLoading: boolean;
 }

@@ -7,7 +7,7 @@ import CloseButton from '../../ui/CloseButton';
 import { dateFormatter } from '../../utils/dateFormatter';
 import { periodCounter } from '../../utils/periodCounter';
 
-import { cardOPenedFlag, fetchLogin } from '../../store/SearchReducer/actions';
+import { cardOpenedFlag, fetchLogin } from '../../store/SearchReducer/actions';
 import {
   fetchUsersListSaga,
   reposListSaga,
@@ -39,7 +39,7 @@ const Card: React.FC<CardType> = ({ ...args }): JSX.Element => {
   const dispatch = useDispatch();
 
   const onClickCloseBtnHandler = () => {
-    dispatch(cardOPenedFlag(false));
+    dispatch(cardOpenedFlag(false));
     dispatch(
       fetchLogin('', '', '', '', 0, 0, new Date(), '', '', '', 0, '', ''),
     );

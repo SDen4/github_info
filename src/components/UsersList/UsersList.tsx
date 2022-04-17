@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { useDispatch } from 'react-redux';
 
 import {
-  cardOPenedFlag,
+  cardOpenedFlag,
   reposOpenedListFlag,
   userListOpenedFlag,
 } from '../../store/SearchReducer/actions';
@@ -26,7 +26,7 @@ const UsersList: React.FC<IUsersList> = ({
   const loginBtnHandler = () => {
     dispatch(userListOpenedFlag(false));
     dispatch(reposOpenedListFlag(false));
-    dispatch(cardOPenedFlag(true));
+    dispatch(cardOpenedFlag(true));
   };
 
   return (

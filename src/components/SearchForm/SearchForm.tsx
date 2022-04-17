@@ -9,7 +9,7 @@ import { ISearch } from './types';
 
 import styles from './SearchForm.module.css';
 import {
-  cardOPenedFlag,
+  cardOpenedFlag,
   reposOpenedListFlag,
   userListOpenedFlag,
 } from '../../store/SearchReducer/actions';
@@ -85,7 +85,7 @@ const SearchForm: React.FC<ISearch> = ({
   const backBtnHandler = () => {
     dispatch(userListOpenedFlag(false));
     dispatch(reposOpenedListFlag(false));
-    dispatch(cardOPenedFlag(true));
+    dispatch(cardOpenedFlag(true));
   };
 
   return (

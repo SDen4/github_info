@@ -9,7 +9,7 @@ import {
   noteSave,
 } from '../../FavoriteReduser/actions';
 import {
-  cardOPenedFlag,
+  cardOpenedFlag,
   errorFlag,
   fetchLogin,
   fetchSearhHistory,
@@ -38,11 +38,6 @@ async function getLastActivityDate(login: string) {
 function* sagaWorker(action: SearchSagaWorkerType) {
   try {
     yield all([put(searhStart()), put(noteSave('')), put(noteBtnFlag(false))]);
-
-    if (action.isMobile) {
-      yield put(searchHistoryListFlag(false));
-      yield put(favoriteListFlag(false));
-    }
 
     const { allData, lastActivityDate } = yield all({
       allData: getUserInfo(action.login),
@@ -99,7 +94,13 @@ function* sagaWorker(action: SearchSagaWorkerType) {
       JSON.stringify([...action.history, newHistoryItem]),
     );
 
-    yield all([put(cardOPenedFlag(true)), put(loadingFlag(false))]);
+    yield all([put(cardOpenedFlag(true)), put(loadingFlag(false))]);
+
+    // in the end because of input focus in mobiles
+    if (action.isMobile) {
+      yield put(searchHistoryListFlag(false));
+      yield put(favoriteListFlag(false));
+    }
   } catch (error) {
     // eslint-disable-next-line no-console
     console.log(error);
