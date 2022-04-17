@@ -9,4 +9,5 @@ export interface IUsersList {
   requestType: string;
   history: ISearhHistoryItem[];
   isMobile: boolean;
+  loading: boolean;
 }

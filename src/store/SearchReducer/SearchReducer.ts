@@ -99,7 +99,6 @@ export const SearchReducer = (
       return {
         ...state,
         error: false,
-        usersListOpened: false,
         cardOpened: false,
         reposListOpened: false,
         reposList: [],

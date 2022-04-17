@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
 import { useDispatch } from 'react-redux';
+import clsx from 'clsx';
 
 import {
   cardOpenedFlag,
@@ -20,6 +21,7 @@ const UsersList: React.FC<IUsersList> = ({
   requestType,
   history,
   isMobile,
+  loading,
 }) => {
   const dispatch = useDispatch();
 
@@ -30,7 +32,7 @@ const UsersList: React.FC<IUsersList> = ({
   };
 
   return (
-    <div className={styles.listWrapper}>
+    <div className={clsx(styles.listWrapper, loading && styles.hide)}>
       {users.length ? (
         <ul className={styles.listWrapperUl}>
           {users.map((el: UserInnerType) => (

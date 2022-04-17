@@ -52,3 +52,7 @@
 .cardLogin:hover {
   color: tomato;
 }
+
+.hide {
+  display: none;
+}

@@ -16,6 +16,7 @@ import {
   loadingFlag,
   searchHistoryListFlag,
   searhStart,
+  userListOpenedFlag,
 } from '../actions';
 
 import { ISearhHistoryItem, SearchSagaWorkerType } from '../types';
@@ -95,6 +96,8 @@ function* sagaWorker(action: SearchSagaWorkerType) {
     );
 
     yield all([put(cardOpenedFlag(true)), put(loadingFlag(false))]);
+
+    yield put(userListOpenedFlag(false));
 
     // in the end because of input focus in mobiles
     if (action.isMobile) {

@@ -209,6 +209,7 @@ const Root: React.FC = () => {
                       requestType={search.lastRequestType}
                       history={search.searchHistory}
                       isMobile={search.isMobile}
+                      loading={search.loading}
                     />
                   </Suspense>
                 </div>
