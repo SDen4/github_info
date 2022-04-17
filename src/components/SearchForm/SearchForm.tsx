@@ -15,15 +15,10 @@ import {
 } from '../../store/SearchReducer/actions';
 
 const SearchForm: React.FC<ISearch> = ({
+  searchFunc,
   search,
-  searchState,
-  history,
   favoritesList,
-  currentUser,
-  isMobile,
-  searchHistoryListFlag,
   favoriteListFlag,
-  cardOpened,
 }) => {
   const dispatch = useDispatch();
 
@@ -32,26 +27,26 @@ const SearchForm: React.FC<ISearch> = ({
   const [focusInMobiles, setFocusInMobiles] = useState(false);
 
   useEffect(() => {
-    if (isMobile) {
+    if (search.isMobile) {
       setFocusInMobiles(
         !(
-          searchHistoryListFlag ||
+          search.searchHistoryListFlag ||
           favoriteListFlag ||
-          cardOpened ||
-          searchState.reposListOpened ||
-          searchState.usersListOpened
+          search.cardOpened ||
+          search.reposListOpened ||
+          search.usersListOpened
         ),
       );
     } else {
       setFocusInMobiles(true);
     }
   }, [
-    cardOpened,
+    search.cardOpened,
     favoriteListFlag,
-    isMobile,
-    searchHistoryListFlag,
-    searchState.reposListOpened,
-    searchState.usersListOpened,
+    search.isMobile,
+    search.searchHistoryListFlag,
+    search.reposListOpened,
+    search.usersListOpened,
   ]);
 
   // auto focus on input
@@ -83,14 +78,23 @@ const SearchForm: React.FC<ISearch> = ({
   const onSubmitHandler = (event: React.SyntheticEvent) => {
     event.preventDefault();
 
-    if (searchLogin.toLocaleLowerCase() === currentUser.toLocaleLowerCase()) {
+    if (
+      searchLogin.toLocaleLowerCase() === search.user.login.toLocaleLowerCase()
+    ) {
       setsearchLogin('');
       setDisabledBtn(true);
       return;
     }
 
-    dispatch(searchSaga(searchLogin, history, isMobile, favoritesList));
-    search(searchLogin);
+    dispatch(
+      searchSaga(
+        searchLogin,
+        search.searchHistory,
+        search.isMobile,
+        favoritesList,
+      ),
+    );
+    searchFunc(searchLogin);
     setsearchLogin('');
     setDisabledBtn(true);
   };
@@ -115,17 +119,16 @@ const SearchForm: React.FC<ISearch> = ({
       <div className={styles.btnsWrapper}>
         <SubmitButton disabled={disabledBtn}>Search</SubmitButton>
 
-        {isMobile &&
-          (searchState.usersListOpened || searchState.reposListOpened) && (
-            <button
-              type="button"
-              onClick={backBtnHandler}
-              className={styles.rootBtn}
-            >
-              Back
-            </button>
-            // eslint-disable-next-line indent
-          )}
+        {search.isMobile && (search.usersListOpened || search.reposListOpened) && (
+          <button
+            type="button"
+            onClick={backBtnHandler}
+            className={styles.rootBtn}
+          >
+            Back
+          </button>
+          // eslint-disable-next-line indent
+        )}
       </div>
     </form>
   );

@@ -128,7 +128,6 @@ const Root: React.FC = () => {
                 <SearchHistoryHeader
                   historyLength={search.searchHistory.length}
                   searchHistoryListStatus={search.searchHistoryListFlag}
-                  historyBtnStatus={search.searchHistoryListFlag}
                 />
               ) : (
                 ''
@@ -148,15 +147,10 @@ const Root: React.FC = () => {
             <section className={styles.rootSectionLeft}>
               <div className={clsx(styles.root, styles.rootSectionSearch)}>
                 <SearchForm
-                  search={searchFunc}
-                  searchState={search}
-                  history={search.searchHistory}
+                  searchFunc={searchFunc}
+                  search={search}
                   favoritesList={favorite.favoriteList}
-                  currentUser={search.user.login}
-                  isMobile={search.isMobile}
-                  searchHistoryListFlag={search.searchHistoryListFlag}
                   favoriteListFlag={favorite.favoriteListFlag}
-                  cardOpened={search.cardOpened}
                 />
 
                 {!search.isMobile &&
@@ -183,13 +177,12 @@ const Root: React.FC = () => {
                   <Suspense fallback={<Loader />}>
                     <LazyCard
                       user={search.user}
-                      favorites={favorite.favoriteList}
-                      favoriteUserStatus={favorite.favoriteUser}
-                      noteUserStatus={favorite.noteBtnFlag}
+                      favoriteList={favorite.favoriteList}
+                      favoriteUser={favorite.favoriteUser}
+                      noteBtnFlag={favorite.noteBtnFlag}
                       note={favorite.note}
                       noteStoreFlag={favorite.noteFlag}
-                      isMobile={search.isMobile}
-                      isLoading={search.loading}
+                      loading={search.loading}
                     />
                   </Suspense>
 
@@ -251,7 +244,7 @@ const Root: React.FC = () => {
                     userListOpened={search.usersListOpened}
                     reposListOpened={search.reposListOpened}
                     isMobile={search.isMobile}
-                    isLoading={search.loading}
+                    loading={search.loading}
                   />
                 </Suspense>
               </section>
@@ -273,7 +266,7 @@ const Root: React.FC = () => {
                     userListOpened={search.usersListOpened}
                     reposListOpened={search.reposListOpened}
                     isMobile={search.isMobile}
-                    isLoading={search.loading}
+                    loading={search.loading}
                   />
                 </Suspense>
               </section>

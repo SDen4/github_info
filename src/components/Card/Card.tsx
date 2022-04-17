@@ -30,13 +30,12 @@ import styles from './Card.module.css';
 const Card: React.FC<CardType> = ({ ...args }): JSX.Element => {
   const {
     user,
-    favorites,
-    favoriteUserStatus,
-    noteUserStatus,
+    favoriteList,
+    favoriteUser,
+    noteBtnFlag,
     note,
     noteStoreFlag,
-    isMobile,
-    isLoading,
+    loading,
   } = args;
   const dispatch = useDispatch();
 
@@ -60,8 +59,8 @@ const Card: React.FC<CardType> = ({ ...args }): JSX.Element => {
   };
 
   const onClickAddBtnHandler = () => {
-    if (favoriteUserStatus) {
-      const newFavoriteUsersList = favorites.filter(
+    if (favoriteUser) {
+      const newFavoriteUsersList = favoriteList.filter(
         (el) => el.name !== user.login,
       );
       dispatch(favoriteUserFlag(false));
@@ -73,7 +72,7 @@ const Card: React.FC<CardType> = ({ ...args }): JSX.Element => {
       dispatch(fetchFavoriteListAdd(newfavoriteUser));
       localStorage.setItem(
         'favorite',
-        JSON.stringify([...favorites, newfavoriteUser]),
+        JSON.stringify([...favoriteList, newfavoriteUser]),
       );
       dispatch(setFavoriteBtnFlag(true));
     }
@@ -105,7 +104,7 @@ const Card: React.FC<CardType> = ({ ...args }): JSX.Element => {
   };
 
   return (
-    <div className={clsx(styles.card, isMobile && isLoading && styles.hide)}>
+    <div className={clsx(styles.card, loading && styles.hide)}>
       <aside className={styles.cardElement}>
         <div className={styles.cardPhotoWrapper}>
           <img src={user.avatarUrl} alt="User's avatar" />
@@ -219,7 +218,7 @@ const Card: React.FC<CardType> = ({ ...args }): JSX.Element => {
         <button
           type="button"
           className={clsx(
-            noteUserStatus && styles.buttonActive,
+            noteBtnFlag && styles.buttonActive,
             styles.button,
             styles.addNoteBtn,
             styles.tooltip,
@@ -228,7 +227,7 @@ const Card: React.FC<CardType> = ({ ...args }): JSX.Element => {
         >
           <span>&#9998;</span>
           <div className={styles.tooltipText}>
-            {noteUserStatus ? 'Show note' : 'Add note'}
+            {noteBtnFlag ? 'Show note' : 'Add note'}
           </div>
         </button>
 
@@ -248,15 +247,12 @@ const Card: React.FC<CardType> = ({ ...args }): JSX.Element => {
           onClick={onClickAddBtnHandler}
         >
           <span
-            className={clsx(
-              favoriteUserStatus && styles.starActive,
-              styles.star,
-            )}
+            className={clsx(favoriteUser && styles.starActive, styles.star)}
           >
             &#9733;
           </span>
           <div className={styles.tooltipText}>
-            {favoriteUserStatus ? 'Remove from favorites' : 'Add to favorites'}
+            {favoriteUser ? 'Remove from favorites' : 'Add to favorites'}
           </div>
         </button>
 

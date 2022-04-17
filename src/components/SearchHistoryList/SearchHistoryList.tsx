@@ -26,7 +26,7 @@ const SearchHistoryList: React.FC<ISearchHistoryList> = ({
   userListOpened,
   reposListOpened,
   isMobile,
-  isLoading,
+  loading,
 }) => {
   const dispatch = useDispatch();
 
@@ -61,7 +61,7 @@ const SearchHistoryList: React.FC<ISearchHistoryList> = ({
 
   return (
     <div
-      className={clsx(styles.shlWrapper, isMobile && isLoading && styles.hide)}
+      className={clsx(styles.shlWrapper, isMobile && loading && styles.hide)}
     >
       <header className={styles.listHeader}>
         <h3>Search list</h3>

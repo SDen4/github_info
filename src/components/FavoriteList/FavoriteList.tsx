@@ -27,7 +27,7 @@ const FavoriteList: React.FC<IFavoriteList> = ({
   userListOpened,
   reposListOpened,
   isMobile,
-  isLoading,
+  loading,
 }) => {
   const dispatch = useDispatch();
 
@@ -106,7 +106,7 @@ const FavoriteList: React.FC<IFavoriteList> = ({
 
   return (
     <div
-      className={clsx(styles.shlWrapper, isMobile && isLoading && styles.hide)}
+      className={clsx(styles.shlWrapper, isMobile && loading && styles.hide)}
     >
       <div className={styles.listHeader}>
         <h3>Favorite list</h3>

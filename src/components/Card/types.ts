@@ -3,11 +3,10 @@ import { UserType } from '../../store/SearchReducer/types';
 
 export interface CardType {
   user: UserType;
-  favorites: FavoriteUser[];
-  favoriteUserStatus: boolean;
-  noteUserStatus: boolean;
+  favoriteList: FavoriteUser[];
+  favoriteUser: boolean;
+  noteBtnFlag: boolean;
   note: string;
   noteStoreFlag: boolean;
-  isMobile: boolean;
-  isLoading: boolean;
+  loading: boolean;
 }

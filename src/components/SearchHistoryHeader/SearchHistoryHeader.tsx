@@ -11,13 +11,12 @@ import styles from './SearchHistoryHeader.module.css';
 
 const SearchHistoryHeader: React.FC<ISearchHistoryHeader> = ({
   historyLength,
-  historyBtnStatus,
   searchHistoryListStatus,
 }) => {
   const dispatch = useDispatch();
 
   const onSearchHistoryBtnHandler = () => {
-    if (historyBtnStatus) {
+    if (searchHistoryListStatus) {
       dispatch(searchHistoryListFlag(false));
     } else {
       dispatch(searchHistoryListFlag(true));

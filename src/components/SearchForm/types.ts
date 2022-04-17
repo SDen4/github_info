@@ -1,17 +1,9 @@
 import { FavoriteUser } from '../../store/FavoriteReduser/types';
-import {
-  InitialStateType,
-  ISearhHistoryItem,
-} from '../../store/SearchReducer/types';
+import { InitialStateType } from '../../store/SearchReducer/types';
 
 export interface ISearch {
-  search: any;
-  searchState: InitialStateType;
-  history: ISearhHistoryItem[];
+  searchFunc: any;
+  search: InitialStateType;
   favoritesList: FavoriteUser[];
-  currentUser: string;
-  isMobile: boolean;
-  searchHistoryListFlag: boolean;
   favoriteListFlag: boolean;
-  cardOpened: boolean;
 }
