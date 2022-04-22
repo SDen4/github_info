@@ -109,7 +109,7 @@ const Root: React.FC = () => {
 
   return (
     <div className={styles.appContainer}>
-      {search.isMobile && search.isMobileStart ? (
+      {search.isMobile && search.isAndroid && search.isMobileStart ? (
         <StartMobile appHeight={appHeight} />
       ) : (
         <div

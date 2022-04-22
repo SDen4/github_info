@@ -138,6 +138,13 @@ export const searchIsMobile = (isMobile: boolean) => {
   } as const;
 };
 
+export const searchIsAndroid = (isAndroid: boolean) => {
+  return {
+    type: CONST.SEARCH_IS_ANDROID,
+    isAndroid,
+  } as const;
+};
+
 export const searchIsMobileStart = (isMobileStart: boolean) => {
   return {
     type: CONST.SEARCH_IS_MOBILE_START,
@@ -159,6 +166,7 @@ type reposOpenedListFlagType = ReturnType<typeof reposOpenedListFlag>;
 type modalFlagType = ReturnType<typeof modalFlag>;
 type searhStartType = ReturnType<typeof searhStart>;
 type searchIsMobileType = ReturnType<typeof searchIsMobile>;
+type searchIsAndroidType = ReturnType<typeof searchIsAndroid>;
 type searchIsMobileStartType = ReturnType<typeof searchIsMobileStart>;
 
 export type ActionsType =
@@ -176,4 +184,5 @@ export type ActionsType =
   | modalFlagType
   | searhStartType
   | searchIsMobileType
+  | searchIsAndroidType
   | searchIsMobileStartType;

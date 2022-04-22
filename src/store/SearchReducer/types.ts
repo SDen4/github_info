@@ -69,6 +69,7 @@ export interface InitialStateType {
   modalText: string;
   modalType: 'search' | 'favorite';
   isMobile: boolean;
+  isAndroid: boolean;
   isMobileStart: boolean;
 }
 

@@ -23,8 +23,8 @@ const SearchForm: React.FC<ISearch> = ({
   const dispatch = useDispatch();
 
   const [searchLogin, setsearchLogin] = useState<string>('');
-  const [disabledBtn, setDisabledBtn] = useState(true);
-  const [focusInMobiles, setFocusInMobiles] = useState(false);
+  const [disabledBtn, setDisabledBtn] = useState<boolean>(true);
+  const [focusInMobiles, setFocusInMobiles] = useState<boolean>(false);
 
   useEffect(() => {
     if (search.isMobile) {

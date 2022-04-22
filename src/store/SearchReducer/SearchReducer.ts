@@ -21,6 +21,7 @@ const initialState: InitialStateType = {
   modalText: '',
   modalType: 'search',
   isMobile: false,
+  isAndroid: false,
   isMobileStart: true,
 };
 
@@ -107,6 +108,9 @@ export const SearchReducer = (
 
     case CONST.SEARCH_IS_MOBILE:
       return { ...state, isMobile: action.isMobile };
+
+    case CONST.SEARCH_IS_ANDROID:
+      return { ...state, isAndroid: action.isAndroid };
 
     case CONST.SEARCH_IS_MOBILE_START:
       return { ...state, isMobileStart: action.isMobileStart };
