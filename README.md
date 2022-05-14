@@ -21,8 +21,9 @@ Responsive design for easy viewing on mobile, tablets and desktops.
 
 ## Stack
 
-- typescript
+- html
 - css
+- typescript
 - react
 - redux
 - redux-saga
