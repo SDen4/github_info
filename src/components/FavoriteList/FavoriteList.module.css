@@ -102,6 +102,7 @@
   top: 7px;
   left: 2px;
 }
+
 .miniModal {
   display: flex;
   flex-direction: column;
@@ -237,6 +238,15 @@
 }
 
 @media (max-width: 480px) {
+  .miniModal {
+    position: fixed;
+    justify-content: center;
+  }
+
+  .btnsWrapper {
+    margin-top: 30px;
+  }
+
   .shlWrapper {
     border: 0;
   }
