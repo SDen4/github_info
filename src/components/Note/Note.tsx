@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { memo, useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import clsx from 'clsx';
 
@@ -157,4 +157,4 @@ const Note: React.FC<INote> = ({ login, favorites, note }) => {
   );
 };
 
-export default Note;
+export default memo(Note);

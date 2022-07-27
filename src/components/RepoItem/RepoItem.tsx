@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import clsx from 'clsx';
 
 import { IRepoItemInt } from './types';
@@ -46,4 +46,4 @@ const RepoItem: React.FC<IRepoItemInt> = ({ repoItem }) => {
   );
 };
 
-export default RepoItem;
+export default memo(RepoItem);

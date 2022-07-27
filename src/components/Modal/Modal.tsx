@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useDispatch } from 'react-redux';
 
 import CloseButton from '../../ui/CloseButton';
@@ -58,4 +58,4 @@ const Modal: React.FC<ISearchHistoryModal> = ({ textModal, type }) => {
   );
 };
 
-export default Modal;
+export default memo(Modal);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import { IReposList } from './types';
 import { IRepoItem } from '../../store/SearchReducer/types';
@@ -18,4 +18,4 @@ const ReposList: React.FC<IReposList> = ({ reposList }) => {
   );
 };
 
-export default ReposList;
+export default memo(ReposList);

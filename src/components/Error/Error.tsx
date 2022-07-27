@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import { IError } from './types';
 
@@ -16,4 +16,4 @@ const Error: React.FC<IError> = ({ userName }): JSX.Element => {
   );
 };
 
-export default Error;
+export default memo(Error);

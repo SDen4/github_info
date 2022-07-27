@@ -1,4 +1,4 @@
-import React, { memo, Suspense, useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
@@ -283,4 +283,4 @@ const Root: React.FC = () => {
   );
 };
 
-export default memo(Root);
+export default (Root);
