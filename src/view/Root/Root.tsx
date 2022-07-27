@@ -139,12 +139,7 @@ const Root: React.FC = () => {
           <main className={styles.root}>
             <section className={styles.rootSectionLeft}>
               <div className={clsx(styles.root, styles.rootSectionSearch)}>
-                <SearchForm
-                  searchFunc={searchFunc}
-                  search={search}
-                  favoritesList={favorite.favoriteList}
-                  favoriteListFlag={favorite.favoriteListFlag}
-                />
+                <SearchForm searchFunc={searchFunc} search={search} />
 
                 {!search.isMobile &&
                   (search.usersListOpened || search.reposListOpened) && (

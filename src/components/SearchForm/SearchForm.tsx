@@ -1,11 +1,13 @@
 import React, { useState, useRef, useEffect, memo } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { searchSaga } from '../../store/SearchReducer/actionsSagas';
 
 import SubmitButton from '../../ui/SubmitButton';
 
 import { ISearch } from './types';
+import { AppStateType } from '../../store/RootReducer';
+import { FavoriteUser } from '../../store/FavoriteReduser/types';
 
 import styles from './SearchForm.module.css';
 import {
@@ -14,13 +16,15 @@ import {
   userListOpenedFlag,
 } from '../../store/SearchReducer/actions';
 
-const SearchForm: React.FC<ISearch> = ({
-  searchFunc,
-  search,
-  favoritesList,
-  favoriteListFlag,
-}) => {
+const SearchForm: React.FC<ISearch> = ({ searchFunc, search }) => {
   const dispatch = useDispatch();
+
+  const favoritesList = useSelector<AppStateType, FavoriteUser[]>(
+    (store) => store.favorite.favoriteList,
+  );
+  const favoriteListFlag = useSelector<AppStateType, boolean>(
+    (store) => store.favorite.favoriteListFlag,
+  );
 
   const [searchLogin, setsearchLogin] = useState<string>('');
   const [disabledBtn, setDisabledBtn] = useState<boolean>(true);
