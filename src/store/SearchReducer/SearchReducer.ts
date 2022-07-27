@@ -102,7 +102,9 @@ export const SearchReducer = (
         error: false,
         cardOpened: false,
         reposListOpened: false,
+        usersListOpened: false,
         reposList: [],
+        usersList: [],
         loading: true,
       };
 
