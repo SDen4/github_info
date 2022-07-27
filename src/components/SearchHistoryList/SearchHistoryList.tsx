@@ -1,5 +1,5 @@
-import React, { memo } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
 import {
@@ -13,22 +13,38 @@ import { searchSaga } from '../../store/SearchReducer/actionsSagas';
 import CloseButton from '../../ui/CloseButton';
 
 import { dateFormatter } from '../../utils/dateFormatter';
-
-import { ISearchHistoryList } from './types';
-
-import styles from './SearchHistoryList.module.css';
 import { timeFormatter } from '../../utils/timeFormatter';
 
-const SearchHistoryList: React.FC<ISearchHistoryList> = ({
-  searchList,
-  currentUserLogin,
-  favoritesList,
-  userListOpened,
-  reposListOpened,
-  isMobile,
-  loading,
-}) => {
+import { AppStateType } from '../../store/RootReducer';
+import { FavoriteUser } from '../../store/FavoriteReduser/types';
+import { ISearhHistoryItem } from '../../store/SearchReducer/types';
+
+import styles from './SearchHistoryList.module.css';
+
+const SearchHistoryList: React.FC = () => {
   const dispatch = useDispatch();
+
+  const searchList = useSelector<AppStateType, ISearhHistoryItem[]>(
+    (store) => store.search.searchHistory,
+  );
+  const favoritesList = useSelector<AppStateType, FavoriteUser[]>(
+    (store) => store.favorite.favoriteList,
+  );
+  const currentUserLogin = useSelector<AppStateType, string>(
+    (store) => store.search.user.login,
+  );
+  const userListOpened = useSelector<AppStateType, boolean>(
+    (store) => store.search.usersListOpened,
+  );
+  const reposListOpened = useSelector<AppStateType, boolean>(
+    (store) => store.search.reposListOpened,
+  );
+  const isMobile = useSelector<AppStateType, boolean>(
+    (store) => store.search.isMobile,
+  );
+  const loading = useSelector<AppStateType, boolean>(
+    (store) => store.search.loading,
+  );
 
   const searchHistoriListBtnHandler = (login: string) => {
     if (login === currentUserLogin) {
@@ -97,4 +113,4 @@ const SearchHistoryList: React.FC<ISearchHistoryList> = ({
   );
 };
 
-export default memo(SearchHistoryList);
+export default SearchHistoryList;

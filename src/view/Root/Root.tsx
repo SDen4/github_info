@@ -209,15 +209,7 @@ const Root: React.FC = () => {
                 style={{ maxHeight: appHeight - 239 }}
               >
                 <Suspense fallback={<Loader />}>
-                  <LazySearchHistoryList
-                    searchList={search.searchHistory}
-                    favoritesList={favorite.favoriteList}
-                    currentUserLogin={search.user.login}
-                    userListOpened={search.usersListOpened}
-                    reposListOpened={search.reposListOpened}
-                    isMobile={search.isMobile}
-                    loading={search.loading}
-                  />
+                  <LazySearchHistoryList />
                 </Suspense>
               </section>
             )}
