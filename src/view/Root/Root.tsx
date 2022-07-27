@@ -175,15 +175,7 @@ const Root: React.FC = () => {
                   style={{ maxHeight: appHeight - 239 }}
                 >
                   <Suspense fallback={<Loader />}>
-                    <LazyCard
-                      user={search.user}
-                      favoriteList={favorite.favoriteList}
-                      favoriteUser={favorite.favoriteUser}
-                      noteBtnFlag={favorite.noteBtnFlag}
-                      note={favorite.note}
-                      noteStoreFlag={favorite.noteFlag}
-                      loading={search.loading}
-                    />
+                    <LazyCard />
                   </Suspense>
 
                   {favorite.noteFlag && (
@@ -283,4 +275,4 @@ const Root: React.FC = () => {
   );
 };
 
-export default (Root);
+export default Root;

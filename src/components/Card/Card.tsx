@@ -1,5 +1,5 @@
-import React, { memo } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
 import CloseButton from '../../ui/CloseButton';
@@ -21,23 +21,37 @@ import {
   setFavoriteBtnFlag,
 } from '../../store/FavoriteReduser/actions';
 
-import { CardType } from './types';
-
 import { fileText } from './assets/fileText';
 
 import styles from './Card.module.css';
+import { AppStateType } from '../../store/RootReducer';
+import { UserType } from '../../store/SearchReducer/types';
+import { FavoriteUser } from '../../store/FavoriteReduser/types';
 
-const Card: React.FC<CardType> = ({ ...args }): JSX.Element => {
-  const {
-    user,
-    favoriteList,
-    favoriteUser,
-    noteBtnFlag,
-    note,
-    noteStoreFlag,
-    loading,
-  } = args;
+const Card: React.FC = (): JSX.Element => {
   const dispatch = useDispatch();
+
+  const user = useSelector<AppStateType, UserType>(
+    (store) => store.search.user,
+  );
+  const favoriteList = useSelector<AppStateType, FavoriteUser[]>(
+    (store) => store.favorite.favoriteList,
+  );
+  const favoriteUser = useSelector<AppStateType, boolean>(
+    (store) => store.favorite.favoriteUser,
+  );
+  const noteBtnFlag = useSelector<AppStateType, boolean>(
+    (store) => store.favorite.noteBtnFlag,
+  );
+  const note = useSelector<AppStateType, string>(
+    (store) => store.favorite.note,
+  );
+  const noteStoreFlag = useSelector<AppStateType, boolean>(
+    (store) => store.favorite.noteFlag,
+  );
+  const loading = useSelector<AppStateType, boolean>(
+    (store) => store.search.loading,
+  );
 
   const onClickCloseBtnHandler = () => {
     dispatch(cardOpenedFlag(false));
@@ -262,4 +276,4 @@ const Card: React.FC<CardType> = ({ ...args }): JSX.Element => {
   );
 };
 
-export default memo(Card);
+export default Card;
