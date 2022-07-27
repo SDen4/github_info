@@ -4,7 +4,6 @@ import clsx from 'clsx';
 
 import Note from '../../components/Note';
 import Error from '../../components/Error';
-import Modal from '../../components/Modal';
 import SearchForm from '../../components/SearchForm';
 import StartMobile from '../../components/StartMobile';
 import FavoriteButton from '../../components/FavoriteButton';
@@ -35,6 +34,7 @@ const LazyFavoriteList = React.lazy(
 const LazyCard = React.lazy(() => import('../../components/Card'));
 const LazyReposList = React.lazy(() => import('../../components/ReposList'));
 const LazyUsersList = React.lazy(() => import('../../components/UsersList'));
+const LazyModal = React.lazy(() => import('../../components/Modal'));
 
 const Root: React.FC = () => {
   const dispatch = useDispatch();
@@ -252,7 +252,9 @@ const Root: React.FC = () => {
           </main>
 
           {search.modalFlag && (
-            <Modal textModal={search.modalText} type={search.modalType} />
+            <Suspense fallback={<Loader />}>
+              <LazyModal />
+            </Suspense>
           )}
         </div>
       )}

@@ -1,5 +1,5 @@
-import React, { memo } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import CloseButton from '../../ui/CloseButton';
 
@@ -9,7 +9,7 @@ import {
   modalFlag,
 } from '../../store/SearchReducer/actions';
 
-import { ISearchHistoryModal } from './types';
+import { AppStateType } from '../../store/RootReducer';
 
 import styles from './Modal.module.css';
 import {
@@ -18,8 +18,15 @@ import {
   fetchFavoriteList,
 } from '../../store/FavoriteReduser/actions';
 
-const Modal: React.FC<ISearchHistoryModal> = ({ textModal, type }) => {
+const Modal: React.FC = () => {
   const dispatch = useDispatch();
+
+  const textModal = useSelector<AppStateType, string>(
+    (store) => store.search.modalText,
+  );
+  const type = useSelector<AppStateType, 'search' | 'favorite'>(
+    (store) => store.search.modalType,
+  );
 
   const onBtnsHandler = (delStatus: boolean) => {
     if (delStatus) {
@@ -38,6 +45,7 @@ const Modal: React.FC<ISearchHistoryModal> = ({ textModal, type }) => {
       dispatch(modalFlag(false, '', 'search'));
     }
   };
+
   return (
     <div className={styles.modalWrapper}>
       <div className={styles.modal}>
@@ -58,4 +66,4 @@ const Modal: React.FC<ISearchHistoryModal> = ({ textModal, type }) => {
   );
 };
 
-export default memo(Modal);
+export default Modal;
