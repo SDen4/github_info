@@ -1,5 +1,5 @@
-import React, { memo, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
 import CloseButton from '../../ui/CloseButton';
@@ -16,20 +16,36 @@ import {
   fetchFavoriteList,
 } from '../../store/FavoriteReduser/actions';
 
-import { IFavoriteList } from './types';
+import { AppStateType } from '../../store/RootReducer';
+import { FavoriteUser } from '../../store/FavoriteReduser/types';
+import { ISearhHistoryItem } from '../../store/SearchReducer/types';
 
 import styles from './FavoriteList.module.css';
 
-const FavoriteList: React.FC<IFavoriteList> = ({
-  favoriteList,
-  searchList,
-  currentUserLogin,
-  userListOpened,
-  reposListOpened,
-  isMobile,
-  loading,
-}) => {
+const FavoriteList: React.FC = () => {
   const dispatch = useDispatch();
+
+  const favoriteList = useSelector<AppStateType, FavoriteUser[]>(
+    (store) => store.favorite.favoriteList,
+  );
+  const searchList = useSelector<AppStateType, ISearhHistoryItem[]>(
+    (store) => store.search.searchHistory,
+  );
+  const currentUserLogin = useSelector<AppStateType, string>(
+    (store) => store.search.user.login,
+  );
+  const userListOpened = useSelector<AppStateType, boolean>(
+    (store) => store.search.usersListOpened,
+  );
+  const reposListOpened = useSelector<AppStateType, boolean>(
+    (store) => store.search.reposListOpened,
+  );
+  const isMobile = useSelector<AppStateType, boolean>(
+    (store) => store.search.isMobile,
+  );
+  const loading = useSelector<AppStateType, boolean>(
+    (store) => store.search.loading,
+  );
 
   const [deleteModal, setDeleteModal] = useState<boolean>(false);
   const [deletedElem, setDeletedElem] = useState<string>('');
@@ -178,4 +194,4 @@ const FavoriteList: React.FC<IFavoriteList> = ({
   );
 };
 
-export default memo(FavoriteList);
+export default FavoriteList;

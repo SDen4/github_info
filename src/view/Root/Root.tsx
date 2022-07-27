@@ -245,15 +245,7 @@ const Root: React.FC = () => {
                 style={{ maxHeight: appHeight - 239 }}
               >
                 <Suspense fallback={<Loader />}>
-                  <LazyFavoriteList
-                    favoriteList={favorite.favoriteList}
-                    searchList={search.searchHistory}
-                    currentUserLogin={search.user.login}
-                    userListOpened={search.usersListOpened}
-                    reposListOpened={search.reposListOpened}
-                    isMobile={search.isMobile}
-                    loading={search.loading}
-                  />
+                  <LazyFavoriteList />
                 </Suspense>
               </section>
             )}
