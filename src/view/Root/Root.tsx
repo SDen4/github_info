@@ -205,7 +205,7 @@ const Root: React.FC = () => {
                   style={{ maxHeight: appHeight - 239 }}
                 >
                   <Suspense fallback={<Loader />}>
-                    <LazyReposList reposList={search.reposList} />
+                    <LazyReposList />
                   </Suspense>
                 </div>
               )}
