@@ -132,14 +132,7 @@ const Root: React.FC = () => {
               ) : (
                 ''
               )}
-              {favorite.favoriteList.length ? (
-                <FavoriteButton
-                  starNum={favorite.favoriteList.length}
-                  favoriteListStatus={favorite.favoriteListFlag}
-                />
-              ) : (
-                ''
-              )}
+              {favorite.favoriteList.length ? <FavoriteButton /> : ''}
             </div>
           </header>
 

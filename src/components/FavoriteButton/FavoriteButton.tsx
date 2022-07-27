@@ -1,19 +1,22 @@
-import React, { memo } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
 import { favoriteListFlag } from '../../store/FavoriteReduser/actions';
 import { searchHistoryListFlag } from '../../store/SearchReducer/actions';
 
-import { IFavoriteButton } from './types';
-
 import styles from './FavoriteButton.module.css';
+import { AppStateType } from '../../store/RootReducer';
 
-const FavoriteButton: React.FC<IFavoriteButton> = ({
-  starNum,
-  favoriteListStatus,
-}) => {
+const FavoriteButton: React.FC = () => {
   const dispatch = useDispatch();
+
+  const favoriteListStatus = useSelector<AppStateType, boolean>(
+    (store) => store.favorite.favoriteListFlag,
+  );
+  const starNum = useSelector<AppStateType, number>(
+    (store) => store.favorite.favoriteList.length,
+  );
 
   const showFavoriteListHandler = () => {
     if (favoriteListStatus) {
@@ -36,4 +39,4 @@ const FavoriteButton: React.FC<IFavoriteButton> = ({
   );
 };
 
-export default memo(FavoriteButton);
+export default FavoriteButton;
