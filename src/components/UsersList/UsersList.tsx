@@ -1,5 +1,5 @@
-import React, { memo } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
 import {
@@ -8,22 +8,28 @@ import {
   userListOpenedFlag,
 } from '../../store/SearchReducer/actions';
 
+import { AppStateType } from '../../store/RootReducer';
 import { UserInnerType } from '../../store/SearchReducer/types';
-import UserItem from '../UserItem';
 
-import { IUsersList } from './types';
+import UserItem from '../UserItem';
 
 import styles from './UsersList.module.css';
 
-const UsersList: React.FC<IUsersList> = ({
-  users,
-  login,
-  requestType,
-  history,
-  isMobile,
-  loading,
-}) => {
+const UsersList: React.FC = () => {
   const dispatch = useDispatch();
+
+  const users = useSelector<AppStateType, UserInnerType[]>(
+    (store) => store.search.usersList,
+  );
+  const login = useSelector<AppStateType, string>(
+    (store) => store.search.user.login,
+  );
+  const requestType = useSelector<AppStateType, string>(
+    (store) => store.search.lastRequestType,
+  );
+  const loading = useSelector<AppStateType, boolean>(
+    (store) => store.search.loading,
+  );
 
   const loginBtnHandler = () => {
     dispatch(userListOpenedFlag(false));
@@ -37,7 +43,7 @@ const UsersList: React.FC<IUsersList> = ({
         <ul className={styles.listWrapperUl}>
           {users.map((el: UserInnerType) => (
             <li key={el.login}>
-              <UserItem user={el} history={history} isMobile={isMobile} />
+              <UserItem user={el} />
             </li>
           ))}
         </ul>
@@ -63,4 +69,4 @@ const UsersList: React.FC<IUsersList> = ({
   );
 };
 
-export default memo(UsersList);
+export default UsersList;

@@ -174,14 +174,7 @@ const Root: React.FC = () => {
                   style={{ maxHeight: appHeight - 239 }}
                 >
                   <Suspense fallback={<Loader />}>
-                    <LazyUsersList
-                      users={search.usersList}
-                      login={search.user.login}
-                      requestType={search.lastRequestType}
-                      history={search.searchHistory}
-                      isMobile={search.isMobile}
-                      loading={search.loading}
-                    />
+                    <LazyUsersList />
                   </Suspense>
                 </div>
               )}

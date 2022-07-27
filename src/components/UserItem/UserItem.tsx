@@ -1,14 +1,23 @@
 import React, { memo } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { searchSaga } from '../../store/SearchReducer/actionsSagas';
 
 import { IUserItem } from './types';
+import { AppStateType } from '../../store/RootReducer';
+import { ISearhHistoryItem } from '../../store/SearchReducer/types';
 
 import styles from './UserItem.module.css';
 
-const UserItem: React.FC<IUserItem> = ({ user, history, isMobile }) => {
+const UserItem: React.FC<IUserItem> = ({ user }) => {
   const dispatch = useDispatch();
+
+  const isMobile = useSelector<AppStateType, boolean>(
+    (store) => store.search.isMobile,
+  );
+  const history = useSelector<AppStateType, ISearhHistoryItem[]>(
+    (store) => store.search.searchHistory,
+  );
 
   const itemBthHandler = () => {
     dispatch(searchSaga(user.login, history, isMobile));
