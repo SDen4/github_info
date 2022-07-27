@@ -124,14 +124,7 @@ const Root: React.FC = () => {
             <h1>Find github&apos;s user</h1>
 
             <div className={styles.buttonsWrapper}>
-              {search.searchHistory.length ? (
-                <SearchHistoryHeader
-                  historyLength={search.searchHistory.length}
-                  searchHistoryListStatus={search.searchHistoryListFlag}
-                />
-              ) : (
-                ''
-              )}
+              {search.searchHistory.length ? <SearchHistoryHeader /> : ''}
               {favorite.favoriteList.length ? <FavoriteButton /> : ''}
             </div>
           </header>

@@ -1,19 +1,23 @@
-import React, { memo } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
 import { favoriteListFlag } from '../../store/FavoriteReduser/actions';
 import { searchHistoryListFlag } from '../../store/SearchReducer/actions';
 
-import { ISearchHistoryHeader } from './types';
+import { AppStateType } from '../../store/RootReducer';
 
 import styles from './SearchHistoryHeader.module.css';
 
-const SearchHistoryHeader: React.FC<ISearchHistoryHeader> = ({
-  historyLength,
-  searchHistoryListStatus,
-}) => {
+const SearchHistoryHeader: React.FC = () => {
   const dispatch = useDispatch();
+
+  const historyLength = useSelector<AppStateType, number>(
+    (store) => store.search.searchHistory.length,
+  );
+  const searchHistoryListStatus = useSelector<AppStateType, boolean>(
+    (store) => store.search.searchHistoryListFlag,
+  );
 
   const onSearchHistoryBtnHandler = () => {
     if (searchHistoryListStatus) {
@@ -38,4 +42,4 @@ const SearchHistoryHeader: React.FC<ISearchHistoryHeader> = ({
   );
 };
 
-export default memo(SearchHistoryHeader);
+export default SearchHistoryHeader;
