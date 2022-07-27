@@ -2,7 +2,6 @@ import React, { Suspense, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
-import Note from '../../components/Note';
 import Error from '../../components/Error';
 import SearchForm from '../../components/SearchForm';
 import StartMobile from '../../components/StartMobile';
@@ -35,6 +34,7 @@ const LazyCard = React.lazy(() => import('../../components/Card'));
 const LazyReposList = React.lazy(() => import('../../components/ReposList'));
 const LazyUsersList = React.lazy(() => import('../../components/UsersList'));
 const LazyModal = React.lazy(() => import('../../components/Modal'));
+const LazyNote = React.lazy(() => import('../../components/Note'));
 
 const Root: React.FC = () => {
   const dispatch = useDispatch();
@@ -172,11 +172,9 @@ const Root: React.FC = () => {
                   </Suspense>
 
                   {favorite.noteFlag && (
-                    <Note
-                      note={favorite.note}
-                      login={search.user.login}
-                      favorites={favorite.favoriteList}
-                    />
+                    <Suspense fallback={<Loader />}>
+                      <LazyNote />
+                    </Suspense>
                   )}
                 </div>
               )}

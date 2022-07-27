@@ -1,5 +1,5 @@
-import React, { memo, useEffect, useRef, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
 import {
@@ -12,13 +12,24 @@ import {
   setFavoriteBtnFlag,
 } from '../../store/FavoriteReduser/actions';
 
-import { INote } from './types';
+import { AppStateType } from '../../store/RootReducer';
+import { FavoriteUser } from '../../store/FavoriteReduser/types';
 
 import styles from './Note.module.css';
 
-const Note: React.FC<INote> = ({ login, favorites, note }) => {
+const Note: React.FC = () => {
   const dispatch = useDispatch();
   const ref: any = useRef();
+
+  const note = useSelector<AppStateType, string>(
+    (store) => store.favorite.note,
+  );
+  const login = useSelector<AppStateType, string>(
+    (store) => store.search.user.login,
+  );
+  const favorites = useSelector<AppStateType, FavoriteUser[]>(
+    (store) => store.favorite.favoriteList,
+  );
 
   useEffect(() => {
     ref.current.focus();
@@ -157,4 +168,4 @@ const Note: React.FC<INote> = ({ login, favorites, note }) => {
   );
 };
 
-export default memo(Note);
+export default Note;
