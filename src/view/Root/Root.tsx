@@ -2,7 +2,6 @@ import React, { Suspense, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
-import Error from '../../components/Error';
 import SearchForm from '../../components/SearchForm';
 import StartMobile from '../../components/StartMobile';
 import FavoriteButton from '../../components/FavoriteButton';
@@ -35,6 +34,7 @@ const LazyReposList = React.lazy(() => import('../../components/ReposList'));
 const LazyUsersList = React.lazy(() => import('../../components/UsersList'));
 const LazyModal = React.lazy(() => import('../../components/Modal'));
 const LazyNote = React.lazy(() => import('../../components/Note'));
+const LazyError = React.lazy(() => import('../../components/Error'));
 
 const Root: React.FC = () => {
   const dispatch = useDispatch();
@@ -190,7 +190,11 @@ const Root: React.FC = () => {
                   </Suspense>
                 </div>
               )}
-              {isErrorOpen && <Error userName={user} />}
+              {isErrorOpen && (
+                <Suspense fallback={<Loader />}>
+                  <LazyError userName={user} />
+                </Suspense>
+              )}
             </section>
 
             {search.searchHistoryListFlag && (
