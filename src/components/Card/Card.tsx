@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
@@ -276,4 +276,4 @@ const Card: React.FC = (): JSX.Element => {
   );
 };
 
-export default Card;
+export default memo(Card);

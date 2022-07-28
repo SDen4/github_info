@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
@@ -18,13 +18,18 @@ const SearchHistoryHeader: React.FC = () => {
   const searchHistoryListStatus = useSelector<AppStateType, boolean>(
     (store) => store.search.searchHistoryListFlag,
   );
+  const flFlag = useSelector<AppStateType, boolean>(
+    (store) => store.favorite.favoriteListFlag,
+  );
 
   const onSearchHistoryBtnHandler = () => {
     if (searchHistoryListStatus) {
       dispatch(searchHistoryListFlag(false));
     } else {
       dispatch(searchHistoryListFlag(true));
-      dispatch(favoriteListFlag(false));
+      if (flFlag) {
+        dispatch(favoriteListFlag(false));
+      }
     }
   };
 
@@ -42,4 +47,4 @@ const SearchHistoryHeader: React.FC = () => {
   );
 };
 
-export default SearchHistoryHeader;
+export default memo(SearchHistoryHeader);

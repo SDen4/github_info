@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
@@ -69,4 +69,4 @@ const UsersList: React.FC = () => {
   );
 };
 
-export default UsersList;
+export default memo(UsersList);

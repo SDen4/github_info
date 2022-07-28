@@ -8,6 +8,7 @@ import SubmitButton from '../../ui/SubmitButton';
 import { ISearch } from './types';
 import { AppStateType } from '../../store/RootReducer';
 import { FavoriteUser } from '../../store/FavoriteReduser/types';
+import { ISearhHistoryItem } from '../../store/SearchReducer/types';
 
 import styles from './SearchForm.module.css';
 import {
@@ -16,7 +17,7 @@ import {
   userListOpenedFlag,
 } from '../../store/SearchReducer/actions';
 
-const SearchForm: React.FC<ISearch> = ({ searchFunc, search }) => {
+const SearchForm: React.FC<ISearch> = ({ searchFunc }) => {
   const dispatch = useDispatch();
 
   const favoritesList = useSelector<AppStateType, FavoriteUser[]>(
@@ -25,32 +26,53 @@ const SearchForm: React.FC<ISearch> = ({ searchFunc, search }) => {
   const favoriteListFlag = useSelector<AppStateType, boolean>(
     (store) => store.favorite.favoriteListFlag,
   );
+  const isMobile = useSelector<AppStateType, boolean>(
+    (store) => store.search.isMobile,
+  );
+  const searchHistoryListFlag = useSelector<AppStateType, boolean>(
+    (store) => store.search.searchHistoryListFlag,
+  );
+  const cardOpened = useSelector<AppStateType, boolean>(
+    (store) => store.search.cardOpened,
+  );
+  const reposListOpened = useSelector<AppStateType, boolean>(
+    (store) => store.search.reposListOpened,
+  );
+  const usersListOpened = useSelector<AppStateType, boolean>(
+    (store) => store.search.usersListOpened,
+  );
+  const searchHistory = useSelector<AppStateType, ISearhHistoryItem[]>(
+    (store) => store.search.searchHistory,
+  );
+  const login = useSelector<AppStateType, string>(
+    (store) => store.search.user.login,
+  );
 
   const [searchLogin, setsearchLogin] = useState<string>('');
   const [disabledBtn, setDisabledBtn] = useState<boolean>(true);
   const [focusInMobiles, setFocusInMobiles] = useState<boolean>(false);
 
   useEffect(() => {
-    if (search.isMobile) {
+    if (isMobile) {
       setFocusInMobiles(
         !(
-          search.searchHistoryListFlag ||
+          searchHistoryListFlag ||
           favoriteListFlag ||
-          search.cardOpened ||
-          search.reposListOpened ||
-          search.usersListOpened
+          cardOpened ||
+          reposListOpened ||
+          usersListOpened
         ),
       );
     } else {
       setFocusInMobiles(true);
     }
   }, [
-    search.cardOpened,
+    cardOpened,
     favoriteListFlag,
-    search.isMobile,
-    search.searchHistoryListFlag,
-    search.reposListOpened,
-    search.usersListOpened,
+    isMobile,
+    searchHistoryListFlag,
+    reposListOpened,
+    usersListOpened,
   ]);
 
   // auto focus on input
@@ -82,22 +104,13 @@ const SearchForm: React.FC<ISearch> = ({ searchFunc, search }) => {
   const onSubmitHandler = (event: React.SyntheticEvent) => {
     event.preventDefault();
 
-    if (
-      searchLogin.toLocaleLowerCase() === search.user.login.toLocaleLowerCase()
-    ) {
+    if (searchLogin.toLocaleLowerCase() === login.toLocaleLowerCase()) {
       setsearchLogin('');
       setDisabledBtn(true);
       return;
     }
 
-    dispatch(
-      searchSaga(
-        searchLogin,
-        search.searchHistory,
-        search.isMobile,
-        favoritesList,
-      ),
-    );
+    dispatch(searchSaga(searchLogin, searchHistory, isMobile, favoritesList));
     searchFunc(searchLogin);
     setsearchLogin('');
     setDisabledBtn(true);
@@ -123,7 +136,7 @@ const SearchForm: React.FC<ISearch> = ({ searchFunc, search }) => {
       <div className={styles.btnsWrapper}>
         <SubmitButton disabled={disabledBtn}>Search</SubmitButton>
 
-        {search.isMobile && (search.usersListOpened || search.reposListOpened) && (
+        {isMobile && (usersListOpened || reposListOpened) && (
           <button
             type="button"
             onClick={backBtnHandler}
@@ -131,7 +144,6 @@ const SearchForm: React.FC<ISearch> = ({ searchFunc, search }) => {
           >
             Back
           </button>
-          // eslint-disable-next-line indent
         )}
       </div>
     </form>

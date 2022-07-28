@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import CloseButton from '../../ui/CloseButton';
@@ -66,4 +66,4 @@ const Modal: React.FC = () => {
   );
 };
 
-export default Modal;
+export default memo(Modal);

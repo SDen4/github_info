@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
@@ -17,13 +17,18 @@ const FavoriteButton: React.FC = () => {
   const starNum = useSelector<AppStateType, number>(
     (store) => store.favorite.favoriteList.length,
   );
+  const searchListFlag = useSelector<AppStateType, boolean>(
+    (store) => store.search.searchHistoryListFlag,
+  );
 
   const showFavoriteListHandler = () => {
     if (favoriteListStatus) {
       dispatch(favoriteListFlag(false));
     } else {
       dispatch(favoriteListFlag(true));
-      dispatch(searchHistoryListFlag(false));
+      if (searchListFlag) {
+        dispatch(searchHistoryListFlag(false));
+      }
     }
   };
 
@@ -39,4 +44,4 @@ const FavoriteButton: React.FC = () => {
   );
 };
 
-export default FavoriteButton;
+export default memo(FavoriteButton);

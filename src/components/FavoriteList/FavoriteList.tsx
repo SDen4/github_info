@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
@@ -194,4 +194,4 @@ const FavoriteList: React.FC = () => {
   );
 };
 
-export default FavoriteList;
+export default memo(FavoriteList);

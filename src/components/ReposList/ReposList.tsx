@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useSelector } from 'react-redux';
 
 import RepoItem from '../RepoItem';
@@ -24,4 +24,4 @@ const ReposList: React.FC = () => {
   );
 };
 
-export default ReposList;
+export default memo(ReposList);

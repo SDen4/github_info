@@ -18,8 +18,9 @@ import {
 import { searhInitFetchSaga } from '../../store/SearchReducer/actionsSagas';
 import { favoriteListFlag } from '../../store/FavoriteReduser/actions';
 
-import { selectFavorite } from '../../store/SearchReducer/selectors/selectors';
-import { selectSearch } from '../../store/FavoriteReduser/selectors/selectors';
+import { AppStateType } from '../../store/RootReducer';
+import { FavoriteUser } from '../../store/FavoriteReduser/types';
+import { ISearhHistoryItem } from '../../store/SearchReducer/types';
 
 import styles from './Root.module.css';
 
@@ -39,8 +40,49 @@ const LazyError = React.lazy(() => import('../../components/Error'));
 const Root: React.FC = () => {
   const dispatch = useDispatch();
 
-  const search = useSelector(selectSearch);
-  const favorite = useSelector(selectFavorite);
+  const flFlag = useSelector<AppStateType, boolean>(
+    (store) => store.favorite.favoriteListFlag,
+  );
+  const favoriteList = useSelector<AppStateType, FavoriteUser[]>(
+    (store) => store.favorite.favoriteList,
+  );
+  const noteFlag = useSelector<AppStateType, boolean>(
+    (store) => store.favorite.noteFlag,
+  );
+
+  const isMobileStart = useSelector<AppStateType, boolean>(
+    (store) => store.search.isMobileStart,
+  );
+  const isMobile = useSelector<AppStateType, boolean>(
+    (store) => store.search.isMobile,
+  );
+  const cardOpened = useSelector<AppStateType, boolean>(
+    (store) => store.search.cardOpened,
+  );
+  const searchHistoryListFlag = useSelector<AppStateType, boolean>(
+    (store) => store.search.searchHistoryListFlag,
+  );
+  const error = useSelector<AppStateType, boolean>(
+    (store) => store.search.error,
+  );
+  const isAndroid = useSelector<AppStateType, boolean>(
+    (store) => store.search.isAndroid,
+  );
+  const searchHistory = useSelector<AppStateType, ISearhHistoryItem[]>(
+    (store) => store.search.searchHistory,
+  );
+  const usersListOpened = useSelector<AppStateType, boolean>(
+    (store) => store.search.usersListOpened,
+  );
+  const reposListOpened = useSelector<AppStateType, boolean>(
+    (store) => store.search.reposListOpened,
+  );
+  const loading = useSelector<AppStateType, boolean>(
+    (store) => store.search.loading,
+  );
+  const modalFlag = useSelector<AppStateType, boolean>(
+    (store) => store.search.modalFlag,
+  );
 
   const [user, setUser] = useState<string>('');
 
@@ -61,7 +103,7 @@ const Root: React.FC = () => {
 
   // set fullscreen in case of fullscreenchange
   useEffect(() => {
-    if (search.isMobileStart) {
+    if (isMobileStart) {
       return;
     }
     window.addEventListener(
@@ -73,18 +115,12 @@ const Root: React.FC = () => {
   }, [appHeight]);
 
   const isCardOpen =
-    (!search.isMobile && search.cardOpened) ||
-    (search.isMobile &&
-      search.cardOpened &&
-      !search.searchHistoryListFlag &&
-      !favorite.favoriteListFlag);
+    (!isMobile && cardOpened) ||
+    (isMobile && cardOpened && !searchHistoryListFlag && !flFlag);
 
   const isErrorOpen =
-    (!search.isMobile && search.error) ||
-    (search.isMobile &&
-      search.error &&
-      !search.searchHistoryListFlag &&
-      !favorite.favoriteListFlag);
+    (!isMobile && error) ||
+    (isMobile && error && !searchHistoryListFlag && !flFlag);
 
   useEffect(() => {
     dispatch(searhInitFetchSaga());
@@ -92,10 +128,10 @@ const Root: React.FC = () => {
 
   // close favorite list if there are no any items
   useEffect(() => {
-    if (!favorite.favoriteList.length) {
+    if (!favoriteList.length) {
       dispatch(favoriteListFlag(false));
     }
-  }, [dispatch, favorite.favoriteList]);
+  }, [dispatch, favoriteList]);
 
   const searchFunc = (searchLogin: string) => {
     setUser(searchLogin);
@@ -109,68 +145,59 @@ const Root: React.FC = () => {
 
   return (
     <div className={styles.appContainer}>
-      {search.isMobile && search.isAndroid && search.isMobileStart ? (
+      {isMobile && isAndroid && isMobileStart ? (
         <StartMobile appHeight={appHeight} />
       ) : (
         <div
           className={styles.rootWrapper}
-          style={
-            search.isMobile && search.isMobileStart
-              ? { minHeight: appHeight }
-              : {}
-          }
+          style={isMobile && isMobileStart ? { minHeight: appHeight } : {}}
         >
           <header className={styles.rootHeader}>
             <h1>Find github&apos;s user</h1>
 
             <div className={styles.buttonsWrapper}>
-              {search.searchHistory.length ? <SearchHistoryHeader /> : ''}
-              {favorite.favoriteList.length ? <FavoriteButton /> : ''}
+              {searchHistory.length ? <SearchHistoryHeader /> : ''}
+              {favoriteList.length ? <FavoriteButton /> : ''}
             </div>
           </header>
 
           <main className={styles.root}>
             <section className={styles.rootSectionLeft}>
               <div className={clsx(styles.root, styles.rootSectionSearch)}>
-                <SearchForm searchFunc={searchFunc} search={search} />
+                <SearchForm searchFunc={searchFunc} />
 
-                {!search.isMobile &&
-                  (search.usersListOpened || search.reposListOpened) && (
-                    <button
-                      type="button"
-                      onClick={backBtnHandler}
-                      className={styles.rootBtn}
-                    >
-                      Back
-                    </button>
-                    // eslint-disable-next-line indent
-                  )}
+                {!isMobile && (usersListOpened || reposListOpened) && (
+                  <button
+                    type="button"
+                    onClick={backBtnHandler}
+                    className={styles.rootBtn}
+                  >
+                    Back
+                  </button>
+                  // eslint-disable-next-line indent
+                )}
               </div>
 
-              {search.loading && <Loader />}
+              {loading && <Loader />}
               {isCardOpen && (
                 <div
-                  className={clsx(
-                    search.isMobile && styles.rootSectionRight_Mobile,
-                  )}
+                  className={clsx(isMobile && styles.rootSectionRight_Mobile)}
                   style={{ maxHeight: appHeight - 239 }}
                 >
                   <Suspense fallback={<Loader />}>
                     <LazyCard />
                   </Suspense>
 
-                  {favorite.noteFlag && (
+                  {noteFlag && (
                     <Suspense fallback={<Loader />}>
                       <LazyNote />
                     </Suspense>
                   )}
                 </div>
               )}
-              {search.usersListOpened && (
+              {usersListOpened && (
                 <div
-                  className={clsx(
-                    search.isMobile && styles.rootSectionRight_Mobile,
-                  )}
+                  className={clsx(isMobile && styles.rootSectionRight_Mobile)}
                   style={{ maxHeight: appHeight - 239 }}
                 >
                   <Suspense fallback={<Loader />}>
@@ -178,11 +205,9 @@ const Root: React.FC = () => {
                   </Suspense>
                 </div>
               )}
-              {search.reposListOpened && (
+              {reposListOpened && (
                 <div
-                  className={clsx(
-                    search.isMobile && styles.rootSectionRight_Mobile,
-                  )}
+                  className={clsx(isMobile && styles.rootSectionRight_Mobile)}
                   style={{ maxHeight: appHeight - 239 }}
                 >
                   <Suspense fallback={<Loader />}>
@@ -197,11 +222,11 @@ const Root: React.FC = () => {
               )}
             </section>
 
-            {search.searchHistoryListFlag && (
+            {searchHistoryListFlag && (
               <section
                 className={clsx(
                   styles.rootSectionRight,
-                  search.isMobile && styles.rootSectionRight_Mobile,
+                  isMobile && styles.rootSectionRight_Mobile,
                 )}
                 style={{ maxHeight: appHeight - 239 }}
               >
@@ -211,11 +236,11 @@ const Root: React.FC = () => {
               </section>
             )}
 
-            {favorite.favoriteListFlag && (
+            {flFlag && (
               <section
                 className={clsx(
                   styles.rootSectionRight,
-                  search.isMobile && styles.rootSectionRight_Mobile,
+                  isMobile && styles.rootSectionRight_Mobile,
                 )}
                 style={{ maxHeight: appHeight - 239 }}
               >
@@ -226,7 +251,7 @@ const Root: React.FC = () => {
             )}
           </main>
 
-          {search.modalFlag && (
+          {modalFlag && (
             <Suspense fallback={<Loader />}>
               <LazyModal />
             </Suspense>

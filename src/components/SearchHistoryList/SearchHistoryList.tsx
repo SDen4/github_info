@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
@@ -113,4 +113,4 @@ const SearchHistoryList: React.FC = () => {
   );
 };
 
-export default SearchHistoryList;
+export default memo(SearchHistoryList);

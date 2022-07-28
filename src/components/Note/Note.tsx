@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { memo, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
@@ -168,4 +168,4 @@ const Note: React.FC = () => {
   );
 };
 
-export default Note;
+export default memo(Note);
