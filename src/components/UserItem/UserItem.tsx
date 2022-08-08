@@ -26,7 +26,7 @@ const UserItem: React.FC<IUserItem> = ({ user }) => {
   return (
     <div className={styles.userItemWrapper}>
       <div className={styles.userItemPhotoWrapper}>
-        <img src={user.avatar_url} alt="User's avatar" />
+        <img src={user.avatar_url} alt="User's avatar" loading="lazy" />
       </div>
 
       <div className={styles.userInfo}>
