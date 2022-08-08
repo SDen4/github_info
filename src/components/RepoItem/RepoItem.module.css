@@ -31,6 +31,15 @@
   min-width: 90px;
 }
 
+.repoSubUnitRow {
+  flex-direction: row;
+  min-width: 100px;
+}
+
+.repoSubUnitRow span:first-child {
+  margin-right: 5px;
+}
+
 .repoSubUnit:last-child {
   margin-right: 0;
 }
@@ -59,17 +68,24 @@
     padding: 10px 10px 7px;
   }
 
+  .repoItemUnitDates {
+    flex-wrap: wrap;
+  }
+
   .repoItemUnit {
     margin-right: 0;
     width: 100%;
-    justify-content: space-between;
+  }
+
+  .repoItemUnit:first-child {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #d3d3d3;
   }
 
   .repoItemUnit span {
     margin-bottom: 3px;
   }
 
-  .repoItemLink,
   .repoItemUnit > span {
     margin-bottom: 10px;
   }

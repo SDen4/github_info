@@ -23,6 +23,22 @@ const RepoItem: React.FC<IRepoItemInt> = ({ repoItem }) => {
       </div>
 
       <div className={clsx(styles.repoItemUnit, styles.repoItemUnitDates)}>
+        {Boolean(repoItem?.forks) && (
+          <div className={clsx(styles.repoSubUnit, styles.repoSubUnitRow)}>
+            <span>Forks: </span>
+            <span> </span>
+            <span>{repoItem.forks}</span>
+          </div>
+        )}
+
+        {Boolean(repoItem?.watchers) && (
+          <div className={clsx(styles.repoSubUnit, styles.repoSubUnitRow)}>
+            <span>Watchers: </span>
+            <span> </span>
+            <span>{repoItem.watchers}</span>
+          </div>
+        )}
+
         <div className={styles.repoSubUnit}>
           <span>Create at:</span>
           <span>{dateFormatter(new Date(repoItem.created_at))}</span>

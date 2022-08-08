@@ -51,6 +51,8 @@ export interface IRepoItem {
   created_at: Date;
   updated_at: Date;
   language: string;
+  forks: number;
+  watchers: number;
 }
 
 export interface InitialStateType {
