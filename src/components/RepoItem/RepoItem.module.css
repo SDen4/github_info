@@ -31,17 +31,12 @@
   min-width: 90px;
 }
 
-.repoSubUnitRow {
-  flex-direction: row;
-  min-width: 100px;
-}
-
-.repoSubUnitRow span:first-child {
-  margin-right: 5px;
-}
-
 .repoSubUnit:last-child {
   margin-right: 0;
+}
+
+.repoSubUnit span:first-child {
+  margin-bottom: 3px;
 }
 
 .repoSubUnit span:last-child {
@@ -60,6 +55,16 @@
 
 .repoLink:hover {
   color: tomato;
+}
+
+.repoSubUnitRow {
+  flex-direction: row;
+  min-width: 100px;
+}
+
+.repoSubUnitRow span:first-child {
+  margin-right: 5px;
+  margin-bottom: 0;
 }
 
 @media (max-width: 480px) {
