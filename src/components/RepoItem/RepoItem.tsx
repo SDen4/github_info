@@ -1,12 +1,17 @@
 import React, { memo } from 'react';
 import clsx from 'clsx';
 
-import { IRepoItemInt } from './types';
+import { IRepoItem } from '../../store/SearchReducer/types';
 
-import styles from './RepoItem.module.css';
 import { dateFormatter } from '../../utils/dateFormatter';
 
-const RepoItem: React.FC<IRepoItemInt> = ({ repoItem }) => {
+import styles from './RepoItem.module.css';
+
+export interface IProps {
+  repoItem: IRepoItem;
+}
+
+const RepoItem: React.FC<IProps> = ({ repoItem }) => {
   return (
     <div className={styles.repoItemWrapper}>
       <div className={styles.repoItemUnit}>

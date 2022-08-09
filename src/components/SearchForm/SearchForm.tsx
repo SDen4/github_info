@@ -5,7 +5,6 @@ import { searchSaga } from '../../store/SearchReducer/actionsSagas';
 
 import SubmitButton from '../../ui/SubmitButton';
 
-import { ISearch } from './types';
 import { AppStateType } from '../../store/RootReducer';
 import { FavoriteUser } from '../../store/FavoriteReduser/types';
 import { ISearhHistoryItem } from '../../store/SearchReducer/types';
@@ -17,7 +16,11 @@ import {
   userListOpenedFlag,
 } from '../../store/SearchReducer/actions';
 
-const SearchForm: React.FC<ISearch> = ({ searchFunc }) => {
+export interface IProps {
+  searchFunc: any;
+}
+
+const SearchForm: React.FC<IProps> = ({ searchFunc }) => {
   const dispatch = useDispatch();
 
   const favoritesList = useSelector<AppStateType, FavoriteUser[]>(

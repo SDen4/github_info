@@ -1,11 +1,14 @@
 import React, { memo } from 'react';
 import clsx from 'clsx';
 
-import { IButton } from './types';
-
 import styles from './SubmitButton.module.css';
 
-const SubmitButton: React.FC<IButton> = ({ children, disabled }) => {
+export interface IProps {
+  children?: React.ReactNode;
+  disabled?: boolean;
+}
+
+const SubmitButton: React.FC<IProps> = ({ children, disabled }) => {
   return (
     <button
       className={clsx(disabled && styles.buttonUnactive, styles.button)}

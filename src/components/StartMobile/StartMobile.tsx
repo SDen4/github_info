@@ -3,11 +3,13 @@ import { useDispatch } from 'react-redux';
 
 import { searchIsMobileStart } from '../../store/SearchReducer/actions';
 
-import { IStartMobile } from './types';
-
 import styles from './StartMobile.module.css';
 
-const StartMobile: React.FC<IStartMobile> = ({ appHeight }): JSX.Element => {
+export interface IProps {
+  appHeight: number;
+}
+
+const StartMobile: React.FC<IProps> = ({ appHeight }): JSX.Element => {
   const dispatch = useDispatch();
 
   const onBtnClickHandler = () => {

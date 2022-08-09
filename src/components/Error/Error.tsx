@@ -1,10 +1,12 @@
 import React, { memo } from 'react';
 
-import { IError } from './types';
-
 import styles from './Error.module.css';
 
-const Error: React.FC<IError> = ({ userName }): JSX.Element => {
+interface IProps {
+  userName: string;
+}
+
+const Error: React.FC<IProps> = ({ userName }): JSX.Element => {
   return (
     <div className={styles.errorWrapper}>
       <h2>

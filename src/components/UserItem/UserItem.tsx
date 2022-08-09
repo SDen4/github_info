@@ -3,13 +3,19 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { searchSaga } from '../../store/SearchReducer/actionsSagas';
 
-import { IUserItem } from './types';
 import { AppStateType } from '../../store/RootReducer';
-import { ISearhHistoryItem } from '../../store/SearchReducer/types';
+import {
+  ISearhHistoryItem,
+  UserInnerType,
+} from '../../store/SearchReducer/types';
 
 import styles from './UserItem.module.css';
 
-const UserItem: React.FC<IUserItem> = ({ user }) => {
+export interface IProps {
+  user: UserInnerType;
+}
+
+const UserItem: React.FC<IProps> = ({ user }) => {
   const dispatch = useDispatch();
 
   const isMobile = useSelector<AppStateType, boolean>(

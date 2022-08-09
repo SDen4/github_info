@@ -1,11 +1,13 @@
 import React, { memo } from 'react';
 import clsx from 'clsx';
 
-import { ICloseButton } from './types';
-
 import styles from './CloseButton.module.css';
 
-const CloseButton: React.FC<ICloseButton> = ({ onClick }) => {
+export interface IProps {
+  onClick: () => void;
+}
+
+const CloseButton: React.FC<IProps> = ({ onClick }) => {
   return (
     <button
       className={clsx(styles.closeBtn, styles.tooltip)}
