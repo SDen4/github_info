@@ -21,12 +21,14 @@ import {
   setFavoriteBtnFlag,
 } from '../../store/FavoriteReduser/actions';
 
+import { Flex } from '../../ui/Flex';
 import { fileText } from './assets/fileText';
 
-import styles from './Card.module.css';
 import { AppStateType } from '../../store/RootReducer';
 import { UserType } from '../../store/SearchReducer/types';
 import { FavoriteUser } from '../../store/FavoriteReduser/types';
+
+import styles from './Card.module.css';
 
 const Card: React.FC = (): JSX.Element => {
   const dispatch = useDispatch();
@@ -125,7 +127,7 @@ const Card: React.FC = (): JSX.Element => {
         </div>
       </aside>
 
-      <div className={styles.cardElement}>
+      <Flex className={styles.cardElement}>
         <header className={styles.cardSubElem}>
           {user.name ? (
             <a
@@ -226,8 +228,7 @@ const Card: React.FC = (): JSX.Element => {
             </div>
           </div>
         )}
-      </div>
-
+      </Flex>
       <div className={styles.closeBtnWrapper}>
         <button
           type="button"
