@@ -1,17 +1,18 @@
 import React, { memo } from 'react';
 
-import styles from './styles.module.css';
+import classes from './styles.module.css';
 
 interface IProps {
   className?: string;
   props?: any;
   onClick?: () => void;
+  style?: React.CSSProperties | undefined;
 }
 
 export const Flex: React.FC<IProps> = memo(
-  ({ children, className, ...props }) => {
+  ({ children, className, style, ...props }) => {
     return (
-      <div className={`${styles.flex} ${className}`} {...props}>
+      <div className={`${classes.flex} ${className}`} style={style} {...props}>
         {children}
       </div>
     );

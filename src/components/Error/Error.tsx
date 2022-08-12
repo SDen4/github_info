@@ -1,5 +1,7 @@
 import React, { memo } from 'react';
 
+import { Flex } from '../../ui/Flex';
+
 import styles from './Error.module.css';
 
 interface IProps {
@@ -8,13 +10,13 @@ interface IProps {
 
 const Error: React.FC<IProps> = ({ userName }): JSX.Element => {
   return (
-    <div className={styles.errorWrapper}>
+    <Flex className={styles.errorWrapper}>
       <h2>
         User
         <span className={styles.errorUserInfo}> {userName} </span>
         is not found...
       </h2>
-    </div>
+    </Flex>
   );
 };
 

@@ -2,6 +2,8 @@ import React, { memo, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
+import { Flex } from '../../ui/Flex';
+
 import {
   favoriteUserFlag,
   fetchFavoriteList,
@@ -114,7 +116,7 @@ const Note: React.FC = () => {
   };
 
   return (
-    <div className={styles.component}>
+    <Flex className={styles.component}>
       <form className={styles.form} onSubmit={onSubmitHandler}>
         <textarea onChange={onChangeHandler} value={value} ref={ref} />
 
@@ -164,7 +166,7 @@ const Note: React.FC = () => {
           </div>
         </div>
       )}
-    </div>
+    </Flex>
   );
 };
 

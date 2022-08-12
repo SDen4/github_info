@@ -1,8 +1,5 @@
 .userItemWrapper {
   box-sizing: border-box;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
   width: 100%;
   padding: 15px 20px;
   border: 1px solid rgba(211, 211, 211, 0.2);
@@ -26,16 +23,7 @@
   width: 100%;
 }
 
-.userInfo {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
 .userInfoUnit {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
   margin-right: 20px;
 }
 

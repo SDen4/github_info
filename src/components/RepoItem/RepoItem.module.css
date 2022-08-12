@@ -1,8 +1,6 @@
 .repoItemWrapper {
-  box-sizing: border-box;
-  display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  box-sizing: border-box;
   width: 100%;
   padding: 10px 15px;
   border: 1px solid rgba(211, 211, 211, 0.2);
@@ -12,10 +10,7 @@
 }
 
 .repoItemUnit {
-  display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
   margin-right: 10px;
 }
 

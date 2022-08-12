@@ -1,10 +1,12 @@
 import React from 'react';
 
+import { Flex } from '../Flex';
+
 import styles from './Loader.module.css';
 
 const Loader: React.FC = () => {
   return (
-    <div className={styles.loaderWrapper}>
+    <Flex className={styles.loaderWrapper}>
       <div className={styles.ldsDefault}>
         <div />
         <div />
@@ -19,7 +21,7 @@ const Loader: React.FC = () => {
         <div />
         <div />
       </div>
-    </div>
+    </Flex>
   );
 };
 

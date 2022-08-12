@@ -1,6 +1,8 @@
 import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { Flex } from '../../ui/Flex';
+
 import { searchSaga } from '../../store/SearchReducer/actionsSagas';
 
 import { AppStateType } from '../../store/RootReducer';
@@ -30,19 +32,17 @@ const UserItem: React.FC<IProps> = ({ user }) => {
   };
 
   return (
-    <div className={styles.userItemWrapper}>
+    <Flex className={styles.userItemWrapper}>
       <div className={styles.userItemPhotoWrapper}>
         <img src={user.avatar_url} alt="User's avatar" loading="lazy" />
       </div>
 
-      <div className={styles.userInfo}>
-        <div className={styles.userInfoUnit}>
-          <button type="button" onClick={itemBthHandler}>
-            <h2>{user.login}</h2>
-          </button>
-        </div>
-      </div>
-    </div>
+      <Flex className={styles.userInfoUnit}>
+        <button type="button" onClick={itemBthHandler}>
+          <h2>{user.login}</h2>
+        </button>
+      </Flex>
+    </Flex>
   );
 };
 

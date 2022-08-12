@@ -8,6 +8,7 @@ import FavoriteButton from '../../components/FavoriteButton';
 import SearchHistoryHeader from '../../components/SearchHistoryHeader';
 
 import Loader from '../../ui/Loader';
+import { Flex } from '../../ui/Flex';
 
 import {
   cardOpenedFlag,
@@ -144,7 +145,7 @@ const Root: React.FC = () => {
   };
 
   return (
-    <div className={styles.appContainer}>
+    <Flex className={styles.appContainer}>
       {isMobile && isAndroid && isMobileStart ? (
         <StartMobile appHeight={appHeight} />
       ) : (
@@ -258,7 +259,7 @@ const Root: React.FC = () => {
           )}
         </div>
       )}
-    </div>
+    </Flex>
   );
 };
 

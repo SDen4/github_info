@@ -1,6 +1,8 @@
 import React, { memo } from 'react';
 import clsx from 'clsx';
 
+import { Flex } from '../../ui/Flex';
+
 import { IRepoItem } from '../../store/SearchReducer/types';
 
 import { dateFormatter } from '../../utils/dateFormatter';
@@ -13,8 +15,8 @@ export interface IProps {
 
 const RepoItem: React.FC<IProps> = ({ repoItem }) => {
   return (
-    <div className={styles.repoItemWrapper}>
-      <div className={styles.repoItemUnit}>
+    <Flex className={styles.repoItemWrapper}>
+      <Flex className={styles.repoItemUnit}>
         <a
           href={repoItem.html_url}
           className={styles.repoItemLink}
@@ -25,9 +27,9 @@ const RepoItem: React.FC<IProps> = ({ repoItem }) => {
         </a>
 
         <span>{repoItem.description}</span>
-      </div>
+      </Flex>
 
-      <div className={clsx(styles.repoItemUnit, styles.repoItemUnitDates)}>
+      <Flex className={clsx(styles.repoItemUnit, styles.repoItemUnitDates)}>
         {Boolean(repoItem?.forks) && (
           <div className={clsx(styles.repoSubUnit, styles.repoSubUnitRow)}>
             <span>Forks: </span>
@@ -62,8 +64,8 @@ const RepoItem: React.FC<IProps> = ({ repoItem }) => {
             </>
           )}
         </div>
-      </div>
-    </div>
+      </Flex>
+    </Flex>
   );
 };
 

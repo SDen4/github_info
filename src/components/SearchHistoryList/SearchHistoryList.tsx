@@ -20,6 +20,7 @@ import { FavoriteUser } from '../../store/FavoriteReduser/types';
 import { ISearhHistoryItem } from '../../store/SearchReducer/types';
 
 import styles from './SearchHistoryList.module.css';
+import { Flex } from '../../ui/Flex';
 
 const SearchHistoryList: React.FC = () => {
   const dispatch = useDispatch();
@@ -76,7 +77,7 @@ const SearchHistoryList: React.FC = () => {
   };
 
   return (
-    <div
+    <Flex
       className={clsx(styles.shlWrapper, isMobile && loading && styles.hide)}
     >
       <header className={styles.listHeader}>
@@ -109,7 +110,7 @@ const SearchHistoryList: React.FC = () => {
       >
         Delete history
       </button>
-    </div>
+    </Flex>
   );
 };
 

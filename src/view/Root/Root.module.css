@@ -10,10 +10,6 @@
     radial-gradient(gray -155%, black 95%);
   box-sizing: border-box;
   padding: 20px;
-
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
   height: 100%;
 }
 

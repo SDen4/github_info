@@ -1,6 +1,8 @@
 import React, { memo } from 'react';
 import { useDispatch } from 'react-redux';
 
+import { Flex } from '../../ui/Flex';
+
 import { searchIsMobileStart } from '../../store/SearchReducer/actions';
 
 import styles from './StartMobile.module.css';
@@ -22,7 +24,7 @@ const StartMobile: React.FC<IProps> = ({ appHeight }): JSX.Element => {
   };
 
   return (
-    <div className={styles.startMobileWrap} style={{ minHeight: appHeight }}>
+    <Flex className={styles.startMobileWrap} style={{ minHeight: appHeight }}>
       <div className={styles.button__wrapper}>
         <button
           type="button"
@@ -32,7 +34,7 @@ const StartMobile: React.FC<IProps> = ({ appHeight }): JSX.Element => {
           Go!
         </button>
       </div>
-    </div>
+    </Flex>
   );
 };
 

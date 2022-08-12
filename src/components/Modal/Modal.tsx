@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { Flex } from '../../ui/Flex';
 import CloseButton from '../../ui/CloseButton';
 
 import {
@@ -47,7 +48,7 @@ const Modal: React.FC = () => {
   };
 
   return (
-    <div className={styles.modalWrapper}>
+    <Flex className={styles.modalWrapper}>
       <div className={styles.modal}>
         <span>{textModal}</span>
         <div className={styles.btnsWrapper}>
@@ -62,7 +63,7 @@ const Modal: React.FC = () => {
           <CloseButton onClick={() => onBtnsHandler(false)} />
         </div>
       </div>
-    </div>
+    </Flex>
   );
 };
 

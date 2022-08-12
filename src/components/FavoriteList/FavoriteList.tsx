@@ -2,6 +2,7 @@ import React, { memo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
+import { Flex } from '../../ui/Flex';
 import CloseButton from '../../ui/CloseButton';
 
 import {
@@ -121,7 +122,7 @@ const FavoriteList: React.FC = () => {
   // };
 
   return (
-    <div
+    <Flex
       className={clsx(styles.shlWrapper, isMobile && loading && styles.hide)}
     >
       <div className={styles.listHeader}>
@@ -174,7 +175,7 @@ const FavoriteList: React.FC = () => {
       </button>
 
       {deleteModal && (
-        <div className={styles.miniModal}>
+        <Flex className={styles.miniModal}>
           <span>
             Are you sure to delete user{' '}
             <span className={styles.deletedUserLogin}>{deletedElem}</span> from
@@ -188,9 +189,9 @@ const FavoriteList: React.FC = () => {
               Cansel
             </button>
           </div>
-        </div>
+        </Flex>
       )}
-    </div>
+    </Flex>
   );
 };
 
