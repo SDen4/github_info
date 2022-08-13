@@ -22,7 +22,7 @@ import {
 } from '../../store/FavoriteReduser/actions';
 
 import { Flex } from '../../ui/Flex';
-import { fileText } from './assets/fileText';
+import { fileText } from './fileText';
 
 import { AppStateType } from '../../store/RootReducer';
 import { UserType } from '../../store/SearchReducer/types';

@@ -1,7 +1,7 @@
 /* eslint-disable indent */
-import { UserType } from '../../../store/SearchReducer/types';
-import { dateFormatter } from '../../../utils/dateFormatter';
-import { periodCounter } from '../../../utils/periodCounter';
+import { UserType } from '../../store/SearchReducer/types';
+import { dateFormatter } from '../../utils/dateFormatter';
+import { periodCounter } from '../../utils/periodCounter';
 
 export const fileText = (user: UserType, note: string) => {
   const noneVar = '-';

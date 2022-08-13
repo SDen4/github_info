@@ -29,7 +29,7 @@ h3 {
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  background: url('./assets/img/unnamed.jpg');
+  background: url('../../static/img/unnamed.jpg');
   background-position: center;
   background-size: cover;
   overflow: hidden;

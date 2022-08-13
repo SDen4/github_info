@@ -3,8 +3,7 @@
   justify-content: center;
   box-sizing: border-box;
   width: 100%;
-  background: center / contain no-repeat
-      url('../../view/Root/assets/img/github-logo.png'),
+  background: center / contain no-repeat url('../../static/img/github-logo.png'),
     radial-gradient(gray -155%, black 70%);
   padding: 20px;
 }
