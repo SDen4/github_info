@@ -138,8 +138,7 @@ const SearchForm: React.FC<IProps> = ({ searchFunc }) => {
       />
 
       <div className={styles.btnsWrapper}>
-        {/* <SubmitButton disabled={disabledBtn}>Search</SubmitButton> */}
-        <SubmitButton>Search</SubmitButton>
+        <SubmitButton disabled={disabledBtn}>Search</SubmitButton>
 
         {isMobile && (usersListOpened || reposListOpened) && (
           <button
