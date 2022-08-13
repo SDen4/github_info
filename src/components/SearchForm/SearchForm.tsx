@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { searchSaga } from '../../store/SearchReducer/actionsSagas';
 
-import SubmitButton from '../../ui/SubmitButton';
+import { SubmitButton } from '../../ui/SubmitButton';
 
 import { AppStateType } from '../../store/RootReducer';
 import { FavoriteUser } from '../../store/FavoriteReduser/types';
@@ -52,6 +52,7 @@ const SearchForm: React.FC<IProps> = ({ searchFunc }) => {
   );
 
   const [searchLogin, setsearchLogin] = useState<string>('');
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [disabledBtn, setDisabledBtn] = useState<boolean>(true);
   const [focusInMobiles, setFocusInMobiles] = useState<boolean>(false);
 
@@ -137,7 +138,8 @@ const SearchForm: React.FC<IProps> = ({ searchFunc }) => {
       />
 
       <div className={styles.btnsWrapper}>
-        <SubmitButton disabled={disabledBtn}>Search</SubmitButton>
+        {/* <SubmitButton disabled={disabledBtn}>Search</SubmitButton> */}
+        <SubmitButton>Search</SubmitButton>
 
         {isMobile && (usersListOpened || reposListOpened) && (
           <button
