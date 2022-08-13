@@ -51,6 +51,7 @@
 .rootSectionLeft {
   width: 100%;
   min-width: 60%;
+  min-height: 100%;
 }
 
 .rootSectionRight {
@@ -93,6 +94,11 @@
   align-items: center;
 }
 
+.sticky {
+  position: sticky;
+  top: 0;
+}
+
 @media (max-width: 480px) {
   .appContainer {
     padding: 5px 10px;
@@ -118,5 +124,9 @@
   .rootSectionRight {
     width: 100%;
     margin: 0;
+  }
+
+  .rootSectionLeft {
+    min-height: unset;
   }
 }

@@ -182,7 +182,10 @@ const Root: React.FC = () => {
               {loading && <Loader />}
               {isCardOpen && (
                 <div
-                  className={clsx(isMobile && styles.rootSectionRight_Mobile)}
+                  className={clsx(
+                    !isMobile && styles.sticky,
+                    isMobile && styles.rootSectionRight_Mobile,
+                  )}
                   style={{ maxHeight: appHeight - 239 }}
                 >
                   <Suspense fallback={<Loader />}>
@@ -209,7 +212,7 @@ const Root: React.FC = () => {
               {reposListOpened && (
                 <div
                   className={clsx(isMobile && styles.rootSectionRight_Mobile)}
-                  style={{ maxHeight: appHeight - 239 }}
+                  style={{ maxHeight: isMobile ? appHeight - 239 : 'unset' }}
                 >
                   <Suspense fallback={<Loader />}>
                     <LazyReposList />
@@ -229,7 +232,7 @@ const Root: React.FC = () => {
                   styles.rootSectionRight,
                   isMobile && styles.rootSectionRight_Mobile,
                 )}
-                style={{ maxHeight: appHeight - 239 }}
+                style={{ maxHeight: isMobile ? appHeight - 239 : 'unset' }}
               >
                 <Suspense fallback={<Loader />}>
                   <LazySearchHistoryList />
