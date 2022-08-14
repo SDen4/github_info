@@ -32,15 +32,6 @@
   width: 0;
 }
 
-.rootHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  font-size: 32px;
-  margin-bottom: 50px;
-}
-
 .root {
   display: flex;
   justify-content: space-between;
@@ -88,12 +79,6 @@
   opacity: 1;
 }
 
-.buttonsWrapper {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
 .sticky {
   position: sticky;
   top: 0;
@@ -106,15 +91,6 @@
 
   .rootSectionSearch {
     margin-bottom: 20px;
-  }
-
-  .rootHeader {
-    flex-direction: column;
-    margin-bottom: 20px;
-  }
-
-  .rootHeader h1 {
-    margin-bottom: 15px;
   }
 
   .root {

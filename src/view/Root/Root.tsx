@@ -4,8 +4,6 @@ import clsx from 'clsx';
 
 import SearchForm from '../../components/SearchForm';
 import StartMobile from '../../components/StartMobile';
-import FavoriteButton from '../../components/FavoriteButton';
-import SearchHistoryHeader from '../../components/SearchHistoryHeader';
 
 import Loader from '../../ui/Loader';
 import { Flex } from '../../ui/Flex';
@@ -21,9 +19,9 @@ import { favoriteListFlag } from '../../store/FavoriteReduser/actions';
 
 import { AppStateType } from '../../store/RootReducer';
 import { FavoriteUser } from '../../store/FavoriteReduser/types';
-import { ISearhHistoryItem } from '../../store/SearchReducer/types';
 
 import styles from './Root.module.css';
+import { Header } from '../../components/Header';
 
 const LazySearchHistoryList = React.lazy(
   () => import('../../components/SearchHistoryList'),
@@ -68,9 +66,6 @@ const Root: React.FC = () => {
   );
   const isAndroid = useSelector<AppStateType, boolean>(
     (store) => store.search.isAndroid,
-  );
-  const searchHistory = useSelector<AppStateType, ISearhHistoryItem[]>(
-    (store) => store.search.searchHistory,
   );
   const usersListOpened = useSelector<AppStateType, boolean>(
     (store) => store.search.usersListOpened,
@@ -153,14 +148,7 @@ const Root: React.FC = () => {
           className={styles.rootWrapper}
           style={isMobile && isMobileStart ? { minHeight: appHeight } : {}}
         >
-          <header className={styles.rootHeader}>
-            <h1>Find github&apos;s user</h1>
-
-            <div className={styles.buttonsWrapper}>
-              {searchHistory.length ? <SearchHistoryHeader /> : ''}
-              {favoriteList.length ? <FavoriteButton /> : ''}
-            </div>
-          </header>
+          <Header />
 
           <main className={styles.root}>
             <section className={styles.rootSectionLeft}>

@@ -1,0 +1,25 @@
+.rootHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: 32px;
+  margin-bottom: 50px;
+}
+
+.buttonsWrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+@media (max-width: 480px) {
+  .rootHeader {
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  .rootHeader h1 {
+    margin-bottom: 15px;
+  }
+}
