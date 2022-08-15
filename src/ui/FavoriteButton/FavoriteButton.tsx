@@ -5,10 +5,11 @@ import clsx from 'clsx';
 import { favoriteListFlag } from '../../store/FavoriteReduser/actions';
 import { searchHistoryListFlag } from '../../store/SearchReducer/actions';
 
-import styles from './FavoriteButton.module.css';
 import { AppStateType } from '../../store/RootReducer';
 
-const FavoriteButton: React.FC = () => {
+import styles from './FavoriteButton.module.css';
+
+export const FavoriteButton: React.FC = memo(() => {
   const dispatch = useDispatch();
 
   const favoriteListStatus = useSelector<AppStateType, boolean>(
@@ -42,6 +43,4 @@ const FavoriteButton: React.FC = () => {
       <span>{starNum}</span>
     </button>
   );
-};
-
-export default memo(FavoriteButton);
+});
