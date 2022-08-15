@@ -7,7 +7,7 @@ export interface IProps {
   onClick: () => void;
 }
 
-const CloseButton: React.FC<IProps> = ({ onClick }) => {
+export const CloseButton: React.FC<IProps> = memo(({ onClick }) => {
   return (
     <button
       className={clsx(styles.closeBtn, styles.tooltip)}
@@ -18,6 +18,4 @@ const CloseButton: React.FC<IProps> = ({ onClick }) => {
       <div className={styles.tooltipText}>Close</div>
     </button>
   );
-};
-
-export default memo(CloseButton);
+});

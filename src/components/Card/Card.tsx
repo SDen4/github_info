@@ -2,7 +2,9 @@ import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
-import CloseButton from '../../ui/CloseButton';
+import { fileText } from './fileText';
+import { Flex } from '../../ui/Flex';
+import { CloseButton } from '../../ui/CloseButton';
 
 import { dateFormatter } from '../../utils/dateFormatter';
 import { periodCounter } from '../../utils/periodCounter';
@@ -20,9 +22,6 @@ import {
   noteFlag,
   setFavoriteBtnFlag,
 } from '../../store/FavoriteReduser/actions';
-
-import { Flex } from '../../ui/Flex';
-import { fileText } from './fileText';
 
 import { AppStateType } from '../../store/RootReducer';
 import { UserType } from '../../store/SearchReducer/types';

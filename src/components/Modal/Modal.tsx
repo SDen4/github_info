@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Flex } from '../../ui/Flex';
-import CloseButton from '../../ui/CloseButton';
+import { CloseButton } from '../../ui/CloseButton';
 
 import {
   fetchAllHistory,

@@ -2,6 +2,9 @@ import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
+import { Flex } from '../../ui/Flex';
+import { CloseButton } from '../../ui/CloseButton';
+
 import {
   searchHistoryListFlag,
   modalFlag,
@@ -9,9 +12,6 @@ import {
   reposOpenedListFlag,
 } from '../../store/SearchReducer/actions';
 import { searchSaga } from '../../store/SearchReducer/actionsSagas';
-
-import { Flex } from '../../ui/Flex';
-import CloseButton from '../../ui/CloseButton';
 
 import { dateFormatter } from '../../utils/dateFormatter';
 import { timeFormatter } from '../../utils/timeFormatter';

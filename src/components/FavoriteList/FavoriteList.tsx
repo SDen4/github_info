@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
 import { Flex } from '../../ui/Flex';
-import CloseButton from '../../ui/CloseButton';
+import { CloseButton } from '../../ui/CloseButton';
 
 import {
   modalFlag,
