@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import FavoriteButton from '../../components/FavoriteButton';
-import SearchHistoryHeader from '../../components/SearchHistoryHeader';
+import FavoriteButton from '../../ui/FavoriteButton';
+import SearchHistoryButton from '../../ui/SearchHistoryButton';
 
 import { FavoriteUser } from '../../store/FavoriteReduser/types';
 import { AppStateType } from '../../store/RootReducer';
@@ -23,7 +23,7 @@ export const Header: React.FC = () => {
       <h1>Find github&apos;s user</h1>
 
       <div className={styles.buttonsWrapper}>
-        {searchHistory.length ? <SearchHistoryHeader /> : ''}
+        {searchHistory.length ? <SearchHistoryButton /> : ''}
         {favoriteList.length ? <FavoriteButton /> : ''}
       </div>
     </header>

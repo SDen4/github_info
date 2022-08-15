@@ -7,9 +7,9 @@ import { searchHistoryListFlag } from '../../store/SearchReducer/actions';
 
 import { AppStateType } from '../../store/RootReducer';
 
-import styles from './SearchHistoryHeader.module.css';
+import styles from './styles.module.css';
 
-const SearchHistoryHeader: React.FC = () => {
+const SearchHistoryButton: React.FC = () => {
   const dispatch = useDispatch();
 
   const historyLength = useSelector<AppStateType, number>(
@@ -47,4 +47,4 @@ const SearchHistoryHeader: React.FC = () => {
   );
 };
 
-export default memo(SearchHistoryHeader);
+export default memo(SearchHistoryButton);
