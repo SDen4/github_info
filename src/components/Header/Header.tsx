@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import FavoriteButton from '../../ui/FavoriteButton';
-import SearchHistoryButton from '../../ui/SearchHistoryButton';
+import { SearchHistoryButton } from '../../ui/SearchHistoryButton';
 
 import { FavoriteUser } from '../../store/FavoriteReduser/types';
 import { AppStateType } from '../../store/RootReducer';

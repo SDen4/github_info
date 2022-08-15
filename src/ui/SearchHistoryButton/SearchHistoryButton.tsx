@@ -9,7 +9,7 @@ import { AppStateType } from '../../store/RootReducer';
 
 import styles from './styles.module.css';
 
-const SearchHistoryButton: React.FC = () => {
+export const SearchHistoryButton: React.FC = memo(() => {
   const dispatch = useDispatch();
 
   const historyLength = useSelector<AppStateType, number>(
@@ -45,6 +45,4 @@ const SearchHistoryButton: React.FC = () => {
       Search history <span>({historyLength})</span>
     </button>
   );
-};
-
-export default memo(SearchHistoryButton);
+});
