@@ -6,7 +6,7 @@ import RepoItem from '../RepoItem';
 import { AppStateType } from '../../store/RootReducer';
 import { IRepoItem } from '../../store/SearchReducer/types';
 
-import styles from './ReposList.module.css';
+import styles from './styles.module.css';
 
 const ReposList: React.FC = () => {
   const reposList = useSelector<AppStateType, IRepoItem[]>(

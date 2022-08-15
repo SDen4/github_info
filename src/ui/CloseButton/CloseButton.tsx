@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import clsx from 'clsx';
 
-import styles from './CloseButton.module.css';
+import styles from './styles.module.css';
 
 export interface IProps {
   onClick: () => void;

@@ -21,7 +21,7 @@ import { AppStateType } from '../../store/RootReducer';
 import { FavoriteUser } from '../../store/FavoriteReduser/types';
 import { ISearhHistoryItem } from '../../store/SearchReducer/types';
 
-import styles from './FavoriteList.module.css';
+import styles from './styles.module.css';
 
 const FavoriteList: React.FC = () => {
   const dispatch = useDispatch();

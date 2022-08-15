@@ -12,12 +12,13 @@ import {
 
 import { AppStateType } from '../../store/RootReducer';
 
-import styles from './Modal.module.css';
 import {
   favoriteListFlag,
   favoriteUserFlag,
   fetchFavoriteList,
 } from '../../store/FavoriteReduser/actions';
+
+import styles from './styles.module.css';
 
 const Modal: React.FC = () => {
   const dispatch = useDispatch();

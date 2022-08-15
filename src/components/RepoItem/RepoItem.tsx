@@ -7,7 +7,7 @@ import { IRepoItem } from '../../store/SearchReducer/types';
 
 import { dateFormatter } from '../../utils/dateFormatter';
 
-import styles from './RepoItem.module.css';
+import styles from './styles.module.css';
 
 export interface IProps {
   repoItem: IRepoItem;

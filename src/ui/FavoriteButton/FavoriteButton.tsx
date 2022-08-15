@@ -7,7 +7,7 @@ import { searchHistoryListFlag } from '../../store/SearchReducer/actions';
 
 import { AppStateType } from '../../store/RootReducer';
 
-import styles from './FavoriteButton.module.css';
+import styles from './styles.module.css';
 
 export const FavoriteButton: React.FC = memo(() => {
   const dispatch = useDispatch();

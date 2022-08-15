@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Flex } from '../Flex';
 
-import styles from './Loader.module.css';
+import styles from './styles.module.css';
 
 const Loader: React.FC = () => {
   return (

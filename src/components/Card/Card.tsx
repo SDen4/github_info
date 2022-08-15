@@ -28,7 +28,7 @@ import { AppStateType } from '../../store/RootReducer';
 import { UserType } from '../../store/SearchReducer/types';
 import { FavoriteUser } from '../../store/FavoriteReduser/types';
 
-import styles from './Card.module.css';
+import styles from './styles.module.css';
 
 const Card: React.FC = (): JSX.Element => {
   const dispatch = useDispatch();

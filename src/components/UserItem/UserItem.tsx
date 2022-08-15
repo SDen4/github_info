@@ -11,7 +11,7 @@ import {
   UserInnerType,
 } from '../../store/SearchReducer/types';
 
-import styles from './UserItem.module.css';
+import styles from './styles.module.css';
 
 export interface IProps {
   user: UserInnerType;

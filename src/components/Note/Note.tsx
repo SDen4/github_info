@@ -17,7 +17,7 @@ import {
 import { AppStateType } from '../../store/RootReducer';
 import { FavoriteUser } from '../../store/FavoriteReduser/types';
 
-import styles from './Note.module.css';
+import styles from './styles.module.css';
 
 const Note: React.FC = () => {
   const dispatch = useDispatch();

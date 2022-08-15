@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 
 import { Flex } from '../../ui/Flex';
 
-import styles from './Error.module.css';
+import styles from './styles.module.css';
 
 interface IProps {
   userName: string;

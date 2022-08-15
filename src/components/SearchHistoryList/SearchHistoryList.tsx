@@ -10,6 +10,7 @@ import {
 } from '../../store/SearchReducer/actions';
 import { searchSaga } from '../../store/SearchReducer/actionsSagas';
 
+import { Flex } from '../../ui/Flex';
 import CloseButton from '../../ui/CloseButton';
 
 import { dateFormatter } from '../../utils/dateFormatter';
@@ -19,8 +20,7 @@ import { AppStateType } from '../../store/RootReducer';
 import { FavoriteUser } from '../../store/FavoriteReduser/types';
 import { ISearhHistoryItem } from '../../store/SearchReducer/types';
 
-import styles from './SearchHistoryList.module.css';
-import { Flex } from '../../ui/Flex';
+import styles from './styles.module.css';
 
 const SearchHistoryList: React.FC = () => {
   const dispatch = useDispatch();

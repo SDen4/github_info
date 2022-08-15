@@ -13,7 +13,7 @@ import { UserInnerType } from '../../store/SearchReducer/types';
 
 import UserItem from '../UserItem';
 
-import styles from './UsersList.module.css';
+import styles from './styles.module.css';
 
 const UsersList: React.FC = () => {
   const dispatch = useDispatch();

@@ -5,7 +5,7 @@ import { Flex } from '../../ui/Flex';
 
 import { searchIsMobileStart } from '../../store/SearchReducer/actions';
 
-import styles from './StartMobile.module.css';
+import styles from './styles.module.css';
 
 export interface IProps {
   appHeight: number;

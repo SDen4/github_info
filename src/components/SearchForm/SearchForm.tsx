@@ -9,12 +9,13 @@ import { AppStateType } from '../../store/RootReducer';
 import { FavoriteUser } from '../../store/FavoriteReduser/types';
 import { ISearhHistoryItem } from '../../store/SearchReducer/types';
 
-import styles from './SearchForm.module.css';
 import {
   cardOpenedFlag,
   reposOpenedListFlag,
   userListOpenedFlag,
 } from '../../store/SearchReducer/actions';
+
+import styles from './styles.module.css';
 
 export interface IProps {
   searchFunc: any;
