@@ -1,15 +1,16 @@
-import { takeEvery, put } from 'redux-saga/effects';
+import { put, takeEvery } from 'redux-saga/effects';
 
-import { FETCH_USERS_LIST_SAGA } from '../constants';
+import { API } from '../../../api/API';
 import {
   cardOpenedFlag,
   fetchUsersList,
   loadingFlag,
   userListOpenedFlag,
 } from '../actions';
+
 import { IFetchUsersListSagaWorker, UserInnerType } from '../types';
 
-import { API } from '../../../api/API';
+import { FETCH_USERS_LIST_SAGA } from '../constants';
 
 async function getUserInfo(login: string, requestType: string) {
   const response = await API.get(`${login}/${requestType}`).then(

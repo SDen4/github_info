@@ -2,22 +2,21 @@ import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
-import { Flex } from '../../ui/Flex';
 import { CloseButton } from '../../ui/CloseButton';
-
-import {
-  searchHistoryListFlag,
-  modalFlag,
-  userListOpenedFlag,
-  reposOpenedListFlag,
-} from '../../store/SearchReducer/actions';
-import { searchSaga } from '../../store/SearchReducer/actionsSagas';
+import { Flex } from '../../ui/Flex';
 
 import { dateFormatter } from '../../utils/dateFormatter';
 import { timeFormatter } from '../../utils/timeFormatter';
 
-import { AppStateType } from '../../store/RootReducer';
 import { FavoriteUser } from '../../store/FavoriteReduser/types';
+import { AppStateType } from '../../store/RootReducer';
+import {
+  modalFlag,
+  reposOpenedListFlag,
+  searchHistoryListFlag,
+  userListOpenedFlag,
+} from '../../store/SearchReducer/actions';
+import { searchSaga } from '../../store/SearchReducer/actionsSagas';
 import { ISearhHistoryItem } from '../../store/SearchReducer/types';
 
 import styles from './styles.module.css';

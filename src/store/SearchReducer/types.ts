@@ -1,9 +1,10 @@
 /* eslint-disable camelcase */
 import { FavoriteUser } from '../FavoriteReduser/types';
+
 import {
-  SEARCH_LOGIN_SAGA,
   FETCH_USERS_LIST_SAGA,
   REPOS_LIST_SAGA,
+  SEARCH_LOGIN_SAGA,
 } from './constants';
 
 export interface UserInnerType {

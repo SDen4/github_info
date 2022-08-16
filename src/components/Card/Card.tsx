@@ -3,17 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
 import { fileText } from './fileText';
-import { Flex } from '../../ui/Flex';
+
 import { CloseButton } from '../../ui/CloseButton';
+import { Flex } from '../../ui/Flex';
 
 import { dateFormatter } from '../../utils/dateFormatter';
 import { periodCounter } from '../../utils/periodCounter';
-
-import { cardOpenedFlag, fetchLogin } from '../../store/SearchReducer/actions';
-import {
-  fetchUsersListSaga,
-  reposListSaga,
-} from '../../store/SearchReducer/actionsSagas';
 
 import {
   favoriteUserFlag,
@@ -22,10 +17,14 @@ import {
   noteFlag,
   setFavoriteBtnFlag,
 } from '../../store/FavoriteReduser/actions';
-
-import { AppStateType } from '../../store/RootReducer';
-import { UserType } from '../../store/SearchReducer/types';
 import { FavoriteUser } from '../../store/FavoriteReduser/types';
+import { AppStateType } from '../../store/RootReducer';
+import { cardOpenedFlag, fetchLogin } from '../../store/SearchReducer/actions';
+import {
+  fetchUsersListSaga,
+  reposListSaga,
+} from '../../store/SearchReducer/actionsSagas';
+import { UserType } from '../../store/SearchReducer/types';
 
 import styles from './styles.module.css';
 

@@ -1,11 +1,11 @@
-import { fork, all } from 'redux-saga/effects';
+import { all, fork } from 'redux-saga/effects';
 
-import { SearchSagaWatcher } from './SearchReducer/sagas/SearchSaga';
+import { GetFavoriteListSagaWatcher } from './FavoriteReduser/sagas/GetFavoriteListSaga';
 import { FetchUsersListSagaWatcher } from './SearchReducer/sagas/FetchUsersListSaga';
 import { GetLocalHistorySagaWatcher } from './SearchReducer/sagas/GetLocalHistorySaga';
-import { ReposListSagaWatcher } from './SearchReducer/sagas/ReposListSaga';
-import { GetFavoriteListSagaWatcher } from './FavoriteReduser/sagas/GetFavoriteListSaga';
 import { InitFetchSagaWatcher } from './SearchReducer/sagas/InitFetchSaga';
+import { ReposListSagaWatcher } from './SearchReducer/sagas/ReposListSaga';
+import { SearchSagaWatcher } from './SearchReducer/sagas/SearchSaga';
 
 export default function* rootSaga() {
   yield all([

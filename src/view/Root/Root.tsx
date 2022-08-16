@@ -2,12 +2,15 @@ import React, { Suspense, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
+import { Flex } from '../../ui/Flex';
+import Loader from '../../ui/Loader';
+import { Header } from '../../components/Header';
 import SearchForm from '../../components/SearchForm';
 import StartMobile from '../../components/StartMobile';
 
-import Loader from '../../ui/Loader';
-import { Flex } from '../../ui/Flex';
-
+import { favoriteListFlag } from '../../store/FavoriteReduser/actions';
+import { FavoriteUser } from '../../store/FavoriteReduser/types';
+import { AppStateType } from '../../store/RootReducer';
 import {
   cardOpenedFlag,
   reposOpenedListFlag,
@@ -15,13 +18,8 @@ import {
   userListOpenedFlag,
 } from '../../store/SearchReducer/actions';
 import { searhInitFetchSaga } from '../../store/SearchReducer/actionsSagas';
-import { favoriteListFlag } from '../../store/FavoriteReduser/actions';
-
-import { AppStateType } from '../../store/RootReducer';
-import { FavoriteUser } from '../../store/FavoriteReduser/types';
 
 import styles from './Root.module.css';
-import { Header } from '../../components/Header';
 
 const LazySearchHistoryList = React.lazy(
   () => import('../../components/SearchHistoryList'),

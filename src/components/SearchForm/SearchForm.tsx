@@ -1,19 +1,17 @@
-import React, { useState, useRef, useEffect, memo } from 'react';
+import React, { memo, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
-import { searchSaga } from '../../store/SearchReducer/actionsSagas';
 
 import { SubmitButton } from '../../ui/SubmitButton';
 
-import { AppStateType } from '../../store/RootReducer';
 import { FavoriteUser } from '../../store/FavoriteReduser/types';
-import { ISearhHistoryItem } from '../../store/SearchReducer/types';
-
+import { AppStateType } from '../../store/RootReducer';
 import {
   cardOpenedFlag,
   reposOpenedListFlag,
   userListOpenedFlag,
 } from '../../store/SearchReducer/actions';
+import { searchSaga } from '../../store/SearchReducer/actionsSagas';
+import { ISearhHistoryItem } from '../../store/SearchReducer/types';
 
 import styles from './styles.module.css';
 

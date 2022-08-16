@@ -1,8 +1,8 @@
-import * as CONST from './constants';
+import { ActionsType } from './actions';
 
 import { InitialFavoriteStateType } from './types';
 
-import { ActionsType } from './actions';
+import * as CONST from './constants';
 
 const InitialState: InitialFavoriteStateType = {
   favoriteBtnFlag: false,

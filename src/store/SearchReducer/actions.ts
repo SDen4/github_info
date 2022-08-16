@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
-import * as CONST from './constants';
-
 import { IRepoItem, ISearhHistoryItem, UserInnerType } from './types';
+
+import * as CONST from './constants';
 
 export const fetchLogin = (
   name: string,

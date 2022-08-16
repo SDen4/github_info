@@ -3,9 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { Flex } from '../../ui/Flex';
 
-import { searchSaga } from '../../store/SearchReducer/actionsSagas';
-
 import { AppStateType } from '../../store/RootReducer';
+import { searchSaga } from '../../store/SearchReducer/actionsSagas';
 import {
   ISearhHistoryItem,
   UserInnerType,

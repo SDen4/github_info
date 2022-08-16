@@ -1,8 +1,10 @@
-import { takeEvery, put } from 'redux-saga/effects';
+import { put, takeEvery } from 'redux-saga/effects';
+
+import { fetchAllHistory } from '../actions';
+
+import { ISearhHistoryItem } from '../types';
 
 import { GET_LOCAL_HISTORY_SAGA } from '../constants';
-import { fetchAllHistory } from '../actions';
-import { ISearhHistoryItem } from '../types';
 
 function* sagaWorker() {
   try {

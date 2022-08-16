@@ -13,9 +13,8 @@ import {
   noteSave,
   setFavoriteBtnFlag,
 } from '../../store/FavoriteReduser/actions';
-
-import { AppStateType } from '../../store/RootReducer';
 import { FavoriteUser } from '../../store/FavoriteReduser/types';
+import { AppStateType } from '../../store/RootReducer';
 
 import styles from './styles.module.css';
 

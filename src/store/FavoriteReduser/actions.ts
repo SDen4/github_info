@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
-import * as CONST from './constants';
 import { FavoriteUser } from './types';
+
+import * as CONST from './constants';
 
 export const setFavoriteBtnFlag = (favoriteBtnFlag: boolean) => {
   return {

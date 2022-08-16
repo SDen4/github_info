@@ -2,16 +2,15 @@ import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
+import UserItem from '../UserItem';
+
+import { AppStateType } from '../../store/RootReducer';
 import {
   cardOpenedFlag,
   reposOpenedListFlag,
   userListOpenedFlag,
 } from '../../store/SearchReducer/actions';
-
-import { AppStateType } from '../../store/RootReducer';
 import { UserInnerType } from '../../store/SearchReducer/types';
-
-import UserItem from '../UserItem';
 
 import styles from './styles.module.css';
 

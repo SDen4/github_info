@@ -1,22 +1,20 @@
 import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Flex } from '../../ui/Flex';
 import { CloseButton } from '../../ui/CloseButton';
-
-import {
-  fetchAllHistory,
-  searchHistoryListFlag,
-  modalFlag,
-} from '../../store/SearchReducer/actions';
-
-import { AppStateType } from '../../store/RootReducer';
+import { Flex } from '../../ui/Flex';
 
 import {
   favoriteListFlag,
   favoriteUserFlag,
   fetchFavoriteList,
 } from '../../store/FavoriteReduser/actions';
+import { AppStateType } from '../../store/RootReducer';
+import {
+  fetchAllHistory,
+  modalFlag,
+  searchHistoryListFlag,
+} from '../../store/SearchReducer/actions';
 
 import styles from './styles.module.css';
 

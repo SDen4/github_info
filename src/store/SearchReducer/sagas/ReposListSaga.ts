@@ -1,15 +1,16 @@
-import { takeEvery, put } from 'redux-saga/effects';
+import { put, takeEvery } from 'redux-saga/effects';
 
-import { REPOS_LIST_SAGA } from '../constants';
+import { API } from '../../../api/API';
 import {
   cardOpenedFlag,
   fetchReposList,
   loadingFlag,
   reposOpenedListFlag,
 } from '../actions';
+
 import { IRepoItem, IReposListSagaWorker } from '../types';
 
-import { API } from '../../../api/API';
+import { REPOS_LIST_SAGA } from '../constants';
 
 async function getReposInfo(login: string) {
   const response = await API.get(`${login}/repos`).then((res) => res.data);

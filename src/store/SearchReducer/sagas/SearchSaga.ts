@@ -1,7 +1,6 @@
-import { takeEvery, put, all } from 'redux-saga/effects';
+import { all, put, takeEvery } from 'redux-saga/effects';
 
-import { SEARCH_LOGIN_SAGA } from '../constants';
-
+import { API } from '../../../api/API';
 import {
   favoriteListFlag,
   favoriteUserFlag,
@@ -21,7 +20,7 @@ import {
 
 import { ISearhHistoryItem, SearchSagaWorkerType } from '../types';
 
-import { API } from '../../../api/API';
+import { SEARCH_LOGIN_SAGA } from '../constants';
 
 async function getUserInfo(login: string) {
   const response = await API.get(`${login.trim()}`).then((res) => res.data);

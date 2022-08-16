@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, compose, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import { applyMiddleware, compose, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
+
+import App from './App';
 
 import { RootReducer } from './store/RootReducer';
 import RootSaga from './store/RootSaga';
 
-import App from './App';
 import './index.css';
 
 const saga = createSagaMiddleware();

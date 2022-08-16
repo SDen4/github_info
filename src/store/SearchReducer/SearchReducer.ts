@@ -1,9 +1,9 @@
-import * as CONST from './constants';
-import { searchUserDefault } from '../../constants/searchConstants';
+import { ActionsType } from './actions';
 
 import { InitialStateType } from './types';
 
-import { ActionsType } from './actions';
+import { searchUserDefault } from '../../constants/searchConstants';
+import * as CONST from './constants';
 
 const initialState: InitialStateType = {
   user: searchUserDefault,

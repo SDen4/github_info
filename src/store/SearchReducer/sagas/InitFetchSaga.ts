@@ -1,16 +1,16 @@
-import { takeEvery, put, all } from 'redux-saga/effects';
+import { all, put, takeEvery } from 'redux-saga/effects';
 
-import { SEARCH_INIT_SAGA } from '../constants';
-import { mobileWidth } from '../../../constants/searchConstants';
-
-import { getLocalHistorySaga } from '../actionsSagas';
+import { getFavoriteListSaga } from '../../FavoriteReduser/actions';
 import {
   errorFlag,
   loadingFlag,
   searchIsAndroid,
   searchIsMobile,
 } from '../actions';
-import { getFavoriteListSaga } from '../../FavoriteReduser/actions';
+import { getLocalHistorySaga } from '../actionsSagas';
+
+import { mobileWidth } from '../../../constants/searchConstants';
+import { SEARCH_INIT_SAGA } from '../constants';
 
 function* sagaWorker() {
   try {

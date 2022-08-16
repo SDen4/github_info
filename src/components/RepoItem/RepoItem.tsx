@@ -3,9 +3,9 @@ import clsx from 'clsx';
 
 import { Flex } from '../../ui/Flex';
 
-import { IRepoItem } from '../../store/SearchReducer/types';
-
 import { dateFormatter } from '../../utils/dateFormatter';
+
+import { IRepoItem } from '../../store/SearchReducer/types';
 
 import styles from './styles.module.css';
 
