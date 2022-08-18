@@ -4,9 +4,9 @@ import { useSelector } from 'react-redux';
 import { FavoriteButton } from '../../ui/FavoriteButton';
 import { SearchHistoryButton } from '../../ui/SearchHistoryButton';
 
-import { FavoriteUser } from '../../store/FavoriteReduser/types';
-import { AppStateType } from '../../store/RootReducer';
-import { ISearhHistoryItem } from '../../store/SearchReducer/types';
+import { FavoriteUser } from '$store/FavoriteReduser/types';
+import { AppStateType } from '$store/RootReducer';
+import { ISearhHistoryItem } from '$store/SearchReducer/types';
 
 import styles from './styles.module.css';
 

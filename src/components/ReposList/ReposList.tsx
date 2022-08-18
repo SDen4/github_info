@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux';
 
 import RepoItem from '../RepoItem';
 
-import { AppStateType } from '../../store/RootReducer';
-import { IRepoItem } from '../../store/SearchReducer/types';
+import { AppStateType } from '$store/RootReducer';
+import { IRepoItem } from '$store/SearchReducer/types';
 
 import styles from './styles.module.css';
 

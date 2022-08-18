@@ -8,8 +8,6 @@ import { Flex } from '../../ui/Flex';
 import { dateFormatter } from '../../utils/dateFormatter';
 import { timeFormatter } from '../../utils/timeFormatter';
 
-import { FavoriteUser } from '../../store/FavoriteReduser/types';
-import { AppStateType } from '../../store/RootReducer';
 import {
   modalFlag,
   reposOpenedListFlag,
@@ -17,7 +15,9 @@ import {
   userListOpenedFlag,
 } from '../../store/SearchReducer/actions';
 import { searchSaga } from '../../store/SearchReducer/actionsSagas';
-import { ISearhHistoryItem } from '../../store/SearchReducer/types';
+import { FavoriteUser } from '$store/FavoriteReduser/types';
+import { AppStateType } from '$store/RootReducer';
+import { ISearhHistoryItem } from '$store/SearchReducer/types';
 
 import styles from './styles.module.css';
 

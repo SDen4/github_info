@@ -5,7 +5,7 @@ import { Flex } from '../../ui/Flex';
 
 import { dateFormatter } from '../../utils/dateFormatter';
 
-import { IRepoItem } from '../../store/SearchReducer/types';
+import { IRepoItem } from '$store/SearchReducer/types';
 
 import styles from './styles.module.css';
 

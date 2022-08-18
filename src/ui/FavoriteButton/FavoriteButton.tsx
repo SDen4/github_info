@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
 import { favoriteListFlag } from '../../store/FavoriteReduser/actions';
-import { AppStateType } from '../../store/RootReducer';
 import { searchHistoryListFlag } from '../../store/SearchReducer/actions';
+import { AppStateType } from '$store/RootReducer';
 
 import styles from './styles.module.css';
 

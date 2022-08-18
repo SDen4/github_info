@@ -9,12 +9,12 @@ import {
   favoriteUserFlag,
   fetchFavoriteList,
 } from '../../store/FavoriteReduser/actions';
-import { AppStateType } from '../../store/RootReducer';
 import {
   fetchAllHistory,
   modalFlag,
   searchHistoryListFlag,
 } from '../../store/SearchReducer/actions';
+import { AppStateType } from '$store/RootReducer';
 
 import styles from './styles.module.css';
 

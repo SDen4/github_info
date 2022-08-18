@@ -5,10 +5,7 @@ import { Flex } from '../../ui/Flex';
 
 import { AppStateType } from '../../store/RootReducer';
 import { searchSaga } from '../../store/SearchReducer/actionsSagas';
-import {
-  ISearhHistoryItem,
-  UserInnerType,
-} from '../../store/SearchReducer/types';
+import { ISearhHistoryItem, UserInnerType } from '$store/SearchReducer/types';
 
 import styles from './styles.module.css';
 

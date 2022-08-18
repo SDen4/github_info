@@ -17,14 +17,14 @@ import {
   noteFlag,
   setFavoriteBtnFlag,
 } from '../../store/FavoriteReduser/actions';
-import { FavoriteUser } from '../../store/FavoriteReduser/types';
-import { AppStateType } from '../../store/RootReducer';
 import { cardOpenedFlag, fetchLogin } from '../../store/SearchReducer/actions';
 import {
   fetchUsersListSaga,
   reposListSaga,
 } from '../../store/SearchReducer/actionsSagas';
-import { UserType } from '../../store/SearchReducer/types';
+import { FavoriteUser } from '$store/FavoriteReduser/types';
+import { AppStateType } from '$store/RootReducer';
+import { UserType } from '$store/SearchReducer/types';
 
 import styles from './styles.module.css';
 

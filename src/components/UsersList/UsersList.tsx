@@ -10,7 +10,7 @@ import {
   reposOpenedListFlag,
   userListOpenedFlag,
 } from '../../store/SearchReducer/actions';
-import { UserInnerType } from '../../store/SearchReducer/types';
+import { UserInnerType } from '$store/SearchReducer/types';
 
 import styles from './styles.module.css';
 

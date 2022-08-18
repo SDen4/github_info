@@ -3,15 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { SubmitButton } from '../../ui/SubmitButton';
 
-import { FavoriteUser } from '../../store/FavoriteReduser/types';
-import { AppStateType } from '../../store/RootReducer';
 import {
   cardOpenedFlag,
   reposOpenedListFlag,
   userListOpenedFlag,
 } from '../../store/SearchReducer/actions';
 import { searchSaga } from '../../store/SearchReducer/actionsSagas';
-import { ISearhHistoryItem } from '../../store/SearchReducer/types';
+import { FavoriteUser } from '$store/FavoriteReduser/types';
+import { AppStateType } from '$store/RootReducer';
+import { ISearhHistoryItem } from '$store/SearchReducer/types';
 
 import styles from './styles.module.css';
 

@@ -9,7 +9,6 @@ import SearchForm from '../../components/SearchForm';
 import StartMobile from '../../components/StartMobile';
 
 import { favoriteListFlag } from '../../store/FavoriteReduser/actions';
-import { FavoriteUser } from '../../store/FavoriteReduser/types';
 import { AppStateType } from '../../store/RootReducer';
 import {
   cardOpenedFlag,
@@ -18,6 +17,7 @@ import {
   userListOpenedFlag,
 } from '../../store/SearchReducer/actions';
 import { searhInitFetchSaga } from '../../store/SearchReducer/actionsSagas';
+import { FavoriteUser } from '$store/FavoriteReduser/types';
 
 import styles from './Root.module.css';
 
