@@ -10,4 +10,7 @@ export {
   loadingSelect,
   modalFlagSelect,
   userSelect,
+  userListOpenedSelect,
+  currentUserLoginSelect,
+  searchListSelect,
 } from './selectors';

@@ -46,3 +46,15 @@ export const userSelect = createSelector(
   (store: AppStateType) => store.search.user,
   (user) => user,
 );
+export const userListOpenedSelect = createSelector(
+  (store: AppStateType) => store.search.usersListOpened,
+  (usersListOpened) => usersListOpened,
+);
+export const currentUserLoginSelect = createSelector(
+  (store: AppStateType) => store.search.user.login,
+  (currentUserLogin) => currentUserLogin,
+);
+export const searchListSelect = createSelector(
+  (store: AppStateType) => store.search.searchHistory,
+  (searchHistory) => searchHistory,
+);

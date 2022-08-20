@@ -10,42 +10,34 @@ import {
   favoriteUserFlag,
   fetchFavoriteList,
 } from '../../store/FavoriteReduser/actions';
+import { favoriteListSelect } from '../../store/FavoriteReduser/selectors';
 import {
   modalFlag,
   reposOpenedListFlag,
   userListOpenedFlag,
 } from '../../store/SearchReducer/actions';
 import { searchSaga } from '../../store/SearchReducer/actionsSagas';
-import { FavoriteUser } from '$store/FavoriteReduser/types';
-import { AppStateType } from '$store/RootReducer';
-import { ISearhHistoryItem } from '$store/SearchReducer/types';
+import {
+  currentUserLoginSelect,
+  isMobileSelect,
+  loadingSelect,
+  reposListOpenedSelect,
+  searchListSelect,
+  userListOpenedSelect,
+} from '../../store/SearchReducer/selectors';
 
 import styles from './styles.module.css';
 
 const FavoriteList: React.FC = () => {
   const dispatch = useDispatch();
 
-  const favoriteList = useSelector<AppStateType, FavoriteUser[]>(
-    (store) => store.favorite.favoriteList,
-  );
-  const searchList = useSelector<AppStateType, ISearhHistoryItem[]>(
-    (store) => store.search.searchHistory,
-  );
-  const currentUserLogin = useSelector<AppStateType, string>(
-    (store) => store.search.user.login,
-  );
-  const userListOpened = useSelector<AppStateType, boolean>(
-    (store) => store.search.usersListOpened,
-  );
-  const reposListOpened = useSelector<AppStateType, boolean>(
-    (store) => store.search.reposListOpened,
-  );
-  const isMobile = useSelector<AppStateType, boolean>(
-    (store) => store.search.isMobile,
-  );
-  const loading = useSelector<AppStateType, boolean>(
-    (store) => store.search.loading,
-  );
+  const favoriteList = useSelector(favoriteListSelect);
+  const searchList = useSelector(searchListSelect);
+  const currentUserLogin = useSelector(currentUserLoginSelect);
+  const userListOpened = useSelector(userListOpenedSelect);
+  const reposListOpened = useSelector(reposListOpenedSelect);
+  const isMobile = useSelector(isMobileSelect);
+  const loading = useSelector(loadingSelect);
 
   const [deleteModal, setDeleteModal] = useState<boolean>(false);
   const [deletedElem, setDeletedElem] = useState<string>('');
