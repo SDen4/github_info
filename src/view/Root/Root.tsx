@@ -9,7 +9,11 @@ import SearchForm from '../../components/SearchForm';
 import StartMobile from '../../components/StartMobile';
 
 import { favoriteListFlag } from '../../store/FavoriteReduser/actions';
-import { AppStateType } from '../../store/RootReducer';
+import {
+  favoriteListFlagSelect,
+  favoriteListSelect,
+  noteStoreFlagSelect,
+} from '../../store/FavoriteReduser/selectors';
 import {
   cardOpenedFlag,
   reposOpenedListFlag,
@@ -29,7 +33,6 @@ import {
   searchHistoryListFlagSelect,
   usersListOpenedSelect,
 } from '../../store/SearchReducer/selectors';
-import { FavoriteUser } from '$store/FavoriteReduser/types';
 
 import styles from './Root.module.css';
 
@@ -49,15 +52,9 @@ const LazyError = React.lazy(() => import('../../components/Error'));
 const Root: React.FC = () => {
   const dispatch = useDispatch();
 
-  const flFlag = useSelector<AppStateType, boolean>(
-    (store) => store.favorite.favoriteListFlag,
-  );
-  const favoriteList = useSelector<AppStateType, FavoriteUser[]>(
-    (store) => store.favorite.favoriteList,
-  );
-  const noteFlag = useSelector<AppStateType, boolean>(
-    (store) => store.favorite.noteFlag,
-  );
+  const flFlag = useSelector(favoriteListFlagSelect);
+  const favoriteList = useSelector(favoriteListSelect);
+  const noteFlag = useSelector(noteStoreFlagSelect);
   const isMobileStart = useSelector(isMobileStartSelect);
   const isMobile = useSelector(isMobileSelect);
   const cardOpened = useSelector(cardOpenedSelect);
