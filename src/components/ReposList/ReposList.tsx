@@ -3,15 +3,13 @@ import { useSelector } from 'react-redux';
 
 import RepoItem from '../RepoItem';
 
-import { AppStateType } from '$store/RootReducer';
+import { reposListSelect } from '../../store/SearchReducer/selectors';
 import { IRepoItem } from '$store/SearchReducer/types';
 
 import styles from './styles.module.css';
 
 const ReposList: React.FC = () => {
-  const reposList = useSelector<AppStateType, IRepoItem[]>(
-    (store) => store.search.reposList,
-  );
+  const reposList = useSelector(reposListSelect);
 
   return (
     <ul className={styles.reposWrapper}>

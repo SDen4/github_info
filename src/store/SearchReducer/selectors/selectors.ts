@@ -34,6 +34,10 @@ export const reposListOpenedSelect = createSelector(
   (store: AppStateType) => store.search.reposListOpened,
   (reposListOpened) => reposListOpened,
 );
+export const reposListSelect = createSelector(
+  (store: AppStateType) => store.search.reposList,
+  (reposList) => reposList,
+);
 export const loadingSelect = createSelector(
   (store: AppStateType) => store.search.loading,
   (loading) => loading,

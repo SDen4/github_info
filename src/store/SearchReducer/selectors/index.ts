@@ -7,6 +7,7 @@ export {
   isAndroidSelect,
   usersListOpenedSelect,
   reposListOpenedSelect,
+  reposListSelect,
   loadingSelect,
   modalFlagSelect,
   userSelect,
