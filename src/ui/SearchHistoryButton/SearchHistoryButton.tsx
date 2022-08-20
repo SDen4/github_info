@@ -3,23 +3,21 @@ import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
 import { favoriteListFlag } from '../../store/FavoriteReduser/actions';
+import { favoriteListFlagSelect } from '../../store/FavoriteReduser/selectors';
 import { searchHistoryListFlag } from '../../store/SearchReducer/actions';
-import { AppStateType } from '$store/RootReducer';
+import {
+  historyLengthSelect,
+  searchHistoryListFlagSelect,
+} from '../../store/SearchReducer/selectors';
 
 import styles from './styles.module.css';
 
 export const SearchHistoryButton: React.FC = memo(() => {
   const dispatch = useDispatch();
 
-  const historyLength = useSelector<AppStateType, number>(
-    (store) => store.search.searchHistory.length,
-  );
-  const searchHistoryListStatus = useSelector<AppStateType, boolean>(
-    (store) => store.search.searchHistoryListFlag,
-  );
-  const flFlag = useSelector<AppStateType, boolean>(
-    (store) => store.favorite.favoriteListFlag,
-  );
+  const historyLength = useSelector(historyLengthSelect);
+  const searchHistoryListStatus = useSelector(searchHistoryListFlagSelect);
+  const flFlag = useSelector(favoriteListFlagSelect);
 
   const onSearchHistoryBtnHandler = () => {
     if (searchHistoryListStatus) {
