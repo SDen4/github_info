@@ -3,9 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { Flex } from '../../ui/Flex';
 
-import { AppStateType } from '../../store/RootReducer';
 import { searchSaga } from '../../store/SearchReducer/actionsSagas';
-import { ISearhHistoryItem, UserInnerType } from '$store/SearchReducer/types';
+import {
+  isMobileSelect,
+  searchListSelect,
+} from '../../store/SearchReducer/selectors';
+import { UserInnerType } from '$store/SearchReducer/types';
 
 import styles from './styles.module.css';
 
@@ -16,12 +19,8 @@ export interface IProps {
 const UserItem: React.FC<IProps> = ({ user }) => {
   const dispatch = useDispatch();
 
-  const isMobile = useSelector<AppStateType, boolean>(
-    (store) => store.search.isMobile,
-  );
-  const history = useSelector<AppStateType, ISearhHistoryItem[]>(
-    (store) => store.search.searchHistory,
-  );
+  const isMobile = useSelector(isMobileSelect);
+  const history = useSelector(searchListSelect);
 
   const itemBthHandler = () => {
     dispatch(searchSaga(user.login, history, isMobile));
