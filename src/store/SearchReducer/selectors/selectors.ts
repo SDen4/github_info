@@ -58,3 +58,11 @@ export const searchListSelect = createSelector(
   (store: AppStateType) => store.search.searchHistory,
   (searchHistory) => searchHistory,
 );
+export const textModalSelect = createSelector(
+  (store: AppStateType) => store.search.modalText,
+  (modalText) => modalText,
+);
+export const modalTypeSelect = createSelector(
+  (store: AppStateType) => store.search.modalType,
+  (modalType) => modalType,
+);

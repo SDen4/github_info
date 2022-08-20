@@ -13,4 +13,6 @@ export {
   userListOpenedSelect,
   currentUserLoginSelect,
   searchListSelect,
+  textModalSelect,
+  modalTypeSelect,
 } from './selectors';

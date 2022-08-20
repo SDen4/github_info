@@ -14,19 +14,18 @@ import {
   modalFlag,
   searchHistoryListFlag,
 } from '../../store/SearchReducer/actions';
-import { AppStateType } from '$store/RootReducer';
+import {
+  modalTypeSelect,
+  textModalSelect,
+} from '../../store/SearchReducer/selectors';
 
 import styles from './styles.module.css';
 
 const Modal: React.FC = () => {
   const dispatch = useDispatch();
 
-  const textModal = useSelector<AppStateType, string>(
-    (store) => store.search.modalText,
-  );
-  const type = useSelector<AppStateType, 'search' | 'favorite'>(
-    (store) => store.search.modalType,
-  );
+  const textModal = useSelector(textModalSelect);
+  const type = useSelector(modalTypeSelect);
 
   const onBtnsHandler = (delStatus: boolean) => {
     if (delStatus) {
