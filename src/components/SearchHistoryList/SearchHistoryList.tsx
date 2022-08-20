@@ -8,6 +8,7 @@ import { Flex } from '../../ui/Flex';
 import { dateFormatter } from '../../utils/dateFormatter';
 import { timeFormatter } from '../../utils/timeFormatter';
 
+import { favoriteListSelect } from '../../store/FavoriteReduser/selectors';
 import {
   modalFlag,
   reposOpenedListFlag,
@@ -15,40 +16,31 @@ import {
   userListOpenedFlag,
 } from '../../store/SearchReducer/actions';
 import { searchSaga } from '../../store/SearchReducer/actionsSagas';
-import { FavoriteUser } from '$store/FavoriteReduser/types';
-import { AppStateType } from '$store/RootReducer';
-import { ISearhHistoryItem } from '$store/SearchReducer/types';
+import {
+  currentUserLoginSelect,
+  isMobileSelect,
+  loadingSelect,
+  reposListOpenedSelect,
+  searchListSelect,
+  usersListOpenedSelect,
+} from '../../store/SearchReducer/selectors';
 
 import styles from './styles.module.css';
 
 const SearchHistoryList: React.FC = () => {
   const dispatch = useDispatch();
 
-  const searchList = useSelector<AppStateType, ISearhHistoryItem[]>(
-    (store) => store.search.searchHistory,
-  );
-  const favoritesList = useSelector<AppStateType, FavoriteUser[]>(
-    (store) => store.favorite.favoriteList,
-  );
-  const currentUserLogin = useSelector<AppStateType, string>(
-    (store) => store.search.user.login,
-  );
-  const userListOpened = useSelector<AppStateType, boolean>(
-    (store) => store.search.usersListOpened,
-  );
-  const reposListOpened = useSelector<AppStateType, boolean>(
-    (store) => store.search.reposListOpened,
-  );
-  const isMobile = useSelector<AppStateType, boolean>(
-    (store) => store.search.isMobile,
-  );
-  const loading = useSelector<AppStateType, boolean>(
-    (store) => store.search.loading,
-  );
+  const searchList = useSelector(searchListSelect);
+  const favoriteList = useSelector(favoriteListSelect);
+  const currentUserLogin = useSelector(currentUserLoginSelect);
+  const usersListOpened = useSelector(usersListOpenedSelect);
+  const reposListOpened = useSelector(reposListOpenedSelect);
+  const isMobile = useSelector(isMobileSelect);
+  const loading = useSelector(loadingSelect);
 
   const searchHistoriListBtnHandler = (login: string) => {
     if (login === currentUserLogin) {
-      if (userListOpened) {
+      if (usersListOpened) {
         dispatch(userListOpenedFlag(false));
       }
       if (reposListOpened) {
@@ -56,7 +48,7 @@ const SearchHistoryList: React.FC = () => {
       }
       return;
     }
-    dispatch(searchSaga(login, searchList, isMobile, favoritesList));
+    dispatch(searchSaga(login, searchList, isMobile, favoriteList));
   };
 
   const closeBtnHandler = () => {
