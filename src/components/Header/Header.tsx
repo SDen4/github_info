@@ -4,19 +4,14 @@ import { useSelector } from 'react-redux';
 import { FavoriteButton } from '../../ui/FavoriteButton';
 import { SearchHistoryButton } from '../../ui/SearchHistoryButton';
 
-import { FavoriteUser } from '$store/FavoriteReduser/types';
-import { AppStateType } from '$store/RootReducer';
-import { ISearhHistoryItem } from '$store/SearchReducer/types';
+import { favoriteListSelect } from '../../store/FavoriteReduser/selectors';
+import { searchListSelect } from '../../store/SearchReducer/selectors';
 
 import styles from './styles.module.css';
 
 export const Header: React.FC = () => {
-  const searchHistory = useSelector<AppStateType, ISearhHistoryItem[]>(
-    (store) => store.search.searchHistory,
-  );
-  const favoriteList = useSelector<AppStateType, FavoriteUser[]>(
-    (store) => store.favorite.favoriteList,
-  );
+  const searchHistory = useSelector(searchListSelect);
+  const favoriteList = useSelector(favoriteListSelect);
 
   return (
     <header className={styles.rootHeader}>
