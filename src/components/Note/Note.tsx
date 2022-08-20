@@ -13,8 +13,11 @@ import {
   noteSave,
   setFavoriteBtnFlag,
 } from '../../store/FavoriteReduser/actions';
-import { FavoriteUser } from '$store/FavoriteReduser/types';
-import { AppStateType } from '$store/RootReducer';
+import {
+  favoriteListSelect,
+  noteSelect,
+} from '../../store/FavoriteReduser/selectors';
+import { currentUserLoginSelect } from '../../store/SearchReducer/selectors';
 
 import styles from './styles.module.css';
 
@@ -22,15 +25,9 @@ const Note: React.FC = () => {
   const dispatch = useDispatch();
   const ref: any = useRef();
 
-  const note = useSelector<AppStateType, string>(
-    (store) => store.favorite.note,
-  );
-  const login = useSelector<AppStateType, string>(
-    (store) => store.search.user.login,
-  );
-  const favorites = useSelector<AppStateType, FavoriteUser[]>(
-    (store) => store.favorite.favoriteList,
-  );
+  const login = useSelector(currentUserLoginSelect);
+  const note = useSelector(noteSelect);
+  const favorites = useSelector(favoriteListSelect);
 
   useEffect(() => {
     ref.current.focus();
