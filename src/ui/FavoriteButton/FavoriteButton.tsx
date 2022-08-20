@@ -3,23 +3,21 @@ import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
 import { favoriteListFlag } from '../../store/FavoriteReduser/actions';
+import {
+  favoriteListFlagSelect,
+  starNumSelect,
+} from '../../store/FavoriteReduser/selectors';
 import { searchHistoryListFlag } from '../../store/SearchReducer/actions';
-import { AppStateType } from '$store/RootReducer';
+import { searchHistoryListFlagSelect } from '../../store/SearchReducer/selectors';
 
 import styles from './styles.module.css';
 
 export const FavoriteButton: React.FC = memo(() => {
   const dispatch = useDispatch();
 
-  const favoriteListStatus = useSelector<AppStateType, boolean>(
-    (store) => store.favorite.favoriteListFlag,
-  );
-  const starNum = useSelector<AppStateType, number>(
-    (store) => store.favorite.favoriteList.length,
-  );
-  const searchListFlag = useSelector<AppStateType, boolean>(
-    (store) => store.search.searchHistoryListFlag,
-  );
+  const favoriteListStatus = useSelector(favoriteListFlagSelect);
+  const starNum = useSelector(starNumSelect);
+  const searchListFlag = useSelector(searchHistoryListFlagSelect);
 
   const showFavoriteListHandler = () => {
     if (favoriteListStatus) {

@@ -5,4 +5,5 @@ export {
   noteSelect,
   noteStoreFlagSelect,
   favoriteListFlagSelect,
+  starNumSelect,
 } from './selectors';
