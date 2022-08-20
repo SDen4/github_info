@@ -4,12 +4,17 @@ import clsx from 'clsx';
 
 import UserItem from '../UserItem';
 
-import { AppStateType } from '../../store/RootReducer';
 import {
   cardOpenedFlag,
   reposOpenedListFlag,
   userListOpenedFlag,
 } from '../../store/SearchReducer/actions';
+import {
+  currentUserLoginSelect,
+  lastRequestTypeSelect,
+  loadingSelect,
+  usersListSelect,
+} from '../../store/SearchReducer/selectors';
 import { UserInnerType } from '$store/SearchReducer/types';
 
 import styles from './styles.module.css';
@@ -17,18 +22,10 @@ import styles from './styles.module.css';
 const UsersList: React.FC = () => {
   const dispatch = useDispatch();
 
-  const users = useSelector<AppStateType, UserInnerType[]>(
-    (store) => store.search.usersList,
-  );
-  const login = useSelector<AppStateType, string>(
-    (store) => store.search.user.login,
-  );
-  const requestType = useSelector<AppStateType, string>(
-    (store) => store.search.lastRequestType,
-  );
-  const loading = useSelector<AppStateType, boolean>(
-    (store) => store.search.loading,
-  );
+  const users = useSelector(usersListSelect);
+  const login = useSelector(currentUserLoginSelect);
+  const requestType = useSelector(lastRequestTypeSelect);
+  const loading = useSelector(loadingSelect);
 
   const loginBtnHandler = () => {
     dispatch(userListOpenedFlag(false));

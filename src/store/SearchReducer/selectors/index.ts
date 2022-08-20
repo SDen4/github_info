@@ -15,4 +15,6 @@ export {
   searchListSelect,
   textModalSelect,
   modalTypeSelect,
+  lastRequestTypeSelect,
+  usersListSelect,
 } from './selectors';

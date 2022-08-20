@@ -66,3 +66,11 @@ export const modalTypeSelect = createSelector(
   (store: AppStateType) => store.search.modalType,
   (modalType) => modalType,
 );
+export const lastRequestTypeSelect = createSelector(
+  (store: AppStateType) => store.search.lastRequestType,
+  (lastRequestType) => lastRequestType,
+);
+export const usersListSelect = createSelector(
+  (store: AppStateType) => store.search.usersList,
+  (usersList) => usersList,
+);
