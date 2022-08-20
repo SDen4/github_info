@@ -17,6 +17,18 @@ import {
   userListOpenedFlag,
 } from '../../store/SearchReducer/actions';
 import { searhInitFetchSaga } from '../../store/SearchReducer/actionsSagas';
+import {
+  cardOpenedSelect,
+  errorSelect,
+  isAndroidSelect,
+  isMobileSelect,
+  isMobileStartSelect,
+  loadingSelect,
+  modalFlagSelect,
+  reposListOpenedSelect,
+  searchHistoryListFlagSelect,
+  usersListOpenedSelect,
+} from '../../store/SearchReducer/selectors';
 import { FavoriteUser } from '$store/FavoriteReduser/types';
 
 import styles from './Root.module.css';
@@ -46,37 +58,16 @@ const Root: React.FC = () => {
   const noteFlag = useSelector<AppStateType, boolean>(
     (store) => store.favorite.noteFlag,
   );
-
-  const isMobileStart = useSelector<AppStateType, boolean>(
-    (store) => store.search.isMobileStart,
-  );
-  const isMobile = useSelector<AppStateType, boolean>(
-    (store) => store.search.isMobile,
-  );
-  const cardOpened = useSelector<AppStateType, boolean>(
-    (store) => store.search.cardOpened,
-  );
-  const searchHistoryListFlag = useSelector<AppStateType, boolean>(
-    (store) => store.search.searchHistoryListFlag,
-  );
-  const error = useSelector<AppStateType, boolean>(
-    (store) => store.search.error,
-  );
-  const isAndroid = useSelector<AppStateType, boolean>(
-    (store) => store.search.isAndroid,
-  );
-  const usersListOpened = useSelector<AppStateType, boolean>(
-    (store) => store.search.usersListOpened,
-  );
-  const reposListOpened = useSelector<AppStateType, boolean>(
-    (store) => store.search.reposListOpened,
-  );
-  const loading = useSelector<AppStateType, boolean>(
-    (store) => store.search.loading,
-  );
-  const modalFlag = useSelector<AppStateType, boolean>(
-    (store) => store.search.modalFlag,
-  );
+  const isMobileStart = useSelector(isMobileStartSelect);
+  const isMobile = useSelector(isMobileSelect);
+  const cardOpened = useSelector(cardOpenedSelect);
+  const searchHistoryListFlag = useSelector(searchHistoryListFlagSelect);
+  const error = useSelector(errorSelect);
+  const isAndroid = useSelector(isAndroidSelect);
+  const usersListOpened = useSelector(usersListOpenedSelect);
+  const reposListOpened = useSelector(reposListOpenedSelect);
+  const loading = useSelector(loadingSelect);
+  const modalFlag = useSelector(modalFlagSelect);
 
   const [user, setUser] = useState<string>('');
 
