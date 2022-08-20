@@ -4,14 +4,24 @@ import { useDispatch, useSelector } from 'react-redux';
 import { SubmitButton } from '../../ui/SubmitButton';
 
 import {
+  favoriteListFlagSelect,
+  favoriteListSelect,
+} from '../../store/FavoriteReduser/selectors';
+import {
   cardOpenedFlag,
   reposOpenedListFlag,
   userListOpenedFlag,
 } from '../../store/SearchReducer/actions';
 import { searchSaga } from '../../store/SearchReducer/actionsSagas';
-import { FavoriteUser } from '$store/FavoriteReduser/types';
-import { AppStateType } from '$store/RootReducer';
-import { ISearhHistoryItem } from '$store/SearchReducer/types';
+import {
+  cardOpenedSelect,
+  currentUserLoginSelect,
+  isMobileSelect,
+  reposListOpenedSelect,
+  searchHistoryListFlagSelect,
+  searchListSelect,
+  usersListOpenedSelect,
+} from '../../store/SearchReducer/selectors';
 
 import styles from './styles.module.css';
 
@@ -22,33 +32,15 @@ export interface IProps {
 const SearchForm: React.FC<IProps> = ({ searchFunc }) => {
   const dispatch = useDispatch();
 
-  const favoritesList = useSelector<AppStateType, FavoriteUser[]>(
-    (store) => store.favorite.favoriteList,
-  );
-  const favoriteListFlag = useSelector<AppStateType, boolean>(
-    (store) => store.favorite.favoriteListFlag,
-  );
-  const isMobile = useSelector<AppStateType, boolean>(
-    (store) => store.search.isMobile,
-  );
-  const searchHistoryListFlag = useSelector<AppStateType, boolean>(
-    (store) => store.search.searchHistoryListFlag,
-  );
-  const cardOpened = useSelector<AppStateType, boolean>(
-    (store) => store.search.cardOpened,
-  );
-  const reposListOpened = useSelector<AppStateType, boolean>(
-    (store) => store.search.reposListOpened,
-  );
-  const usersListOpened = useSelector<AppStateType, boolean>(
-    (store) => store.search.usersListOpened,
-  );
-  const searchHistory = useSelector<AppStateType, ISearhHistoryItem[]>(
-    (store) => store.search.searchHistory,
-  );
-  const login = useSelector<AppStateType, string>(
-    (store) => store.search.user.login,
-  );
+  const favoritesList = useSelector(favoriteListSelect);
+  const favoriteListFlag = useSelector(favoriteListFlagSelect);
+  const isMobile = useSelector(isMobileSelect);
+  const searchHistoryListFlag = useSelector(searchHistoryListFlagSelect);
+  const cardOpened = useSelector(cardOpenedSelect);
+  const reposListOpened = useSelector(reposListOpenedSelect);
+  const usersListOpened = useSelector(usersListOpenedSelect);
+  const searchHistory = useSelector(searchListSelect);
+  const login = useSelector(currentUserLoginSelect);
 
   const [searchLogin, setsearchLogin] = useState<string>('');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

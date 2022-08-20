@@ -22,3 +22,7 @@ export const noteStoreFlagSelect = createSelector(
   (store: AppStateType) => store.favorite.noteFlag,
   (noteFlag) => noteFlag,
 );
+export const favoriteListFlagSelect = createSelector(
+  (store: AppStateType) => store.favorite.favoriteListFlag,
+  (favoriteListFlag) => favoriteListFlag,
+);

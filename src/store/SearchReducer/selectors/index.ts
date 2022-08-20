@@ -11,7 +11,6 @@ export {
   loadingSelect,
   modalFlagSelect,
   userSelect,
-  userListOpenedSelect,
   currentUserLoginSelect,
   searchListSelect,
   textModalSelect,

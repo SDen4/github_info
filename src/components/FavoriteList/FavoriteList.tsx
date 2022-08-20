@@ -23,7 +23,7 @@ import {
   loadingSelect,
   reposListOpenedSelect,
   searchListSelect,
-  userListOpenedSelect,
+  usersListOpenedSelect,
 } from '../../store/SearchReducer/selectors';
 
 import styles from './styles.module.css';
@@ -34,7 +34,7 @@ const FavoriteList: React.FC = () => {
   const favoriteList = useSelector(favoriteListSelect);
   const searchList = useSelector(searchListSelect);
   const currentUserLogin = useSelector(currentUserLoginSelect);
-  const userListOpened = useSelector(userListOpenedSelect);
+  const usersListOpened = useSelector(usersListOpenedSelect);
   const reposListOpened = useSelector(reposListOpenedSelect);
   const isMobile = useSelector(isMobileSelect);
   const loading = useSelector(loadingSelect);
@@ -48,7 +48,7 @@ const FavoriteList: React.FC = () => {
 
   const searchHistoriListBtnHandler = (login: string) => {
     if (login === currentUserLogin) {
-      if (userListOpened) {
+      if (usersListOpened) {
         dispatch(userListOpenedFlag(false));
       }
       if (reposListOpened) {

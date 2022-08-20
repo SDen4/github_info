@@ -4,4 +4,5 @@ export {
   noteBtnFlagSelect,
   noteSelect,
   noteStoreFlagSelect,
+  favoriteListFlagSelect,
 } from './selectors';
