@@ -17,41 +17,32 @@ import {
   noteFlag,
   setFavoriteBtnFlag,
 } from '../../store/FavoriteReduser/actions';
+import {
+  favoriteListSelect,
+  favoriteUserSelect,
+  noteBtnFlagSelect,
+  noteSelect,
+  noteStoreFlagSelect,
+} from '../../store/FavoriteReduser/selectors';
 import { cardOpenedFlag, fetchLogin } from '../../store/SearchReducer/actions';
 import {
   fetchUsersListSaga,
   reposListSaga,
 } from '../../store/SearchReducer/actionsSagas';
-import { FavoriteUser } from '$store/FavoriteReduser/types';
-import { AppStateType } from '$store/RootReducer';
-import { UserType } from '$store/SearchReducer/types';
+import { loadingSelect, userSelect } from '../../store/SearchReducer/selectors';
 
 import styles from './styles.module.css';
 
 const Card: React.FC = (): JSX.Element => {
   const dispatch = useDispatch();
 
-  const user = useSelector<AppStateType, UserType>(
-    (store) => store.search.user,
-  );
-  const favoriteList = useSelector<AppStateType, FavoriteUser[]>(
-    (store) => store.favorite.favoriteList,
-  );
-  const favoriteUser = useSelector<AppStateType, boolean>(
-    (store) => store.favorite.favoriteUser,
-  );
-  const noteBtnFlag = useSelector<AppStateType, boolean>(
-    (store) => store.favorite.noteBtnFlag,
-  );
-  const note = useSelector<AppStateType, string>(
-    (store) => store.favorite.note,
-  );
-  const noteStoreFlag = useSelector<AppStateType, boolean>(
-    (store) => store.favorite.noteFlag,
-  );
-  const loading = useSelector<AppStateType, boolean>(
-    (store) => store.search.loading,
-  );
+  const favoriteList = useSelector(favoriteListSelect);
+  const favoriteUser = useSelector(favoriteUserSelect);
+  const noteBtnFlag = useSelector(noteBtnFlagSelect);
+  const note = useSelector(noteSelect);
+  const noteStoreFlag = useSelector(noteStoreFlagSelect);
+  const user = useSelector(userSelect);
+  const loading = useSelector(loadingSelect);
 
   const onClickCloseBtnHandler = () => {
     dispatch(cardOpenedFlag(false));

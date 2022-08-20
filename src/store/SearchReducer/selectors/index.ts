@@ -9,4 +9,5 @@ export {
   reposListOpenedSelect,
   loadingSelect,
   modalFlagSelect,
+  userSelect,
 } from './selectors';

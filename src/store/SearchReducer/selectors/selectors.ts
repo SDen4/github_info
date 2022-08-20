@@ -42,3 +42,7 @@ export const modalFlagSelect = createSelector(
   (store: AppStateType) => store.search.modalFlag,
   (modalFlag) => modalFlag,
 );
+export const userSelect = createSelector(
+  (store: AppStateType) => store.search.user,
+  (user) => user,
+);
