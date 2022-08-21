@@ -6,14 +6,12 @@ import * as CONST from '../constants';
 export const searchSaga = (
   login: string,
   history: ISearhHistoryItem[],
-  isMobile: boolean,
   favoritesList?: FavoriteUser[],
 ) => {
   return {
     type: CONST.SEARCH_LOGIN_SAGA,
     login,
     history,
-    isMobile,
     favoritesList,
   } as const;
 };

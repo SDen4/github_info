@@ -1,4 +1,4 @@
-import { all, put, takeEvery } from 'redux-saga/effects';
+import { all, put, select, takeEvery } from 'redux-saga/effects';
 
 import { API } from '../../../api/API';
 import {
@@ -17,6 +17,7 @@ import {
   searhStart,
   userListOpenedFlag,
 } from '../actions/actions';
+import { isMobileSelect } from '../selectors';
 
 import { ISearhHistoryItem, SearchSagaWorkerType } from '../types';
 
@@ -36,6 +37,8 @@ async function getLastActivityDate(login: string) {
 }
 
 function* sagaWorker(action: SearchSagaWorkerType) {
+  const isMobile: boolean = yield select(isMobileSelect);
+
   try {
     yield all([put(searhStart()), put(noteSave('')), put(noteBtnFlag(false))]);
 
@@ -99,7 +102,7 @@ function* sagaWorker(action: SearchSagaWorkerType) {
     yield put(userListOpenedFlag(false));
 
     // in the end because of input focus in mobiles
-    if (action.isMobile) {
+    if (isMobile) {
       yield put(searchHistoryListFlag(false));
       yield put(favoriteListFlag(false));
     }

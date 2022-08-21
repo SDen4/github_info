@@ -80,7 +80,6 @@ export interface SearchSagaWorkerType {
   type: typeof SEARCH_LOGIN_SAGA;
   login: string;
   history: ISearhHistoryItem[];
-  isMobile: boolean;
   favoritesList?: FavoriteUser[];
 }
 

@@ -105,7 +105,7 @@ const SearchForm: React.FC<IProps> = ({ searchFunc }) => {
       return;
     }
 
-    dispatch(searchSaga(searchLogin, searchHistory, isMobile, favoritesList));
+    dispatch(searchSaga(searchLogin, searchHistory, favoritesList));
     searchFunc(searchLogin);
     setsearchLogin('');
     setDisabledBtn(true);

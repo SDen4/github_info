@@ -4,10 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Flex } from '../../ui/Flex';
 
 import { searchSaga } from '../../store/SearchReducer/actions/actionsSagas';
-import {
-  isMobileSelect,
-  searchListSelect,
-} from '../../store/SearchReducer/selectors';
+import { searchListSelect } from '../../store/SearchReducer/selectors';
 import { UserInnerType } from '$store/SearchReducer/types';
 
 import styles from './styles.module.css';
@@ -19,11 +16,10 @@ export interface IProps {
 const UserItem: React.FC<IProps> = ({ user }) => {
   const dispatch = useDispatch();
 
-  const isMobile = useSelector(isMobileSelect);
   const history = useSelector(searchListSelect);
 
   const itemBthHandler = () => {
-    dispatch(searchSaga(user.login, history, isMobile));
+    dispatch(searchSaga(user.login, history));
   };
 
   return (

@@ -56,7 +56,7 @@ const FavoriteList: React.FC = () => {
       }
       return;
     }
-    dispatch(searchSaga(login, searchList, isMobile, favoriteList));
+    dispatch(searchSaga(login, searchList, favoriteList));
   };
 
   const clearBtnHandler = () => {
