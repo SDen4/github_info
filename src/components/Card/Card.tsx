@@ -16,7 +16,7 @@ import {
   fetchFavoriteListAdd,
   noteFlag,
   setFavoriteBtnFlag,
-} from '../../store/FavoriteReduser/actions';
+} from '../../store/FavoriteReduser/actions/actions';
 import {
   favoriteListSelect,
   favoriteUserSelect,
@@ -24,11 +24,14 @@ import {
   noteSelect,
   noteStoreFlagSelect,
 } from '../../store/FavoriteReduser/selectors';
-import { cardOpenedFlag, fetchLogin } from '../../store/SearchReducer/actions';
+import {
+  cardOpenedFlag,
+  fetchLogin,
+} from '../../store/SearchReducer/actions/actions';
 import {
   fetchUsersListSaga,
   reposListSaga,
-} from '../../store/SearchReducer/actionsSagas';
+} from '../../store/SearchReducer/actions/actionsSagas';
 import { loadingSelect, userSelect } from '../../store/SearchReducer/selectors';
 
 import styles from './styles.module.css';

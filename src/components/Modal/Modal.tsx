@@ -8,12 +8,12 @@ import {
   favoriteListFlag,
   favoriteUserFlag,
   fetchFavoriteList,
-} from '../../store/FavoriteReduser/actions';
+} from '../../store/FavoriteReduser/actions/actions';
 import {
   fetchAllHistory,
   modalFlag,
   searchHistoryListFlag,
-} from '../../store/SearchReducer/actions';
+} from '../../store/SearchReducer/actions/actions';
 import {
   modalTypeSelect,
   textModalSelect,

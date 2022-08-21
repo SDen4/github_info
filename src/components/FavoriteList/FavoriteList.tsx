@@ -9,14 +9,14 @@ import {
   favoriteListFlag,
   favoriteUserFlag,
   fetchFavoriteList,
-} from '../../store/FavoriteReduser/actions';
+} from '../../store/FavoriteReduser/actions/actions';
 import { favoriteListSelect } from '../../store/FavoriteReduser/selectors';
 import {
   modalFlag,
   reposOpenedListFlag,
   userListOpenedFlag,
-} from '../../store/SearchReducer/actions';
-import { searchSaga } from '../../store/SearchReducer/actionsSagas';
+} from '../../store/SearchReducer/actions/actions';
+import { searchSaga } from '../../store/SearchReducer/actions/actionsSagas';
 import {
   currentUserLoginSelect,
   isMobileSelect,

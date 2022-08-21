@@ -6,7 +6,7 @@ import {
   fetchReposList,
   loadingFlag,
   reposOpenedListFlag,
-} from '../actions';
+} from '../actions/actions';
 
 import { IRepoItem, IReposListSagaWorker } from '../types';
 

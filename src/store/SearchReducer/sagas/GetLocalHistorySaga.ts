@@ -1,6 +1,6 @@
 import { put, takeEvery } from 'redux-saga/effects';
 
-import { fetchAllHistory } from '../actions';
+import { fetchAllHistory } from '../actions/actions';
 
 import { ISearhHistoryItem } from '../types';
 

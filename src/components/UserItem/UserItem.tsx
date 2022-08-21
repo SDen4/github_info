@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { Flex } from '../../ui/Flex';
 
-import { searchSaga } from '../../store/SearchReducer/actionsSagas';
+import { searchSaga } from '../../store/SearchReducer/actions/actionsSagas';
 import {
   isMobileSelect,
   searchListSelect,

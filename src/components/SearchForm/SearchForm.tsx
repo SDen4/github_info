@@ -11,8 +11,8 @@ import {
   cardOpenedFlag,
   reposOpenedListFlag,
   userListOpenedFlag,
-} from '../../store/SearchReducer/actions';
-import { searchSaga } from '../../store/SearchReducer/actionsSagas';
+} from '../../store/SearchReducer/actions/actions';
+import { searchSaga } from '../../store/SearchReducer/actions/actionsSagas';
 import {
   cardOpenedSelect,
   currentUserLoginSelect,

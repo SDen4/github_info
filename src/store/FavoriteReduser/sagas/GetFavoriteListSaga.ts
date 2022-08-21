@@ -1,6 +1,6 @@
 import { put, takeEvery } from 'redux-saga/effects';
 
-import { fetchFavoriteList } from '../actions';
+import { fetchFavoriteList } from '../actions/actions';
 
 import { FavoriteUser } from '../types';
 

@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import { Flex } from '../../ui/Flex';
 
-import { searchIsMobileStart } from '../../store/SearchReducer/actions';
+import { searchIsMobileStart } from '../../store/SearchReducer/actions/actions';
 
 import styles from './styles.module.css';
 

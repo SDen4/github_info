@@ -8,7 +8,7 @@ import {
   cardOpenedFlag,
   reposOpenedListFlag,
   userListOpenedFlag,
-} from '../../store/SearchReducer/actions';
+} from '../../store/SearchReducer/actions/actions';
 import {
   currentUserLoginSelect,
   lastRequestTypeSelect,

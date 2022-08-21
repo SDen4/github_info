@@ -8,7 +8,7 @@ import { Header } from '../../components/Header';
 import SearchForm from '../../components/SearchForm';
 import StartMobile from '../../components/StartMobile';
 
-import { favoriteListFlag } from '../../store/FavoriteReduser/actions';
+import { favoriteListFlag } from '../../store/FavoriteReduser/actions/actions';
 import {
   favoriteListFlagSelect,
   favoriteListSelect,
@@ -19,8 +19,8 @@ import {
   reposOpenedListFlag,
   searchIsMobileStart,
   userListOpenedFlag,
-} from '../../store/SearchReducer/actions';
-import { searhInitFetchSaga } from '../../store/SearchReducer/actionsSagas';
+} from '../../store/SearchReducer/actions/actions';
+import { searhInitFetchSaga } from '../../store/SearchReducer/actions/actionsSagas';
 import {
   cardOpenedSelect,
   errorSelect,

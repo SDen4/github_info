@@ -12,7 +12,7 @@ import {
   noteFlag,
   noteSave,
   setFavoriteBtnFlag,
-} from '../../store/FavoriteReduser/actions';
+} from '../../store/FavoriteReduser/actions/actions';
 import {
   favoriteListSelect,
   noteSelect,

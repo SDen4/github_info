@@ -6,7 +6,7 @@ import {
   fetchUsersList,
   loadingFlag,
   userListOpenedFlag,
-} from '../actions';
+} from '../actions/actions';
 
 import { IFetchUsersListSagaWorker, UserInnerType } from '../types';
 

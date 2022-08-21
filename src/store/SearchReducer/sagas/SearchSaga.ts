@@ -6,7 +6,7 @@ import {
   favoriteUserFlag,
   noteBtnFlag,
   noteSave,
-} from '../../FavoriteReduser/actions';
+} from '../../FavoriteReduser/actions/actions';
 import {
   cardOpenedFlag,
   errorFlag,
@@ -16,7 +16,7 @@ import {
   searchHistoryListFlag,
   searhStart,
   userListOpenedFlag,
-} from '../actions';
+} from '../actions/actions';
 
 import { ISearhHistoryItem, SearchSagaWorkerType } from '../types';
 

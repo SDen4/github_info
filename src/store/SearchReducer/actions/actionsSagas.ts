@@ -1,7 +1,7 @@
-import { FavoriteUser } from '../FavoriteReduser/types';
-import { ISearhHistoryItem } from './types';
+import { FavoriteUser } from '../../FavoriteReduser/types';
+import { ISearhHistoryItem } from '../types';
 
-import * as CONST from './constants';
+import * as CONST from '../constants';
 
 export const searchSaga = (
   login: string,

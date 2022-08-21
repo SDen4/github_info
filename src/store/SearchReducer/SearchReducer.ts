@@ -1,4 +1,4 @@
-import { ActionsType } from './actions';
+import { ActionsType } from './actions/actions';
 
 import { InitialStateType } from './types';
 

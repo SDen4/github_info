@@ -2,12 +2,12 @@ import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
-import { favoriteListFlag } from '../../store/FavoriteReduser/actions';
+import { favoriteListFlag } from '../../store/FavoriteReduser/actions/actions';
 import {
   favoriteListFlagSelect,
   starNumSelect,
 } from '../../store/FavoriteReduser/selectors';
-import { searchHistoryListFlag } from '../../store/SearchReducer/actions';
+import { searchHistoryListFlag } from '../../store/SearchReducer/actions/actions';
 import { searchHistoryListFlagSelect } from '../../store/SearchReducer/selectors';
 
 import styles from './styles.module.css';
