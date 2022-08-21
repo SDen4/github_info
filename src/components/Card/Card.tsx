@@ -59,7 +59,7 @@ const Card: React.FC = (): JSX.Element => {
   };
 
   const onBtnClickHandler = (requestType: string) => {
-    dispatch(fetchUsersListSaga(user.login, requestType));
+    dispatch(fetchUsersListSaga(requestType));
   };
 
   const onReposClickHandler = () => {

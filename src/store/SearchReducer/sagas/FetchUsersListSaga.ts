@@ -1,4 +1,4 @@
-import { put, takeEvery } from 'redux-saga/effects';
+import { put, select, takeEvery } from 'redux-saga/effects';
 
 import { API } from '../../../api/API';
 import {
@@ -7,8 +7,9 @@ import {
   loadingFlag,
   userListOpenedFlag,
 } from '../actions/actions';
+import { userSelect } from '../selectors';
 
-import { IFetchUsersListSagaWorker, UserInnerType } from '../types';
+import { IFetchUsersListSagaWorker, UserInnerType, UserType } from '../types';
 
 import { FETCH_USERS_LIST_SAGA } from '../constants';
 
@@ -20,11 +21,13 @@ async function getUserInfo(login: string, requestType: string) {
 }
 
 function* sagaWorker(action: IFetchUsersListSagaWorker) {
+  const user: UserType = yield select(userSelect);
+
   try {
     yield put(loadingFlag(true));
 
     const allData: UserInnerType[] = yield getUserInfo(
-      action.login,
+      user.login,
       action.requestType,
     );
 

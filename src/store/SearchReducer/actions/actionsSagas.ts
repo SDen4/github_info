@@ -18,10 +18,9 @@ export const searchSaga = (
   } as const;
 };
 
-export const fetchUsersListSaga = (login: string, requestType: string) => {
+export const fetchUsersListSaga = (requestType: string) => {
   return {
     type: CONST.FETCH_USERS_LIST_SAGA,
-    login,
     requestType,
   } as const;
 };
