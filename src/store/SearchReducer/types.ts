@@ -92,5 +92,4 @@ export interface IFetchUsersListSagaWorker {
 
 export interface IReposListSagaWorker {
   type: typeof REPOS_LIST_SAGA;
-  login: string;
 }

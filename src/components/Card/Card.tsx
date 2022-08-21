@@ -63,7 +63,7 @@ const Card: React.FC = (): JSX.Element => {
   };
 
   const onReposClickHandler = () => {
-    dispatch(reposListSaga(user.login));
+    dispatch(reposListSaga());
   };
 
   const onClickAddBtnHandler = () => {

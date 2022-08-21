@@ -1,4 +1,4 @@
-import { put, takeEvery } from 'redux-saga/effects';
+import { put, select, takeEvery } from 'redux-saga/effects';
 
 import { API } from '../../../api/API';
 import {
@@ -7,8 +7,9 @@ import {
   loadingFlag,
   reposOpenedListFlag,
 } from '../actions/actions';
+import { userSelect } from '../selectors';
 
-import { IRepoItem, IReposListSagaWorker } from '../types';
+import { IRepoItem, UserType } from '../types';
 
 import { REPOS_LIST_SAGA } from '../constants';
 
@@ -17,11 +18,13 @@ async function getReposInfo(login: string) {
   return response;
 }
 
-function* sagaWorker(action: IReposListSagaWorker) {
+function* sagaWorker() {
+  const user: UserType = yield select(userSelect);
+
   try {
     yield put(loadingFlag(true));
 
-    const allRepos: IRepoItem[] = yield getReposInfo(action.login);
+    const allRepos: IRepoItem[] = yield getReposInfo(user.login);
 
     yield put(fetchReposList(allRepos));
     yield put(reposOpenedListFlag(true));

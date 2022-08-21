@@ -31,10 +31,9 @@ export const getLocalHistorySaga = () => {
   } as const;
 };
 
-export const reposListSaga = (login: string) => {
+export const reposListSaga = () => {
   return {
     type: CONST.REPOS_LIST_SAGA,
-    login,
   } as const;
 };
 
