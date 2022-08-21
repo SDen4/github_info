@@ -17,11 +17,11 @@ import {
 } from '../../store/SearchReducer/actions/actions';
 import { searchSaga } from '../../store/SearchReducer/actions/actionsSagas';
 import {
-  currentUserLoginSelect,
   isMobileSelect,
   loadingSelect,
   reposListOpenedSelect,
   searchListSelect,
+  userSelect,
   usersListOpenedSelect,
 } from '../../store/SearchReducer/selectors';
 
@@ -32,14 +32,14 @@ const SearchHistoryList: React.FC = () => {
 
   const searchList = useSelector(searchListSelect);
   const favoriteList = useSelector(favoriteListSelect);
-  const currentUserLogin = useSelector(currentUserLoginSelect);
+  const user = useSelector(userSelect);
   const usersListOpened = useSelector(usersListOpenedSelect);
   const reposListOpened = useSelector(reposListOpenedSelect);
   const isMobile = useSelector(isMobileSelect);
   const loading = useSelector(loadingSelect);
 
   const searchHistoriListBtnHandler = (login: string) => {
-    if (login === currentUserLogin) {
+    if (login === user.login) {
       if (usersListOpened) {
         dispatch(userListOpenedFlag(false));
       }

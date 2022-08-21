@@ -17,7 +17,7 @@ import {
   favoriteListSelect,
   noteSelect,
 } from '../../store/FavoriteReduser/selectors';
-import { currentUserLoginSelect } from '../../store/SearchReducer/selectors';
+import { userSelect } from '../../store/SearchReducer/selectors';
 
 import styles from './styles.module.css';
 
@@ -25,7 +25,7 @@ const Note: React.FC = () => {
   const dispatch = useDispatch();
   const ref: any = useRef();
 
-  const login = useSelector(currentUserLoginSelect);
+  const user = useSelector(userSelect);
   const note = useSelector(noteSelect);
   const favorites = useSelector(favoriteListSelect);
 
@@ -53,7 +53,7 @@ const Note: React.FC = () => {
   const onSubmitHandler = (event: React.SyntheticEvent) => {
     event.preventDefault();
 
-    if (favorites.find((el) => el.name === login)) {
+    if (favorites.find((el) => el.name === user.login)) {
       // user is in favorites yet
 
       dispatch(noteSave(value));
@@ -61,8 +61,8 @@ const Note: React.FC = () => {
       dispatch(noteBtnFlag(true));
       setValue('');
 
-      const newfavoriteUser = { name: login, note: value };
-      const findUser: any = favorites.find((el) => el.name === login);
+      const newfavoriteUser = { name: user.login, note: value };
+      const findUser: any = favorites.find((el) => el.name === user.login);
       const index = favorites.indexOf(findUser);
       const newFavorites = [...favorites];
       newFavorites[index] = newfavoriteUser;
@@ -77,7 +77,7 @@ const Note: React.FC = () => {
       dispatch(noteBtnFlag(true));
       setValue('');
 
-      const newfavoriteUser = { name: login, note: value };
+      const newfavoriteUser = { name: user.login, note: value };
       dispatch(fetchFavoriteListAdd(newfavoriteUser));
       localStorage.setItem(
         'favorite',
@@ -94,8 +94,8 @@ const Note: React.FC = () => {
       setValue('');
 
       const newfavoriteUserList = favorites.map((el) => {
-        if (el.name === login) {
-          return { name: login };
+        if (el.name === user.login) {
+          return { name: user.login };
         }
         return el;
       });
@@ -150,7 +150,7 @@ const Note: React.FC = () => {
         <div className={styles.noteModal}>
           <span>
             Are you sure to delete the note of{' '}
-            <span className={styles.colorText}>{login}</span>?
+            <span className={styles.colorText}>{user.login}</span>?
           </span>
           <div className={styles.btnsModalWrapper}>
             <button type="button" onClick={() => onBtnModalHandler(true)}>

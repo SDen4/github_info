@@ -50,16 +50,8 @@ export const userSelect = createSelector(
   (store: AppStateType) => store.search.user,
   (user) => user,
 );
-export const currentUserLoginSelect = createSelector(
-  (store: AppStateType) => store.search.user.login,
-  (currentUserLogin) => currentUserLogin,
-);
 export const searchListSelect = createSelector(
   (store: AppStateType) => store.search.searchHistory,
-  (searchHistory) => searchHistory,
-);
-export const historyLengthSelect = createSelector(
-  (store: AppStateType) => store.search.searchHistory.length,
   (searchHistory) => searchHistory,
 );
 export const textModalSelect = createSelector(

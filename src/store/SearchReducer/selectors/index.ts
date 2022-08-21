@@ -11,11 +11,9 @@ export {
   loadingSelect,
   modalFlagSelect,
   userSelect,
-  currentUserLoginSelect,
   searchListSelect,
   textModalSelect,
   modalTypeSelect,
   lastRequestTypeSelect,
   usersListSelect,
-  historyLengthSelect,
 } from './selectors';

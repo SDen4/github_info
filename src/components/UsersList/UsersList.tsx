@@ -10,9 +10,9 @@ import {
   userListOpenedFlag,
 } from '../../store/SearchReducer/actions/actions';
 import {
-  currentUserLoginSelect,
   lastRequestTypeSelect,
   loadingSelect,
+  userSelect,
   usersListSelect,
 } from '../../store/SearchReducer/selectors';
 import { UserInnerType } from '$store/SearchReducer/types';
@@ -22,8 +22,8 @@ import styles from './styles.module.css';
 const UsersList: React.FC = () => {
   const dispatch = useDispatch();
 
+  const user = useSelector(userSelect);
   const users = useSelector(usersListSelect);
-  const login = useSelector(currentUserLoginSelect);
   const requestType = useSelector(lastRequestTypeSelect);
   const loading = useSelector(loadingSelect);
 
@@ -54,7 +54,7 @@ const UsersList: React.FC = () => {
                 onClick={loginBtnHandler}
                 className={styles.cardLogin}
               >
-                {login}
+                {user.login}
               </button>{' '}
             </span>
             hasn&#39;t any {requestType}

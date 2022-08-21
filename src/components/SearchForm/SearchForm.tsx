@@ -15,11 +15,11 @@ import {
 import { searchSaga } from '../../store/SearchReducer/actions/actionsSagas';
 import {
   cardOpenedSelect,
-  currentUserLoginSelect,
   isMobileSelect,
   reposListOpenedSelect,
   searchHistoryListFlagSelect,
   searchListSelect,
+  userSelect,
   usersListOpenedSelect,
 } from '../../store/SearchReducer/selectors';
 
@@ -40,7 +40,7 @@ const SearchForm: React.FC<IProps> = ({ searchFunc }) => {
   const reposListOpened = useSelector(reposListOpenedSelect);
   const usersListOpened = useSelector(usersListOpenedSelect);
   const searchHistory = useSelector(searchListSelect);
-  const login = useSelector(currentUserLoginSelect);
+  const user = useSelector(userSelect);
 
   const [searchLogin, setsearchLogin] = useState<string>('');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -99,7 +99,7 @@ const SearchForm: React.FC<IProps> = ({ searchFunc }) => {
   const onSubmitHandler = (event: React.SyntheticEvent) => {
     event.preventDefault();
 
-    if (searchLogin.toLocaleLowerCase() === login.toLocaleLowerCase()) {
+    if (searchLogin.toLocaleLowerCase() === user.login.toLocaleLowerCase()) {
       setsearchLogin('');
       setDisabledBtn(true);
       return;

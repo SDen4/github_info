@@ -6,10 +6,6 @@ export const favoriteListSelect = createSelector(
   (store: AppStateType) => store.favorite.favoriteList,
   (favoriteList) => favoriteList,
 );
-export const starNumSelect = createSelector(
-  (store: AppStateType) => store.favorite.favoriteList.length,
-  (f) => f,
-);
 export const favoriteUserSelect = createSelector(
   (store: AppStateType) => store.favorite.favoriteUser,
   (favoriteUser) => favoriteUser,

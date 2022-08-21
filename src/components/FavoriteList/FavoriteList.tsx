@@ -18,11 +18,11 @@ import {
 } from '../../store/SearchReducer/actions/actions';
 import { searchSaga } from '../../store/SearchReducer/actions/actionsSagas';
 import {
-  currentUserLoginSelect,
   isMobileSelect,
   loadingSelect,
   reposListOpenedSelect,
   searchListSelect,
+  userSelect,
   usersListOpenedSelect,
 } from '../../store/SearchReducer/selectors';
 
@@ -33,7 +33,7 @@ const FavoriteList: React.FC = () => {
 
   const favoriteList = useSelector(favoriteListSelect);
   const searchList = useSelector(searchListSelect);
-  const currentUserLogin = useSelector(currentUserLoginSelect);
+  const user = useSelector(userSelect);
   const usersListOpened = useSelector(usersListOpenedSelect);
   const reposListOpened = useSelector(reposListOpenedSelect);
   const isMobile = useSelector(isMobileSelect);
@@ -47,7 +47,7 @@ const FavoriteList: React.FC = () => {
   };
 
   const searchHistoriListBtnHandler = (login: string) => {
-    if (login === currentUserLogin) {
+    if (login === user.login) {
       if (usersListOpened) {
         dispatch(userListOpenedFlag(false));
       }
@@ -82,7 +82,7 @@ const FavoriteList: React.FC = () => {
     );
     dispatch(fetchFavoriteList(newFavoriteUsersList));
     localStorage.setItem('favorite', JSON.stringify(newFavoriteUsersList));
-    if (currentUserLogin === delElem) {
+    if (user.login === delElem) {
       dispatch(favoriteUserFlag(false));
     }
     setDeleteModal(false);

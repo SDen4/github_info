@@ -6,8 +6,8 @@ import { favoriteListFlag } from '../../store/FavoriteReduser/actions/actions';
 import { favoriteListFlagSelect } from '../../store/FavoriteReduser/selectors';
 import { searchHistoryListFlag } from '../../store/SearchReducer/actions/actions';
 import {
-  historyLengthSelect,
   searchHistoryListFlagSelect,
+  searchListSelect,
 } from '../../store/SearchReducer/selectors';
 
 import styles from './styles.module.css';
@@ -15,7 +15,7 @@ import styles from './styles.module.css';
 export const SearchHistoryButton: React.FC = memo(() => {
   const dispatch = useDispatch();
 
-  const historyLength = useSelector(historyLengthSelect);
+  const history = useSelector(searchListSelect);
   const searchHistoryListStatus = useSelector(searchHistoryListFlagSelect);
   const flFlag = useSelector(favoriteListFlagSelect);
 
@@ -39,7 +39,7 @@ export const SearchHistoryButton: React.FC = memo(() => {
       )}
       onClick={onSearchHistoryBtnHandler}
     >
-      Search history <span>({historyLength})</span>
+      Search history <span>({history.length})</span>
     </button>
   );
 });

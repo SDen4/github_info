@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import { favoriteListFlag } from '../../store/FavoriteReduser/actions/actions';
 import {
   favoriteListFlagSelect,
-  starNumSelect,
+  favoriteListSelect,
 } from '../../store/FavoriteReduser/selectors';
 import { searchHistoryListFlag } from '../../store/SearchReducer/actions/actions';
 import { searchHistoryListFlagSelect } from '../../store/SearchReducer/selectors';
@@ -16,7 +16,7 @@ export const FavoriteButton: React.FC = memo(() => {
   const dispatch = useDispatch();
 
   const favoriteListStatus = useSelector(favoriteListFlagSelect);
-  const starNum = useSelector(starNumSelect);
+  const favoriteList = useSelector(favoriteListSelect);
   const searchListFlag = useSelector(searchHistoryListFlagSelect);
 
   const showFavoriteListHandler = () => {
@@ -37,7 +37,7 @@ export const FavoriteButton: React.FC = memo(() => {
       onClick={showFavoriteListHandler}
     >
       <span className={styles.star}>&#9733;</span>
-      <span>{starNum}</span>
+      <span>{favoriteList.length}</span>
     </button>
   );
 });
