@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+
 import { FavoriteUser } from '../favorite/types';
 
 import {
