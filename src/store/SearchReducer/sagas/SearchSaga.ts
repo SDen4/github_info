@@ -19,7 +19,10 @@ import {
 } from '../actions/actions';
 import { isMobileSelect } from '../selectors';
 
-import { ISearhHistoryItem, SearchSagaWorkerType } from '../types';
+import {
+  ISearhHistoryItem,
+  SearchSagaWorkerType,
+} from '../../../model/search/types';
 
 import { SEARCH_LOGIN_SAGA } from '../constants';
 

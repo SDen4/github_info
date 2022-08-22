@@ -9,7 +9,7 @@ import {
 } from '../actions/actions';
 import { userSelect } from '../selectors';
 
-import { IRepoItem, UserType } from '../types';
+import { IRepoItem, UserType } from '../../../model/search/types';
 
 import { REPOS_LIST_SAGA } from '../constants';
 

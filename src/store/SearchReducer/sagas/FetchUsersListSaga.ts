@@ -9,7 +9,11 @@ import {
 } from '../actions/actions';
 import { userSelect } from '../selectors';
 
-import { IFetchUsersListSagaWorker, UserInnerType, UserType } from '../types';
+import {
+  IFetchUsersListSagaWorker,
+  UserInnerType,
+  UserType,
+} from '../../../model/search/types';
 
 import { FETCH_USERS_LIST_SAGA } from '../constants';
 

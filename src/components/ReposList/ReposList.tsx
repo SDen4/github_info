@@ -4,7 +4,8 @@ import { useSelector } from 'react-redux';
 import RepoItem from '../RepoItem';
 
 import { reposListSelect } from '../../store/SearchReducer/selectors';
-import { IRepoItem } from '$store/SearchReducer/types';
+
+import { IRepoItem } from '../../model/search/types';
 
 import styles from './styles.module.css';
 

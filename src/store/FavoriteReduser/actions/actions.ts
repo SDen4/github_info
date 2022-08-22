@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import { FavoriteUser } from '../types';
+import { FavoriteUser } from '../../../model/favorite/types';
 
 import * as CONST from '../constants';
 

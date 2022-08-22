@@ -5,7 +5,8 @@ import { Flex } from '../../ui/Flex';
 
 import { searchSaga } from '../../store/SearchReducer/actions/actionsSagas';
 import { searchListSelect } from '../../store/SearchReducer/selectors';
-import { UserInnerType } from '$store/SearchReducer/types';
+
+import { UserInnerType } from '../../model/search/types';
 
 import styles from './styles.module.css';
 

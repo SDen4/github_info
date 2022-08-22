@@ -15,7 +15,8 @@ import {
   userSelect,
   usersListSelect,
 } from '../../store/SearchReducer/selectors';
-import { UserInnerType } from '$store/SearchReducer/types';
+
+import { UserInnerType } from '../../model/search/types';
 
 import styles from './styles.module.css';
 

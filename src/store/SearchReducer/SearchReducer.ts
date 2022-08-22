@@ -1,6 +1,6 @@
 import { ActionsType } from './actions/actions';
 
-import { InitialStateType } from './types';
+import { InitialStateType } from '../../model/search/types';
 
 import { searchUserDefault } from '../../constants/searchConstants';
 import * as CONST from './constants';
