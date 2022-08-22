@@ -39,7 +39,7 @@ const SearchForm: React.FC<IProps> = ({ searchFunc }) => {
   const cardOpened = useSelector(cardOpenedSelect);
   const reposListOpened = useSelector(reposListOpenedSelect);
   const usersListOpened = useSelector(usersListOpenedSelect);
-  const searchHistory = useSelector(searchListSelect);
+  const searchList = useSelector(searchListSelect);
   const user = useSelector(userSelect);
 
   const [searchLogin, setsearchLogin] = useState<string>('');
@@ -105,7 +105,7 @@ const SearchForm: React.FC<IProps> = ({ searchFunc }) => {
       return;
     }
 
-    dispatch(searchSaga(searchLogin, searchHistory, favoritesList));
+    dispatch(searchSaga(searchLogin, searchList, favoritesList));
     searchFunc(searchLogin);
     setsearchLogin('');
     setDisabledBtn(true);

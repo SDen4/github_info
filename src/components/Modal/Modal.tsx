@@ -15,8 +15,8 @@ import {
   searchHistoryListFlag,
 } from '../../store/SearchReducer/actions/actions';
 import {
+  modalTextSelect,
   modalTypeSelect,
-  textModalSelect,
 } from '../../store/SearchReducer/selectors';
 
 import styles from './styles.module.css';
@@ -24,16 +24,16 @@ import styles from './styles.module.css';
 const Modal: React.FC = () => {
   const dispatch = useDispatch();
 
-  const textModal = useSelector(textModalSelect);
-  const type = useSelector(modalTypeSelect);
+  const modalText = useSelector(modalTextSelect);
+  const modalType = useSelector(modalTypeSelect);
 
   const onBtnsHandler = (delStatus: boolean) => {
     if (delStatus) {
-      if (type === 'search') {
+      if (modalType === 'search') {
         dispatch(searchHistoryListFlag(false));
         dispatch(fetchAllHistory([]));
         localStorage.removeItem('saves');
-      } else if (type === 'favorite') {
+      } else if (modalType === 'favorite') {
         dispatch(favoriteListFlag(false));
         dispatch(favoriteUserFlag(false));
         dispatch(fetchFavoriteList([]));
@@ -48,7 +48,7 @@ const Modal: React.FC = () => {
   return (
     <Flex className={styles.modalWrapper}>
       <div className={styles.modal}>
-        <span>{textModal}</span>
+        <span>{modalText}</span>
         <div className={styles.btnsWrapper}>
           <button type="button" onClick={() => onBtnsHandler(true)}>
             Delete

@@ -40,6 +40,6 @@ function* sagaWorker() {
   }
 }
 
-export function* InitFetchSagaWatcher() {
+export function* initFetchSagaWatcher() {
   yield takeEvery(SEARCH_INIT_SAGA, sagaWorker);
 }

@@ -19,6 +19,6 @@ function* sagaWorker() {
   }
 }
 
-export function* GetFavoriteListSagaWatcher() {
+export function* getFavoriteListSagaWatcher() {
   yield takeEvery(FAVORITE_LIST_SAGA, sagaWorker);
 }

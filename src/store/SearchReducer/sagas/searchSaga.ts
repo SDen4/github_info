@@ -116,6 +116,6 @@ function* sagaWorker(action: SearchSagaWorkerType) {
   }
 }
 
-export function* SearchSagaWatcher() {
+export function* searchSagaWatcher() {
   yield takeEvery(SEARCH_LOGIN_SAGA, sagaWorker);
 }

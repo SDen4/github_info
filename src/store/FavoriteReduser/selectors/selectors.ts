@@ -1,6 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-import { AppStateType } from '$store/RootReducer';
+import { AppStateType } from '$store/rootReducer';
 
 export const favoriteListSelect = createSelector(
   (store: AppStateType) => store.favorite.favoriteList,
@@ -18,7 +18,7 @@ export const noteSelect = createSelector(
   (store: AppStateType) => store.favorite.note,
   (note) => note,
 );
-export const noteStoreFlagSelect = createSelector(
+export const noteFlagSelect = createSelector(
   (store: AppStateType) => store.favorite.noteFlag,
   (noteFlag) => noteFlag,
 );

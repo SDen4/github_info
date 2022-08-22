@@ -17,10 +17,10 @@ export interface IProps {
 const UserItem: React.FC<IProps> = ({ user }) => {
   const dispatch = useDispatch();
 
-  const history = useSelector(searchListSelect);
+  const searchList = useSelector(searchListSelect);
 
   const itemBthHandler = () => {
-    dispatch(searchSaga(user.login, history));
+    dispatch(searchSaga(user.login, searchList));
   };
 
   return (

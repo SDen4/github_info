@@ -19,6 +19,6 @@ function* sagaWorker() {
   }
 }
 
-export function* GetLocalHistorySagaWatcher() {
+export function* getLocalHistorySagaWatcher() {
   yield takeEvery(GET_LOCAL_HISTORY_SAGA, sagaWorker);
 }

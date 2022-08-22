@@ -81,10 +81,10 @@ export const fetchUsersList = (
   } as const;
 };
 
-export const fetchSearhHistory = (searchHistory: ISearhHistoryItem) => {
+export const fetchSearhHistory = (searchList: ISearhHistoryItem) => {
   return {
     type: CONST.FETCH_SEARCH_HISTORY,
-    searchHistory,
+    searchList,
   } as const;
 };
 

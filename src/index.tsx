@@ -6,8 +6,8 @@ import createSagaMiddleware from 'redux-saga';
 
 import App from './App';
 
-import { RootReducer } from './store/RootReducer';
-import RootSaga from './store/RootSaga';
+import { rootReducer } from './store/rootReducer';
+import rootSaga from './store/rootSaga';
 
 import './index.css';
 
@@ -19,9 +19,9 @@ declare global {
   }
 }
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(RootReducer, composeEnhancers(applyMiddleware(saga)));
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(saga)));
 
-saga.run(RootSaga);
+saga.run(rootSaga);
 
 ReactDOM.render(
   <Provider store={store}>

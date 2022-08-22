@@ -12,7 +12,7 @@ export {
   modalFlagSelect,
   userSelect,
   searchListSelect,
-  textModalSelect,
+  modalTextSelect,
   modalTypeSelect,
   lastRequestTypeSelect,
   usersListSelect,

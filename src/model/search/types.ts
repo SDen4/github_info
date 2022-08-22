@@ -67,7 +67,7 @@ export interface InitialStateType {
   cardOpened: boolean;
   loading: boolean;
   error: boolean;
-  searchHistory: ISearhHistoryItem[];
+  searchList: ISearhHistoryItem[];
   searchHistoryListFlag: boolean;
   modalFlag: boolean;
   modalText: string;

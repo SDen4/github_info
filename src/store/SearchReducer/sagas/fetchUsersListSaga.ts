@@ -47,6 +47,6 @@ function* sagaWorker(action: IFetchUsersListSagaWorker) {
   }
 }
 
-export function* FetchUsersListSagaWatcher() {
+export function* fetchUsersListSagaWatcher() {
   yield takeEvery(FETCH_USERS_LIST_SAGA, sagaWorker);
 }

@@ -3,6 +3,6 @@ export {
   favoriteUserSelect,
   noteBtnFlagSelect,
   noteSelect,
-  noteStoreFlagSelect,
+  noteFlagSelect,
   favoriteListFlagSelect,
 } from './selectors';

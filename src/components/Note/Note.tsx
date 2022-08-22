@@ -27,7 +27,7 @@ const Note: React.FC = () => {
 
   const user = useSelector(userSelect);
   const note = useSelector(noteSelect);
-  const favorites = useSelector(favoriteListSelect);
+  const favoriteList = useSelector(favoriteListSelect);
 
   useEffect(() => {
     ref.current.focus();
@@ -53,8 +53,8 @@ const Note: React.FC = () => {
   const onSubmitHandler = (event: React.SyntheticEvent) => {
     event.preventDefault();
 
-    if (favorites.find((el) => el.name === user.login)) {
-      // user is in favorites yet
+    if (favoriteList.find((el) => el.name === user.login)) {
+      // user is in favoriteList yet
 
       dispatch(noteSave(value));
       dispatch(noteFlag(false));
@@ -62,15 +62,15 @@ const Note: React.FC = () => {
       setValue('');
 
       const newfavoriteUser = { name: user.login, note: value };
-      const findUser: any = favorites.find((el) => el.name === user.login);
-      const index = favorites.indexOf(findUser);
-      const newFavorites = [...favorites];
+      const findUser: any = favoriteList.find((el) => el.name === user.login);
+      const index = favoriteList.indexOf(findUser);
+      const newFavorites = [...favoriteList];
       newFavorites[index] = newfavoriteUser;
 
       dispatch(fetchFavoriteList(newFavorites));
       localStorage.setItem('favorite', JSON.stringify(newFavorites));
     } else {
-      // user isn't in favorites yet
+      // user isn't in favoriteList yet
 
       dispatch(noteSave(value));
       dispatch(noteFlag(false));
@@ -81,7 +81,7 @@ const Note: React.FC = () => {
       dispatch(fetchFavoriteListAdd(newfavoriteUser));
       localStorage.setItem(
         'favorite',
-        JSON.stringify([...favorites, newfavoriteUser]),
+        JSON.stringify([...favoriteList, newfavoriteUser]),
       );
 
       dispatch(favoriteUserFlag(true));
@@ -93,7 +93,7 @@ const Note: React.FC = () => {
     if (action) {
       setValue('');
 
-      const newfavoriteUserList = favorites.map((el) => {
+      const newfavoriteUserList = favoriteList.map((el) => {
         if (el.name === user.login) {
           return { name: user.login };
         }
@@ -140,7 +140,7 @@ const Note: React.FC = () => {
               className={clsx(!value && styles.buttonUnactive)}
               disabled={!value}
             >
-              Save and add to favorites
+              Save and add to favorite list
             </button>
           </div>
         </footer>

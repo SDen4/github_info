@@ -15,7 +15,7 @@ const initialState: InitialStateType = {
   cardOpened: false,
   loading: false,
   error: false,
-  searchHistory: [],
+  searchList: [],
   searchHistoryListFlag: false,
   modalFlag: false,
   modalText: '',
@@ -25,7 +25,7 @@ const initialState: InitialStateType = {
   isMobileStart: true,
 };
 
-export const SearchReducer = (
+export const searchReducer = (
   state = initialState,
   action: ActionsType,
 ): typeof state => {
@@ -73,11 +73,11 @@ export const SearchReducer = (
     case CONST.FETCH_SEARCH_HISTORY:
       return {
         ...state,
-        searchHistory: [...state.searchHistory, action.searchHistory],
+        searchList: [...state.searchList, action.searchList],
       };
 
     case CONST.FETCH_ALL_HISTORY:
-      return { ...state, searchHistory: action.allSearchHistory };
+      return { ...state, searchList: action.allSearchHistory };
 
     case CONST.SEARCH_HISTORY_LIST_FLAG:
       return { ...state, searchHistoryListFlag: action.searchHistoryListFlag };

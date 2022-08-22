@@ -10,7 +10,7 @@ import { searchListSelect } from '../../store/SearchReducer/selectors';
 import styles from './styles.module.css';
 
 export const Header: React.FC = () => {
-  const searchHistory = useSelector(searchListSelect);
+  const searchList = useSelector(searchListSelect);
   const favoriteList = useSelector(favoriteListSelect);
 
   return (
@@ -18,7 +18,7 @@ export const Header: React.FC = () => {
       <h1>Find github&apos;s user</h1>
 
       <div className={styles.buttonsWrapper}>
-        {searchHistory.length ? <SearchHistoryButton /> : ''}
+        {searchList.length ? <SearchHistoryButton /> : ''}
         {favoriteList.length ? <FavoriteButton /> : ''}
       </div>
     </header>

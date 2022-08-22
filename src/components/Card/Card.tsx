@@ -21,8 +21,8 @@ import {
   favoriteListSelect,
   favoriteUserSelect,
   noteBtnFlagSelect,
+  noteFlagSelect,
   noteSelect,
-  noteStoreFlagSelect,
 } from '../../store/FavoriteReduser/selectors';
 import {
   cardOpenedFlag,
@@ -43,7 +43,7 @@ const Card: React.FC = (): JSX.Element => {
   const favoriteUser = useSelector(favoriteUserSelect);
   const noteBtnFlag = useSelector(noteBtnFlagSelect);
   const note = useSelector(noteSelect);
-  const noteStoreFlag = useSelector(noteStoreFlagSelect);
+  const noteStoreFlag = useSelector(noteFlagSelect);
   const user = useSelector(userSelect);
   const loading = useSelector(loadingSelect);
 

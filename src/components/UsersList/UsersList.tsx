@@ -24,8 +24,8 @@ const UsersList: React.FC = () => {
   const dispatch = useDispatch();
 
   const user = useSelector(userSelect);
-  const users = useSelector(usersListSelect);
-  const requestType = useSelector(lastRequestTypeSelect);
+  const usersList = useSelector(usersListSelect);
+  const lastRequestType = useSelector(lastRequestTypeSelect);
   const loading = useSelector(loadingSelect);
 
   const loginBtnHandler = () => {
@@ -36,9 +36,9 @@ const UsersList: React.FC = () => {
 
   return (
     <div className={clsx(styles.listWrapper, loading && styles.hide)}>
-      {users.length ? (
+      {usersList.length ? (
         <ul className={styles.listWrapperUl}>
-          {users.map((el: UserInnerType) => (
+          {usersList.map((el: UserInnerType) => (
             <li key={el.login}>
               <UserItem user={el} />
             </li>
@@ -58,7 +58,7 @@ const UsersList: React.FC = () => {
                 {user.login}
               </button>{' '}
             </span>
-            hasn&#39;t any {requestType}
+            hasn&#39;t any {lastRequestType}
           </h2>
         </div>
       )}

@@ -1,6 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-import { AppStateType } from '$store/RootReducer';
+import { AppStateType } from '$store/rootReducer';
 
 export const isMobileStartSelect = createSelector(
   (store: AppStateType) => store.search.isMobileStart,
@@ -51,10 +51,10 @@ export const userSelect = createSelector(
   (user) => user,
 );
 export const searchListSelect = createSelector(
-  (store: AppStateType) => store.search.searchHistory,
-  (searchHistory) => searchHistory,
+  (store: AppStateType) => store.search.searchList,
+  (searchList) => searchList,
 );
-export const textModalSelect = createSelector(
+export const modalTextSelect = createSelector(
   (store: AppStateType) => store.search.modalText,
   (modalText) => modalText,
 );

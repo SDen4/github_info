@@ -37,6 +37,6 @@ function* sagaWorker() {
   }
 }
 
-export function* ReposListSagaWatcher() {
+export function* reposListSagaWatcher() {
   yield takeEvery(REPOS_LIST_SAGA, sagaWorker);
 }

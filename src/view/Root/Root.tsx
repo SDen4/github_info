@@ -12,7 +12,7 @@ import { favoriteListFlag } from '../../store/FavoriteReduser/actions/actions';
 import {
   favoriteListFlagSelect,
   favoriteListSelect,
-  noteStoreFlagSelect,
+  noteFlagSelect,
 } from '../../store/FavoriteReduser/selectors';
 import {
   cardOpenedFlag,
@@ -54,7 +54,7 @@ const Root: React.FC = () => {
 
   const flFlag = useSelector(favoriteListFlagSelect);
   const favoriteList = useSelector(favoriteListSelect);
-  const noteFlag = useSelector(noteStoreFlagSelect);
+  const noteFlag = useSelector(noteFlagSelect);
   const isMobileStart = useSelector(isMobileStartSelect);
   const isMobile = useSelector(isMobileSelect);
   const cardOpened = useSelector(cardOpenedSelect);

@@ -14,7 +14,7 @@ const InitialState: InitialFavoriteStateType = {
   note: '',
 };
 
-export const FavoriteReducer = (
+export const favoriteReducer = (
   state = InitialState,
   action: ActionsType,
 ): typeof state => {
