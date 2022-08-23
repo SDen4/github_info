@@ -1,14 +1,13 @@
 /* eslint-disable camelcase */
 
-import { FavoriteUser } from '../favorite/types';
+import { IFavoriteUser } from '../favorite/types';
 
 import {
   FETCH_USERS_LIST_SAGA,
-  REPOS_LIST_SAGA,
   SEARCH_LOGIN_SAGA,
 } from '../../store/SearchReducer/constants';
 
-export interface UserInnerType {
+export interface IUserInner {
   name: string;
   login: string;
   followers_url: string;
@@ -24,7 +23,7 @@ export interface UserInnerType {
   location?: string;
 }
 
-export interface UserType {
+export interface IUser {
   name: string;
   login: string;
   followersUrl: string;
@@ -57,9 +56,9 @@ export interface IRepoItem {
   watchers: number;
 }
 
-export interface InitialStateType {
-  user: UserType;
-  usersList: UserInnerType[];
+export interface IInitialState {
+  user: IUser;
+  usersList: IUserInner[];
   reposList: IRepoItem[];
   lastRequestType: string;
   usersListOpened: boolean;
@@ -77,19 +76,15 @@ export interface InitialStateType {
   isMobileStart: boolean;
 }
 
-export interface SearchSagaWorkerType {
+export interface ISearchSaga {
   type: typeof SEARCH_LOGIN_SAGA;
   login: string;
   history: ISearhHistoryItem[];
-  favoritesList?: FavoriteUser[];
+  favoritesList?: IFavoriteUser[];
 }
 
-export interface IFetchUsersListSagaWorker {
+export interface IFetchUsersListSaga {
   type: typeof FETCH_USERS_LIST_SAGA;
   login: string;
   requestType: string;
-}
-
-export interface IReposListSagaWorker {
-  type: typeof REPOS_LIST_SAGA;
 }

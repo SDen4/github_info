@@ -9,7 +9,7 @@ import {
 } from '../actions/actions';
 import { userSelect } from '../selectors';
 
-import { IRepoItem, UserType } from '../../../model/search/types';
+import { IRepoItem, IUser } from '../../../model/search/types';
 
 import { REPOS_LIST_SAGA } from '../constants';
 
@@ -19,7 +19,7 @@ async function getReposInfo(login: string) {
 }
 
 function* sagaWorker() {
-  const user: UserType = yield select(userSelect);
+  const user: IUser = yield select(userSelect);
 
   try {
     yield put(loadingFlag(true));

@@ -19,10 +19,7 @@ import {
 } from '../actions/actions';
 import { isMobileSelect } from '../selectors';
 
-import {
-  ISearhHistoryItem,
-  SearchSagaWorkerType,
-} from '../../../model/search/types';
+import { ISearchSaga, ISearhHistoryItem } from '../../../model/search/types';
 
 import { SEARCH_LOGIN_SAGA } from '../constants';
 
@@ -39,7 +36,7 @@ async function getLastActivityDate(login: string) {
   return response;
 }
 
-function* sagaWorker(action: SearchSagaWorkerType) {
+function* sagaWorker(action: ISearchSaga) {
   const isMobile: boolean = yield select(isMobileSelect);
 
   try {

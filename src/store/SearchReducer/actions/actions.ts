@@ -2,7 +2,7 @@
 import {
   IRepoItem,
   ISearhHistoryItem,
-  UserInnerType,
+  IUserInner,
 } from '../../../model/search/types';
 
 import * as CONST from '../constants';
@@ -71,7 +71,7 @@ export const userListOpenedFlag = (userListFlag: boolean) => {
 };
 
 export const fetchUsersList = (
-  usersList: UserInnerType[],
+  usersList: IUserInner[],
   lastRequestType: string,
 ) => {
   return {

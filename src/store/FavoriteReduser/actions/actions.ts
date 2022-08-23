@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import { FavoriteUser } from '../../../model/favorite/types';
+import { IFavoriteUser } from '../../../model/favorite/types';
 
 import * as CONST from '../constants';
 
@@ -10,14 +10,14 @@ export const setFavoriteBtnFlag = (favoriteBtnFlag: boolean) => {
   } as const;
 };
 
-export const fetchFavoriteList = (favoriteList: FavoriteUser[]) => {
+export const fetchFavoriteList = (favoriteList: IFavoriteUser[]) => {
   return {
     type: CONST.FAVORITE_LIST,
     favoriteList,
   } as const;
 };
 
-export const fetchFavoriteListAdd = (favoriteList: FavoriteUser) => {
+export const fetchFavoriteListAdd = (favoriteList: IFavoriteUser) => {
   return {
     type: CONST.FAVORITE_LIST_ADD,
     favoriteList,

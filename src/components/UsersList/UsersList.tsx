@@ -16,7 +16,7 @@ import {
   usersListSelect,
 } from '../../store/SearchReducer/selectors';
 
-import { UserInnerType } from '../../model/search/types';
+import { IUserInner } from '../../model/search/types';
 
 import styles from './styles.module.css';
 
@@ -38,7 +38,7 @@ const UsersList: React.FC = () => {
     <div className={clsx(styles.listWrapper, loading && styles.hide)}>
       {usersList.length ? (
         <ul className={styles.listWrapperUl}>
-          {usersList.map((el: UserInnerType) => (
+          {usersList.map((el: IUserInner) => (
             <li key={el.login}>
               <UserItem user={el} />
             </li>

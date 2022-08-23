@@ -1,10 +1,10 @@
 import { ActionsType } from './actions/actions';
 
-import { InitialFavoriteStateType } from '../../model/favorite/types';
+import { IInitialFavoriteState } from '../../model/favorite/types';
 
 import * as CONST from './constants';
 
-const InitialState: InitialFavoriteStateType = {
+const InitialState: IInitialFavoriteState = {
   favoriteBtnFlag: false,
   favoriteListFlag: false,
   favoriteList: [],

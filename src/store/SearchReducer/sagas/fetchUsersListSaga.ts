@@ -10,9 +10,9 @@ import {
 import { userSelect } from '../selectors';
 
 import {
-  IFetchUsersListSagaWorker,
-  UserInnerType,
-  UserType,
+  IFetchUsersListSaga,
+  IUser,
+  IUserInner,
 } from '../../../model/search/types';
 
 import { FETCH_USERS_LIST_SAGA } from '../constants';
@@ -24,13 +24,13 @@ async function getUserInfo(login: string, requestType: string) {
   return response;
 }
 
-function* sagaWorker(action: IFetchUsersListSagaWorker) {
-  const user: UserType = yield select(userSelect);
+function* sagaWorker(action: IFetchUsersListSaga) {
+  const user: IUser = yield select(userSelect);
 
   try {
     yield put(loadingFlag(true));
 
-    const allData: UserInnerType[] = yield getUserInfo(
+    const allData: IUserInner[] = yield getUserInfo(
       user.login,
       action.requestType,
     );

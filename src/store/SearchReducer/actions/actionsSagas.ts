@@ -1,4 +1,4 @@
-import { FavoriteUser } from '../../../model/favorite/types';
+import { IFavoriteUser } from '../../../model/favorite/types';
 import { ISearhHistoryItem } from '../../../model/search/types';
 
 import * as CONST from '../constants';
@@ -6,7 +6,7 @@ import * as CONST from '../constants';
 export const searchSaga = (
   login: string,
   history: ISearhHistoryItem[],
-  favoritesList?: FavoriteUser[],
+  favoritesList?: IFavoriteUser[],
 ) => {
   return {
     type: CONST.SEARCH_LOGIN_SAGA,
