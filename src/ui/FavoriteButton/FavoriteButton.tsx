@@ -2,30 +2,30 @@ import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
-import { favoriteListFlag } from '../../store/FavoriteReduser/actions/actions';
+import { setFavoriteList } from '../../store/FavoriteReduser/actions/actions';
 import {
-  favoriteListFlagSelect,
   favoriteListSelect,
+  isFavoriteListSelect,
 } from '../../store/FavoriteReduser/selectors';
-import { searchHistoryListFlag } from '../../store/SearchReducer/actions/actions';
-import { searchHistoryListFlagSelect } from '../../store/SearchReducer/selectors';
+import { setSearchList } from '../../store/SearchReducer/actions/actions';
+import { isSearchListSelect } from '../../store/SearchReducer/selectors';
 
 import styles from './styles.module.css';
 
 export const FavoriteButton: React.FC = memo(() => {
   const dispatch = useDispatch();
 
-  const favoriteListStatus = useSelector(favoriteListFlagSelect);
+  const isFavoriteList = useSelector(isFavoriteListSelect);
   const favoriteList = useSelector(favoriteListSelect);
-  const searchListFlag = useSelector(searchHistoryListFlagSelect);
+  const searchListFlag = useSelector(isSearchListSelect);
 
   const showFavoriteListHandler = () => {
-    if (favoriteListStatus) {
-      dispatch(favoriteListFlag(false));
+    if (isFavoriteList) {
+      dispatch(setFavoriteList(false));
     } else {
-      dispatch(favoriteListFlag(true));
+      dispatch(setFavoriteList(true));
       if (searchListFlag) {
-        dispatch(searchHistoryListFlag(false));
+        dispatch(setSearchList(false));
       }
     }
   };
@@ -33,7 +33,7 @@ export const FavoriteButton: React.FC = memo(() => {
   return (
     <button
       type="button"
-      className={clsx(favoriteListStatus && styles.buttonActive, styles.button)}
+      className={clsx(isFavoriteList && styles.buttonActive, styles.button)}
       onClick={showFavoriteListHandler}
     >
       <span className={styles.star}>&#9733;</span>

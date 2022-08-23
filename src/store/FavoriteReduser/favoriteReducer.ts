@@ -5,12 +5,12 @@ import { IInitialFavoriteState } from '../../model/favorite/types';
 import * as CONST from './constants';
 
 const InitialState: IInitialFavoriteState = {
-  favoriteBtnFlag: false,
-  favoriteListFlag: false,
+  isFavoriteBtn: false,
+  isFavoriteList: false,
+  isFavoriteUser: false,
+  isNote: false,
+  isNoteBtn: false,
   favoriteList: [],
-  favoriteUser: false,
-  noteFlag: false,
-  noteBtnFlag: false,
   note: '',
 };
 
@@ -20,7 +20,7 @@ export const favoriteReducer = (
 ): typeof state => {
   switch (action.type) {
     case CONST.FAVORITE_BTN_FLAG:
-      return { ...state, favoriteBtnFlag: action.favoriteBtnFlag };
+      return { ...state, isFavoriteBtn: action.isFavoriteBtn };
 
     case CONST.FAVORITE_LIST:
       return { ...state, favoriteList: action.favoriteList };
@@ -32,19 +32,19 @@ export const favoriteReducer = (
       };
 
     case CONST.FAVORITE_LIST_FLAG:
-      return { ...state, favoriteListFlag: action.favoriteListFlag };
+      return { ...state, isFavoriteList: action.isFavoriteList };
 
     case CONST.FAVORITE_USER_FLAG:
-      return { ...state, favoriteUser: action.favoriteUserFlag };
+      return { ...state, isFavoriteUser: action.isFavoriteUser };
 
     case CONST.NOTE_FLAG:
-      return { ...state, noteFlag: action.noteFlag };
+      return { ...state, isNote: action.isNote };
 
     case CONST.NOTE_SAVE:
       return { ...state, note: action.note };
 
     case CONST.NOTE_BTN_FLAG:
-      return { ...state, noteBtnFlag: action.noteBtnFlag };
+      return { ...state, isNoteBtn: action.isNoteBtn };
 
     default:
       return state;

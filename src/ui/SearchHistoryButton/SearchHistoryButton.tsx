@@ -2,11 +2,11 @@ import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
-import { favoriteListFlag } from '../../store/FavoriteReduser/actions/actions';
-import { favoriteListFlagSelect } from '../../store/FavoriteReduser/selectors';
-import { searchHistoryListFlag } from '../../store/SearchReducer/actions/actions';
+import { setFavoriteList } from '../../store/FavoriteReduser/actions/actions';
+import { isFavoriteListSelect } from '../../store/FavoriteReduser/selectors';
+import { setSearchList } from '../../store/SearchReducer/actions/actions';
 import {
-  searchHistoryListFlagSelect,
+  isSearchListSelect,
   searchListSelect,
 } from '../../store/SearchReducer/selectors';
 
@@ -16,16 +16,16 @@ export const SearchHistoryButton: React.FC = memo(() => {
   const dispatch = useDispatch();
 
   const history = useSelector(searchListSelect);
-  const searchHistoryListStatus = useSelector(searchHistoryListFlagSelect);
-  const flFlag = useSelector(favoriteListFlagSelect);
+  const searchHistoryListStatus = useSelector(isSearchListSelect);
+  const isFavoriteList = useSelector(isFavoriteListSelect);
 
   const onSearchHistoryBtnHandler = () => {
     if (searchHistoryListStatus) {
-      dispatch(searchHistoryListFlag(false));
+      dispatch(setSearchList(false));
     } else {
-      dispatch(searchHistoryListFlag(true));
-      if (flFlag) {
-        dispatch(favoriteListFlag(false));
+      dispatch(setSearchList(true));
+      if (isFavoriteList) {
+        dispatch(setFavoriteList(false));
       }
     }
   };

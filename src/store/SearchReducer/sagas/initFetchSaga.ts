@@ -2,10 +2,10 @@ import { all, put, takeEvery } from 'redux-saga/effects';
 
 import { getFavoriteListSaga } from '../../FavoriteReduser/actions/actions';
 import {
-  errorFlag,
-  loadingFlag,
-  searchIsAndroid,
-  searchIsMobile,
+  setAndroid,
+  setError,
+  setLoading,
+  setMobile,
 } from '../actions/actions';
 import { getLocalHistorySaga } from '../actions/actionsSagas';
 
@@ -17,17 +17,17 @@ function* sagaWorker() {
     // detect mobiles
     const width: number = yield document.documentElement.clientWidth;
     if (width <= mobileWidth) {
-      yield put(searchIsMobile(true));
+      yield put(setMobile(true));
 
       // detect mobile platform
       const platform: string = yield navigator.userAgent;
       if (platform.toLocaleLowerCase().includes('android')) {
-        yield put(searchIsAndroid(true));
+        yield put(setAndroid(true));
       } else {
-        yield put(searchIsAndroid(false));
+        yield put(setAndroid(false));
       }
     } else {
-      yield put(searchIsMobile(false));
+      yield put(setMobile(false));
     }
 
     // get elements from localstorage
@@ -36,7 +36,7 @@ function* sagaWorker() {
   } catch (error) {
     // eslint-disable-next-line no-console
     console.log(error);
-    yield all([put(loadingFlag(false)), put(errorFlag(true))]);
+    yield all([put(setLoading(false)), put(setError(true))]);
   }
 }
 

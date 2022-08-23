@@ -3,10 +3,10 @@ import { IFavoriteUser } from '../../../model/favorite/types';
 
 import * as CONST from '../constants';
 
-export const setFavoriteBtnFlag = (favoriteBtnFlag: boolean) => {
+export const setFavoriteBtnFlag = (isFavoriteBtn: boolean) => {
   return {
     type: CONST.FAVORITE_BTN_FLAG,
-    favoriteBtnFlag,
+    isFavoriteBtn,
   } as const;
 };
 
@@ -30,38 +30,38 @@ export const getFavoriteListSaga = () => {
   } as const;
 };
 
-export const favoriteListFlag = (favoriteListFlag: boolean) => {
+export const setFavoriteList = (isFavoriteList: boolean) => {
   return {
     type: CONST.FAVORITE_LIST_FLAG,
-    favoriteListFlag,
+    isFavoriteList,
   } as const;
 };
 
-export const favoriteUserFlag = (favoriteUserFlag: boolean) => {
+export const setFavoriteUser = (isFavoriteUser: boolean) => {
   return {
     type: CONST.FAVORITE_USER_FLAG,
-    favoriteUserFlag,
+    isFavoriteUser,
   } as const;
 };
 
-export const noteFlag = (noteFlag: boolean) => {
+export const setNote = (isNote: boolean) => {
   return {
     type: CONST.NOTE_FLAG,
-    noteFlag,
+    isNote,
   } as const;
 };
 
-export const noteSave = (note: string) => {
+export const fetchNote = (note: string) => {
   return {
     type: CONST.NOTE_SAVE,
     note,
   } as const;
 };
 
-export const noteBtnFlag = (noteBtnFlag: boolean) => {
+export const setNoteBtn = (isNoteBtn: boolean) => {
   return {
     type: CONST.NOTE_BTN_FLAG,
-    noteBtnFlag,
+    isNoteBtn,
   } as const;
 };
 
@@ -69,19 +69,19 @@ type setFavoriteBtnFlagType = ReturnType<typeof setFavoriteBtnFlag>;
 type fetchFavoriteListType = ReturnType<typeof fetchFavoriteList>;
 type fetchFavoriteListAddType = ReturnType<typeof fetchFavoriteListAdd>;
 type getFavoriteListSagaType = ReturnType<typeof getFavoriteListSaga>;
-type favoriteListFlagType = ReturnType<typeof favoriteListFlag>;
-type favoriteUserFlagType = ReturnType<typeof favoriteUserFlag>;
-type noteFlagType = ReturnType<typeof noteFlag>;
-type noteSaveType = ReturnType<typeof noteSave>;
-type noteBtnFlagType = ReturnType<typeof noteBtnFlag>;
+type setFavoriteListType = ReturnType<typeof setFavoriteList>;
+type setFavoriteUserType = ReturnType<typeof setFavoriteUser>;
+type setNoteType = ReturnType<typeof setNote>;
+type fetchNoteType = ReturnType<typeof fetchNote>;
+type setNoteBtnType = ReturnType<typeof setNoteBtn>;
 
 export type ActionsType =
   | setFavoriteBtnFlagType
   | fetchFavoriteListAddType
   | fetchFavoriteListType
   | getFavoriteListSagaType
-  | favoriteListFlagType
-  | favoriteUserFlagType
-  | noteFlagType
-  | noteSaveType
-  | noteBtnFlagType;
+  | setFavoriteListType
+  | setFavoriteUserType
+  | setNoteType
+  | fetchNoteType
+  | setNoteBtnType;

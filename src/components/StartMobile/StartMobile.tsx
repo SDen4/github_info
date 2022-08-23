@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import { Flex } from '../../ui/Flex';
 
-import { searchIsMobileStart } from '../../store/SearchReducer/actions/actions';
+import { setMobileStart } from '../../store/SearchReducer/actions/actions';
 
 import styles from './styles.module.css';
 
@@ -18,7 +18,7 @@ const StartMobile: React.FC<IProps> = ({ appHeight }): JSX.Element => {
     document.body.requestFullscreen();
 
     const timer = window.setTimeout(() => {
-      dispatch(searchIsMobileStart(false));
+      dispatch(setMobileStart(false));
       window.clearTimeout(timer);
     }, 50);
   };

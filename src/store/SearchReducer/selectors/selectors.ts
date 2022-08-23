@@ -10,41 +10,41 @@ export const isMobileSelect = createSelector(
   (store: AppStateType) => store.search.isMobile,
   (isMobile) => isMobile,
 );
-export const cardOpenedSelect = createSelector(
-  (store: AppStateType) => store.search.cardOpened,
-  (cardOpened) => cardOpened,
+export const isCardSelect = createSelector(
+  (store: AppStateType) => store.search.isCard,
+  (isCard) => isCard,
 );
-export const searchHistoryListFlagSelect = createSelector(
-  (store: AppStateType) => store.search.searchHistoryListFlag,
-  (searchHistoryListFlag) => searchHistoryListFlag,
+export const isSearchListSelect = createSelector(
+  (store: AppStateType) => store.search.isSearchList,
+  (isSearchList) => isSearchList,
 );
-export const errorSelect = createSelector(
-  (store: AppStateType) => store.search.error,
-  (error) => error,
+export const isErrorSelect = createSelector(
+  (store: AppStateType) => store.search.isError,
+  (isError) => isError,
 );
 export const isAndroidSelect = createSelector(
   (store: AppStateType) => store.search.isAndroid,
   (isAndroid) => isAndroid,
 );
-export const usersListOpenedSelect = createSelector(
-  (store: AppStateType) => store.search.usersListOpened,
-  (usersListOpened) => usersListOpened,
+export const isUsersListSelect = createSelector(
+  (store: AppStateType) => store.search.isUsersList,
+  (isUsersList) => isUsersList,
 );
-export const reposListOpenedSelect = createSelector(
-  (store: AppStateType) => store.search.reposListOpened,
-  (reposListOpened) => reposListOpened,
+export const isReposListSelect = createSelector(
+  (store: AppStateType) => store.search.isReposList,
+  (isReposList) => isReposList,
 );
 export const reposListSelect = createSelector(
   (store: AppStateType) => store.search.reposList,
   (reposList) => reposList,
 );
-export const loadingSelect = createSelector(
-  (store: AppStateType) => store.search.loading,
-  (loading) => loading,
+export const isLoadingSelect = createSelector(
+  (store: AppStateType) => store.search.isLoading,
+  (isLoading) => isLoading,
 );
-export const modalFlagSelect = createSelector(
-  (store: AppStateType) => store.search.modalFlag,
-  (modalFlag) => modalFlag,
+export const isModalSelect = createSelector(
+  (store: AppStateType) => store.search.isModal,
+  (isModal) => isModal,
 );
 export const userSelect = createSelector(
   (store: AppStateType) => store.search.user,

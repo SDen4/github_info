@@ -1,8 +1,8 @@
 export {
   favoriteListSelect,
-  favoriteUserSelect,
-  noteBtnFlagSelect,
+  isFavoriteUserSelect,
+  isNoteBtnSelect,
   noteSelect,
-  noteFlagSelect,
-  favoriteListFlagSelect,
+  isNoteSelect,
+  isFavoriteListSelect,
 } from './selectors';

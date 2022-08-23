@@ -4,11 +4,11 @@ export interface IFavoriteUser {
 }
 
 export interface IInitialFavoriteState {
-  favoriteBtnFlag: boolean;
-  favoriteListFlag: boolean;
+  isFavoriteBtn: boolean;
+  isFavoriteList: boolean;
   favoriteList: IFavoriteUser[];
-  favoriteUser: boolean;
-  noteFlag: boolean;
-  noteBtnFlag: boolean;
+  isFavoriteUser: boolean;
+  isNote: boolean;
+  isNoteBtn: boolean;
   note: string;
 }

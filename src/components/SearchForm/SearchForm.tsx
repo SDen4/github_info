@@ -4,23 +4,23 @@ import { useDispatch, useSelector } from 'react-redux';
 import { SubmitButton } from '../../ui/SubmitButton';
 
 import {
-  favoriteListFlagSelect,
   favoriteListSelect,
+  isFavoriteListSelect,
 } from '../../store/FavoriteReduser/selectors';
 import {
-  cardOpenedFlag,
-  reposOpenedListFlag,
-  userListOpenedFlag,
+  setCard,
+  setReposList,
+  setUsersList,
 } from '../../store/SearchReducer/actions/actions';
 import { searchSaga } from '../../store/SearchReducer/actions/actionsSagas';
 import {
-  cardOpenedSelect,
+  isCardSelect,
   isMobileSelect,
-  reposListOpenedSelect,
-  searchHistoryListFlagSelect,
+  isReposListSelect,
+  isSearchListSelect,
+  isUsersListSelect,
   searchListSelect,
   userSelect,
-  usersListOpenedSelect,
 } from '../../store/SearchReducer/selectors';
 
 import styles from './styles.module.css';
@@ -33,12 +33,12 @@ const SearchForm: React.FC<IProps> = ({ searchFunc }) => {
   const dispatch = useDispatch();
 
   const favoritesList = useSelector(favoriteListSelect);
-  const favoriteListFlag = useSelector(favoriteListFlagSelect);
+  const isFavoriteList = useSelector(isFavoriteListSelect);
   const isMobile = useSelector(isMobileSelect);
-  const searchHistoryListFlag = useSelector(searchHistoryListFlagSelect);
-  const cardOpened = useSelector(cardOpenedSelect);
-  const reposListOpened = useSelector(reposListOpenedSelect);
-  const usersListOpened = useSelector(usersListOpenedSelect);
+  const isSearchList = useSelector(isSearchListSelect);
+  const isCard = useSelector(isCardSelect);
+  const isReposList = useSelector(isReposListSelect);
+  const isUsersList = useSelector(isUsersListSelect);
   const searchList = useSelector(searchListSelect);
   const user = useSelector(userSelect);
 
@@ -51,23 +51,23 @@ const SearchForm: React.FC<IProps> = ({ searchFunc }) => {
     if (isMobile) {
       setFocusInMobiles(
         !(
-          searchHistoryListFlag ||
-          favoriteListFlag ||
-          cardOpened ||
-          reposListOpened ||
-          usersListOpened
+          isSearchList ||
+          isFavoriteList ||
+          isCard ||
+          isReposList ||
+          isUsersList
         ),
       );
     } else {
       setFocusInMobiles(true);
     }
   }, [
-    cardOpened,
-    favoriteListFlag,
+    isCard,
+    isFavoriteList,
     isMobile,
-    searchHistoryListFlag,
-    reposListOpened,
-    usersListOpened,
+    isSearchList,
+    isReposList,
+    isUsersList,
   ]);
 
   // auto focus on input
@@ -112,9 +112,9 @@ const SearchForm: React.FC<IProps> = ({ searchFunc }) => {
   };
 
   const backBtnHandler = () => {
-    dispatch(userListOpenedFlag(false));
-    dispatch(reposOpenedListFlag(false));
-    dispatch(cardOpenedFlag(true));
+    dispatch(setUsersList(false));
+    dispatch(setReposList(false));
+    dispatch(setCard(true));
   };
 
   return (
@@ -131,7 +131,7 @@ const SearchForm: React.FC<IProps> = ({ searchFunc }) => {
       <div className={styles.btnsWrapper}>
         <SubmitButton disabled={disabledBtn}>Search</SubmitButton>
 
-        {isMobile && (usersListOpened || reposListOpened) && (
+        {isMobile && (isUsersList || isReposList) && (
           <button
             type="button"
             onClick={backBtnHandler}

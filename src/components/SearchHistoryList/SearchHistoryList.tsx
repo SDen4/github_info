@@ -10,19 +10,19 @@ import { timeFormatter } from '../../utils/timeFormatter';
 
 import { favoriteListSelect } from '../../store/FavoriteReduser/selectors';
 import {
-  modalFlag,
-  reposOpenedListFlag,
-  searchHistoryListFlag,
-  userListOpenedFlag,
+  setModal,
+  setReposList,
+  setSearchList,
+  setUsersList,
 } from '../../store/SearchReducer/actions/actions';
 import { searchSaga } from '../../store/SearchReducer/actions/actionsSagas';
 import {
+  isLoadingSelect,
   isMobileSelect,
-  loadingSelect,
-  reposListOpenedSelect,
+  isReposListSelect,
+  isUsersListSelect,
   searchListSelect,
   userSelect,
-  usersListOpenedSelect,
 } from '../../store/SearchReducer/selectors';
 
 import styles from './styles.module.css';
@@ -33,18 +33,18 @@ const SearchHistoryList: React.FC = () => {
   const searchList = useSelector(searchListSelect);
   const favoriteList = useSelector(favoriteListSelect);
   const user = useSelector(userSelect);
-  const usersListOpened = useSelector(usersListOpenedSelect);
-  const reposListOpened = useSelector(reposListOpenedSelect);
+  const isUsersList = useSelector(isUsersListSelect);
+  const isReposList = useSelector(isReposListSelect);
   const isMobile = useSelector(isMobileSelect);
-  const loading = useSelector(loadingSelect);
+  const isLoading = useSelector(isLoadingSelect);
 
   const searchHistoriListBtnHandler = (login: string) => {
     if (login === user.login) {
-      if (usersListOpened) {
-        dispatch(userListOpenedFlag(false));
+      if (isUsersList) {
+        dispatch(setUsersList(false));
       }
-      if (reposListOpened) {
-        dispatch(reposOpenedListFlag(false));
+      if (isReposList) {
+        dispatch(setReposList(false));
       }
       return;
     }
@@ -52,12 +52,12 @@ const SearchHistoryList: React.FC = () => {
   };
 
   const closeBtnHandler = () => {
-    dispatch(searchHistoryListFlag(false));
+    dispatch(setSearchList(false));
   };
 
   const clearBtnHandler = () => {
     dispatch(
-      modalFlag(
+      setModal(
         true,
         `Are you sure to delete ${searchList.length > 1 ? 'all' : ''} ${
           searchList.length > 1 ? `(${searchList.length})` : ''
@@ -69,7 +69,7 @@ const SearchHistoryList: React.FC = () => {
 
   return (
     <Flex
-      className={clsx(styles.shlWrapper, isMobile && loading && styles.hide)}
+      className={clsx(styles.shlWrapper, isMobile && isLoading && styles.hide)}
     >
       <header className={styles.listHeader}>
         <h3>Search list</h3>

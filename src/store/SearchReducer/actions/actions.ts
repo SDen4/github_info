@@ -42,31 +42,31 @@ export const fetchLogin = (
   } as const;
 };
 
-export const cardOpenedFlag = (cardOpenedFlag: boolean) => {
+export const setCard = (isCard: boolean) => {
   return {
     type: CONST.CARD_OPEN_FLAG,
-    cardOpenedFlag,
+    isCard,
   } as const;
 };
 
-export const loadingFlag = (loadingFlag: boolean) => {
+export const setLoading = (isLoading: boolean) => {
   return {
     type: CONST.LOADING,
-    loadingFlag,
+    isLoading,
   } as const;
 };
 
-export const errorFlag = (errorFlag: boolean) => {
+export const setError = (isError: boolean) => {
   return {
     type: CONST.ERROR,
-    errorFlag,
+    isError,
   } as const;
 };
 
-export const userListOpenedFlag = (userListFlag: boolean) => {
+export const setUsersList = (isUsersList: boolean) => {
   return {
     type: CONST.USERS_LIST_OPENED_FLAG,
-    userListFlag,
+    isUsersList,
   } as const;
 };
 
@@ -88,17 +88,17 @@ export const fetchSearhHistory = (searchList: ISearhHistoryItem) => {
   } as const;
 };
 
-export const searchHistoryListFlag = (searchHistoryListFlag: boolean) => {
+export const setSearchList = (isSearchList: boolean) => {
   return {
     type: CONST.SEARCH_HISTORY_LIST_FLAG,
-    searchHistoryListFlag,
+    isSearchList,
   } as const;
 };
 
-export const fetchAllHistory = (allSearchHistory: ISearhHistoryItem[]) => {
+export const fetchSearchList = (searchList: ISearhHistoryItem[]) => {
   return {
     type: CONST.FETCH_ALL_HISTORY,
-    allSearchHistory,
+    searchList,
   } as const;
 };
 
@@ -109,47 +109,47 @@ export const fetchReposList = (reposList: IRepoItem[]) => {
   } as const;
 };
 
-export const reposOpenedListFlag = (reposListFlag: boolean) => {
+export const setReposList = (isReposList: boolean) => {
   return {
     type: CONST.REPOS_OPENED_LIST_FLAG,
-    reposListFlag,
+    isReposList,
   } as const;
 };
 
-export const modalFlag = (
-  modalFlag: boolean,
-  text: string,
+export const setModal = (
+  isModal: boolean,
+  modalText: string,
   modalType: 'search' | 'favorite',
 ) => {
   return {
     type: CONST.SEARCH_HISTORY_MODAL_FLAG,
-    modalFlag,
-    text,
+    isModal,
+    modalText,
     modalType,
   } as const;
 };
 
-export const searhStart = () => {
+export const getStart = () => {
   return {
     type: CONST.SEARCH_START,
   } as const;
 };
 
-export const searchIsMobile = (isMobile: boolean) => {
+export const setMobile = (isMobile: boolean) => {
   return {
     type: CONST.SEARCH_IS_MOBILE,
     isMobile,
   } as const;
 };
 
-export const searchIsAndroid = (isAndroid: boolean) => {
+export const setAndroid = (isAndroid: boolean) => {
   return {
     type: CONST.SEARCH_IS_ANDROID,
     isAndroid,
   } as const;
 };
 
-export const searchIsMobileStart = (isMobileStart: boolean) => {
+export const setMobileStart = (isMobileStart: boolean) => {
   return {
     type: CONST.SEARCH_IS_MOBILE_START,
     isMobileStart,
@@ -157,36 +157,36 @@ export const searchIsMobileStart = (isMobileStart: boolean) => {
 };
 
 type fetchLoginType = ReturnType<typeof fetchLogin>;
-type cardOPenedFlagType = ReturnType<typeof cardOpenedFlag>;
-type loadingFlagType = ReturnType<typeof loadingFlag>;
-type errorFlagType = ReturnType<typeof errorFlag>;
-type userListOpenedFlagType = ReturnType<typeof userListOpenedFlag>;
+type setCardType = ReturnType<typeof setCard>;
+type setLoadingType = ReturnType<typeof setLoading>;
+type setErrorType = ReturnType<typeof setError>;
+type setUsersListType = ReturnType<typeof setUsersList>;
 type fetchUsersListType = ReturnType<typeof fetchUsersList>;
 type fetchSearhHistoryType = ReturnType<typeof fetchSearhHistory>;
-type searchHistoryListFlagType = ReturnType<typeof searchHistoryListFlag>;
-type fetchAllHistoryType = ReturnType<typeof fetchAllHistory>;
+type setSearchListType = ReturnType<typeof setSearchList>;
+type fetchSearchListType = ReturnType<typeof fetchSearchList>;
 type fetchReposListType = ReturnType<typeof fetchReposList>;
-type reposOpenedListFlagType = ReturnType<typeof reposOpenedListFlag>;
-type modalFlagType = ReturnType<typeof modalFlag>;
-type searhStartType = ReturnType<typeof searhStart>;
-type searchIsMobileType = ReturnType<typeof searchIsMobile>;
-type searchIsAndroidType = ReturnType<typeof searchIsAndroid>;
-type searchIsMobileStartType = ReturnType<typeof searchIsMobileStart>;
+type setReposListType = ReturnType<typeof setReposList>;
+type setModalType = ReturnType<typeof setModal>;
+type getStartType = ReturnType<typeof getStart>;
+type setMobileType = ReturnType<typeof setMobile>;
+type setAndroidType = ReturnType<typeof setAndroid>;
+type setMobileStartType = ReturnType<typeof setMobileStart>;
 
 export type ActionsType =
   | fetchLoginType
-  | cardOPenedFlagType
-  | loadingFlagType
-  | errorFlagType
-  | userListOpenedFlagType
+  | setCardType
+  | setLoadingType
+  | setErrorType
+  | setUsersListType
   | fetchUsersListType
   | fetchSearhHistoryType
-  | searchHistoryListFlagType
-  | fetchAllHistoryType
+  | setSearchListType
+  | fetchSearchListType
   | fetchReposListType
-  | reposOpenedListFlagType
-  | modalFlagType
-  | searhStartType
-  | searchIsMobileType
-  | searchIsAndroidType
-  | searchIsMobileStartType;
+  | setReposListType
+  | setModalType
+  | getStartType
+  | setMobileType
+  | setAndroidType
+  | setMobileStartType;

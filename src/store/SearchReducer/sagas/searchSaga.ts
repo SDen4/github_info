@@ -2,20 +2,20 @@ import { all, put, select, takeEvery } from 'redux-saga/effects';
 
 import { API } from '../../../api/API';
 import {
-  favoriteListFlag,
-  favoriteUserFlag,
-  noteBtnFlag,
-  noteSave,
+  fetchNote,
+  setFavoriteList,
+  setFavoriteUser,
+  setNoteBtn,
 } from '../../FavoriteReduser/actions/actions';
 import {
-  cardOpenedFlag,
-  errorFlag,
   fetchLogin,
   fetchSearhHistory,
-  loadingFlag,
-  searchHistoryListFlag,
-  searhStart,
-  userListOpenedFlag,
+  getStart,
+  setCard,
+  setError,
+  setLoading,
+  setSearchList,
+  setUsersList,
 } from '../actions/actions';
 import { isMobileSelect } from '../selectors';
 
@@ -32,7 +32,7 @@ async function getLastActivityDate(login: string) {
   const response = await API.get(`${login.trim()}/events`)
     .then((res) => res.data[0].created_at)
     // eslint-disable-next-line no-console
-    .catch((error) => console.log(error));
+    .catch((isError) => console.log(isError));
   return response;
 }
 
@@ -40,7 +40,7 @@ function* sagaWorker(action: ISearchSaga) {
   const isMobile: boolean = yield select(isMobileSelect);
 
   try {
-    yield all([put(searhStart()), put(noteSave('')), put(noteBtnFlag(false))]);
+    yield all([put(getStart()), put(fetchNote('')), put(setNoteBtn(false))]);
 
     const { allData, lastActivityDate } = yield all({
       allData: getUserInfo(action.login),
@@ -67,24 +67,24 @@ function* sagaWorker(action: ISearchSaga) {
     );
 
     if (action.favoritesList?.find((el) => el.name === allData.login)) {
-      yield put(favoriteUserFlag(true));
+      yield put(setFavoriteUser(true));
     } else {
-      yield put(favoriteUserFlag(false));
+      yield put(setFavoriteUser(false));
     }
 
     if (
       action.favoritesList?.find((el) => el.name === allData.login)?.note
         ?.length
     ) {
-      yield put(noteBtnFlag(true));
+      yield put(setNoteBtn(true));
 
       const noteToWrite: string = yield action.favoritesList?.find(
         (el) => el.name === action.login,
       )?.note;
 
-      yield put(noteSave(noteToWrite));
+      yield put(fetchNote(noteToWrite));
     } else {
-      yield put(noteBtnFlag(false));
+      yield put(setNoteBtn(false));
     }
 
     const newHistoryItem: ISearhHistoryItem = yield {
@@ -97,19 +97,19 @@ function* sagaWorker(action: ISearchSaga) {
       JSON.stringify([...action.history, newHistoryItem]),
     );
 
-    yield all([put(cardOpenedFlag(true)), put(loadingFlag(false))]);
+    yield all([put(setCard(true)), put(setLoading(false))]);
 
-    yield put(userListOpenedFlag(false));
+    yield put(setUsersList(false));
 
     // in the end because of input focus in mobiles
     if (isMobile) {
-      yield put(searchHistoryListFlag(false));
-      yield put(favoriteListFlag(false));
+      yield put(setSearchList(false));
+      yield put(setFavoriteList(false));
     }
   } catch (error) {
     // eslint-disable-next-line no-console
     console.log(error);
-    yield all([put(loadingFlag(false)), put(errorFlag(true))]);
+    yield all([put(setLoading(false)), put(setError(true))]);
   }
 }
 

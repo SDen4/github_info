@@ -10,19 +10,19 @@ const initialState: IInitialState = {
   usersList: [],
   reposList: [],
   lastRequestType: '',
-  usersListOpened: false,
-  reposListOpened: false,
-  cardOpened: false,
-  loading: false,
-  error: false,
   searchList: [],
-  searchHistoryListFlag: false,
-  modalFlag: false,
   modalText: '',
   modalType: 'search',
+  isLoading: false,
+  isError: false,
+  isSearchList: false,
+  isModal: false,
   isMobile: false,
-  isAndroid: false,
   isMobileStart: true,
+  isAndroid: false,
+  isUsersList: false,
+  isReposList: false,
+  isCard: false,
 };
 
 export const searchReducer = (
@@ -52,16 +52,16 @@ export const searchReducer = (
       };
 
     case CONST.CARD_OPEN_FLAG:
-      return { ...state, cardOpened: action.cardOpenedFlag };
+      return { ...state, isCard: action.isCard };
 
     case CONST.LOADING:
-      return { ...state, loading: action.loadingFlag };
+      return { ...state, isLoading: action.isLoading };
 
     case CONST.ERROR:
-      return { ...state, error: action.errorFlag };
+      return { ...state, isError: action.isError };
 
     case CONST.USERS_LIST_OPENED_FLAG:
-      return { ...state, usersListOpened: action.userListFlag };
+      return { ...state, isUsersList: action.isUsersList };
 
     case CONST.FETCH_USERS_LIST:
       return {
@@ -77,35 +77,35 @@ export const searchReducer = (
       };
 
     case CONST.FETCH_ALL_HISTORY:
-      return { ...state, searchList: action.allSearchHistory };
+      return { ...state, searchList: action.searchList };
 
     case CONST.SEARCH_HISTORY_LIST_FLAG:
-      return { ...state, searchHistoryListFlag: action.searchHistoryListFlag };
+      return { ...state, isSearchList: action.isSearchList };
 
     case CONST.FETCH_REPOS_LIST:
       return { ...state, reposList: action.reposList };
 
     case CONST.REPOS_OPENED_LIST_FLAG:
-      return { ...state, reposListOpened: action.reposListFlag };
+      return { ...state, isReposList: action.isReposList };
 
     case CONST.SEARCH_HISTORY_MODAL_FLAG:
       return {
         ...state,
-        modalFlag: action.modalFlag,
-        modalText: action.text,
+        isModal: action.isModal,
+        modalText: action.modalText,
         modalType: action.modalType,
       };
 
     case CONST.SEARCH_START:
       return {
         ...state,
-        error: false,
-        cardOpened: false,
-        reposListOpened: false,
-        usersListOpened: false,
+        isError: false,
+        isCard: false,
+        isReposList: false,
+        isUsersList: false,
         reposList: [],
         usersList: [],
-        loading: true,
+        isLoading: true,
       };
 
     case CONST.SEARCH_IS_MOBILE:

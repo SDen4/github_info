@@ -1,6 +1,6 @@
 import { put, takeEvery } from 'redux-saga/effects';
 
-import { fetchAllHistory } from '../actions/actions';
+import { fetchSearchList } from '../actions/actions';
 
 import { ISearhHistoryItem } from '../../../model/search/types';
 
@@ -12,7 +12,7 @@ function* sagaWorker() {
       localStorage.getItem('saves') || '[]',
     );
 
-    yield put(fetchAllHistory(saved));
+    yield put(fetchSearchList(saved));
   } catch (error) {
     // eslint-disable-next-line no-console
     console.log(error);

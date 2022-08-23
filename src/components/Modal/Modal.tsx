@@ -5,14 +5,14 @@ import { CloseButton } from '../../ui/CloseButton';
 import { Flex } from '../../ui/Flex';
 
 import {
-  favoriteListFlag,
-  favoriteUserFlag,
   fetchFavoriteList,
+  setFavoriteList,
+  setFavoriteUser,
 } from '../../store/FavoriteReduser/actions/actions';
 import {
-  fetchAllHistory,
-  modalFlag,
-  searchHistoryListFlag,
+  fetchSearchList,
+  setModal,
+  setSearchList,
 } from '../../store/SearchReducer/actions/actions';
 import {
   modalTextSelect,
@@ -30,18 +30,18 @@ const Modal: React.FC = () => {
   const onBtnsHandler = (delStatus: boolean) => {
     if (delStatus) {
       if (modalType === 'search') {
-        dispatch(searchHistoryListFlag(false));
-        dispatch(fetchAllHistory([]));
+        dispatch(setSearchList(false));
+        dispatch(fetchSearchList([]));
         localStorage.removeItem('saves');
       } else if (modalType === 'favorite') {
-        dispatch(favoriteListFlag(false));
-        dispatch(favoriteUserFlag(false));
+        dispatch(setFavoriteList(false));
+        dispatch(setFavoriteUser(false));
         dispatch(fetchFavoriteList([]));
         localStorage.removeItem('favorite');
       }
-      dispatch(modalFlag(false, '', 'search'));
+      dispatch(setModal(false, '', 'search'));
     } else {
-      dispatch(modalFlag(false, '', 'search'));
+      dispatch(setModal(false, '', 'search'));
     }
   };
 

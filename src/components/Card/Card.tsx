@@ -11,28 +11,28 @@ import { dateFormatter } from '../../utils/dateFormatter';
 import { periodCounter } from '../../utils/periodCounter';
 
 import {
-  favoriteUserFlag,
   fetchFavoriteList,
   fetchFavoriteListAdd,
-  noteFlag,
   setFavoriteBtnFlag,
+  setFavoriteUser,
+  setNote,
 } from '../../store/FavoriteReduser/actions/actions';
 import {
   favoriteListSelect,
-  favoriteUserSelect,
-  noteBtnFlagSelect,
-  noteFlagSelect,
+  isFavoriteUserSelect,
+  isNoteBtnSelect,
+  isNoteSelect,
   noteSelect,
 } from '../../store/FavoriteReduser/selectors';
-import {
-  cardOpenedFlag,
-  fetchLogin,
-} from '../../store/SearchReducer/actions/actions';
+import { fetchLogin, setCard } from '../../store/SearchReducer/actions/actions';
 import {
   fetchUsersListSaga,
   reposListSaga,
 } from '../../store/SearchReducer/actions/actionsSagas';
-import { loadingSelect, userSelect } from '../../store/SearchReducer/selectors';
+import {
+  isLoadingSelect,
+  userSelect,
+} from '../../store/SearchReducer/selectors';
 
 import styles from './styles.module.css';
 
@@ -40,21 +40,21 @@ const Card: React.FC = (): JSX.Element => {
   const dispatch = useDispatch();
 
   const favoriteList = useSelector(favoriteListSelect);
-  const favoriteUser = useSelector(favoriteUserSelect);
-  const noteBtnFlag = useSelector(noteBtnFlagSelect);
   const note = useSelector(noteSelect);
-  const noteStoreFlag = useSelector(noteFlagSelect);
   const user = useSelector(userSelect);
-  const loading = useSelector(loadingSelect);
+  const isNote = useSelector(isNoteSelect);
+  const isLoading = useSelector(isLoadingSelect);
+  const isNoteBtn = useSelector(isNoteBtnSelect);
+  const isFavoriteUser = useSelector(isFavoriteUserSelect);
 
   const onClickCloseBtnHandler = () => {
-    dispatch(cardOpenedFlag(false));
+    dispatch(setCard(false));
     dispatch(
       fetchLogin('', '', '', '', 0, 0, new Date(), '', '', '', 0, '', ''),
     );
 
-    if (noteStoreFlag) {
-      dispatch(noteFlag(false));
+    if (isNote) {
+      dispatch(setNote(false));
     }
   };
 
@@ -67,15 +67,15 @@ const Card: React.FC = (): JSX.Element => {
   };
 
   const onClickAddBtnHandler = () => {
-    if (favoriteUser) {
+    if (isFavoriteUser) {
       const newFavoriteUsersList = favoriteList.filter(
         (el) => el.name !== user.login,
       );
-      dispatch(favoriteUserFlag(false));
+      dispatch(setFavoriteUser(false));
       dispatch(fetchFavoriteList(newFavoriteUsersList));
       localStorage.setItem('favorite', JSON.stringify(newFavoriteUsersList));
     } else {
-      dispatch(favoriteUserFlag(true));
+      dispatch(setFavoriteUser(true));
       const newfavoriteUser = { name: user.login };
       dispatch(fetchFavoriteListAdd(newfavoriteUser));
       localStorage.setItem(
@@ -106,13 +106,13 @@ const Card: React.FC = (): JSX.Element => {
   };
 
   const addNoteHandler = () => {
-    if (!noteStoreFlag) {
-      dispatch(noteFlag(true));
+    if (!isNote) {
+      dispatch(setNote(true));
     }
   };
 
   return (
-    <div className={clsx(styles.card, loading && styles.hide)}>
+    <div className={clsx(styles.card, isLoading && styles.hide)}>
       <aside className={styles.cardElement}>
         <div className={styles.cardPhotoWrapper}>
           <img src={user.avatarUrl} alt="User's avatar" />
@@ -225,7 +225,7 @@ const Card: React.FC = (): JSX.Element => {
         <button
           type="button"
           className={clsx(
-            noteBtnFlag && styles.buttonActive,
+            isNoteBtn && styles.buttonActive,
             styles.button,
             styles.addNoteBtn,
             styles.tooltip,
@@ -234,7 +234,7 @@ const Card: React.FC = (): JSX.Element => {
         >
           <span>&#9998;</span>
           <div className={styles.tooltipText}>
-            {noteBtnFlag ? 'Show note' : 'Add note'}
+            {isNoteBtn ? 'Show note' : 'Add note'}
           </div>
         </button>
 
@@ -254,12 +254,12 @@ const Card: React.FC = (): JSX.Element => {
           onClick={onClickAddBtnHandler}
         >
           <span
-            className={clsx(favoriteUser && styles.starActive, styles.star)}
+            className={clsx(isFavoriteUser && styles.starActive, styles.star)}
           >
             &#9733;
           </span>
           <div className={styles.tooltipText}>
-            {favoriteUser ? 'Remove from favorites' : 'Add to favorites'}
+            {isFavoriteUser ? 'Remove from favorites' : 'Add to favorites'}
           </div>
         </button>
 

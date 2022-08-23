@@ -5,13 +5,13 @@ import clsx from 'clsx';
 import { Flex } from '../../ui/Flex';
 
 import {
-  favoriteUserFlag,
   fetchFavoriteList,
   fetchFavoriteListAdd,
-  noteBtnFlag,
-  noteFlag,
-  noteSave,
+  fetchNote,
   setFavoriteBtnFlag,
+  setFavoriteUser,
+  setNote,
+  setNoteBtn,
 } from '../../store/FavoriteReduser/actions/actions';
 import {
   favoriteListSelect,
@@ -46,7 +46,7 @@ const Note: React.FC = () => {
   };
 
   const onCancelHandler = () => {
-    dispatch(noteFlag(false));
+    dispatch(setNote(false));
     setValue('');
   };
 
@@ -56,9 +56,9 @@ const Note: React.FC = () => {
     if (favoriteList.find((el) => el.name === user.login)) {
       // user is in favoriteList yet
 
-      dispatch(noteSave(value));
-      dispatch(noteFlag(false));
-      dispatch(noteBtnFlag(true));
+      dispatch(fetchNote(value));
+      dispatch(setNote(false));
+      dispatch(setNoteBtn(true));
       setValue('');
 
       const newfavoriteUser = { name: user.login, note: value };
@@ -72,9 +72,9 @@ const Note: React.FC = () => {
     } else {
       // user isn't in favoriteList yet
 
-      dispatch(noteSave(value));
-      dispatch(noteFlag(false));
-      dispatch(noteBtnFlag(true));
+      dispatch(fetchNote(value));
+      dispatch(setNote(false));
+      dispatch(setNoteBtn(true));
       setValue('');
 
       const newfavoriteUser = { name: user.login, note: value };
@@ -84,7 +84,7 @@ const Note: React.FC = () => {
         JSON.stringify([...favoriteList, newfavoriteUser]),
       );
 
-      dispatch(favoriteUserFlag(true));
+      dispatch(setFavoriteUser(true));
       dispatch(setFavoriteBtnFlag(true));
     }
   };
@@ -102,10 +102,10 @@ const Note: React.FC = () => {
 
       localStorage.setItem('favorite', JSON.stringify(newfavoriteUserList));
 
-      dispatch(noteSave(''));
+      dispatch(fetchNote(''));
       dispatch(fetchFavoriteList(newfavoriteUserList));
-      dispatch(noteFlag(false));
-      dispatch(noteBtnFlag(false));
+      dispatch(setNote(false));
+      dispatch(setNoteBtn(false));
     } else {
       setIsModalOpened(false);
     }

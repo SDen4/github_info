@@ -2,10 +2,10 @@ import { put, select, takeEvery } from 'redux-saga/effects';
 
 import { API } from '../../../api/API';
 import {
-  cardOpenedFlag,
   fetchReposList,
-  loadingFlag,
-  reposOpenedListFlag,
+  setCard,
+  setLoading,
+  setReposList,
 } from '../actions/actions';
 import { userSelect } from '../selectors';
 
@@ -22,18 +22,18 @@ function* sagaWorker() {
   const user: IUser = yield select(userSelect);
 
   try {
-    yield put(loadingFlag(true));
+    yield put(setLoading(true));
 
     const allRepos: IRepoItem[] = yield getReposInfo(user.login);
 
     yield put(fetchReposList(allRepos));
-    yield put(reposOpenedListFlag(true));
-    yield put(cardOpenedFlag(false));
-    yield put(loadingFlag(false));
+    yield put(setReposList(true));
+    yield put(setCard(false));
+    yield put(setLoading(false));
   } catch (error) {
     // eslint-disable-next-line no-console
     console.log(error);
-    yield put(loadingFlag(false));
+    yield put(setLoading(false));
   }
 }
 

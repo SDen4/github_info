@@ -6,23 +6,23 @@ export const favoriteListSelect = createSelector(
   (store: AppStateType) => store.favorite.favoriteList,
   (favoriteList) => favoriteList,
 );
-export const favoriteUserSelect = createSelector(
-  (store: AppStateType) => store.favorite.favoriteUser,
-  (favoriteUser) => favoriteUser,
+export const isFavoriteUserSelect = createSelector(
+  (store: AppStateType) => store.favorite.isFavoriteUser,
+  (isFavoriteUser) => isFavoriteUser,
 );
-export const noteBtnFlagSelect = createSelector(
-  (store: AppStateType) => store.favorite.noteBtnFlag,
-  (noteBtnFlag) => noteBtnFlag,
+export const isNoteBtnSelect = createSelector(
+  (store: AppStateType) => store.favorite.isNoteBtn,
+  (isNoteBtn) => isNoteBtn,
 );
 export const noteSelect = createSelector(
   (store: AppStateType) => store.favorite.note,
   (note) => note,
 );
-export const noteFlagSelect = createSelector(
-  (store: AppStateType) => store.favorite.noteFlag,
-  (noteFlag) => noteFlag,
+export const isNoteSelect = createSelector(
+  (store: AppStateType) => store.favorite.isNote,
+  (isNote) => isNote,
 );
-export const favoriteListFlagSelect = createSelector(
-  (store: AppStateType) => store.favorite.favoriteListFlag,
-  (favoriteListFlag) => favoriteListFlag,
+export const isFavoriteListSelect = createSelector(
+  (store: AppStateType) => store.favorite.isFavoriteList,
+  (isFavoriteList) => isFavoriteList,
 );

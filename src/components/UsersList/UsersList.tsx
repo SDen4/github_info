@@ -5,13 +5,13 @@ import clsx from 'clsx';
 import UserItem from '../UserItem';
 
 import {
-  cardOpenedFlag,
-  reposOpenedListFlag,
-  userListOpenedFlag,
+  setCard,
+  setReposList,
+  setUsersList,
 } from '../../store/SearchReducer/actions/actions';
 import {
+  isLoadingSelect,
   lastRequestTypeSelect,
-  loadingSelect,
   userSelect,
   usersListSelect,
 } from '../../store/SearchReducer/selectors';
@@ -26,16 +26,16 @@ const UsersList: React.FC = () => {
   const user = useSelector(userSelect);
   const usersList = useSelector(usersListSelect);
   const lastRequestType = useSelector(lastRequestTypeSelect);
-  const loading = useSelector(loadingSelect);
+  const isLoading = useSelector(isLoadingSelect);
 
   const loginBtnHandler = () => {
-    dispatch(userListOpenedFlag(false));
-    dispatch(reposOpenedListFlag(false));
-    dispatch(cardOpenedFlag(true));
+    dispatch(setUsersList(false));
+    dispatch(setReposList(false));
+    dispatch(setCard(true));
   };
 
   return (
-    <div className={clsx(styles.listWrapper, loading && styles.hide)}>
+    <div className={clsx(styles.listWrapper, isLoading && styles.hide)}>
       {usersList.length ? (
         <ul className={styles.listWrapperUl}>
           {usersList.map((el: IUserInner) => (

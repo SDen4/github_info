@@ -8,30 +8,30 @@ import { Header } from '../../components/Header';
 import SearchForm from '../../components/SearchForm';
 import StartMobile from '../../components/StartMobile';
 
-import { favoriteListFlag } from '../../store/FavoriteReduser/actions/actions';
+import { setFavoriteList } from '../../store/FavoriteReduser/actions/actions';
 import {
-  favoriteListFlagSelect,
   favoriteListSelect,
-  noteFlagSelect,
+  isFavoriteListSelect,
+  isNoteSelect,
 } from '../../store/FavoriteReduser/selectors';
 import {
-  cardOpenedFlag,
-  reposOpenedListFlag,
-  searchIsMobileStart,
-  userListOpenedFlag,
+  setCard,
+  setMobileStart,
+  setReposList,
+  setUsersList,
 } from '../../store/SearchReducer/actions/actions';
 import { searhInitFetchSaga } from '../../store/SearchReducer/actions/actionsSagas';
 import {
-  cardOpenedSelect,
-  errorSelect,
   isAndroidSelect,
+  isCardSelect,
+  isErrorSelect,
+  isLoadingSelect,
   isMobileSelect,
   isMobileStartSelect,
-  loadingSelect,
-  modalFlagSelect,
-  reposListOpenedSelect,
-  searchHistoryListFlagSelect,
-  usersListOpenedSelect,
+  isModalSelect,
+  isReposListSelect,
+  isSearchListSelect,
+  isUsersListSelect,
 } from '../../store/SearchReducer/selectors';
 
 import styles from './Root.module.css';
@@ -52,19 +52,19 @@ const LazyError = React.lazy(() => import('../../components/Error'));
 const Root: React.FC = () => {
   const dispatch = useDispatch();
 
-  const flFlag = useSelector(favoriteListFlagSelect);
   const favoriteList = useSelector(favoriteListSelect);
-  const noteFlag = useSelector(noteFlagSelect);
-  const isMobileStart = useSelector(isMobileStartSelect);
+  const isFavoriteList = useSelector(isFavoriteListSelect);
+  const isNote = useSelector(isNoteSelect);
+  const isSearchList = useSelector(isSearchListSelect);
+  const isError = useSelector(isErrorSelect);
   const isMobile = useSelector(isMobileSelect);
-  const cardOpened = useSelector(cardOpenedSelect);
-  const searchHistoryListFlag = useSelector(searchHistoryListFlagSelect);
-  const error = useSelector(errorSelect);
+  const isMobileStart = useSelector(isMobileStartSelect);
   const isAndroid = useSelector(isAndroidSelect);
-  const usersListOpened = useSelector(usersListOpenedSelect);
-  const reposListOpened = useSelector(reposListOpenedSelect);
-  const loading = useSelector(loadingSelect);
-  const modalFlag = useSelector(modalFlagSelect);
+  const isCard = useSelector(isCardSelect);
+  const isUsersList = useSelector(isUsersListSelect);
+  const isReposList = useSelector(isReposListSelect);
+  const isLoading = useSelector(isLoadingSelect);
+  const isModal = useSelector(isModalSelect);
 
   const [user, setUser] = useState<string>('');
 
@@ -90,19 +90,19 @@ const Root: React.FC = () => {
     }
     window.addEventListener(
       'fullscreenchange',
-      () => dispatch(searchIsMobileStart(true)),
+      () => dispatch(setMobileStart(true)),
       true,
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [appHeight]);
 
-  const isCardOpen =
-    (!isMobile && cardOpened) ||
-    (isMobile && cardOpened && !searchHistoryListFlag && !flFlag);
+  const isCardOpenLocal =
+    (!isMobile && isCard) ||
+    (isMobile && isCard && !isSearchList && !isFavoriteList);
 
   const isErrorOpen =
-    (!isMobile && error) ||
-    (isMobile && error && !searchHistoryListFlag && !flFlag);
+    (!isMobile && isError) ||
+    (isMobile && isError && !isSearchList && !isFavoriteList);
 
   useEffect(() => {
     dispatch(searhInitFetchSaga());
@@ -111,7 +111,7 @@ const Root: React.FC = () => {
   // close favorite list if there are no any items
   useEffect(() => {
     if (!favoriteList.length) {
-      dispatch(favoriteListFlag(false));
+      dispatch(setFavoriteList(false));
     }
   }, [dispatch, favoriteList]);
 
@@ -120,9 +120,9 @@ const Root: React.FC = () => {
   };
 
   const backBtnHandler = () => {
-    dispatch(userListOpenedFlag(false));
-    dispatch(reposOpenedListFlag(false));
-    dispatch(cardOpenedFlag(true));
+    dispatch(setUsersList(false));
+    dispatch(setReposList(false));
+    dispatch(setCard(true));
   };
 
   return (
@@ -141,7 +141,7 @@ const Root: React.FC = () => {
               <div className={clsx(styles.root, styles.rootSectionSearch)}>
                 <SearchForm searchFunc={searchFunc} />
 
-                {!isMobile && (usersListOpened || reposListOpened) && (
+                {!isMobile && (isUsersList || isReposList) && (
                   <button
                     type="button"
                     onClick={backBtnHandler}
@@ -153,8 +153,8 @@ const Root: React.FC = () => {
                 )}
               </div>
 
-              {loading && <Loader />}
-              {isCardOpen && (
+              {isLoading && <Loader />}
+              {isCardOpenLocal && (
                 <div
                   className={clsx(
                     !isMobile && styles.sticky,
@@ -166,14 +166,14 @@ const Root: React.FC = () => {
                     <LazyCard />
                   </Suspense>
 
-                  {noteFlag && (
+                  {isNote && (
                     <Suspense fallback={<Loader />}>
                       <LazyNote />
                     </Suspense>
                   )}
                 </div>
               )}
-              {usersListOpened && (
+              {isUsersList && (
                 <div
                   className={clsx(isMobile && styles.rootSectionRight_Mobile)}
                   style={{ maxHeight: appHeight - 239 }}
@@ -183,7 +183,7 @@ const Root: React.FC = () => {
                   </Suspense>
                 </div>
               )}
-              {reposListOpened && (
+              {isReposList && (
                 <div
                   className={clsx(isMobile && styles.rootSectionRight_Mobile)}
                   style={{ maxHeight: isMobile ? appHeight - 239 : 'unset' }}
@@ -200,7 +200,7 @@ const Root: React.FC = () => {
               )}
             </section>
 
-            {searchHistoryListFlag && (
+            {isSearchList && (
               <section
                 className={clsx(
                   styles.rootSectionRight,
@@ -214,7 +214,7 @@ const Root: React.FC = () => {
               </section>
             )}
 
-            {flFlag && (
+            {isFavoriteList && (
               <section
                 className={clsx(
                   styles.rootSectionRight,
@@ -229,7 +229,7 @@ const Root: React.FC = () => {
             )}
           </main>
 
-          {modalFlag && (
+          {isModal && (
             <Suspense fallback={<Loader />}>
               <LazyModal />
             </Suspense>
