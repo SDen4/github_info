@@ -36,18 +36,16 @@ import {
 
 import styles from './Root.module.css';
 
-const LazySearchHistoryList = React.lazy(
-  () => import('../../components/SearchHistoryList'),
-);
-const LazyFavoriteList = React.lazy(
-  () => import('../../components/FavoriteList'),
-);
 const LazyCard = React.lazy(() => import('../../components/Card'));
 const LazyReposList = React.lazy(() => import('../../components/ReposList'));
 const LazyUsersList = React.lazy(() => import('../../components/UsersList'));
 const LazyModal = React.lazy(() => import('../../components/Modal'));
 const LazyNote = React.lazy(() => import('../../components/Note'));
 const LazyError = React.lazy(() => import('../../components/Error'));
+const LazySearchList = React.lazy(() => import('../../components/SearchList'));
+const LazyFavoriteList = React.lazy(
+  () => import('../../components/FavoriteList'),
+);
 
 export const Root: React.FC = () => {
   const dispatch = useDispatch();
@@ -209,7 +207,7 @@ export const Root: React.FC = () => {
                 style={{ maxHeight: isMobile ? appHeight - 239 : 'unset' }}
               >
                 <Suspense fallback={<Loader />}>
-                  <LazySearchHistoryList />
+                  <LazySearchList />
                 </Suspense>
               </section>
             )}

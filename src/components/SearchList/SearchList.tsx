@@ -27,7 +27,7 @@ import {
 
 import styles from './styles.module.css';
 
-const SearchHistoryList: React.FC = () => {
+const SearchList: React.FC = () => {
   const dispatch = useDispatch();
 
   const searchList = useSelector(searchListSelect);
@@ -105,4 +105,4 @@ const SearchHistoryList: React.FC = () => {
   );
 };
 
-export default memo(SearchHistoryList);
+export default memo(SearchList);
