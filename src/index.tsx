@@ -7,7 +7,7 @@ import createSagaMiddleware from 'redux-saga';
 import App from './App';
 
 import { rootReducer } from './store/rootReducer';
-import rootSaga from './store/rootSaga';
+import { rootSaga } from './store/rootSaga';
 
 import './index.css';
 

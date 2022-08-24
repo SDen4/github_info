@@ -7,7 +7,7 @@ import { initFetchSagaWatcher } from './SearchReducer/sagas/initFetchSaga';
 import { reposListSagaWatcher } from './SearchReducer/sagas/reposListSaga';
 import { searchSagaWatcher } from './SearchReducer/sagas/searchSaga';
 
-export default function* rootSaga() {
+export function* rootSaga() {
   yield all([
     fork(getFavoriteListSagaWatcher),
     fork(fetchUsersListSagaWatcher),
