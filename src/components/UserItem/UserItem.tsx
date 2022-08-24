@@ -10,11 +10,7 @@ import { IUserInner } from '../../model/search/types';
 
 import styles from './styles.module.css';
 
-export interface IProps {
-  user: IUserInner;
-}
-
-export const UserItem: React.FC<IProps> = memo(({ user }) => {
+export const UserItem: React.FC<{ user: IUserInner }> = memo(({ user }) => {
   const dispatch = useDispatch();
 
   const searchList = useSelector(searchListSelect);

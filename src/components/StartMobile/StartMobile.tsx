@@ -7,11 +7,7 @@ import { setMobileStart } from '../../store/SearchReducer/actions/actions';
 
 import styles from './styles.module.css';
 
-export interface IProps {
-  appHeight: number;
-}
-
-export const StartMobile: React.FC<IProps> = memo(
+export const StartMobile: React.FC<{ appHeight: number }> = memo(
   ({ appHeight }): JSX.Element => {
     const dispatch = useDispatch();
 

@@ -4,11 +4,7 @@ import { Flex } from '../../ui/Flex';
 
 import styles from './styles.module.css';
 
-interface IProps {
-  userName: string;
-}
-
-const Error: React.FC<IProps> = ({ userName }): JSX.Element => {
+const Error: React.FC<{ userName: string }> = ({ userName }): JSX.Element => {
   return (
     <Flex className={styles.errorWrapper}>
       <h2>
