@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
 import { Flex } from '../../ui/Flex';
-import Loader from '../../ui/Loader';
+import { Loader } from '../../ui/Loader';
 import { Header } from '../../components/Header';
-import SearchForm from '../../components/SearchForm';
-import StartMobile from '../../components/StartMobile';
+import { SearchForm } from '../../components/SearchForm';
+import { StartMobile } from '../../components/StartMobile';
 
 import { setFavoriteList } from '../../store/FavoriteReduser/actions/actions';
 import {
@@ -49,7 +49,7 @@ const LazyModal = React.lazy(() => import('../../components/Modal'));
 const LazyNote = React.lazy(() => import('../../components/Note'));
 const LazyError = React.lazy(() => import('../../components/Error'));
 
-const Root: React.FC = () => {
+export const Root: React.FC = () => {
   const dispatch = useDispatch();
 
   const favoriteList = useSelector(favoriteListSelect);
@@ -239,5 +239,3 @@ const Root: React.FC = () => {
     </Flex>
   );
 };
-
-export default Root;

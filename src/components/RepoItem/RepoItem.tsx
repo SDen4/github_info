@@ -13,7 +13,7 @@ export interface IProps {
   repoItem: IRepoItem;
 }
 
-const RepoItem: React.FC<IProps> = ({ repoItem }) => {
+export const RepoItem: React.FC<IProps> = memo(({ repoItem }) => {
   return (
     <Flex className={styles.repoItemWrapper}>
       <Flex className={styles.repoItemUnit}>
@@ -67,6 +67,4 @@ const RepoItem: React.FC<IProps> = ({ repoItem }) => {
       </Flex>
     </Flex>
   );
-};
-
-export default memo(RepoItem);
+});

@@ -1,1 +1,1 @@
-export { default } from './StartMobile';
+export * from './StartMobile';

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Root from '../view/Root';
+import { Root } from '../view/Root';
 
 import './styles.css';
 

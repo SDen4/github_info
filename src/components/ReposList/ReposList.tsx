@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { useSelector } from 'react-redux';
 
-import RepoItem from '../RepoItem';
+import { RepoItem } from '../RepoItem';
 
 import { reposListSelect } from '../../store/SearchReducer/selectors';
 

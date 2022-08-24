@@ -29,7 +29,7 @@ export interface IProps {
   searchFunc: any;
 }
 
-const SearchForm: React.FC<IProps> = ({ searchFunc }) => {
+export const SearchForm: React.FC<IProps> = memo(({ searchFunc }) => {
   const dispatch = useDispatch();
 
   const favoritesList = useSelector(favoriteListSelect);
@@ -143,6 +143,4 @@ const SearchForm: React.FC<IProps> = ({ searchFunc }) => {
       </div>
     </form>
   );
-};
-
-export default memo(SearchForm);
+});

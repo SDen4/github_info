@@ -4,7 +4,7 @@ import { Flex } from '../Flex';
 
 import styles from './styles.module.css';
 
-const Loader: React.FC = () => {
+export const Loader: React.FC = () => {
   return (
     <Flex className={styles.loaderWrapper}>
       <div className={styles.ldsDefault}>
@@ -24,5 +24,3 @@ const Loader: React.FC = () => {
     </Flex>
   );
 };
-
-export default Loader;

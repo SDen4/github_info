@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
-import UserItem from '../UserItem';
+import { UserItem } from '../UserItem';
 
 import {
   setCard,

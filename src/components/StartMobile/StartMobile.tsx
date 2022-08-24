@@ -11,31 +11,31 @@ export interface IProps {
   appHeight: number;
 }
 
-const StartMobile: React.FC<IProps> = ({ appHeight }): JSX.Element => {
-  const dispatch = useDispatch();
+export const StartMobile: React.FC<IProps> = memo(
+  ({ appHeight }): JSX.Element => {
+    const dispatch = useDispatch();
 
-  const onBtnClickHandler = () => {
-    document.body.requestFullscreen();
+    const onBtnClickHandler = () => {
+      document.body.requestFullscreen();
 
-    const timer = window.setTimeout(() => {
-      dispatch(setMobileStart(false));
-      window.clearTimeout(timer);
-    }, 50);
-  };
+      const timer = window.setTimeout(() => {
+        dispatch(setMobileStart(false));
+        window.clearTimeout(timer);
+      }, 50);
+    };
 
-  return (
-    <Flex className={styles.startMobileWrap} style={{ minHeight: appHeight }}>
-      <div className={styles.button__wrapper}>
-        <button
-          type="button"
-          className={styles.button}
-          onClick={onBtnClickHandler}
-        >
-          Go!
-        </button>
-      </div>
-    </Flex>
-  );
-};
-
-export default memo(StartMobile);
+    return (
+      <Flex className={styles.startMobileWrap} style={{ minHeight: appHeight }}>
+        <div className={styles.button__wrapper}>
+          <button
+            type="button"
+            className={styles.button}
+            onClick={onBtnClickHandler}
+          >
+            Go!
+          </button>
+        </div>
+      </Flex>
+    );
+  },
+);

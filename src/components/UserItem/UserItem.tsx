@@ -14,7 +14,7 @@ export interface IProps {
   user: IUserInner;
 }
 
-const UserItem: React.FC<IProps> = ({ user }) => {
+export const UserItem: React.FC<IProps> = memo(({ user }) => {
   const dispatch = useDispatch();
 
   const searchList = useSelector(searchListSelect);
@@ -36,6 +36,4 @@ const UserItem: React.FC<IProps> = ({ user }) => {
       </Flex>
     </Flex>
   );
-};
-
-export default memo(UserItem);
+});
