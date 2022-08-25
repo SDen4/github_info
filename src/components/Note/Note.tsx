@@ -39,9 +39,10 @@ const Note: React.FC = () => {
   const onChangeHandler: React.ChangeEventHandler<HTMLTextAreaElement> = (
     event,
   ) => {
-    if (!event.target.value.trim()) {
+    if (event.target.value === ' ' && value.length === 0) {
       return;
     }
+
     setValue(event.target.value);
   };
 
@@ -56,7 +57,7 @@ const Note: React.FC = () => {
     if (favoriteList.find((el) => el.name === user.login)) {
       // user is in favoriteList yet
 
-      dispatch(fetchNote(value));
+      dispatch(fetchNote(value.trim()));
       dispatch(setNote(false));
       dispatch(setNoteBtn(true));
       setValue('');
@@ -72,7 +73,7 @@ const Note: React.FC = () => {
     } else {
       // user isn't in favoriteList yet
 
-      dispatch(fetchNote(value));
+      dispatch(fetchNote(value.trim()));
       dispatch(setNote(false));
       dispatch(setNoteBtn(true));
       setValue('');
