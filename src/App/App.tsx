@@ -4,12 +4,10 @@ import { Root } from '../view/Root';
 
 import './styles.css';
 
-function App() {
+export function App() {
   return (
     <div className="App">
       <Root />
     </div>
   );
 }
-
-export default App;
