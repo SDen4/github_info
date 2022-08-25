@@ -31,6 +31,11 @@ const Note: React.FC = () => {
 
   useEffect(() => {
     ref.current.focus();
+
+    ref.current.setSelectionRange(
+      ref.current.value.length,
+      ref.current.value.length,
+    );
   }, []);
 
   const [value, setValue] = useState<string>(note);
