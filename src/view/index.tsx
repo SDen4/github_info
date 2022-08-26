@@ -34,7 +34,7 @@ import {
   isUsersListSelect,
 } from '../store/SearchReducer/selectors';
 
-import styles from './Root.module.css';
+import styles from './styles.module.css';
 
 const LazyCard = React.lazy(() => import('../components/Card'));
 const LazyReposList = React.lazy(() => import('../components/ReposList'));
