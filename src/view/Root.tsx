@@ -2,25 +2,25 @@ import React, { Suspense, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
-import { Flex } from '../../ui/Flex';
-import { Loader } from '../../ui/Loader';
-import { Header } from '../../components/Header';
-import { SearchForm } from '../../components/SearchForm';
-import { StartMobile } from '../../components/StartMobile';
+import { Flex } from '../ui/Flex';
+import { Loader } from '../ui/Loader';
+import { Header } from '../components/Header';
+import { SearchForm } from '../components/SearchForm';
+import { StartMobile } from '../components/StartMobile';
 
-import { setFavoriteList } from '../../store/FavoriteReduser/actions/actions';
+import { setFavoriteList } from '../store/FavoriteReduser/actions/actions';
 import {
   favoriteListSelect,
   isFavoriteListSelect,
   isNoteSelect,
-} from '../../store/FavoriteReduser/selectors';
+} from '../store/FavoriteReduser/selectors';
 import {
   setCard,
   setMobileStart,
   setReposList,
   setUsersList,
-} from '../../store/SearchReducer/actions/actions';
-import { searhInitFetchSaga } from '../../store/SearchReducer/actions/actionsSagas';
+} from '../store/SearchReducer/actions/actions';
+import { searhInitFetchSaga } from '../store/SearchReducer/actions/actionsSagas';
 import {
   isAndroidSelect,
   isCardSelect,
@@ -32,20 +32,18 @@ import {
   isReposListSelect,
   isSearchListSelect,
   isUsersListSelect,
-} from '../../store/SearchReducer/selectors';
+} from '../store/SearchReducer/selectors';
 
 import styles from './Root.module.css';
 
-const LazyCard = React.lazy(() => import('../../components/Card'));
-const LazyReposList = React.lazy(() => import('../../components/ReposList'));
-const LazyUsersList = React.lazy(() => import('../../components/UsersList'));
-const LazyModal = React.lazy(() => import('../../components/Modal'));
-const LazyNote = React.lazy(() => import('../../components/Note'));
-const LazyError = React.lazy(() => import('../../components/Error'));
-const LazySearchList = React.lazy(() => import('../../components/SearchList'));
-const LazyFavoriteList = React.lazy(
-  () => import('../../components/FavoriteList'),
-);
+const LazyCard = React.lazy(() => import('../components/Card'));
+const LazyReposList = React.lazy(() => import('../components/ReposList'));
+const LazyUsersList = React.lazy(() => import('../components/UsersList'));
+const LazyModal = React.lazy(() => import('../components/Modal'));
+const LazyNote = React.lazy(() => import('../components/Note'));
+const LazyError = React.lazy(() => import('../components/Error'));
+const LazySearchList = React.lazy(() => import('../components/SearchList'));
+const LazyFavoriteList = React.lazy(() => import('../components/FavoriteList'));
 
 export const Root: React.FC = () => {
   const dispatch = useDispatch();
