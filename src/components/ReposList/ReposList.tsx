@@ -3,6 +3,8 @@ import { useSelector } from 'react-redux';
 
 import { RepoItem } from '../RepoItem';
 
+import { Ul } from '../../ui/Ul';
+
 import { reposListSelect } from '../../store/SearchReducer/selectors';
 
 import { IRepoItem } from '../../model/search/types';
@@ -13,13 +15,13 @@ const ReposList: React.FC = () => {
   const reposList = useSelector(reposListSelect);
 
   return (
-    <ul className={styles.reposWrapper}>
+    <Ul>
       {reposList.map((repo: IRepoItem) => (
         <li key={repo.name} className={styles.reposItem}>
           <RepoItem repoItem={repo} />
         </li>
       ))}
-    </ul>
+    </Ul>
   );
 };
 

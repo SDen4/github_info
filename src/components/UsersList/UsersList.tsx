@@ -4,6 +4,8 @@ import clsx from 'clsx';
 
 import { UserItem } from '../UserItem';
 
+import { Ul } from '../../ui/Ul';
+
 import {
   setCard,
   setReposList,
@@ -37,13 +39,13 @@ const UsersList: React.FC = () => {
   return (
     <div className={clsx(styles.listWrapper, isLoading && styles.hide)}>
       {usersList.length ? (
-        <ul className={styles.listWrapperUl}>
+        <Ul className={styles.listWrapperUl}>
           {usersList.map((el: IUserInner) => (
             <li key={el.login}>
               <UserItem user={el} />
             </li>
           ))}
-        </ul>
+        </Ul>
       ) : (
         <div className={styles.listError}>
           <h2>
