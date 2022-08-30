@@ -1,6 +1,6 @@
 import { all, put, select, takeEvery } from 'redux-saga/effects';
 
-import { API } from '../../../api/API';
+import { getLastActivityDate, getUserInfo } from '../../../api/searchRequest';
 import {
   fetchNote,
   setFavoriteList,
@@ -22,19 +22,6 @@ import { isMobileSelect } from '../selectors';
 import { ISearchSaga, ISearhHistoryItem } from '../../../model/search/types';
 
 import { SEARCH_LOGIN_SAGA } from '../constants';
-
-async function getUserInfo(login: string) {
-  const response = await API.get(`${login.trim()}`).then((res) => res.data);
-  return response;
-}
-
-async function getLastActivityDate(login: string) {
-  const response = await API.get(`${login.trim()}/events`)
-    .then((res) => res.data[0].created_at)
-    // eslint-disable-next-line no-console
-    .catch((isError) => console.log(isError));
-  return response;
-}
 
 function* sagaWorker(action: ISearchSaga) {
   const isMobile: boolean = yield select(isMobileSelect);

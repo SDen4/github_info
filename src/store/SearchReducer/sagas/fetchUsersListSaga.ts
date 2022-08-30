@@ -1,6 +1,6 @@
 import { put, select, takeEvery } from 'redux-saga/effects';
 
-import { API } from '../../../api/API';
+import { getUsersInfo } from '../../../api/searchRequest';
 import {
   fetchUsersList,
   setCard,
@@ -17,20 +17,13 @@ import {
 
 import { FETCH_USERS_LIST_SAGA } from '../constants';
 
-async function getUserInfo(login: string, requestType: string) {
-  const response = await API.get(`${login}/${requestType}`).then(
-    (res) => res.data,
-  );
-  return response;
-}
-
 function* sagaWorker(action: IFetchUsersListSaga) {
   const user: IUser = yield select(userSelect);
 
   try {
     yield put(setLoading(true));
 
-    const allData: IUserInner[] = yield getUserInfo(
+    const allData: IUserInner[] = yield getUsersInfo(
       user.login,
       action.requestType,
     );

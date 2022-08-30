@@ -1,6 +1,6 @@
 import { put, select, takeEvery } from 'redux-saga/effects';
 
-import { API } from '../../../api/API';
+import { getReposInfo } from '../../../api/searchRequest';
 import {
   fetchReposList,
   setCard,
@@ -12,11 +12,6 @@ import { userSelect } from '../selectors';
 import { IRepoItem, IUser } from '../../../model/search/types';
 
 import { REPOS_LIST_SAGA } from '../constants';
-
-async function getReposInfo(login: string) {
-  const response = await API.get(`${login}/repos`).then((res) => res.data);
-  return response;
-}
 
 function* sagaWorker() {
   const user: IUser = yield select(userSelect);
