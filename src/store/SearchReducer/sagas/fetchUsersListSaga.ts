@@ -1,4 +1,4 @@
-import { put, select, takeEvery } from 'redux-saga/effects';
+import { put, takeEvery } from 'redux-saga/effects';
 
 import { getUsersInfo } from '../../../api/searchRequest';
 import {
@@ -9,16 +9,14 @@ import {
 } from '../actions/actions';
 import { userSelect } from '../selectors';
 
-import {
-  IFetchUsersListSaga,
-  IUser,
-  IUserInner,
-} from '../../../model/search/types';
+import { select } from '../../../utils/select';
+
+import { IFetchUsersListSaga, IUserInner } from '../../../model/search/types';
 
 import { FETCH_USERS_LIST_SAGA } from '../constants';
 
 function* sagaWorker(action: IFetchUsersListSaga) {
-  const user: IUser = yield select(userSelect);
+  const user = yield* select(userSelect);
 
   try {
     yield put(setLoading(true));

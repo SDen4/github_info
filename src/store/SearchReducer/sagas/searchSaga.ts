@@ -1,4 +1,4 @@
-import { all, put, select, takeEvery } from 'redux-saga/effects';
+import { all, put, takeEvery } from 'redux-saga/effects';
 
 import { getLastActivityDate, getUserInfo } from '../../../api/searchRequest';
 import {
@@ -19,12 +19,14 @@ import {
 } from '../actions/actions';
 import { isMobileSelect } from '../selectors';
 
+import { select } from '../../../utils/select';
+
 import { ISearchSaga, ISearhHistoryItem } from '../../../model/search/types';
 
 import { SEARCH_LOGIN_SAGA } from '../constants';
 
 function* sagaWorker(action: ISearchSaga) {
-  const isMobile: boolean = yield select(isMobileSelect);
+  const isMobile = yield* select(isMobileSelect);
 
   try {
     yield all([put(getStart()), put(fetchNote('')), put(setNoteBtn(false))]);

@@ -1,4 +1,4 @@
-import { put, select, takeEvery } from 'redux-saga/effects';
+import { put, takeEvery } from 'redux-saga/effects';
 
 import { getReposInfo } from '../../../api/searchRequest';
 import {
@@ -9,12 +9,14 @@ import {
 } from '../actions/actions';
 import { userSelect } from '../selectors';
 
-import { IRepoItem, IUser } from '../../../model/search/types';
+import { select } from '../../../utils/select';
+
+import { IRepoItem } from '../../../model/search/types';
 
 import { REPOS_LIST_SAGA } from '../constants';
 
 function* sagaWorker() {
-  const user: IUser = yield select(userSelect);
+  const user = yield* select(userSelect);
 
   try {
     yield put(setLoading(true));
