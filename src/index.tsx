@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { applyMiddleware, compose, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
-import { App } from './App';
+import { Root } from './view';
 
 import { rootReducer } from './store/rootReducer';
 import { rootSaga } from './store/rootSaga';
@@ -25,7 +25,7 @@ saga.run(rootSaga);
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Root />
   </Provider>,
   document.getElementById('root'),
 );
