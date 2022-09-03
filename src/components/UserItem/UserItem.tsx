@@ -1,12 +1,12 @@
 import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Flex } from '../../ui/Flex';
+import { Flex } from 'ui/Flex';
 
-import { searchSaga } from '../../store/SearchReducer/actions/actionsSagas';
-import { searchListSelect } from '../../store/SearchReducer/selectors';
+import { searchSaga } from 'store/SearchReducer/actions/actionsSagas';
+import { searchListSelect } from 'store/SearchReducer/selectors';
 
-import { IUserInner } from '../../model/search/types';
+import { IUserInner } from 'model/search/types';
 
 import styles from './styles.module.css';
 

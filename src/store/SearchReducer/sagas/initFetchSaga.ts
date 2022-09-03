@@ -1,6 +1,5 @@
 import { all, put, takeEvery } from 'redux-saga/effects';
 
-import { getFavoriteListSaga } from '../../FavoriteReduser/actions/actions';
 import {
   setAndroid,
   setError,
@@ -9,8 +8,10 @@ import {
 } from '../actions/actions';
 import { getLocalHistorySaga } from '../actions/actionsSagas';
 
-import { mobileWidth } from '../../../constants/searchConstants';
+import { getFavoriteListSaga } from 'store/FavoriteReduser/actions/actions';
+
 import { SEARCH_INIT_SAGA } from '../constants';
+import { mobileWidth } from 'constants/searchConstants';
 
 function* sagaWorker() {
   try {

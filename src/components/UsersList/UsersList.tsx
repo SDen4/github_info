@@ -4,21 +4,21 @@ import clsx from 'clsx';
 
 import { UserItem } from '../UserItem';
 
-import { Ul } from '../../ui/Ul';
+import { Ul } from 'ui/Ul';
 
 import {
   setCard,
   setReposList,
   setUsersList,
-} from '../../store/SearchReducer/actions/actions';
+} from 'store/SearchReducer/actions/actions';
 import {
   isLoadingSelect,
   lastRequestTypeSelect,
   userSelect,
   usersListSelect,
-} from '../../store/SearchReducer/selectors';
+} from 'store/SearchReducer/selectors';
 
-import { IUserInner } from '../../model/search/types';
+import { IUserInner } from 'model/search/types';
 
 import styles from './styles.module.css';
 

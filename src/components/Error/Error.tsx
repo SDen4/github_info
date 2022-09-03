@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 
-import { Flex } from '../../ui/Flex';
+import { Flex } from 'ui/Flex';
 
 import styles from './styles.module.css';
 

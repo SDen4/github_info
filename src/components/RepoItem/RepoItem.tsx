@@ -1,11 +1,11 @@
 import React, { memo } from 'react';
 import clsx from 'clsx';
 
-import { Flex } from '../../ui/Flex';
+import { Flex } from 'ui/Flex';
 
-import { dateFormatter } from '../../utils/dateFormatter';
+import { dateFormatter } from 'utils/dateFormatter';
 
-import { IRepoItem } from '../../model/search/types';
+import { IRepoItem } from 'model/search/types';
 
 import styles from './styles.module.css';
 

@@ -1,6 +1,5 @@
 import { put, takeEvery } from 'redux-saga/effects';
 
-import { getReposInfo } from '../../../api/searchRequest';
 import {
   fetchReposList,
   setCard,
@@ -9,9 +8,10 @@ import {
 } from '../actions/actions';
 import { userSelect } from '../selectors';
 
-import { select } from '../../../utils/select';
+import { getReposInfo } from 'api/searchRequest';
+import { select } from 'utils/select';
 
-import { IRepoItem } from '../../../model/search/types';
+import { IRepoItem } from 'model/search/types';
 
 import { REPOS_LIST_SAGA } from '../constants';
 

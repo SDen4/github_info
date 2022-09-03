@@ -2,7 +2,7 @@ import { put, takeEvery } from 'redux-saga/effects';
 
 import { fetchFavoriteList } from '../actions/actions';
 
-import { IFavoriteUser } from '../../../model/favorite/types';
+import { IFavoriteUser } from 'model/favorite/types';
 
 import { FAVORITE_LIST_SAGA } from '../constants';
 

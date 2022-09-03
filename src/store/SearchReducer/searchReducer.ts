@@ -1,9 +1,9 @@
 import { ActionsType } from './actions/actions';
 
-import { IInitialState } from '../../model/search/types';
+import { IInitialState } from 'model/search/types';
 
-import { searchUserDefault } from '../../constants/searchConstants';
 import * as CONST from './constants';
+import { searchUserDefault } from 'constants/searchConstants';
 
 const initialState: IInitialState = {
   user: searchUserDefault,

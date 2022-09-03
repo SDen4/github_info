@@ -1,23 +1,23 @@
 import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { CloseButton } from '../../ui/CloseButton';
-import { Flex } from '../../ui/Flex';
+import { CloseButton } from 'ui/CloseButton';
+import { Flex } from 'ui/Flex';
 
 import {
   fetchFavoriteList,
   setFavoriteList,
   setFavoriteUser,
-} from '../../store/FavoriteReduser/actions/actions';
+} from 'store/FavoriteReduser/actions/actions';
 import {
   fetchSearchList,
   setModal,
   setSearchList,
-} from '../../store/SearchReducer/actions/actions';
+} from 'store/SearchReducer/actions/actions';
 import {
   modalTextSelect,
   modalTypeSelect,
-} from '../../store/SearchReducer/selectors';
+} from 'store/SearchReducer/selectors';
 
 import styles from './styles.module.css';
 

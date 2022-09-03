@@ -2,7 +2,7 @@ import React, { memo, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
-import { Flex } from '../../ui/Flex';
+import { Flex } from 'ui/Flex';
 
 import {
   fetchFavoriteList,
@@ -12,12 +12,12 @@ import {
   setFavoriteUser,
   setNote,
   setNoteBtn,
-} from '../../store/FavoriteReduser/actions/actions';
+} from 'store/FavoriteReduser/actions/actions';
 import {
   favoriteListSelect,
   noteSelect,
-} from '../../store/FavoriteReduser/selectors';
-import { userSelect } from '../../store/SearchReducer/selectors';
+} from 'store/FavoriteReduser/selectors';
+import { userSelect } from 'store/SearchReducer/selectors';
 
 import styles from './styles.module.css';
 

@@ -1,9 +1,9 @@
 import React, { memo } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { Flex } from '../../ui/Flex';
+import { Flex } from 'ui/Flex';
 
-import { setMobileStart } from '../../store/SearchReducer/actions/actions';
+import { setMobileStart } from 'store/SearchReducer/actions/actions';
 
 import styles from './styles.module.css';
 

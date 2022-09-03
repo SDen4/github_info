@@ -1,6 +1,5 @@
 import { put, takeEvery } from 'redux-saga/effects';
 
-import { getUsersInfo } from '../../../api/searchRequest';
 import {
   fetchUsersList,
   setCard,
@@ -9,9 +8,10 @@ import {
 } from '../actions/actions';
 import { userSelect } from '../selectors';
 
-import { select } from '../../../utils/select';
+import { getUsersInfo } from 'api/searchRequest';
+import { select } from 'utils/select';
 
-import { IFetchUsersListSaga, IUserInner } from '../../../model/search/types';
+import { IFetchUsersListSaga, IUserInner } from 'model/search/types';
 
 import { FETCH_USERS_LIST_SAGA } from '../constants';
 

@@ -1,9 +1,5 @@
 /* eslint-disable camelcase */
-import {
-  IRepoItem,
-  ISearhHistoryItem,
-  IUserInner,
-} from '../../../model/search/types';
+import { IRepoItem, ISearhHistoryItem, IUserInner } from 'model/search/types';
 
 import * as CONST from '../constants';
 

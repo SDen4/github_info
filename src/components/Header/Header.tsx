@@ -1,11 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { FavoriteButton } from '../../ui/FavoriteButton';
-import { SearchHistoryButton } from '../../ui/SearchHistoryButton';
+import { FavoriteButton } from 'ui/FavoriteButton';
+import { SearchHistoryButton } from 'ui/SearchHistoryButton';
 
-import { favoriteListSelect } from '../../store/FavoriteReduser/selectors';
-import { searchListSelect } from '../../store/SearchReducer/selectors';
+import { favoriteListSelect } from 'store/FavoriteReduser/selectors';
+import { searchListSelect } from 'store/SearchReducer/selectors';
 
 import styles from './styles.module.css';
 

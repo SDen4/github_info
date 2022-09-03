@@ -2,13 +2,13 @@ import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
-import { setFavoriteList } from '../../store/FavoriteReduser/actions/actions';
+import { setFavoriteList } from 'store/FavoriteReduser/actions/actions';
 import {
   favoriteListSelect,
   isFavoriteListSelect,
-} from '../../store/FavoriteReduser/selectors';
-import { setSearchList } from '../../store/SearchReducer/actions/actions';
-import { isSearchListSelect } from '../../store/SearchReducer/selectors';
+} from 'store/FavoriteReduser/selectors';
+import { setSearchList } from 'store/SearchReducer/actions/actions';
+import { isSearchListSelect } from 'store/SearchReducer/selectors';
 
 import styles from './styles.module.css';
 

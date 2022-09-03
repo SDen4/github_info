@@ -1,6 +1,5 @@
 import { all, put, takeEvery } from 'redux-saga/effects';
 
-import { getLastActivityDate, getUserInfo } from '../../../api/searchRequest';
 import {
   fetchNote,
   setFavoriteList,
@@ -19,9 +18,10 @@ import {
 } from '../actions/actions';
 import { isMobileSelect } from '../selectors';
 
-import { select } from '../../../utils/select';
+import { getLastActivityDate, getUserInfo } from 'api/searchRequest';
+import { select } from 'utils/select';
 
-import { ISearchSaga, ISearhHistoryItem } from '../../../model/search/types';
+import { ISearchSaga, ISearhHistoryItem } from 'model/search/types';
 
 import { SEARCH_LOGIN_SAGA } from '../constants';
 

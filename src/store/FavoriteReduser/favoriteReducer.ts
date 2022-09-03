@@ -1,6 +1,6 @@
 import { ActionsType } from './actions/actions';
 
-import { IInitialFavoriteState } from '../../model/favorite/types';
+import { IInitialFavoriteState } from 'model/favorite/types';
 
 import * as CONST from './constants';
 

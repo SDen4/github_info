@@ -4,11 +4,11 @@ import clsx from 'clsx';
 
 import { fileText } from './fileText';
 
-import { CloseButton } from '../../ui/CloseButton';
-import { Flex } from '../../ui/Flex';
+import { CloseButton } from 'ui/CloseButton';
+import { Flex } from 'ui/Flex';
 
-import { dateFormatter } from '../../utils/dateFormatter';
-import { periodCounter } from '../../utils/periodCounter';
+import { dateFormatter } from 'utils/dateFormatter';
+import { periodCounter } from 'utils/periodCounter';
 
 import {
   fetchFavoriteList,
@@ -16,23 +16,20 @@ import {
   setFavoriteBtnFlag,
   setFavoriteUser,
   setNote,
-} from '../../store/FavoriteReduser/actions/actions';
+} from 'store/FavoriteReduser/actions/actions';
 import {
   favoriteListSelect,
   isFavoriteUserSelect,
   isNoteBtnSelect,
   isNoteSelect,
   noteSelect,
-} from '../../store/FavoriteReduser/selectors';
-import { fetchLogin, setCard } from '../../store/SearchReducer/actions/actions';
+} from 'store/FavoriteReduser/selectors';
+import { fetchLogin, setCard } from 'store/SearchReducer/actions/actions';
 import {
   fetchUsersListSaga,
   reposListSaga,
-} from '../../store/SearchReducer/actions/actionsSagas';
-import {
-  isLoadingSelect,
-  userSelect,
-} from '../../store/SearchReducer/selectors';
+} from 'store/SearchReducer/actions/actionsSagas';
+import { isLoadingSelect, userSelect } from 'store/SearchReducer/selectors';
 
 import styles from './styles.module.css';
 

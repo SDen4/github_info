@@ -1,18 +1,18 @@
 import React, { memo, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { SubmitButton } from '../../ui/SubmitButton';
+import { SubmitButton } from 'ui/SubmitButton';
 
 import {
   favoriteListSelect,
   isFavoriteListSelect,
-} from '../../store/FavoriteReduser/selectors';
+} from 'store/FavoriteReduser/selectors';
 import {
   setCard,
   setReposList,
   setUsersList,
-} from '../../store/SearchReducer/actions/actions';
-import { searchSaga } from '../../store/SearchReducer/actions/actionsSagas';
+} from 'store/SearchReducer/actions/actions';
+import { searchSaga } from 'store/SearchReducer/actions/actionsSagas';
 import {
   isCardSelect,
   isMobileSelect,
@@ -21,7 +21,7 @@ import {
   isUsersListSelect,
   searchListSelect,
   userSelect,
-} from '../../store/SearchReducer/selectors';
+} from 'store/SearchReducer/selectors';
 
 import styles from './styles.module.css';
 

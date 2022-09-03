@@ -2,20 +2,20 @@ import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
-import { CloseButton } from '../../ui/CloseButton';
-import { Flex } from '../../ui/Flex';
+import { CloseButton } from 'ui/CloseButton';
+import { Flex } from 'ui/Flex';
 
-import { dateFormatter } from '../../utils/dateFormatter';
-import { timeFormatter } from '../../utils/timeFormatter';
+import { dateFormatter } from 'utils/dateFormatter';
+import { timeFormatter } from 'utils/timeFormatter';
 
-import { favoriteListSelect } from '../../store/FavoriteReduser/selectors';
+import { favoriteListSelect } from 'store/FavoriteReduser/selectors';
 import {
   setModal,
   setReposList,
   setSearchList,
   setUsersList,
-} from '../../store/SearchReducer/actions/actions';
-import { searchSaga } from '../../store/SearchReducer/actions/actionsSagas';
+} from 'store/SearchReducer/actions/actions';
+import { searchSaga } from 'store/SearchReducer/actions/actionsSagas';
 import {
   isLoadingSelect,
   isMobileSelect,
@@ -23,7 +23,7 @@ import {
   isUsersListSelect,
   searchListSelect,
   userSelect,
-} from '../../store/SearchReducer/selectors';
+} from 'store/SearchReducer/selectors';
 
 import styles from './styles.module.css';
 

@@ -1,11 +1,11 @@
 /* eslint-disable camelcase */
 
-import { IFavoriteUser } from '../favorite/types';
+import { IFavoriteUser } from 'model/favorite/types';
 
 import {
   FETCH_USERS_LIST_SAGA,
   SEARCH_LOGIN_SAGA,
-} from '../../store/SearchReducer/constants';
+} from 'store/SearchReducer/constants';
 
 export interface IUserInner {
   name: string;
