@@ -4,9 +4,16 @@ import clsx from 'clsx';
 
 import { setFavoriteList } from 'store/FavoriteReduser/actions/actions';
 import { isFavoriteListSelect } from 'store/FavoriteReduser/selectors';
-import { setSearchList } from 'store/SearchReducer/actions/actions';
 import {
+  setReposList,
+  setSearchList,
+  setUsersList,
+} from 'store/SearchReducer/actions/actions';
+import {
+  isMobileSelect,
+  isReposListSelect,
   isSearchListSelect,
+  isUsersListSelect,
   searchListSelect,
 } from 'store/SearchReducer/selectors';
 
@@ -18,6 +25,9 @@ export const SearchHistoryButton: React.FC = memo(() => {
   const history = useSelector(searchListSelect);
   const searchHistoryListStatus = useSelector(isSearchListSelect);
   const isFavoriteList = useSelector(isFavoriteListSelect);
+  const isMobile = useSelector(isMobileSelect);
+  const isUsersList = useSelector(isUsersListSelect);
+  const isReposList = useSelector(isReposListSelect);
 
   const onSearchHistoryBtnHandler = () => {
     if (searchHistoryListStatus) {
@@ -26,6 +36,11 @@ export const SearchHistoryButton: React.FC = memo(() => {
       dispatch(setSearchList(true));
       if (isFavoriteList) {
         dispatch(setFavoriteList(false));
+      }
+
+      if (isMobile && (isUsersList || isReposList)) {
+        dispatch(setUsersList(false));
+        dispatch(setReposList(false));
       }
     }
   };
