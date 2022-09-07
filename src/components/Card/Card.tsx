@@ -199,14 +199,14 @@ const Card: React.FC = (): JSX.Element => {
 
         <div className={clsx(styles.cardSubElem, styles.cardSubElemCreate)}>
           <span>Created&nbsp;at:&nbsp;</span>
-          <div className={styles.cardUserInfoWrapper}>
+          <Flex className={styles.cardUserInfoWrapper}>
             <div className={styles.cardUserInfo}>
               {dateFormatter(user.dataCreated)}
             </div>
             <div className={styles.cardUserInfo}>
               ({periodCounter(user.dataCreated)})
             </div>
-          </div>
+          </Flex>
         </div>
 
         {user.lastActivityDate && (

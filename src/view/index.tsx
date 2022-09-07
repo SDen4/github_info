@@ -126,7 +126,7 @@ export const Root: React.FC = () => {
       {isMobile && isAndroid && isMobileStart ? (
         <StartMobile appHeight={appHeight} />
       ) : (
-        <div
+        <Flex
           className={styles.rootWrapper}
           style={isMobile && isMobileStart ? { minHeight: appHeight } : {}}
         >
@@ -230,7 +230,7 @@ export const Root: React.FC = () => {
               <LazyModal />
             </Suspense>
           )}
-        </div>
+        </Flex>
       )}
     </Flex>
   );

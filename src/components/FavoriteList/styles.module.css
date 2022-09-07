@@ -1,7 +1,4 @@
 .shlWrapper {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
   flex-direction: column;
   position: relative;
   box-sizing: border-box;
