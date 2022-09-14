@@ -1,3 +1,9 @@
+/**
+ * Time counter - how old is one's account for current date
+ * @param dataCreated tha date on creation one's account
+ * @returns string
+ */
+
 export const periodCounter = (dataCreated: Date): string => {
   const currentDayDuration = new Date().getTime();
   const dataCreatedDuration = dataCreated.getTime();

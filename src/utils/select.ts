@@ -1,7 +1,7 @@
 import { select as sagaSelect } from 'redux-saga/effects';
 
 /**
- * @description Обертка для select для возврата типизированного значения
+ * @description Wrapper for select for typing result
  * @example const list = yield* select(selector, args) //change tsconfig.ts ->target-> more than es5
  */
 

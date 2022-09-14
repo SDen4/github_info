@@ -1,3 +1,7 @@
+/**
+ * Format dates to "dd.mm.yyyy"
+ */
+
 export const dateFormatter = (dataCreated: Date): string => {
   const day =
     dataCreated.getDate() < 10

@@ -1,3 +1,9 @@
+/**
+ * Time formatter to "hh.mm.ss"
+ * @param incomeDate - Date
+ * @returns string in format "hh.mm.ss"
+ */
+
 export const timeFormatter = (incomeDate: Date): string => {
   const hour =
     incomeDate.getHours() < 10
