@@ -19,6 +19,7 @@ import {
 import { isMobileSelect } from '../selectors';
 
 import { getLastActivityDate, getUserInfo } from 'api/searchRequest';
+import { caching } from 'utils/caching';
 import { select } from 'utils/select';
 
 import { ISearchSaga, ISearhHistoryItem } from 'model/search/types';
@@ -31,8 +32,10 @@ function* sagaWorker(action: ISearchSaga) {
   try {
     yield all([put(getStart()), put(fetchNote('')), put(setNoteBtn(false))]);
 
+    const cacheGetUserInfo = caching(getUserInfo);
+
     const { allData, lastActivityDate } = yield all({
-      allData: getUserInfo(action.login),
+      allData: cacheGetUserInfo(action.login),
       lastActivityDate: getLastActivityDate(action.login),
     });
 
