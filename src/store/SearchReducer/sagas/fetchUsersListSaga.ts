@@ -9,6 +9,7 @@ import {
 import { userSelect } from '../selectors';
 
 import { getUsersInfo } from 'api/searchRequest';
+import { caching } from 'utils/caching';
 import { select } from 'utils/select';
 
 import { IFetchUsersListSaga, IUserInner } from 'model/search/types';
@@ -21,7 +22,9 @@ function* sagaWorker(action: IFetchUsersListSaga) {
   try {
     yield put(setLoading(true));
 
-    const allData: IUserInner[] = yield getUsersInfo(
+    const cacheGetUsersInfo = caching(getUsersInfo);
+
+    const allData: IUserInner[] = yield cacheGetUsersInfo(
       user.login,
       action.requestType,
     );
