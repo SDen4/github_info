@@ -1,12 +1,5 @@
 /* eslint-disable camelcase */
 
-import { IFavoriteUser } from 'model/favorite/types';
-
-import {
-  FETCH_USERS_LIST_SAGA,
-  SEARCH_LOGIN_SAGA,
-} from 'store/SearchReducer/constants';
-
 export interface IUserInner {
   name: string;
   login: string;
@@ -74,17 +67,4 @@ export interface IInitialState {
   isMobile: boolean;
   isAndroid: boolean;
   isMobileStart: boolean;
-}
-
-export interface ISearchSaga {
-  type: typeof SEARCH_LOGIN_SAGA;
-  login: string;
-  history: ISearhHistoryItem[];
-  favoritesList?: IFavoriteUser[];
-}
-
-export interface IFetchUsersListSaga {
-  type: typeof FETCH_USERS_LIST_SAGA;
-  login: string;
-  requestType: string;
 }

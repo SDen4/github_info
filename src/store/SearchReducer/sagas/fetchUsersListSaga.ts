@@ -12,11 +12,17 @@ import { getUsersInfo } from 'api/searchRequest';
 import { caching } from 'utils/caching';
 import { select } from 'utils/select';
 
-import { IFetchUsersListSaga, IUserInner } from 'model/search/types';
+import { IUserInner } from 'model/search/types';
 
 import { FETCH_USERS_LIST_SAGA } from '../constants';
 
-function* sagaWorker(action: IFetchUsersListSaga) {
+export interface IProps {
+  type: typeof FETCH_USERS_LIST_SAGA;
+  login: string;
+  requestType: string;
+}
+
+function* sagaWorker(action: IProps) {
   const user = yield* select(userSelect);
 
   try {

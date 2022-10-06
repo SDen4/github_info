@@ -22,11 +22,19 @@ import { getLastActivityDate, getUserInfo } from 'api/searchRequest';
 import { caching } from 'utils/caching';
 import { select } from 'utils/select';
 
-import { ISearchSaga, ISearhHistoryItem } from 'model/search/types';
+import { IFavoriteUser } from 'model/favorite/types';
+import { ISearhHistoryItem } from 'model/search/types';
 
 import { SEARCH_LOGIN_SAGA } from '../constants';
 
-function* sagaWorker(action: ISearchSaga) {
+export interface IProps {
+  type: typeof SEARCH_LOGIN_SAGA;
+  login: string;
+  history: ISearhHistoryItem[];
+  favoritesList?: IFavoriteUser[];
+}
+
+function* sagaWorker(action: IProps) {
   const isMobile = yield* select(isMobileSelect);
 
   try {
