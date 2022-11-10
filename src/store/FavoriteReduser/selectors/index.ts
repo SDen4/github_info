@@ -1,8 +1,1 @@
-export {
-  favoriteListSelect,
-  isFavoriteUserSelect,
-  isNoteBtnSelect,
-  noteSelect,
-  isNoteSelect,
-  isFavoriteListSelect,
-} from './selectors';
+export * from './selectors';
