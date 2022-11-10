@@ -1,10 +1,9 @@
 import { put, takeEvery } from 'redux-saga/effects';
 
-import { fetchFavoriteList } from '../actions/actions';
+import { FAVORITE_LIST_SAGA } from '../actions/actions';
+import { fetchFavoriteList } from '../favoriteReducer';
 
 import { IFavoriteUser } from 'model/favorite/types';
-
-import { FAVORITE_LIST_SAGA } from '../constants';
 
 function* sagaWorker() {
   try {

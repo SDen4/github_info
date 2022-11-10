@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
-import { setFavoriteList } from 'store/FavoriteReduser/actions/actions';
+import { setFavoriteList } from 'store/FavoriteReduser/favoriteReducer';
 import { isFavoriteListSelect } from 'store/FavoriteReduser/selectors';
 import {
   setReposList,

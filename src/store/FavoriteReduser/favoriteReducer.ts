@@ -1,10 +1,18 @@
-import { ActionsType } from './actions/actions';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { IInitialFavoriteState } from 'model/favorite/types';
+import { IFavoriteUser } from 'model/favorite/types';
 
-import * as CONST from './constants';
+interface IInitialFavoriteState {
+  isFavoriteBtn: boolean;
+  isFavoriteList: boolean;
+  favoriteList: IFavoriteUser[];
+  isFavoriteUser: boolean;
+  isNote: boolean;
+  isNoteBtn: boolean;
+  note: string;
+}
 
-const InitialState: IInitialFavoriteState = {
+const initialState: IInitialFavoriteState = {
   isFavoriteBtn: false,
   isFavoriteList: false,
   isFavoriteUser: false,
@@ -14,39 +22,41 @@ const InitialState: IInitialFavoriteState = {
   note: '',
 };
 
-export const favoriteReducer = (
-  state = InitialState,
-  action: ActionsType,
-): typeof state => {
-  switch (action.type) {
-    case CONST.FAVORITE_BTN_FLAG:
-      return { ...state, isFavoriteBtn: action.isFavoriteBtn };
+const favoriteSlice = createSlice({
+  name: 'FReducer',
+  initialState,
+  reducers: {
+    setFavoriteBtnFlag(state, action: PayloadAction<boolean>) {
+      return { ...state, isFavoriteBtn: action.payload };
+    },
+    fetchFavoriteList(state, action: PayloadAction<IFavoriteUser[]>) {
+      return { ...state, favoriteList: action.payload };
+    },
+    setFavoriteList(state, action: PayloadAction<boolean>) {
+      return { ...state, isFavoriteList: action.payload };
+    },
+    setFavoriteUser(state, action: PayloadAction<boolean>) {
+      return { ...state, isFavoriteUser: action.payload };
+    },
+    setNote(state, action: PayloadAction<boolean>) {
+      return { ...state, isNote: action.payload };
+    },
+    fetchNote(state, action: PayloadAction<string>) {
+      return { ...state, note: action.payload };
+    },
+    setNoteBtn(state, action: PayloadAction<boolean>) {
+      return { ...state, isNoteBtn: action.payload };
+    },
+  },
+});
 
-    case CONST.FAVORITE_LIST:
-      return { ...state, favoriteList: action.favoriteList };
-
-    case CONST.FAVORITE_LIST_ADD:
-      return {
-        ...state,
-        favoriteList: [...state.favoriteList, action.favoriteList],
-      };
-
-    case CONST.FAVORITE_LIST_FLAG:
-      return { ...state, isFavoriteList: action.isFavoriteList };
-
-    case CONST.FAVORITE_USER_FLAG:
-      return { ...state, isFavoriteUser: action.isFavoriteUser };
-
-    case CONST.NOTE_FLAG:
-      return { ...state, isNote: action.isNote };
-
-    case CONST.NOTE_SAVE:
-      return { ...state, note: action.note };
-
-    case CONST.NOTE_BTN_FLAG:
-      return { ...state, isNoteBtn: action.isNoteBtn };
-
-    default:
-      return state;
-  }
-};
+export const {
+  setFavoriteBtnFlag,
+  fetchFavoriteList,
+  setFavoriteList,
+  setFavoriteUser,
+  setNote,
+  fetchNote,
+  setNoteBtn,
+} = favoriteSlice.actions;
+export default favoriteSlice.reducer;

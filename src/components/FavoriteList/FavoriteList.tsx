@@ -9,7 +9,7 @@ import {
   fetchFavoriteList,
   setFavoriteList,
   setFavoriteUser,
-} from 'store/FavoriteReduser/actions/actions';
+} from 'store/FavoriteReduser/favoriteReducer';
 import { favoriteListSelect } from 'store/FavoriteReduser/selectors';
 import {
   setModal,

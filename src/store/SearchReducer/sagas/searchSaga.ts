@@ -1,12 +1,6 @@
 import { all, put, takeEvery } from 'redux-saga/effects';
 
 import {
-  fetchNote,
-  setFavoriteList,
-  setFavoriteUser,
-  setNoteBtn,
-} from '../../FavoriteReduser/actions/actions';
-import {
   fetchLogin,
   fetchSearhHistory,
   getStart,
@@ -21,6 +15,13 @@ import { isMobileSelect } from '../selectors';
 import { getLastActivityDate, getUserInfo } from 'api/searchRequest';
 import { caching } from 'utils/caching';
 import { select } from 'utils/select';
+
+import {
+  fetchNote,
+  setFavoriteList,
+  setFavoriteUser,
+  setNoteBtn,
+} from 'store/FavoriteReduser/favoriteReducer';
 
 import { IFavoriteUser } from 'model/favorite/types';
 import { ISearhHistoryItem } from 'model/search/types';

@@ -8,7 +8,7 @@ import { Header } from 'components/Header';
 import { SearchForm } from 'components/SearchForm';
 import { StartMobile } from 'components/StartMobile';
 
-import { setFavoriteList } from 'store/FavoriteReduser/actions/actions';
+import { setFavoriteList } from 'store/FavoriteReduser/favoriteReducer';
 import {
   favoriteListSelect,
   isFavoriteListSelect,

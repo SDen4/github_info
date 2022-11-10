@@ -12,11 +12,10 @@ import { periodCounter } from 'utils/periodCounter';
 
 import {
   fetchFavoriteList,
-  fetchFavoriteListAdd,
   setFavoriteBtnFlag,
   setFavoriteUser,
   setNote,
-} from 'store/FavoriteReduser/actions/actions';
+} from 'store/FavoriteReduser/favoriteReducer';
 import {
   favoriteListSelect,
   isFavoriteUserSelect,
@@ -74,7 +73,7 @@ const Card: React.FC = (): JSX.Element => {
     } else {
       dispatch(setFavoriteUser(true));
       const newfavoriteUser = { name: user.login };
-      dispatch(fetchFavoriteListAdd(newfavoriteUser));
+      dispatch(fetchFavoriteList([...favoriteList, newfavoriteUser]));
       localStorage.setItem(
         'favorite',
         JSON.stringify([...favoriteList, newfavoriteUser]),

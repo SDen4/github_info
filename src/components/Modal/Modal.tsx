@@ -8,7 +8,7 @@ import {
   fetchFavoriteList,
   setFavoriteList,
   setFavoriteUser,
-} from 'store/FavoriteReduser/actions/actions';
+} from 'store/FavoriteReduser/favoriteReducer';
 import {
   fetchSearchList,
   setModal,

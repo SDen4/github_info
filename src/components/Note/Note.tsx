@@ -6,13 +6,12 @@ import { Flex } from 'ui/Flex';
 
 import {
   fetchFavoriteList,
-  fetchFavoriteListAdd,
   fetchNote,
   setFavoriteBtnFlag,
   setFavoriteUser,
   setNote,
   setNoteBtn,
-} from 'store/FavoriteReduser/actions/actions';
+} from 'store/FavoriteReduser/favoriteReducer';
 import {
   favoriteListSelect,
   noteSelect,
@@ -84,7 +83,7 @@ const Note: React.FC = () => {
       setValue('');
 
       const newfavoriteUser = { name: user.login, note: value };
-      dispatch(fetchFavoriteListAdd(newfavoriteUser));
+      dispatch(fetchFavoriteList([...favoriteList, newfavoriteUser]));
       localStorage.setItem(
         'favorite',
         JSON.stringify([...favoriteList, newfavoriteUser]),
