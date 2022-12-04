@@ -3,6 +3,7 @@ import { all, put, takeEvery } from 'redux-saga/effects';
 import {
   fetchLogin,
   fetchSearhHistory,
+  getSearchedUsers,
   getStart,
   setCard,
   setError,
@@ -26,10 +27,11 @@ import {
 import { IFavoriteUser } from 'model/favorite/types';
 import { ISearhHistoryItem } from 'model/search/types';
 
-import { SEARCH_LOGIN_SAGA } from '../constants';
+import { GET_GITHUB_USER_SAGA } from '../constants';
+import { defaultSearchUsersList } from 'constants/searchConstants';
 
 export interface IProps {
-  type: typeof SEARCH_LOGIN_SAGA;
+  type: typeof GET_GITHUB_USER_SAGA;
   login: string;
   history: ISearhHistoryItem[];
   favoritesList?: IFavoriteUser[];
@@ -39,6 +41,8 @@ function* sagaWorker(action: IProps) {
   const isMobile = yield* select(isMobileSelect);
 
   try {
+    yield put(getSearchedUsers(defaultSearchUsersList));
+
     yield all([put(getStart()), put(fetchNote('')), put(setNoteBtn(false))]);
 
     const cacheGetUserInfo = caching(getUserInfo);
@@ -114,6 +118,6 @@ function* sagaWorker(action: IProps) {
   }
 }
 
-export function* searchSagaWatcher() {
-  yield takeEvery(SEARCH_LOGIN_SAGA, sagaWorker);
+export function* getGithubUserSagaWatcher() {
+  yield takeEvery(GET_GITHUB_USER_SAGA, sagaWorker);
 }

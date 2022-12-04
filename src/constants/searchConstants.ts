@@ -16,3 +16,9 @@ export const searchUserDefault = {
 };
 
 export const mobileWidth = 480;
+
+export const defaultSearchUsersList = {
+  total_count: null,
+  incomplete_results: false,
+  items: [],
+};

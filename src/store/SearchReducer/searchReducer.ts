@@ -3,9 +3,13 @@ import { ActionsType } from './actions/actions';
 import { IInitialState } from 'model/search/types';
 
 import * as CONST from './constants';
-import { searchUserDefault } from 'constants/searchConstants';
+import {
+  defaultSearchUsersList,
+  searchUserDefault,
+} from 'constants/searchConstants';
 
 const initialState: IInitialState = {
+  searchedUsersList: defaultSearchUsersList,
   user: searchUserDefault,
   usersList: [],
   reposList: [],
@@ -116,6 +120,13 @@ export const searchReducer = (
 
     case CONST.SEARCH_IS_MOBILE_START:
       return { ...state, isMobileStart: action.isMobileStart };
+
+    case CONST.GET_SEARCHED_USERS:
+      return {
+        ...state,
+        searchedUsersList: action.searchStr,
+        isLoading: false,
+      };
 
     default:
       return state;

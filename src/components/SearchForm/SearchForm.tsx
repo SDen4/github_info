@@ -3,23 +3,19 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { SubmitButton } from 'ui/SubmitButton';
 
-import {
-  favoriteListSelect,
-  isFavoriteListSelect,
-} from 'store/FavoriteReduser/selectors';
+import { isFavoriteListSelect } from 'store/FavoriteReduser/selectors';
 import {
   setCard,
   setReposList,
   setUsersList,
 } from 'store/SearchReducer/actions/actions';
-import { searchSaga } from 'store/SearchReducer/actions/actionsSagas';
+import { searchUsersSaga } from 'store/SearchReducer/actions/actionsSagas';
 import {
   isCardSelect,
   isMobileSelect,
   isReposListSelect,
   isSearchListSelect,
   isUsersListSelect,
-  searchListSelect,
   userSelect,
 } from 'store/SearchReducer/selectors';
 
@@ -29,14 +25,12 @@ export const SearchForm: React.FC<{ searchFunc: any }> = memo(
   ({ searchFunc }) => {
     const dispatch = useDispatch();
 
-    const favoritesList = useSelector(favoriteListSelect);
     const isFavoriteList = useSelector(isFavoriteListSelect);
     const isMobile = useSelector(isMobileSelect);
     const isSearchList = useSelector(isSearchListSelect);
     const isCard = useSelector(isCardSelect);
     const isReposList = useSelector(isReposListSelect);
     const isUsersList = useSelector(isUsersListSelect);
-    const searchList = useSelector(searchListSelect);
     const user = useSelector(userSelect);
 
     const [searchLogin, setsearchLogin] = useState<string>('');
@@ -102,7 +96,8 @@ export const SearchForm: React.FC<{ searchFunc: any }> = memo(
         return;
       }
 
-      dispatch(searchSaga(searchLogin, searchList, favoritesList));
+      dispatch(searchUsersSaga(searchLogin));
+
       searchFunc(searchLogin);
       setsearchLogin('');
       setDisabledBtn(true);

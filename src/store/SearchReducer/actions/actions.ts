@@ -1,5 +1,10 @@
 /* eslint-disable camelcase */
-import { IRepoItem, ISearhHistoryItem, IUserInner } from 'model/search/types';
+import {
+  IRepoItem,
+  ISearhHistoryItem,
+  IUserInner,
+  searchedUsersListType,
+} from 'model/search/types';
 
 import * as CONST from '../constants';
 
@@ -152,6 +157,13 @@ export const setMobileStart = (isMobileStart: boolean) => {
   } as const;
 };
 
+export const getSearchedUsers = (searchStr: searchedUsersListType) => {
+  return {
+    type: CONST.GET_SEARCHED_USERS,
+    searchStr,
+  } as const;
+};
+
 type fetchLoginType = ReturnType<typeof fetchLogin>;
 type setCardType = ReturnType<typeof setCard>;
 type setLoadingType = ReturnType<typeof setLoading>;
@@ -168,6 +180,7 @@ type getStartType = ReturnType<typeof getStart>;
 type setMobileType = ReturnType<typeof setMobile>;
 type setAndroidType = ReturnType<typeof setAndroid>;
 type setMobileStartType = ReturnType<typeof setMobileStart>;
+type getSearchedUsersType = ReturnType<typeof getSearchedUsers>;
 
 export type ActionsType =
   | fetchLoginType
@@ -185,4 +198,5 @@ export type ActionsType =
   | getStartType
   | setMobileType
   | setAndroidType
-  | setMobileStartType;
+  | setMobileStartType
+  | getSearchedUsersType;

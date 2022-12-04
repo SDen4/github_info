@@ -17,6 +17,13 @@ export async function getUserInfo(login: string) {
   return response;
 }
 
+export async function getListSearchedUsers(searchStr: string) {
+  const response = await API.get(
+    `https://api.github.com/search/users?q=${searchStr.trim()}`,
+  ).then((res) => res.data);
+  return response;
+}
+
 export async function getLastActivityDate(login: string) {
   const response = await API.get(`${login.trim()}/events`)
     .then((res) => res.data[0].created_at)

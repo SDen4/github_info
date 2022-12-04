@@ -3,13 +3,20 @@ import { ISearhHistoryItem } from 'model/search/types';
 
 import * as CONST from '../constants';
 
-export const searchSaga = (
+export const searchUsersSaga = (searchStr: string) => {
+  return {
+    type: CONST.SEARCH_USERS_SAGA,
+    searchStr,
+  } as const;
+};
+
+export const getGithubUserSaga = (
   login: string,
   history: ISearhHistoryItem[],
   favoritesList?: IFavoriteUser[],
 ) => {
   return {
-    type: CONST.SEARCH_LOGIN_SAGA,
+    type: CONST.GET_GITHUB_USER_SAGA,
     login,
     history,
     favoritesList,

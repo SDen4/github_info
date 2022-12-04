@@ -1,0 +1,48 @@
+.listWrapperUl {
+  width: 100%;
+}
+
+.listWrapperUl li {
+  width: 100%;
+  list-style: none;
+  margin-bottom: 15px;
+}
+
+.listWrapperUl li:last-child {
+  margin-bottom: 0;
+}
+
+.listError {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.listError h2 {
+  text-align: center;
+  padding: 50px 10px;
+}
+
+.listErrorLogin {
+  color: #ff8c00;
+}
+
+.cardLogin {
+  font-size: 28px;
+  font-weight: bold;
+  background-color: transparent;
+  color: #ff8c00;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cardLogin:hover {
+  color: tomato;
+}
+
+.hide {
+  display: none;
+}

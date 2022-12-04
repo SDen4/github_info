@@ -5,6 +5,7 @@ import clsx from 'clsx';
 import { Flex } from 'ui/Flex';
 import { Loader } from 'ui/Loader';
 import { Header } from 'components/Header';
+import { SearchedUsersList } from 'components/SearchedUsersList';
 import { SearchForm } from 'components/SearchForm';
 import { StartMobile } from 'components/StartMobile';
 
@@ -32,6 +33,7 @@ import {
   isReposListSelect,
   isSearchListSelect,
   isUsersListSelect,
+  searchedUsersListSelect,
 } from 'store/SearchReducer/selectors';
 
 import styles from './styles.module.css';
@@ -61,6 +63,7 @@ export const Root: React.FC = () => {
   const isReposList = useSelector(isReposListSelect);
   const isLoading = useSelector(isLoadingSelect);
   const isModal = useSelector(isModalSelect);
+  const searchedUsersList = useSelector(searchedUsersListSelect);
 
   const [user, setUser] = useState<string>('');
 
@@ -150,6 +153,9 @@ export const Root: React.FC = () => {
               </div>
 
               {isLoading && <Loader />}
+
+              {searchedUsersList.items.length ? <SearchedUsersList /> : null}
+
               {isCardOpenLocal && (
                 <div
                   className={clsx(

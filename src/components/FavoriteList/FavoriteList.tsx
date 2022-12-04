@@ -16,7 +16,7 @@ import {
   setReposList,
   setUsersList,
 } from 'store/SearchReducer/actions/actions';
-import { searchSaga } from 'store/SearchReducer/actions/actionsSagas';
+import { getGithubUserSaga } from 'store/SearchReducer/actions/actionsSagas';
 import {
   isLoadingSelect,
   isMobileSelect,
@@ -56,7 +56,7 @@ const FavoriteList: React.FC = () => {
       }
       return;
     }
-    dispatch(searchSaga(login, searchList, favoriteList));
+    dispatch(getGithubUserSaga(login, searchList, favoriteList));
   };
 
   const clearBtnHandler = () => {
