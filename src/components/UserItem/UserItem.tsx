@@ -6,11 +6,11 @@ import { Flex } from 'ui/Flex';
 import { getGithubUserSaga } from 'store/SearchReducer/actions/actionsSagas';
 import { searchListSelect } from 'store/SearchReducer/selectors';
 
-import { IUserInner, searchedUserType } from 'model/search/types';
+import { ISearchedUser, IUserInner } from 'model/search/types';
 
 import styles from './styles.module.css';
 
-export const UserItem: React.FC<{ user: IUserInner | searchedUserType }> = memo(
+export const UserItem: React.FC<{ user: IUserInner | ISearchedUser }> = memo(
   ({ user }) => {
     const dispatch = useDispatch();
 

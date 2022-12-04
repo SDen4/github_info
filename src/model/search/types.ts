@@ -49,7 +49,7 @@ export interface IRepoItem {
   watchers: number;
 }
 
-export interface searchedUserType {
+export interface ISearchedUser {
   login: string;
   id: number;
   node_id: string;
@@ -71,14 +71,14 @@ export interface searchedUserType {
   score: number;
 }
 
-export interface searchedUsersListType {
+export interface ISearchedUsersList {
   total_count: number | null;
   incomplete_results: boolean;
-  items: searchedUserType[];
+  items: ISearchedUser[];
 }
 
 export interface IInitialState {
-  searchedUsersList: searchedUsersListType;
+  searchedUsersList: ISearchedUsersList;
   user: IUser;
   usersList: IUserInner[];
   reposList: IRepoItem[];

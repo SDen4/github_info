@@ -1,9 +1,9 @@
 /* eslint-disable camelcase */
 import {
   IRepoItem,
+  ISearchedUsersList,
   ISearhHistoryItem,
   IUserInner,
-  searchedUsersListType,
 } from 'model/search/types';
 
 import * as CONST from '../constants';
@@ -157,7 +157,7 @@ export const setMobileStart = (isMobileStart: boolean) => {
   } as const;
 };
 
-export const getSearchedUsers = (searchStr: searchedUsersListType) => {
+export const getSearchedUsers = (searchStr: ISearchedUsersList) => {
   return {
     type: CONST.GET_SEARCHED_USERS,
     searchStr,

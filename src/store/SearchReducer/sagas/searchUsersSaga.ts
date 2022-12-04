@@ -12,7 +12,7 @@ import { caching } from 'utils/caching';
 
 import { fetchNote, setNoteBtn } from 'store/FavoriteReduser/favoriteReducer';
 
-import { searchedUsersListType } from 'model/search/types';
+import { ISearchedUsersList } from 'model/search/types';
 
 import { SEARCH_USERS_SAGA } from '../constants';
 
@@ -26,9 +26,7 @@ function* sagaWorker(action: IProps) {
 
     const cacheGetUsers = caching(getListSearchedUsers);
 
-    const allData: searchedUsersListType = yield cacheGetUsers(
-      action.searchStr,
-    );
+    const allData: ISearchedUsersList = yield cacheGetUsers(action.searchStr);
 
     if (allData) {
       yield put(getSearchedUsers(allData));
