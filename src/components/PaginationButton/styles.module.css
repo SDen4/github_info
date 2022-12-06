@@ -1,0 +1,22 @@
+.pgButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  font-size: 16px;
+  background: #ff8c00;
+  padding: 3px;
+  margin-right: 3px;
+  cursor: pointer;
+}
+
+.pgButton:last-child {
+  margin-right: 0;
+}
+
+.pgButtonActive {
+  background: linear-gradient(#a9a9a9, #d3d3d3);
+  opacity: 0.7;
+  color: rgba(0, 0, 0, 0.9);
+  cursor: default;
+}

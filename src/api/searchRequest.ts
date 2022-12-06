@@ -24,6 +24,8 @@ export async function getListSearchedUsers(searchStr: string) {
   return response;
 }
 
+// &per_page=10&page=5
+
 export async function getLastActivityDate(login: string) {
   const response = await API.get(`${login.trim()}/events`)
     .then((res) => res.data[0].created_at)
