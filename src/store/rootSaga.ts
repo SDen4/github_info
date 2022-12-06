@@ -5,6 +5,7 @@ import { fetchUsersListSagaWatcher } from './SearchReducer/sagas/fetchUsersListS
 import { getGithubUserSagaWatcher } from './SearchReducer/sagas/getGithubUserSaga';
 import { getLocalHistorySagaWatcher } from './SearchReducer/sagas/getLocalHistorySaga';
 import { initFetchSagaWatcher } from './SearchReducer/sagas/initFetchSaga';
+import { paginationSagaWatcher } from './SearchReducer/sagas/paginationSaga';
 import { reposListSagaWatcher } from './SearchReducer/sagas/reposListSaga';
 import { searchUsersSagaWatcher } from './SearchReducer/sagas/searchUsersSaga';
 
@@ -15,6 +16,7 @@ export function* rootSaga() {
     fork(getLocalHistorySagaWatcher),
     fork(initFetchSagaWatcher),
     fork(reposListSagaWatcher),
+    fork(paginationSagaWatcher),
     fork(getGithubUserSagaWatcher),
     fork(searchUsersSagaWatcher),
   ]);

@@ -47,3 +47,10 @@ export const searhInitFetchSaga = () => {
     type: CONST.SEARCH_INIT_SAGA,
   } as const;
 };
+
+export const paginationSaga = (page: number) => {
+  return {
+    type: CONST.PAGINATION_SAGA,
+    page,
+  } as const;
+};

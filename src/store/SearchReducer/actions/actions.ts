@@ -157,10 +157,24 @@ export const setMobileStart = (isMobileStart: boolean) => {
   } as const;
 };
 
-export const getSearchedUsers = (searchStr: ISearchedUsersList) => {
+export const getSearchedUsersList = (searchStr: ISearchedUsersList) => {
   return {
-    type: CONST.GET_SEARCHED_USERS,
+    type: CONST.GET_SEARCHED_USERS_LIST,
     searchStr,
+  } as const;
+};
+
+export const setPage = (page: number) => {
+  return {
+    type: CONST.PAGE,
+    page,
+  } as const;
+};
+
+export const getSearchedUser = (searchedUser: string) => {
+  return {
+    type: CONST.GET_SEARCHED_USER,
+    searchedUser,
   } as const;
 };
 
@@ -180,7 +194,9 @@ type getStartType = ReturnType<typeof getStart>;
 type setMobileType = ReturnType<typeof setMobile>;
 type setAndroidType = ReturnType<typeof setAndroid>;
 type setMobileStartType = ReturnType<typeof setMobileStart>;
-type getSearchedUsersType = ReturnType<typeof getSearchedUsers>;
+type getSearchedUsersType = ReturnType<typeof getSearchedUsersList>;
+type setPageType = ReturnType<typeof setPage>;
+type getSearchedUserType = ReturnType<typeof getSearchedUser>;
 
 export type ActionsType =
   | fetchLoginType
@@ -199,4 +215,6 @@ export type ActionsType =
   | setMobileType
   | setAndroidType
   | setMobileStartType
-  | getSearchedUsersType;
+  | getSearchedUsersType
+  | setPageType
+  | getSearchedUserType;

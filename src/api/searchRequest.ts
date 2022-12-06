@@ -1,5 +1,7 @@
 import { API } from './API';
 
+import { usersPerPage } from 'constants/searchConstants';
+
 export async function getUsersInfo(login: string, requestType: string) {
   const response = await API.get(`${login}/${requestType}`).then(
     (res) => res.data,
@@ -17,14 +19,13 @@ export async function getUserInfo(login: string) {
   return response;
 }
 
-export async function getListSearchedUsers(searchStr: string) {
+export async function getListSearchedUsers(searchStr: string, page?: number) {
+  const pageToRequest = page ? `&page=${page}` : '';
   const response = await API.get(
-    `https://api.github.com/search/users?q=${searchStr.trim()}`,
+    `https://api.github.com/search/users?q=${searchStr.trim()}&per_page=${usersPerPage}${pageToRequest}`,
   ).then((res) => res.data);
   return response;
 }
-
-// &per_page=10&page=5
 
 export async function getLastActivityDate(login: string) {
   const response = await API.get(`${login.trim()}/events`)

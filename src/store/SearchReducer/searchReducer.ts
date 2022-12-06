@@ -10,6 +10,7 @@ import {
 
 const initialState: IInitialState = {
   searchedUsersList: defaultSearchUsersList,
+  searchedUser: '',
   user: searchUserDefault,
   usersList: [],
   reposList: [],
@@ -27,6 +28,7 @@ const initialState: IInitialState = {
   isUsersList: false,
   isReposList: false,
   isCard: false,
+  page: 1,
 };
 
 export const searchReducer = (
@@ -121,12 +123,18 @@ export const searchReducer = (
     case CONST.SEARCH_IS_MOBILE_START:
       return { ...state, isMobileStart: action.isMobileStart };
 
-    case CONST.GET_SEARCHED_USERS:
+    case CONST.GET_SEARCHED_USERS_LIST:
       return {
         ...state,
         searchedUsersList: action.searchStr,
         isLoading: false,
       };
+
+    case CONST.GET_SEARCHED_USER:
+      return { ...state, searchedUser: action.searchedUser };
+
+    case CONST.PAGE:
+      return { ...state, page: action.page };
 
     default:
       return state;

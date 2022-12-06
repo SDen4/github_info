@@ -3,7 +3,7 @@ import { all, put, takeEvery } from 'redux-saga/effects';
 import {
   fetchLogin,
   fetchSearhHistory,
-  getSearchedUsers,
+  getSearchedUsersList,
   getStart,
   setCard,
   setError,
@@ -41,7 +41,7 @@ function* sagaWorker(action: IProps) {
   const isMobile = yield* select(isMobileSelect);
 
   try {
-    yield put(getSearchedUsers(defaultSearchUsersList));
+    yield put(getSearchedUsersList(defaultSearchUsersList));
 
     yield all([put(getStart()), put(fetchNote('')), put(setNoteBtn(false))]);
 

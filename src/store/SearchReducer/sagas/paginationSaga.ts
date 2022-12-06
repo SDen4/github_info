@@ -1,34 +1,32 @@
-import { all, put, takeEvery } from 'redux-saga/effects';
+import { all, put, select, takeEvery } from 'redux-saga/effects';
 
 import {
-  getSearchedUser,
   getSearchedUsersList,
   getStart,
   setError,
   setLoading,
   setPage,
 } from '../actions/actions';
+import { searchedUserSelect } from '../selectors';
 
 import { getListSearchedUsers } from 'api/searchRequest';
-import { caching } from 'utils/caching';
 
 import { fetchNote, setNoteBtn } from 'store/FavoriteReduser/favoriteReducer';
 
 import { ISearchedUsersList } from 'model/search/types';
 
-import { SEARCH_USERS_SAGA } from '../constants';
+import { PAGINATION_SAGA } from '../constants';
 import { defaultSearchUsersList } from 'constants/searchConstants';
 
 interface IProps {
-  type: typeof SEARCH_USERS_SAGA;
-  searchStr: string;
+  type: typeof PAGINATION_SAGA;
+  page: number;
 }
 
 function* sagaWorker(action: IProps) {
-  try {
-    yield put(getSearchedUser(action.searchStr));
-    yield put(setPage(1));
+  const searchedUser: string = yield select(searchedUserSelect);
 
+  try {
     yield all([
       put(getSearchedUsersList(defaultSearchUsersList)),
       put(getStart()),
@@ -36,9 +34,12 @@ function* sagaWorker(action: IProps) {
       put(setNoteBtn(false)),
     ]);
 
-    const cacheGetUsers = caching(getListSearchedUsers);
+    yield put(setPage(action.page));
 
-    const allData: ISearchedUsersList = yield cacheGetUsers(action.searchStr);
+    const allData: ISearchedUsersList = yield getListSearchedUsers(
+      searchedUser,
+      action.page,
+    );
 
     if (allData) {
       yield put(getSearchedUsersList(allData));
@@ -50,6 +51,6 @@ function* sagaWorker(action: IProps) {
   }
 }
 
-export function* searchUsersSagaWatcher() {
-  yield takeEvery(SEARCH_USERS_SAGA, sagaWorker);
+export function* paginationSagaWatcher() {
+  yield takeEvery(PAGINATION_SAGA, sagaWorker);
 }

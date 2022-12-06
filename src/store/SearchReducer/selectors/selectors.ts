@@ -74,3 +74,12 @@ export const searchedUsersListSelect = createSelector(
   (store: AppStateType) => store.search.searchedUsersList,
   (searchedUsersList) => searchedUsersList,
 );
+export const searchedUserSelect = createSelector(
+  (store: AppStateType) => store.search.searchedUser,
+  (searchedUser) => searchedUser,
+);
+
+export const pageSelect = createSelector(
+  (store: AppStateType) => store.search.page,
+  (page) => page,
+);

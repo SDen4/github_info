@@ -22,3 +22,5 @@ export const defaultSearchUsersList = {
   incomplete_results: false,
   items: [],
 };
+
+export const usersPerPage = 10;

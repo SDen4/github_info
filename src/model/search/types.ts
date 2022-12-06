@@ -79,6 +79,7 @@ export interface ISearchedUsersList {
 
 export interface IInitialState {
   searchedUsersList: ISearchedUsersList;
+  searchedUser: string;
   user: IUser;
   usersList: IUserInner[];
   reposList: IRepoItem[];
@@ -96,4 +97,5 @@ export interface IInitialState {
   isMobile: boolean;
   isAndroid: boolean;
   isMobileStart: boolean;
+  page: number;
 }
