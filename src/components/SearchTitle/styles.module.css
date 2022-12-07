@@ -1,0 +1,14 @@
+.searchedTitle {
+  margin-left: 30px;
+  align-items: flex-end;
+  font-size: 24px;
+}
+
+.searchedTitle p {
+  margin: 0 15px 0 0;
+}
+
+.searchedTitle i {
+  color: #ff8c00;
+  font-style: italic;
+}

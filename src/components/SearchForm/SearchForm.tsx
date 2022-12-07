@@ -1,7 +1,9 @@
 import React, { memo, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { Flex } from 'ui/Flex';
 import { SubmitButton } from 'ui/SubmitButton';
+import { SearchTitle } from 'components/SearchTitle';
 
 import { isFavoriteListSelect } from 'store/FavoriteReduser/selectors';
 import {
@@ -16,7 +18,7 @@ import {
   isReposListSelect,
   isSearchListSelect,
   isUsersListSelect,
-  userSelect,
+  searchedUserSelect,
 } from 'store/SearchReducer/selectors';
 
 import styles from './styles.module.css';
@@ -31,7 +33,7 @@ export const SearchForm: React.FC<{ searchFunc: any }> = memo(
     const isCard = useSelector(isCardSelect);
     const isReposList = useSelector(isReposListSelect);
     const isUsersList = useSelector(isUsersListSelect);
-    const user = useSelector(userSelect);
+    const searchedUser = useSelector(searchedUserSelect);
 
     const [searchLogin, setsearchLogin] = useState<string>('');
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -90,12 +92,6 @@ export const SearchForm: React.FC<{ searchFunc: any }> = memo(
     const onSubmitHandler = (event: React.SyntheticEvent) => {
       event.preventDefault();
 
-      if (searchLogin.toLocaleLowerCase() === user.login.toLocaleLowerCase()) {
-        setsearchLogin('');
-        setDisabledBtn(true);
-        return;
-      }
-
       dispatch(searchUsersSaga(searchLogin));
 
       searchFunc(searchLogin);
@@ -110,30 +106,34 @@ export const SearchForm: React.FC<{ searchFunc: any }> = memo(
     };
 
     return (
-      <form className={styles.form} onSubmit={onSubmitHandler}>
-        <input
-          ref={ref}
-          className={styles.input}
-          type="text"
-          placeholder="Enter the github login"
-          value={searchLogin}
-          onChange={changeTextHandler}
-        />
+      <Flex className={styles.searchWrapper}>
+        <form className={styles.form} onSubmit={onSubmitHandler}>
+          <input
+            ref={ref}
+            className={styles.input}
+            type="text"
+            placeholder="Enter the github login"
+            value={searchLogin}
+            onChange={changeTextHandler}
+          />
 
-        <div className={styles.btnsWrapper}>
-          <SubmitButton disabled={disabledBtn}>Search</SubmitButton>
+          <div className={styles.btnsWrapper}>
+            <SubmitButton disabled={disabledBtn}>Search</SubmitButton>
 
-          {isMobile && (isUsersList || isReposList) && (
-            <button
-              type="button"
-              onClick={backBtnHandler}
-              className={styles.rootBtn}
-            >
-              Back
-            </button>
-          )}
-        </div>
-      </form>
+            {isMobile && (isUsersList || isReposList) && (
+              <button
+                type="button"
+                onClick={backBtnHandler}
+                className={styles.rootBtn}
+              >
+                Back
+              </button>
+            )}
+          </div>
+        </form>
+
+        {searchedUser && <SearchTitle />}
+      </Flex>
     );
   },
 );

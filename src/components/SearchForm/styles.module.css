@@ -1,3 +1,7 @@
+.searchWrapper {
+  align-items: flex-end;
+}
+
 .form {
   display: flex;
   justify-content: flex-start;

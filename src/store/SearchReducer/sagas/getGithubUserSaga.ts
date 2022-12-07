@@ -3,6 +3,7 @@ import { all, put, takeEvery } from 'redux-saga/effects';
 import {
   fetchLogin,
   fetchSearhHistory,
+  getSearchedUser,
   getSearchedUsersList,
   getStart,
   setCard,
@@ -14,7 +15,6 @@ import {
 import { isMobileSelect } from '../selectors';
 
 import { getLastActivityDate, getUserInfo } from 'api/searchRequest';
-import { caching } from 'utils/caching';
 import { select } from 'utils/select';
 
 import {
@@ -25,7 +25,7 @@ import {
 } from 'store/FavoriteReduser/favoriteReducer';
 
 import { IFavoriteUser } from 'model/favorite/types';
-import { ISearhHistoryItem } from 'model/search/types';
+import { ISearhHistoryItem, IUserInner } from 'model/search/types';
 
 import { GET_GITHUB_USER_SAGA } from '../constants';
 import { defaultSearchUsersList } from 'constants/searchConstants';
@@ -42,15 +42,12 @@ function* sagaWorker(action: IProps) {
 
   try {
     yield put(getSearchedUsersList(defaultSearchUsersList));
+    yield put(getSearchedUser(''));
 
     yield all([put(getStart()), put(fetchNote('')), put(setNoteBtn(false))]);
 
-    const cacheGetUserInfo = caching(getUserInfo);
-
-    const { allData, lastActivityDate } = yield all({
-      allData: cacheGetUserInfo(action.login),
-      lastActivityDate: getLastActivityDate(action.login),
-    });
+    const allData: IUserInner = yield getUserInfo(action.login);
+    const lastActivityDate: string = yield getLastActivityDate(action.login);
 
     yield put(
       fetchLogin(
