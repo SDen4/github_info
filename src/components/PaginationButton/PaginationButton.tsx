@@ -5,14 +5,14 @@ import { paginationSaga } from 'store/SearchReducer/actions/actionsSagas';
 
 import styles from './styles.module.css';
 
-export const PaginationButton: FC<{ num: number; active: boolean }> = ({
-  num,
-  active,
-}) => {
+export const PaginationButton: FC<{
+  num: number | string;
+  active: boolean;
+}> = ({ num, active }) => {
   const dispatch = useDispatch();
 
   const onClick = () => {
-    if (active) {
+    if (active || num === '...') {
       return;
     }
 
@@ -22,7 +22,9 @@ export const PaginationButton: FC<{ num: number; active: boolean }> = ({
   return (
     <button
       type="button"
-      className={`${styles.pgButton} ${active ? styles.pgButtonActive : ''}`}
+      className={`${styles.pgButton} ${active ? styles.pgButtonActive : ''} ${
+        num === '...' ? styles.center : ''
+      }`}
       onClick={onClick}
     >
       {num}

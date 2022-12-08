@@ -33,7 +33,7 @@ export const Pagination = () => {
   }
 
   const pagesArr =
-    totalPages <= 10 ? bigArrPages : [1, 2, 3, 4, 5, ...bigArrPages];
+    totalPages <= 10 ? bigArrPages : [1, 2, 3, 4, 5, '...', ...bigArrPages];
 
   const start = 1 + usersPerPage * (page - 1);
   const preEnd = start + usersPerPage - 1;

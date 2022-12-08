@@ -31,3 +31,13 @@
 .pgButtonActive:hover {
   background: linear-gradient(#a9a9a9, #d3d3d3);
 }
+
+.center {
+  background-color: transparent;
+  cursor: default;
+  color: #fff;
+}
+
+.center:hover {
+  background-color: transparent;
+}
