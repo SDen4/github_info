@@ -22,8 +22,8 @@ export const Pagination = () => {
     : 0;
 
   let bigArrPages = [];
-  if (totalPages > 10) {
-    for (let i = 4; i >= 0; i--) {
+  if (totalPages > 8) {
+    for (let i = 4; i > 0; i--) {
       bigArrPages.push(totalPages - i);
     }
   } else {
@@ -32,8 +32,19 @@ export const Pagination = () => {
     }
   }
 
+  let startArr = [1, 2, 3, 4];
+  if (page >= startArr[2] && totalPages > 8) {
+    const begin = page - 2;
+    const newStartArr = [];
+    newStartArr[0] = begin;
+    for (let i = 1; i < startArr.length; i++) {
+      newStartArr[i] = begin + i;
+    }
+    startArr = newStartArr.concat();
+  }
+
   const pagesArr =
-    totalPages <= 10 ? bigArrPages : [1, 2, 3, 4, 5, '...', ...bigArrPages];
+    totalPages <= 8 ? bigArrPages : [...startArr, '...', ...bigArrPages];
 
   const start = 1 + usersPerPage * (page - 1);
   const preEnd = start + usersPerPage - 1;
