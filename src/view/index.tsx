@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-indent */
+/* eslint-disable indent */
 import React, { Suspense, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
@@ -154,7 +156,11 @@ export const Root: React.FC = () => {
 
               {isLoading && <Loader />}
 
-              {searchedUsersList.items.length ? <SearchedUsersList /> : null}
+              {searchedUsersList.items.length ||
+              (searchedUsersList.total_count &&
+                searchedUsersList.total_count > 0) ? (
+                <SearchedUsersList />
+              ) : null}
 
               {isCardOpenLocal && (
                 <div

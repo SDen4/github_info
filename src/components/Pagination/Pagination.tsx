@@ -15,36 +15,51 @@ import styles from './styles.module.css';
 
 export const Pagination = () => {
   const totalElements = useSelector(searchedUsersListSelect).total_count;
-  const page = useSelector(pageSelect);
+  const page = Number(useSelector(pageSelect));
+
+  let paginationLength = 7;
+  let leftArr = [];
+  let rightArr = [];
+  const allArr = [];
 
   const totalPages = totalElements
     ? Math.ceil(totalElements / usersPerPage)
     : 0;
 
-  let bigArrPages = [];
-  if (totalPages > 8) {
-    for (let i = 4; i > 0; i--) {
-      bigArrPages.push(totalPages - i);
+  for (let i = 1; i <= totalPages; i++) {
+    allArr.push(i);
+  }
+
+  let left = paginationLength / 2;
+  if (totalPages - page < paginationLength / 2) {
+    left = paginationLength - (totalPages - page);
+  }
+
+  for (let i = 0; i < left; i++) {
+    if (page - i > 0) leftArr.unshift(page - i);
+  }
+
+  const right = paginationLength - leftArr.length;
+
+  for (let i = 1; i <= right; i++) {
+    if (page + i <= totalPages) {
+      rightArr.push(Number(page) + i);
     }
+  }
+
+  if (rightArr[rightArr.length - 1] !== totalPages) {
+    rightArr[rightArr.length - 2] = '...';
+    rightArr[rightArr.length - 1] = totalPages;
+  }
+
+  if (leftArr[0] !== 1) {
+    leftArr[0] = '1';
+    leftArr[1] = '...';
   } else {
-    for (let i = 1; i <= totalPages; i++) {
-      bigArrPages.push(i);
-    }
+    leftArr[0] = 1;
   }
 
-  let startArr = [1, 2, 3, 4];
-  if (page >= startArr[2] && totalPages > 8) {
-    const begin = page - 2;
-    const newStartArr = [];
-    newStartArr[0] = begin;
-    for (let i = 1; i < startArr.length; i++) {
-      newStartArr[i] = begin + i;
-    }
-    startArr = newStartArr.concat();
-  }
-
-  const pagesArr =
-    totalPages <= 8 ? bigArrPages : [...startArr, '...', ...bigArrPages];
+  const totalArr = [...leftArr, ...rightArr];
 
   const start = 1 + usersPerPage * (page - 1);
   const preEnd = start + usersPerPage - 1;
@@ -57,8 +72,12 @@ export const Pagination = () => {
       </div>
 
       <Flex>
-        {pagesArr.map((el) => (
-          <PaginationButton num={el} active={el === page} key={el} />
+        {totalArr.map((el) => (
+          <PaginationButton
+            num={el}
+            active={el === page}
+            key={new Date().getTime()}
+          />
         ))}
       </Flex>
     </Flex>

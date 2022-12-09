@@ -6,13 +6,13 @@ import { paginationSaga } from 'store/SearchReducer/actions/actionsSagas';
 import styles from './styles.module.css';
 
 export const PaginationButton: FC<{
-  num: number | string;
+  num: number | string | null;
   active: boolean;
 }> = ({ num, active }) => {
   const dispatch = useDispatch();
 
   const onClick = () => {
-    if (active || num === '...') {
+    if (active || num === '...' || !num) {
       return;
     }
 

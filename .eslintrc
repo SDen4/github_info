@@ -80,8 +80,8 @@
       "always-multiline"
     ],
     "curly": [
-      "error",
-      "all"
+      "warn",
+      "multi-line"
     ],
     "no-mixed-operators": "error",
     "camelcase": "warn",
