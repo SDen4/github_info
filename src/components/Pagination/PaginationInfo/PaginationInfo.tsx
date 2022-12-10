@@ -8,6 +8,8 @@ import {
 
 import { usersPerPage } from 'constants/searchConstants';
 
+import styles from './styles.module.css';
+
 export const PaginationInfo = () => {
   const page = Number(useSelector(pageSelect));
   const totalElements = useSelector(searchedUsersListSelect).total_count;
@@ -17,7 +19,7 @@ export const PaginationInfo = () => {
   const end = preEnd > totalElements! ? totalElements : preEnd;
 
   return (
-    <div>
+    <div className={styles.paginationInfo}>
       {start} - {end} from {totalElements}
     </div>
   );

@@ -1,4 +1,11 @@
 .paginationWrapper {
   justify-content: space-between;
   margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+  .paginationWrapper {
+    margin-bottom: 10px;
+  }
 }

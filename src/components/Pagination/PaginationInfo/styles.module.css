@@ -1,0 +1,9 @@
+.paginationInfo {
+  color: #ff8c00d2;
+}
+
+@media (max-width: 480px) {
+  .paginationInfo {
+    font-size: 14px;
+  }
+}
