@@ -17,36 +17,29 @@ export const Pagination = () => {
   const totalElements = useSelector(searchedUsersListSelect).total_count;
   const page = Number(useSelector(pageSelect));
 
-  let paginationLength = 7;
+  const paginationLength = 7;
+  const paginationLengthHalf = paginationLength / 2;
   let leftArr = [];
   let rightArr = [];
-  const allArr = [];
 
   const totalPages = totalElements
     ? Math.ceil(totalElements / usersPerPage)
     : 0;
 
-  for (let i = 1; i <= totalPages; i++) {
-    allArr.push(i);
-  }
-
-  let left = paginationLength / 2;
-  if (totalPages - page < paginationLength / 2) {
+  let left = paginationLengthHalf;
+  if (totalPages - page < paginationLengthHalf) {
     left = paginationLength - (totalPages - page);
   }
-
   for (let i = 0; i < left; i++) {
     if (page - i > 0) leftArr.unshift(page - i);
   }
 
   const right = paginationLength - leftArr.length;
-
   for (let i = 1; i <= right; i++) {
     if (page + i <= totalPages) {
-      rightArr.push(Number(page) + i);
+      rightArr.push(page + i);
     }
   }
-
   if (rightArr[rightArr.length - 1] !== totalPages) {
     rightArr[rightArr.length - 2] = '...';
     rightArr[rightArr.length - 1] = totalPages;
@@ -73,11 +66,7 @@ export const Pagination = () => {
 
       <Flex>
         {totalArr.map((el) => (
-          <PaginationButton
-            num={el}
-            active={el === page}
-            key={new Date().getTime()}
-          />
+          <PaginationButton num={el} active={el === page} key={Math.random()} />
         ))}
       </Flex>
     </Flex>
