@@ -1,8 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
+import { PaginationButton } from './PaginationButton';
+import { PaginationInfo } from './PaginationInfo';
+
 import { Flex } from 'ui/Flex';
-import { PaginationButton } from 'components/PaginationButton';
 
 import {
   pageSelect,
@@ -54,15 +56,9 @@ export const Pagination = () => {
 
   const totalArr = [...leftArr, ...rightArr];
 
-  const start = 1 + usersPerPage * (page - 1);
-  const preEnd = start + usersPerPage - 1;
-  const end = preEnd > totalElements! ? totalElements : preEnd;
-
   return (
     <Flex className={styles.paginationWrapper}>
-      <div>
-        {start} - {end} from {totalElements}
-      </div>
+      <PaginationInfo />
 
       <Flex>
         {totalArr.map((el) => (
