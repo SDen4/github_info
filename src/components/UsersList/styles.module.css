@@ -5,7 +5,7 @@
 .listWrapperUl li {
   width: 100%;
   list-style: none;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 
 .listWrapperUl li:last-child {

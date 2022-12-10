@@ -1,7 +1,8 @@
 .userItemWrapper {
+  align-items: center;
   box-sizing: border-box;
   width: 100%;
-  padding: 15px 20px;
+  padding: 5px 8px;
   border: 1px solid rgba(211, 211, 211, 0.2);
   border-radius: 5px;
   background-color: rgba(55, 55, 55, 0.8);
@@ -9,8 +10,8 @@
 }
 
 .userItemPhotoWrapper {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   background: url('../../static/img/unnamed.jpg');
   background-position: center;
