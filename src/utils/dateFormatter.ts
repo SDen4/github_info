@@ -5,9 +5,9 @@ import { correctDateNumber } from './correctDateNumber';
  */
 
 export const dateFormatter = (dataCreated: Date): string => {
-  const day = correctDateNumber(dataCreated.getDate());
-  const month = correctDateNumber(dataCreated.getMonth() + 1);
-  const year = dataCreated.getFullYear();
+  const day = correctDateNumber(dataCreated.getUTCDate());
+  const month = correctDateNumber(dataCreated.getUTCMonth() + 1);
+  const year = dataCreated.getUTCFullYear();
 
   return `${day}.${month}.${year}`;
 };
