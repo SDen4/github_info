@@ -35,10 +35,9 @@ export const SearchForm: React.FC<{ searchFunc: any }> = memo(
     const isUsersList = useSelector(isUsersListSelect);
     const searchedUser = useSelector(searchedUserSelect);
 
-    const [searchLogin, setsearchLogin] = useState<string>('');
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [disabledBtn, setDisabledBtn] = useState<boolean>(true);
-    const [focusInMobiles, setFocusInMobiles] = useState<boolean>(false);
+    const [searchLogin, setsearchLogin] = useState('');
+    const [disabledBtn, setDisabledBtn] = useState(true);
+    const [focusInMobiles, setFocusInMobiles] = useState(false);
 
     useEffect(() => {
       if (isMobile) {

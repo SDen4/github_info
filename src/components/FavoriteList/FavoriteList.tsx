@@ -39,8 +39,8 @@ const FavoriteList: React.FC = () => {
   const isMobile = useSelector(isMobileSelect);
   const isLoading = useSelector(isLoadingSelect);
 
-  const [deleteModal, setDeleteModal] = useState<boolean>(false);
-  const [deletedElem, setDeletedElem] = useState<string>('');
+  const [deleteModal, setDeleteModal] = useState(false);
+  const [deletedElem, setDeletedElem] = useState('');
 
   const closeBtnHandler = () => {
     dispatch(setFavoriteList(false));

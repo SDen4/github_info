@@ -37,8 +37,8 @@ const Note: React.FC = () => {
     );
   }, []);
 
-  const [value, setValue] = useState<string>(note);
-  const [isModalOpened, setIsModalOpened] = useState<boolean>(false);
+  const [value, setValue] = useState(note);
+  const [isModalOpened, setIsModalOpened] = useState(false);
 
   const onChangeHandler: React.ChangeEventHandler<HTMLTextAreaElement> = (
     event,

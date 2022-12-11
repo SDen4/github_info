@@ -67,10 +67,10 @@ export const Root: React.FC = () => {
   const isModal = useSelector(isModalSelect);
   const searchedUsersList = useSelector(searchedUsersListSelect);
 
-  const [user, setUser] = useState<string>('');
+  const [user, setUser] = useState('');
 
   // app height
-  const [appHeight, setAppHeight] = useState<number>(0);
+  const [appHeight, setAppHeight] = useState(0);
   useEffect(() => setAppHeight(window.outerHeight), []);
 
   // resize & height
