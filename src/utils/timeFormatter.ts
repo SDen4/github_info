@@ -1,3 +1,5 @@
+import { correctDateNumber } from './correctDateNumber';
+
 /**
  * Time formatter to "hh.mm.ss"
  * @param incomeDate - Date
@@ -5,20 +7,8 @@
  */
 
 export const timeFormatter = (incomeDate: Date): string => {
-  const hour =
-    incomeDate.getHours() < 10
-      ? `0${incomeDate.getHours()}`
-      : incomeDate.getHours();
-
-  const minute =
-    incomeDate.getMinutes() < 10
-      ? `0${incomeDate.getMinutes()}`
-      : incomeDate.getMinutes();
-
-  const second =
-    incomeDate.getSeconds() < 10
-      ? `0${incomeDate.getSeconds()}`
-      : incomeDate.getSeconds();
-
+  const hour = correctDateNumber(incomeDate.getHours());
+  const minute = correctDateNumber(incomeDate.getMinutes());
+  const second = correctDateNumber(incomeDate.getSeconds());
   return `${hour}:${minute}:${second}`;
 };
