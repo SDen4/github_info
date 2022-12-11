@@ -67,8 +67,6 @@ export const Root: React.FC = () => {
   const isModal = useSelector(isModalSelect);
   const searchedUsersList = useSelector(searchedUsersListSelect);
 
-  const [user, setUser] = useState('');
-
   // app height
   const [appHeight, setAppHeight] = useState(0);
   useEffect(() => setAppHeight(window.outerHeight), []);
@@ -116,10 +114,6 @@ export const Root: React.FC = () => {
     }
   }, [dispatch, favoriteList]);
 
-  const searchFunc = (searchLogin: string) => {
-    setUser(searchLogin);
-  };
-
   const backBtnHandler = () => {
     dispatch(setUsersList(false));
     dispatch(setReposList(false));
@@ -140,7 +134,7 @@ export const Root: React.FC = () => {
           <main className={styles.root}>
             <section className={styles.rootSectionLeft}>
               <div className={clsx(styles.root, styles.rootSectionSearch)}>
-                <SearchForm searchFunc={searchFunc} />
+                <SearchForm />
 
                 {!isMobile && (isUsersList || isReposList) && (
                   <button
@@ -203,7 +197,7 @@ export const Root: React.FC = () => {
               )}
               {isErrorOpen && (
                 <Suspense fallback={<Loader />}>
-                  <LazyError userName={user} />
+                  <LazyError />
                 </Suspense>
               )}
             </section>

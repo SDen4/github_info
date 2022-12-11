@@ -25,6 +25,8 @@ interface IProps {
 }
 
 function* sagaWorker(action: IProps) {
+  if (!action.searchStr) return;
+
   try {
     yield put(getSearchedUser(action.searchStr));
     yield put(setPage(1));

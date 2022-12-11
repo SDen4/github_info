@@ -1,8 +1,14 @@
-import React, { memo, useEffect, useRef, useState } from 'react';
+import React, {
+  FC,
+  memo,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Flex } from 'ui/Flex';
-import { SubmitButton } from 'ui/SubmitButton';
 import { SearchTitle } from 'components/SearchTitle';
 
 import { isFavoriteListSelect } from 'store/FavoriteReduser/selectors';
@@ -23,118 +29,105 @@ import {
 
 import styles from './styles.module.css';
 
-export const SearchForm: React.FC<{ searchFunc: any }> = memo(
-  ({ searchFunc }) => {
-    const dispatch = useDispatch();
+let timeout: string | number | NodeJS.Timeout | undefined;
 
-    const isFavoriteList = useSelector(isFavoriteListSelect);
-    const isMobile = useSelector(isMobileSelect);
-    const isSearchList = useSelector(isSearchListSelect);
-    const isCard = useSelector(isCardSelect);
-    const isReposList = useSelector(isReposListSelect);
-    const isUsersList = useSelector(isUsersListSelect);
-    const searchedUser = useSelector(searchedUserSelect);
+export const SearchForm: FC = memo(() => {
+  const dispatch = useDispatch();
 
-    const [searchLogin, setsearchLogin] = useState('');
-    const [disabledBtn, setDisabledBtn] = useState(true);
-    const [focusInMobiles, setFocusInMobiles] = useState(false);
+  const isFavoriteList = useSelector(isFavoriteListSelect);
+  const isMobile = useSelector(isMobileSelect);
+  const isSearchList = useSelector(isSearchListSelect);
+  const isCard = useSelector(isCardSelect);
+  const isReposList = useSelector(isReposListSelect);
+  const isUsersList = useSelector(isUsersListSelect);
+  const searchedUser = useSelector(searchedUserSelect);
 
-    useEffect(() => {
-      if (isMobile) {
-        setFocusInMobiles(
-          !(
-            isSearchList ||
-            isFavoriteList ||
-            isCard ||
-            isReposList ||
-            isUsersList ||
-            searchedUser
-          ),
-        );
-      } else {
-        setFocusInMobiles(true);
-      }
-    }, [
-      isCard,
-      isFavoriteList,
-      isMobile,
-      isSearchList,
-      isReposList,
-      isUsersList,
-      searchedUser,
-    ]);
+  const [focusInMobiles, setFocusInMobiles] = useState(false);
 
-    // auto focus on input
-    const ref: any = useRef(null);
-    useEffect(() => {
-      const timer = setTimeout(() => {
-        if (ref?.current) {
-          if (focusInMobiles) {
-            ref.current.focus();
-          } else {
-            ref.current.blur();
-          }
+  useEffect(() => {
+    if (isMobile) {
+      setFocusInMobiles(
+        !(
+          isSearchList ||
+          isFavoriteList ||
+          isCard ||
+          isReposList ||
+          isUsersList ||
+          searchedUser
+        ),
+      );
+    } else {
+      setFocusInMobiles(true);
+    }
+  }, [
+    isCard,
+    isFavoriteList,
+    isMobile,
+    isSearchList,
+    isReposList,
+    isUsersList,
+    searchedUser,
+  ]);
+
+  // auto focus on input
+  const ref: any = useRef(null);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (ref?.current) {
+        if (focusInMobiles) {
+          ref.current.focus();
+        } else {
+          ref.current.blur();
         }
-        clearTimeout(timer);
-      }, 700);
-    }, [focusInMobiles]);
-
-    const changeTextHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-      let textValue = event?.target.value;
-      setsearchLogin(textValue);
-
-      if (textValue.trim()) {
-        setDisabledBtn(false);
-      } else {
-        setDisabledBtn(true);
       }
-    };
+      clearTimeout(timer);
+    }, 700);
+  }, [focusInMobiles]);
 
-    const onSubmitHandler = (event: React.SyntheticEvent) => {
-      event.preventDefault();
+  const onChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      let textValue = event?.target.value;
 
-      dispatch(searchUsersSaga(searchLogin));
+      if (timeout) clearTimeout(timeout);
 
-      searchFunc(searchLogin);
-      setsearchLogin('');
-      setDisabledBtn(true);
-    };
+      timeout = setTimeout(() => {
+        dispatch(searchUsersSaga(textValue));
+      }, 1000);
+    },
+    [dispatch],
+  );
 
-    const backBtnHandler = () => {
-      dispatch(setUsersList(false));
-      dispatch(setReposList(false));
-      dispatch(setCard(true));
-    };
+  const backBtnHandler = () => {
+    dispatch(setUsersList(false));
+    dispatch(setReposList(false));
+    dispatch(setCard(true));
+  };
 
-    return (
-      <Flex className={styles.searchWrapper}>
-        <form className={styles.form} onSubmit={onSubmitHandler}>
-          <input
-            ref={ref}
-            className={styles.input}
-            type="text"
-            placeholder="Enter the github login"
-            value={searchLogin}
-            onChange={changeTextHandler}
-          />
+  return (
+    <Flex className={styles.searchWrapper}>
+      <form className={styles.form}>
+        <input
+          ref={ref}
+          className={styles.input}
+          type="text"
+          placeholder="Enter the github login"
+          onChange={onChange}
+        />
 
-          <div className={styles.btnsWrapper}>
-            <SubmitButton disabled={disabledBtn}>Search</SubmitButton>
+        <div className={styles.btnsWrapper}>
+          {isMobile && (isUsersList || isReposList) && (
+            <button
+              type="button"
+              onClick={backBtnHandler}
+              className={styles.rootBtn}
+            >
+              Back
+            </button>
+          )}
+        </div>
+      </form>
 
-            {isMobile && (isUsersList || isReposList) && (
-              <button
-                type="button"
-                onClick={backBtnHandler}
-                className={styles.rootBtn}
-              >
-                Back
-              </button>
-            )}
-          </div>
-        </form>
-
-        {searchedUser && <SearchTitle />}
-      </Flex>
-    );
-  },
-);
+      {searchedUser && <SearchTitle />}
+    </Flex>
+  );
+});
