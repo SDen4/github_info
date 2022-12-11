@@ -48,7 +48,8 @@ export const SearchForm: React.FC<{ searchFunc: any }> = memo(
             isFavoriteList ||
             isCard ||
             isReposList ||
-            isUsersList
+            isUsersList ||
+            searchedUser
           ),
         );
       } else {
@@ -61,6 +62,7 @@ export const SearchForm: React.FC<{ searchFunc: any }> = memo(
       isSearchList,
       isReposList,
       isUsersList,
+      searchedUser,
     ]);
 
     // auto focus on input
