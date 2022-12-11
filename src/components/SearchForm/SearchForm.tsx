@@ -86,6 +86,8 @@ export const SearchForm: FC = memo(() => {
 
   const onChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
+      event.preventDefault();
+
       let textValue = event?.target.value;
 
       if (timeout) clearTimeout(timeout);

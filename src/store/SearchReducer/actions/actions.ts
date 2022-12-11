@@ -157,10 +157,10 @@ export const setMobileStart = (isMobileStart: boolean) => {
   } as const;
 };
 
-export const getSearchedUsersList = (searchStr: ISearchedUsersList) => {
+export const getSearchedUsersList = (searchedUsersList: ISearchedUsersList) => {
   return {
     type: CONST.GET_SEARCHED_USERS_LIST,
-    searchStr,
+    searchedUsersList,
   } as const;
 };
 

@@ -8,6 +8,7 @@ import {
   isFavoriteListSelect,
 } from 'store/FavoriteReduser/selectors';
 import {
+  getSearchedUsersList,
   setReposList,
   setSearchList,
   setUsersList,
@@ -18,6 +19,8 @@ import {
   isSearchListSelect,
   isUsersListSelect,
 } from 'store/SearchReducer/selectors';
+
+import { defaultSearchUsersList } from 'constants/searchConstants';
 
 import styles from './styles.module.css';
 
@@ -44,6 +47,10 @@ export const FavoriteButton: React.FC = memo(() => {
         dispatch(setUsersList(false));
         dispatch(setReposList(false));
       }
+    }
+
+    if (isMobile) {
+      dispatch(getSearchedUsersList(defaultSearchUsersList));
     }
   };
 

@@ -126,7 +126,7 @@ export const searchReducer = (
     case CONST.GET_SEARCHED_USERS_LIST:
       return {
         ...state,
-        searchedUsersList: action.searchStr,
+        searchedUsersList: action.searchedUsersList,
         isLoading: false,
       };
 

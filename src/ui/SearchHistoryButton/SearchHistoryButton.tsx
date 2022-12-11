@@ -5,6 +5,7 @@ import clsx from 'clsx';
 import { setFavoriteList } from 'store/FavoriteReduser/favoriteReducer';
 import { isFavoriteListSelect } from 'store/FavoriteReduser/selectors';
 import {
+  getSearchedUsersList,
   setReposList,
   setSearchList,
   setUsersList,
@@ -16,6 +17,8 @@ import {
   isUsersListSelect,
   searchListSelect,
 } from 'store/SearchReducer/selectors';
+
+import { defaultSearchUsersList } from 'constants/searchConstants';
 
 import styles from './styles.module.css';
 
@@ -42,6 +45,10 @@ export const SearchHistoryButton: React.FC = memo(() => {
         dispatch(setUsersList(false));
         dispatch(setReposList(false));
       }
+    }
+
+    if (isMobile) {
+      dispatch(getSearchedUsersList(defaultSearchUsersList));
     }
   };
 
