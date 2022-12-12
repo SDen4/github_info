@@ -1,10 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import {
-  pageSelect,
-  searchedUsersListSelect,
-} from 'store/SearchReducer/selectors';
+import { pageSelect, searchedUsersListSelect } from 'selectors/search';
 
 import { usersPerPage } from 'constants/searchConstants';
 

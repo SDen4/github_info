@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import { Flex } from 'ui/Flex';
 
-import { searchedUserSelect } from 'store/SearchReducer/selectors';
+import { searchedUserSelect } from 'selectors/search';
 
 import styles from './styles.module.css';
 

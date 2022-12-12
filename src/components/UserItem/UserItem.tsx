@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { Flex } from 'ui/Flex';
 
+import { searchListSelect } from 'selectors/search';
+
 import { getGithubUserSaga } from 'store/SearchReducer/actions/actionsSagas';
-import { searchListSelect } from 'store/SearchReducer/selectors';
 
 import { ISearchedUser, IUserInner } from 'model/search/types';
 

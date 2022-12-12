@@ -4,6 +4,9 @@ import clsx from 'clsx';
 
 import { Flex } from 'ui/Flex';
 
+import { favoriteListSelect, noteSelect } from 'selectors/favorite';
+import { userSelect } from 'selectors/search';
+
 import {
   fetchFavoriteList,
   fetchNote,
@@ -12,11 +15,6 @@ import {
   setNote,
   setNoteBtn,
 } from 'store/FavoriteReduser/favoriteReducer';
-import {
-  favoriteListSelect,
-  noteSelect,
-} from 'store/FavoriteReduser/selectors';
-import { userSelect } from 'store/SearchReducer/selectors';
 
 import styles from './styles.module.css';
 

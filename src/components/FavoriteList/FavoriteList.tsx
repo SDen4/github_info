@@ -5,18 +5,7 @@ import clsx from 'clsx';
 import { CloseButton } from 'ui/CloseButton';
 import { Flex } from 'ui/Flex';
 
-import {
-  fetchFavoriteList,
-  setFavoriteList,
-  setFavoriteUser,
-} from 'store/FavoriteReduser/favoriteReducer';
-import { favoriteListSelect } from 'store/FavoriteReduser/selectors';
-import {
-  setModal,
-  setReposList,
-  setUsersList,
-} from 'store/SearchReducer/actions/actions';
-import { getGithubUserSaga } from 'store/SearchReducer/actions/actionsSagas';
+import { favoriteListSelect } from 'selectors/favorite';
 import {
   isLoadingSelect,
   isMobileSelect,
@@ -24,7 +13,19 @@ import {
   isUsersListSelect,
   searchListSelect,
   userSelect,
-} from 'store/SearchReducer/selectors';
+} from 'selectors/search';
+
+import {
+  fetchFavoriteList,
+  setFavoriteList,
+  setFavoriteUser,
+} from 'store/FavoriteReduser/favoriteReducer';
+import {
+  setModal,
+  setReposList,
+  setUsersList,
+} from 'store/SearchReducer/actions/actions';
+import { getGithubUserSaga } from 'store/SearchReducer/actions/actionsSagas';
 
 import styles from './styles.module.css';
 

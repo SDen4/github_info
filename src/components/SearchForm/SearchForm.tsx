@@ -11,13 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Flex } from 'ui/Flex';
 import { SearchTitle } from 'components/SearchTitle';
 
-import { isFavoriteListSelect } from 'store/FavoriteReduser/selectors';
-import {
-  setCard,
-  setReposList,
-  setUsersList,
-} from 'store/SearchReducer/actions/actions';
-import { searchUsersSaga } from 'store/SearchReducer/actions/actionsSagas';
+import { isFavoriteListSelect } from 'selectors/favorite';
 import {
   isCardSelect,
   isMobileSelect,
@@ -25,7 +19,14 @@ import {
   isSearchListSelect,
   isUsersListSelect,
   searchedUserSelect,
-} from 'store/SearchReducer/selectors';
+} from 'selectors/search';
+
+import {
+  setCard,
+  setReposList,
+  setUsersList,
+} from 'store/SearchReducer/actions/actions';
+import { searchUsersSaga } from 'store/SearchReducer/actions/actionsSagas';
 
 import styles from './styles.module.css';
 

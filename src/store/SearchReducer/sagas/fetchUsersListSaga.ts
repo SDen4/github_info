@@ -6,11 +6,12 @@ import {
   setLoading,
   setUsersList,
 } from '../actions/actions';
-import { userSelect } from '../selectors';
 
 import { getUsersInfo } from 'api/searchRequest';
 import { caching } from 'utils/caching';
 import { select } from 'utils/select';
+
+import { userSelect } from 'selectors/search';
 
 import { IUserInner } from 'model/search/types';
 

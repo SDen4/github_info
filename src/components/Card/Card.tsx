@@ -11,24 +11,25 @@ import { dateFormatter } from 'utils/dateFormatter';
 import { periodCounter } from 'utils/periodCounter';
 
 import {
-  fetchFavoriteList,
-  setFavoriteBtnFlag,
-  setFavoriteUser,
-  setNote,
-} from 'store/FavoriteReduser/favoriteReducer';
-import {
   favoriteListSelect,
   isFavoriteUserSelect,
   isNoteBtnSelect,
   isNoteSelect,
   noteSelect,
-} from 'store/FavoriteReduser/selectors';
+} from 'selectors/favorite';
+import { isLoadingSelect, userSelect } from 'selectors/search';
+
+import {
+  fetchFavoriteList,
+  setFavoriteBtnFlag,
+  setFavoriteUser,
+  setNote,
+} from 'store/FavoriteReduser/favoriteReducer';
 import { fetchLogin, setCard } from 'store/SearchReducer/actions/actions';
 import {
   fetchUsersListSaga,
   reposListSaga,
 } from 'store/SearchReducer/actions/actionsSagas';
-import { isLoadingSelect, userSelect } from 'store/SearchReducer/selectors';
 
 import styles from './styles.module.css';
 

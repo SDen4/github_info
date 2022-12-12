@@ -6,10 +6,11 @@ import {
   setLoading,
   setReposList,
 } from '../actions/actions';
-import { userSelect } from '../selectors';
 
 import { getReposInfo } from 'api/searchRequest';
 import { select } from 'utils/select';
+
+import { userSelect } from 'selectors/search';
 
 import { IRepoItem } from 'model/search/types';
 

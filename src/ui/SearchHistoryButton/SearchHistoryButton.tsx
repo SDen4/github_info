@@ -2,21 +2,22 @@ import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
-import { setFavoriteList } from 'store/FavoriteReduser/favoriteReducer';
-import { isFavoriteListSelect } from 'store/FavoriteReduser/selectors';
-import {
-  getSearchedUsersList,
-  setReposList,
-  setSearchList,
-  setUsersList,
-} from 'store/SearchReducer/actions/actions';
+import { isFavoriteListSelect } from 'selectors/favorite';
 import {
   isMobileSelect,
   isReposListSelect,
   isSearchListSelect,
   isUsersListSelect,
   searchListSelect,
-} from 'store/SearchReducer/selectors';
+} from 'selectors/search';
+
+import { setFavoriteList } from 'store/FavoriteReduser/favoriteReducer';
+import {
+  getSearchedUsersList,
+  setReposList,
+  setSearchList,
+  setUsersList,
+} from 'store/SearchReducer/actions/actions';
 
 import { defaultSearchUsersList } from 'constants/searchConstants';
 

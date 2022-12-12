@@ -7,16 +7,17 @@ import { UserItem } from '../UserItem';
 import { Ul } from 'ui/Ul';
 
 import {
-  setCard,
-  setReposList,
-  setUsersList,
-} from 'store/SearchReducer/actions/actions';
-import {
   isLoadingSelect,
   lastRequestTypeSelect,
   userSelect,
   usersListSelect,
-} from 'store/SearchReducer/selectors';
+} from 'selectors/search';
+
+import {
+  setCard,
+  setReposList,
+  setUsersList,
+} from 'store/SearchReducer/actions/actions';
 
 import { IUserInner } from 'model/search/types';
 

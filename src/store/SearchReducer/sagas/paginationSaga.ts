@@ -7,9 +7,10 @@ import {
   setLoading,
   setPage,
 } from '../actions/actions';
-import { searchedUserSelect } from '../selectors';
 
 import { getListSearchedUsers } from 'api/searchRequest';
+
+import { searchedUserSelect } from 'selectors/search';
 
 import { fetchNote, setNoteBtn } from 'store/FavoriteReduser/favoriteReducer';
 

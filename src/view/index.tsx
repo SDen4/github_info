@@ -11,19 +11,11 @@ import { SearchedUsersList } from 'components/SearchedUsersList';
 import { SearchForm } from 'components/SearchForm';
 import { StartMobile } from 'components/StartMobile';
 
-import { setFavoriteList } from 'store/FavoriteReduser/favoriteReducer';
 import {
   favoriteListSelect,
   isFavoriteListSelect,
   isNoteSelect,
-} from 'store/FavoriteReduser/selectors';
-import {
-  setCard,
-  setMobileStart,
-  setReposList,
-  setUsersList,
-} from 'store/SearchReducer/actions/actions';
-import { searhInitFetchSaga } from 'store/SearchReducer/actions/actionsSagas';
+} from 'selectors/favorite';
 import {
   isAndroidSelect,
   isCardSelect,
@@ -36,7 +28,16 @@ import {
   isSearchListSelect,
   isUsersListSelect,
   searchedUsersListSelect,
-} from 'store/SearchReducer/selectors';
+} from 'selectors/search';
+
+import { setFavoriteList } from 'store/FavoriteReduser/favoriteReducer';
+import {
+  setCard,
+  setMobileStart,
+  setReposList,
+  setUsersList,
+} from 'store/SearchReducer/actions/actions';
+import { searhInitFetchSaga } from 'store/SearchReducer/actions/actionsSagas';
 
 import styles from './styles.module.css';
 

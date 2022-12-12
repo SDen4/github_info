@@ -6,7 +6,7 @@ import { UserItem } from '../UserItem';
 import { Ul } from 'ui/Ul';
 import { Pagination } from 'components/Pagination';
 
-import { searchedUsersListSelect } from 'store/SearchReducer/selectors';
+import { searchedUsersListSelect } from 'selectors/search';
 
 import styles from './styles.module.css';
 

@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { CloseButton } from 'ui/CloseButton';
 import { Flex } from 'ui/Flex';
 
+import { modalTextSelect, modalTypeSelect } from 'selectors/search';
+
 import {
   fetchFavoriteList,
   setFavoriteList,
@@ -14,10 +16,6 @@ import {
   setModal,
   setSearchList,
 } from 'store/SearchReducer/actions/actions';
-import {
-  modalTextSelect,
-  modalTypeSelect,
-} from 'store/SearchReducer/selectors';
 
 import styles from './styles.module.css';
 

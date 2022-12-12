@@ -12,10 +12,11 @@ import {
   setSearchList,
   setUsersList,
 } from '../actions/actions';
-import { isMobileSelect } from '../selectors';
 
 import { getLastActivityDate, getUserInfo } from 'api/searchRequest';
 import { select } from 'utils/select';
+
+import { isMobileSelect } from 'selectors/search';
 
 import {
   fetchNote,
