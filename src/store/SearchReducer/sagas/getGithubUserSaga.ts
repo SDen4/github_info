@@ -51,22 +51,22 @@ function* sagaWorker(action: IProps) {
     const lastActivityDate: string = yield getLastActivityDate(action.login);
 
     yield put(
-      fetchLogin(
-        allData.name,
-        allData.login,
-        allData.followers_url,
-        allData.following_url,
-        allData.followers,
-        allData.following,
-        new Date(allData.created_at),
-        allData.avatar_url,
-        allData.company,
-        allData.email,
-        allData.public_repos,
-        allData.repos_url,
-        allData.location,
+      fetchLogin({
+        name: allData.name,
+        login: allData.login,
+        followers_url: allData.followers_url,
+        following_url: allData.following_url,
+        followers: allData.followers,
+        following: allData.following,
+        created_at: new Date(allData.created_at),
+        avatar_url: allData.avatar_url,
+        company: allData.company,
+        email: allData.email,
+        public_repos: allData.public_repos,
+        repos_url: allData.repos_url,
+        location: allData.location,
         lastActivityDate,
-      ),
+      }),
     );
 
     if (action.favoritesList?.find((el) => el.name === allData.login)) {

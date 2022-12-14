@@ -8,38 +8,25 @@ import {
 
 import * as CONST from '../constants';
 
-export const fetchLogin = (
-  name: string,
-  login: string,
-  followers_url: string,
-  following_url: string,
-  followers: number,
-  following: number,
-  created_at: Date,
-  avatar_url?: string,
-  company?: string,
-  email?: string,
-  public_repos?: number,
-  repos_url?: string,
-  location?: string,
-  lastActivityDate?: string,
-) => {
+export const fetchLogin = (payload: {
+  name: string;
+  login: string;
+  followers_url: string;
+  following_url: string;
+  followers: number;
+  following: number;
+  created_at: Date;
+  avatar_url?: string;
+  company?: string;
+  email?: string;
+  public_repos?: number;
+  repos_url?: string;
+  location?: string;
+  lastActivityDate?: string;
+}) => {
   return {
     type: CONST.FETCH_LOGIN,
-    name,
-    login,
-    followers_url,
-    following_url,
-    followers,
-    following,
-    created_at,
-    avatar_url,
-    company,
-    email,
-    public_repos,
-    repos_url,
-    location,
-    lastActivityDate,
+    payload,
   } as const;
 };
 

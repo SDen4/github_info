@@ -47,7 +47,22 @@ const Card: React.FC = (): JSX.Element => {
   const onClickCloseBtnHandler = () => {
     dispatch(setCard(false));
     dispatch(
-      fetchLogin('', '', '', '', 0, 0, new Date(), '', '', '', 0, '', ''),
+      fetchLogin({
+        name: '',
+        login: '',
+        followers_url: '',
+        following_url: '',
+        followers: 0,
+        following: 0,
+        created_at: new Date(),
+        avatar_url: '',
+        company: '',
+        email: '',
+        public_repos: 0,
+        repos_url: '',
+        location: '',
+        lastActivityDate: '',
+      }),
     );
 
     if (isNote) {
