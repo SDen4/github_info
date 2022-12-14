@@ -36,7 +36,12 @@ function* sagaWorker(action: IProps) {
       action.requestType,
     );
 
-    yield put(fetchUsersList(allData, action.requestType));
+    yield put(
+      fetchUsersList({
+        usersList: allData,
+        lastRequestType: action.requestType,
+      }),
+    );
 
     yield put(setLoading(false));
     yield put(setUsersList(true));

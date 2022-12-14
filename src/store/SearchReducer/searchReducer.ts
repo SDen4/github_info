@@ -58,48 +58,48 @@ export const searchReducer = (
       };
 
     case CONST.CARD_OPEN_FLAG:
-      return { ...state, isCard: action.isCard };
+      return { ...state, isCard: action.payload };
 
     case CONST.LOADING:
-      return { ...state, isLoading: action.isLoading };
+      return { ...state, isLoading: action.payload };
 
     case CONST.ERROR:
-      return { ...state, isError: action.isError };
+      return { ...state, isError: action.payload };
 
     case CONST.USERS_LIST_OPENED_FLAG:
-      return { ...state, isUsersList: action.isUsersList };
+      return { ...state, isUsersList: action.payload };
 
     case CONST.FETCH_USERS_LIST:
       return {
         ...state,
-        usersList: action.usersList,
-        lastRequestType: action.lastRequestType,
+        usersList: action.payload.usersList,
+        lastRequestType: action.payload.lastRequestType,
       };
 
     case CONST.FETCH_SEARCH_HISTORY:
       return {
         ...state,
-        searchList: [...state.searchList, action.searchList],
+        searchList: [...state.searchList, action.payload],
       };
 
     case CONST.FETCH_ALL_HISTORY:
-      return { ...state, searchList: action.searchList };
+      return { ...state, searchList: action.payload };
 
     case CONST.SEARCH_HISTORY_LIST_FLAG:
-      return { ...state, isSearchList: action.isSearchList };
+      return { ...state, isSearchList: action.payload };
 
     case CONST.FETCH_REPOS_LIST:
-      return { ...state, reposList: action.reposList };
+      return { ...state, reposList: action.payload };
 
     case CONST.REPOS_OPENED_LIST_FLAG:
-      return { ...state, isReposList: action.isReposList };
+      return { ...state, isReposList: action.payload };
 
     case CONST.SEARCH_HISTORY_MODAL_FLAG:
       return {
         ...state,
-        isModal: action.isModal,
-        modalText: action.modalText,
-        modalType: action.modalType,
+        isModal: action.payload.isModal,
+        modalText: action.payload.modalText,
+        modalType: action.payload.modalType,
       };
 
     case CONST.SEARCH_START:
@@ -115,26 +115,26 @@ export const searchReducer = (
       };
 
     case CONST.SEARCH_IS_MOBILE:
-      return { ...state, isMobile: action.isMobile };
+      return { ...state, isMobile: action.payload };
 
     case CONST.SEARCH_IS_ANDROID:
-      return { ...state, isAndroid: action.isAndroid };
+      return { ...state, isAndroid: action.payload };
 
     case CONST.SEARCH_IS_MOBILE_START:
-      return { ...state, isMobileStart: action.isMobileStart };
+      return { ...state, isMobileStart: action.payload };
 
     case CONST.GET_SEARCHED_USERS_LIST:
       return {
         ...state,
-        searchedUsersList: action.searchedUsersList,
+        searchedUsersList: action.payload,
         isLoading: false,
       };
 
     case CONST.GET_SEARCHED_USER:
-      return { ...state, searchedUser: action.searchedUser };
+      return { ...state, searchedUser: action.payload };
 
     case CONST.PAGE:
-      return { ...state, page: action.page };
+      return { ...state, page: action.payload };
 
     default:
       return state;

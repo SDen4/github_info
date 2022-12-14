@@ -37,9 +37,13 @@ const Modal: React.FC = () => {
         dispatch(fetchFavoriteList([]));
         localStorage.removeItem('favorite');
       }
-      dispatch(setModal(false, '', 'search'));
+      dispatch(
+        setModal({ isModal: false, modalText: '', modalType: 'search' }),
+      );
     } else {
-      dispatch(setModal(false, '', 'search'));
+      dispatch(
+        setModal({ isModal: false, modalText: '', modalType: 'search' }),
+      );
     }
   };
 

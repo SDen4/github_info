@@ -58,13 +58,15 @@ const SearchList: React.FC = () => {
 
   const clearBtnHandler = () => {
     dispatch(
-      setModal(
-        true,
-        `Are you sure to delete ${searchList.length > 1 ? 'all' : ''} ${
-          searchList.length > 1 ? `(${searchList.length})` : ''
-        } ${searchList.length > 1 ? 'items' : 'the item'} of search history?`,
-        'search',
-      ),
+      setModal({
+        isModal: true,
+        modalText: `Are you sure to delete ${
+          searchList.length > 1 ? 'all' : ''
+        } ${searchList.length > 1 ? `(${searchList.length})` : ''} ${
+          searchList.length > 1 ? 'items' : 'the item'
+        } of search history?`,
+        modalType: 'search',
+      }),
     );
   };
 

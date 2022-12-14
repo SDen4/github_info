@@ -62,13 +62,15 @@ const FavoriteList: React.FC = () => {
 
   const clearBtnHandler = () => {
     dispatch(
-      setModal(
-        true,
-        `Are you sure to delete ${favoriteList.length > 1 ? 'all' : ''} your ${
+      setModal({
+        isModal: true,
+        modalText: `Are you sure to delete ${
+          favoriteList.length > 1 ? 'all' : ''
+        } your ${
           favoriteList.length > 1 ? `(${favoriteList.length})` : ''
         } favorite ${favoriteList.length > 1 ? 'users' : 'user'}?`,
-        'favorite',
-      ),
+        modalType: 'favorite',
+      }),
     );
   };
 

@@ -30,90 +30,87 @@ export const fetchLogin = (payload: {
   } as const;
 };
 
-export const setCard = (isCard: boolean) => {
+export const setCard = (payload: boolean) => {
   return {
     type: CONST.CARD_OPEN_FLAG,
-    isCard,
+    payload,
   } as const;
 };
 
-export const setLoading = (isLoading: boolean) => {
+export const setLoading = (payload: boolean) => {
   return {
     type: CONST.LOADING,
-    isLoading,
+    payload,
   } as const;
 };
 
-export const setError = (isError: boolean) => {
+export const setError = (payload: boolean) => {
   return {
     type: CONST.ERROR,
-    isError,
+    payload,
   } as const;
 };
 
-export const setUsersList = (isUsersList: boolean) => {
+export const setUsersList = (payload: boolean) => {
   return {
     type: CONST.USERS_LIST_OPENED_FLAG,
-    isUsersList,
+    payload,
   } as const;
 };
 
-export const fetchUsersList = (
-  usersList: IUserInner[],
-  lastRequestType: string,
-) => {
+export const fetchUsersList = (payload: {
+  usersList: IUserInner[];
+  lastRequestType: string;
+}) => {
   return {
     type: CONST.FETCH_USERS_LIST,
-    usersList,
-    lastRequestType,
+    payload,
   } as const;
 };
 
-export const fetchSearhHistory = (searchList: ISearhHistoryItem) => {
+export const fetchSearhHistory = (payload: ISearhHistoryItem) => {
   return {
     type: CONST.FETCH_SEARCH_HISTORY,
-    searchList,
+    payload,
   } as const;
 };
 
-export const setSearchList = (isSearchList: boolean) => {
+export const setSearchList = (payload: boolean) => {
   return {
     type: CONST.SEARCH_HISTORY_LIST_FLAG,
-    isSearchList,
+    payload,
   } as const;
 };
 
-export const fetchSearchList = (searchList: ISearhHistoryItem[]) => {
+export const fetchSearchList = (payload: ISearhHistoryItem[]) => {
   return {
     type: CONST.FETCH_ALL_HISTORY,
-    searchList,
+    payload,
   } as const;
 };
 
-export const fetchReposList = (reposList: IRepoItem[]) => {
+export const fetchReposList = (payload: IRepoItem[]) => {
   return {
     type: CONST.FETCH_REPOS_LIST,
-    reposList,
+    payload,
   } as const;
 };
 
-export const setReposList = (isReposList: boolean) => {
+export const setReposList = (payload: boolean) => {
   return {
     type: CONST.REPOS_OPENED_LIST_FLAG,
-    isReposList,
+    payload,
   } as const;
 };
 
-export const setModal = (
-  isModal: boolean,
-  modalText: string,
-  modalType: 'search' | 'favorite',
-) => {
+export const setModal = (payload: {
+  isModal: boolean;
+  modalText: string;
+  modalType: 'search' | 'favorite';
+}) => {
   return {
     type: CONST.SEARCH_HISTORY_MODAL_FLAG,
-    isModal,
-    modalText,
-    modalType,
+    payload,
   } as const;
 };
 
@@ -123,45 +120,45 @@ export const getStart = () => {
   } as const;
 };
 
-export const setMobile = (isMobile: boolean) => {
+export const setMobile = (payload: boolean) => {
   return {
     type: CONST.SEARCH_IS_MOBILE,
-    isMobile,
+    payload,
   } as const;
 };
 
-export const setAndroid = (isAndroid: boolean) => {
+export const setAndroid = (payload: boolean) => {
   return {
     type: CONST.SEARCH_IS_ANDROID,
-    isAndroid,
+    payload,
   } as const;
 };
 
-export const setMobileStart = (isMobileStart: boolean) => {
+export const setMobileStart = (payload: boolean) => {
   return {
     type: CONST.SEARCH_IS_MOBILE_START,
-    isMobileStart,
+    payload,
   } as const;
 };
 
-export const getSearchedUsersList = (searchedUsersList: ISearchedUsersList) => {
+export const getSearchedUsersList = (payload: ISearchedUsersList) => {
   return {
     type: CONST.GET_SEARCHED_USERS_LIST,
-    searchedUsersList,
+    payload,
   } as const;
 };
 
-export const setPage = (page: number) => {
+export const setPage = (payload: number) => {
   return {
     type: CONST.PAGE,
-    page,
+    payload,
   } as const;
 };
 
-export const getSearchedUser = (searchedUser: string) => {
+export const getSearchedUser = (payload: string) => {
   return {
     type: CONST.GET_SEARCHED_USER,
-    searchedUser,
+    payload,
   } as const;
 };
 
