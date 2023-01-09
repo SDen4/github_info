@@ -100,6 +100,19 @@ export const SearchForm: FC = memo(() => {
     [dispatch],
   );
 
+  const onSubmit = useCallback(
+    (event: any) => {
+      event.preventDefault();
+
+      let textValue = event?.target[0].value;
+
+      if (!textValue) return;
+
+      dispatch(searchUsersSaga(textValue));
+    },
+    [dispatch],
+  );
+
   const backBtnHandler = () => {
     dispatch(setUsersList(false));
     dispatch(setReposList(false));
@@ -108,7 +121,7 @@ export const SearchForm: FC = memo(() => {
 
   return (
     <Flex className={styles.searchWrapper}>
-      <form className={styles.form}>
+      <form className={styles.form} onSubmit={onSubmit}>
         <input
           ref={ref}
           className={styles.input}
