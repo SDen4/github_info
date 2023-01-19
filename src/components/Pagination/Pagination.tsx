@@ -1,20 +1,24 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { FC } from 'react';
 
 import { PaginationButton } from './PaginationButton';
 import { PaginationInfo } from './PaginationInfo';
 
 import { Flex } from 'ui/Flex';
 
-import { pageSelect, searchedUsersListSelect } from 'selectors/search';
-
-import { usersPerPage } from 'constants/searchConstants';
-
 import styles from './styles.module.css';
 
-export const Pagination = () => {
-  const totalElements = useSelector(searchedUsersListSelect).total_count;
-  const page = Number(useSelector(pageSelect));
+interface IProps {
+  itemsPerPage: number;
+  totalElements: number | null;
+  page: number;
+  func: (page: number | string) => {
+    readonly type: string;
+    readonly payload: string | number;
+  };
+}
+
+export const Pagination: FC<IProps> = (props) => {
+  const { itemsPerPage, totalElements, page, func } = props;
 
   const paginationLength = 7;
   const paginationLengthHalf = paginationLength / 2;
@@ -22,7 +26,7 @@ export const Pagination = () => {
   let rightArr = [];
 
   const totalPages = totalElements
-    ? Math.ceil(totalElements / usersPerPage)
+    ? Math.ceil(totalElements / itemsPerPage)
     : 0;
 
   let left = paginationLengthHalf;
@@ -55,11 +59,20 @@ export const Pagination = () => {
 
   return (
     <Flex className={styles.paginationWrapper}>
-      <PaginationInfo />
+      <PaginationInfo
+        totalElements={totalElements}
+        page={page}
+        itemsPerPage={itemsPerPage}
+      />
 
       <Flex>
         {totalArr.map((el) => (
-          <PaginationButton num={el} active={el === page} key={Math.random()} />
+          <PaginationButton
+            num={el}
+            active={el === page}
+            key={Math.random()}
+            func={func}
+          />
         ))}
       </Flex>
     </Flex>

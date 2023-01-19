@@ -6,12 +6,17 @@ import { UserItem } from '../UserItem';
 import { Ul } from 'ui/Ul';
 import { Pagination } from 'components/Pagination';
 
-import { searchedUsersListSelect } from 'selectors/search';
+import { pageSelect, searchedUsersListSelect } from 'selectors/search';
+
+import { paginationSaga } from 'store/SearchReducer/actions/actionsSagas';
+
+import { usersPerPage } from 'constants/searchConstants';
 
 import styles from './styles.module.css';
 
 export const SearchedUsersList: React.FC = () => {
   const searchedUsersList = useSelector(searchedUsersListSelect);
+  const page = Number(useSelector(pageSelect));
 
   return (
     <>
@@ -23,7 +28,12 @@ export const SearchedUsersList: React.FC = () => {
         ))}
       </Ul>
 
-      <Pagination />
+      <Pagination
+        itemsPerPage={usersPerPage}
+        totalElements={searchedUsersList.total_count}
+        page={page}
+        func={paginationSaga}
+      />
     </>
   );
 };

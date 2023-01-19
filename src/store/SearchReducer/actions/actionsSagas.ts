@@ -48,9 +48,16 @@ export const searhInitFetchSaga = () => {
   } as const;
 };
 
-export const paginationSaga = (page: number | string) => {
+export const paginationSaga = (payload: number | string) => {
   return {
     type: CONST.PAGINATION_SAGA,
-    page,
+    payload,
+  } as const;
+};
+
+export const paginationReposSaga = (payload: number | string) => {
+  return {
+    type: CONST.PAGINATION_REPOS_SAGA,
+    payload,
   } as const;
 };

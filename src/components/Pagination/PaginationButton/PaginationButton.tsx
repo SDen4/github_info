@@ -1,14 +1,16 @@
 import React, { FC } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { paginationSaga } from 'store/SearchReducer/actions/actionsSagas';
-
 import styles from './styles.module.css';
 
 export const PaginationButton: FC<{
   num: number | string | null;
   active: boolean;
-}> = ({ num, active }) => {
+  func: (page: number | string) => {
+    readonly type: string;
+    readonly payload: string | number;
+  };
+}> = ({ num, active, func }) => {
   const dispatch = useDispatch();
 
   const onClick = () => {
@@ -16,7 +18,7 @@ export const PaginationButton: FC<{
       return;
     }
 
-    dispatch(paginationSaga(num));
+    dispatch(func(num));
   };
 
   return (

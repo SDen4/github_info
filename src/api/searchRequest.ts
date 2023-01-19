@@ -9,8 +9,10 @@ export async function getUsersInfo(login: string, requestType: string) {
   return response;
 }
 
-export async function getReposInfo(login: string) {
-  const response = await API.get(`${login}/repos`).then((res) => res.data);
+export async function getReposInfo(login: string, page?: number) {
+  const path = page ? `/repos?page=${page}` : '/repos?page=1';
+
+  const response = await API.get(`${login}${path}`).then((res) => res.data);
   return response;
 }
 

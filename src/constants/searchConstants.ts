@@ -24,3 +24,4 @@ export const defaultSearchUsersList = {
 };
 
 export const usersPerPage = 10;
+export const reposPerPage = 30;

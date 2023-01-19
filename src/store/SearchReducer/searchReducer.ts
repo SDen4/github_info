@@ -29,6 +29,7 @@ const initialState: IInitialState = {
   isReposList: false,
   isCard: false,
   page: 1,
+  pageRepos: 1,
 };
 
 export const searchReducer = (
@@ -135,6 +136,9 @@ export const searchReducer = (
 
     case CONST.PAGE:
       return { ...state, page: action.payload };
+
+    case CONST.PAGE_REPOS:
+      return { ...state, pageRepos: action.payload };
 
     default:
       return state;

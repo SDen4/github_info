@@ -155,6 +155,13 @@ export const setPage = (payload: number) => {
   } as const;
 };
 
+export const setPageRepos = (payload: number) => {
+  return {
+    type: CONST.PAGE_REPOS,
+    payload,
+  } as const;
+};
+
 export const getSearchedUser = (payload: string) => {
   return {
     type: CONST.GET_SEARCHED_USER,
@@ -180,6 +187,7 @@ type setAndroidType = ReturnType<typeof setAndroid>;
 type setMobileStartType = ReturnType<typeof setMobileStart>;
 type getSearchedUsersType = ReturnType<typeof getSearchedUsersList>;
 type setPageType = ReturnType<typeof setPage>;
+type setPageReposType = ReturnType<typeof setPageRepos>;
 type getSearchedUserType = ReturnType<typeof getSearchedUser>;
 
 export type ActionsType =
@@ -201,4 +209,5 @@ export type ActionsType =
   | setMobileStartType
   | getSearchedUsersType
   | setPageType
+  | setPageReposType
   | getSearchedUserType;

@@ -21,7 +21,7 @@ import { defaultSearchUsersList } from 'constants/searchConstants';
 
 interface IProps {
   type: typeof PAGINATION_SAGA;
-  page: number;
+  payload: number;
 }
 
 function* sagaWorker(action: IProps) {
@@ -35,11 +35,11 @@ function* sagaWorker(action: IProps) {
       put(setNoteBtn(false)),
     ]);
 
-    yield put(setPage(action.page));
+    yield put(setPage(action.payload));
 
     const allData: ISearchedUsersList = yield getListSearchedUsers(
       searchedUser,
-      action.page,
+      action.payload,
     );
 
     if (allData) {

@@ -9,6 +9,7 @@ import {
   setCard,
   setError,
   setLoading,
+  setPageRepos,
   setSearchList,
   setUsersList,
 } from '../actions/actions';
@@ -44,6 +45,7 @@ function* sagaWorker(action: IProps) {
   try {
     yield put(getSearchedUsersList(defaultSearchUsersList));
     yield put(getSearchedUser(''));
+    yield put(setPageRepos(1));
 
     yield all([put(getStart()), put(fetchNote('')), put(setNoteBtn(false))]);
 

@@ -98,4 +98,5 @@ export interface IInitialState {
   isAndroid: boolean;
   isMobileStart: boolean;
   page: number;
+  pageRepos: number;
 }
