@@ -1,11 +1,11 @@
 {
   "files": {
     "main.css": "/github_info/static/css/main.146c9b58.css",
-    "main.js": "/github_info/static/js/main.b7e84055.js",
+    "main.js": "/github_info/static/js/main.8c3e7163.js",
     "static/css/108.e6beeb13.chunk.css": "/github_info/static/css/108.e6beeb13.chunk.css",
     "static/js/108.98cc5941.chunk.js": "/github_info/static/js/108.98cc5941.chunk.js",
     "static/css/95.6662a4c9.chunk.css": "/github_info/static/css/95.6662a4c9.chunk.css",
-    "static/js/95.84f5ad08.chunk.js": "/github_info/static/js/95.84f5ad08.chunk.js",
+    "static/js/95.f2d98b1d.chunk.js": "/github_info/static/js/95.f2d98b1d.chunk.js",
     "static/css/981.8f528eb0.chunk.css": "/github_info/static/css/981.8f528eb0.chunk.css",
     "static/js/981.94b3bdcd.chunk.js": "/github_info/static/js/981.94b3bdcd.chunk.js",
     "static/css/52.2de20a3f.chunk.css": "/github_info/static/css/52.2de20a3f.chunk.css",
@@ -22,11 +22,11 @@
     "static/media/unnamed.jpg": "/github_info/static/media/unnamed.512d8528e72b0b1afa97.jpg",
     "index.html": "/github_info/index.html",
     "main.146c9b58.css.map": "/github_info/static/css/main.146c9b58.css.map",
-    "main.b7e84055.js.map": "/github_info/static/js/main.b7e84055.js.map",
+    "main.8c3e7163.js.map": "/github_info/static/js/main.8c3e7163.js.map",
     "108.e6beeb13.chunk.css.map": "/github_info/static/css/108.e6beeb13.chunk.css.map",
     "108.98cc5941.chunk.js.map": "/github_info/static/js/108.98cc5941.chunk.js.map",
     "95.6662a4c9.chunk.css.map": "/github_info/static/css/95.6662a4c9.chunk.css.map",
-    "95.84f5ad08.chunk.js.map": "/github_info/static/js/95.84f5ad08.chunk.js.map",
+    "95.f2d98b1d.chunk.js.map": "/github_info/static/js/95.f2d98b1d.chunk.js.map",
     "981.8f528eb0.chunk.css.map": "/github_info/static/css/981.8f528eb0.chunk.css.map",
     "981.94b3bdcd.chunk.js.map": "/github_info/static/js/981.94b3bdcd.chunk.js.map",
     "52.2de20a3f.chunk.css.map": "/github_info/static/css/52.2de20a3f.chunk.css.map",
@@ -42,6 +42,6 @@
   },
   "entrypoints": [
     "static/css/main.146c9b58.css",
-    "static/js/main.b7e84055.js"
+    "static/js/main.8c3e7163.js"
   ]
 }
