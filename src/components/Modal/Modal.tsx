@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { FC, memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { CloseButton } from 'ui/CloseButton';
@@ -19,7 +19,7 @@ import {
 
 import styles from './styles.module.css';
 
-const Modal: React.FC = () => {
+const Modal: FC = () => {
   const dispatch = useDispatch();
 
   const modalText = useSelector(modalTextSelect);

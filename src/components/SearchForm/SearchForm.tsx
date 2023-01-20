@@ -1,11 +1,4 @@
-import React, {
-  FC,
-  memo,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import React, { FC, useCallback, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Flex } from 'ui/Flex';
@@ -32,7 +25,7 @@ import styles from './styles.module.css';
 
 let timeout: string | number | NodeJS.Timeout | undefined;
 
-export const SearchForm: FC = memo(() => {
+export const SearchForm: FC = () => {
   const dispatch = useDispatch();
 
   const isFavoriteList = useSelector(isFavoriteListSelect);
@@ -146,4 +139,4 @@ export const SearchForm: FC = memo(() => {
       {searchedUser && <SearchTitle />}
     </Flex>
   );
-});
+};

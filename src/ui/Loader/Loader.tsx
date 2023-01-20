@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { Flex } from '../Flex';
 
 import styles from './styles.module.css';
 
-export const Loader: React.FC = () => {
+export const Loader: FC = () => {
   return (
     <Flex className={styles.loaderWrapper}>
       <div className={styles.ldsDefault}>

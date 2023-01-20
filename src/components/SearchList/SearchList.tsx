@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { FC, memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
@@ -28,7 +28,7 @@ import { getGithubUserSaga } from 'store/SearchReducer/actions/actionsSagas';
 
 import styles from './styles.module.css';
 
-const SearchList: React.FC = () => {
+const SearchList: FC = () => {
   const dispatch = useDispatch();
 
   const searchList = useSelector(searchListSelect);

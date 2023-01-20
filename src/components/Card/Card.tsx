@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { FC, memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
@@ -33,7 +33,7 @@ import {
 
 import styles from './styles.module.css';
 
-const Card: React.FC = (): JSX.Element => {
+const Card: FC = (): JSX.Element => {
   const dispatch = useDispatch();
 
   const favoriteList = useSelector(favoriteListSelect);

@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useRef, useState } from 'react';
+import React, { FC, memo, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
@@ -18,7 +18,7 @@ import {
 
 import styles from './styles.module.css';
 
-const Note: React.FC = () => {
+const Note: FC = () => {
   const dispatch = useDispatch();
   const ref: any = useRef();
 

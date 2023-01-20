@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
 
 import { FavoriteButton } from 'ui/FavoriteButton';
@@ -9,7 +9,7 @@ import { searchListSelect } from 'selectors/search';
 
 import styles from './styles.module.css';
 
-export const Header: React.FC = () => {
+export const Header: FC = () => {
   const searchList = useSelector(searchListSelect);
   const favoriteList = useSelector(favoriteListSelect);
 

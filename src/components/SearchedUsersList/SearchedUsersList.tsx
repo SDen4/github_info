@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
 
 import { UserItem } from '../UserItem';
@@ -14,7 +14,7 @@ import { usersPerPage } from 'constants/searchConstants';
 
 import styles from './styles.module.css';
 
-export const SearchedUsersList: React.FC = () => {
+export const SearchedUsersList: FC = () => {
   const searchedUsersList = useSelector(searchedUsersListSelect);
   const page = Number(useSelector(pageSelect));
 

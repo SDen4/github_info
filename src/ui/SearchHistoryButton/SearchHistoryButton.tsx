@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
@@ -23,7 +23,7 @@ import { defaultSearchUsersList } from 'constants/searchConstants';
 
 import styles from './styles.module.css';
 
-export const SearchHistoryButton: React.FC = memo(() => {
+export const SearchHistoryButton: FC = () => {
   const dispatch = useDispatch();
 
   const history = useSelector(searchListSelect);
@@ -65,4 +65,4 @@ export const SearchHistoryButton: React.FC = memo(() => {
       Search history <span>({history.length})</span>
     </button>
   );
-});
+};

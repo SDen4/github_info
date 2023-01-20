@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { FC, memo } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { Flex } from 'ui/Flex';
@@ -7,7 +7,7 @@ import { setMobileStart } from 'store/SearchReducer/actions/actions';
 
 import styles from './styles.module.css';
 
-export const StartMobile: React.FC<{ appHeight: number }> = memo(
+export const StartMobile: FC<{ appHeight: number }> = memo(
   ({ appHeight }): JSX.Element => {
     const dispatch = useDispatch();
 

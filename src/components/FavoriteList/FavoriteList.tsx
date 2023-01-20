@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react';
+import React, { FC, memo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
@@ -29,7 +29,7 @@ import { getGithubUserSaga } from 'store/SearchReducer/actions/actionsSagas';
 
 import styles from './styles.module.css';
 
-const FavoriteList: React.FC = () => {
+const FavoriteList: FC = () => {
   const dispatch = useDispatch();
 
   const favoriteList = useSelector(favoriteListSelect);

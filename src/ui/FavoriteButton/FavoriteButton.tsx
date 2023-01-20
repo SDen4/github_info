@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
@@ -22,7 +22,7 @@ import { defaultSearchUsersList } from 'constants/searchConstants';
 
 import styles from './styles.module.css';
 
-export const FavoriteButton: React.FC = memo(() => {
+export const FavoriteButton: React.FC = () => {
   const dispatch = useDispatch();
 
   const isFavoriteList = useSelector(isFavoriteListSelect);
@@ -62,4 +62,4 @@ export const FavoriteButton: React.FC = memo(() => {
       <span>{favoriteList.length}</span>
     </button>
   );
-});
+};

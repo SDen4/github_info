@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { FC, memo } from 'react';
 import { useSelector } from 'react-redux';
 
 import { Ul } from 'ui/Ul';
@@ -15,7 +15,7 @@ import { reposPerPage } from 'constants/searchConstants';
 
 import styles from './styles.module.css';
 
-const ReposList: React.FC = () => {
+const ReposList: FC = () => {
   const reposList = useSelector(reposListSelect);
   const pageRepos = useSelector(pageReposSelect);
   const user = useSelector(userSelect);
