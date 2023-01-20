@@ -5,7 +5,12 @@ import { Ul } from 'ui/Ul';
 import { Pagination } from 'components/Pagination';
 import { RepoItem } from 'components/RepoItem';
 
-import { pageReposSelect, reposListSelect, userSelect } from 'selectors/search';
+import {
+  isLoadingSelect,
+  pageReposSelect,
+  reposListSelect,
+  userSelect,
+} from 'selectors/search';
 
 import { paginationReposSaga } from 'store/SearchReducer/actions/actionsSagas';
 
@@ -19,10 +24,11 @@ const ReposList: FC = () => {
   const reposList = useSelector(reposListSelect);
   const pageRepos = useSelector(pageReposSelect);
   const user = useSelector(userSelect);
+  const isLoading = useSelector(isLoadingSelect);
 
   return (
     <>
-      <Ul>
+      <Ul className={isLoading ? styles.hide : ''}>
         {reposList.map((repo: IRepoItem) => (
           <li key={repo.name} className={styles.reposItem}>
             <RepoItem repoItem={repo} />

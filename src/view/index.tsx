@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable indent */
-import React, { Suspense, useEffect, useState } from 'react';
+import React, { FC, lazy, Suspense, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
@@ -41,16 +41,16 @@ import { searhInitFetchSaga } from 'store/SearchReducer/actions/actionsSagas';
 
 import styles from './styles.module.css';
 
-const LazyCard = React.lazy(() => import('components/Card'));
-const LazyReposList = React.lazy(() => import('components/ReposList'));
-const LazyUsersList = React.lazy(() => import('components/UsersList'));
-const LazyModal = React.lazy(() => import('components/Modal'));
-const LazyNote = React.lazy(() => import('components/Note'));
-const LazyError = React.lazy(() => import('components/Error'));
-const LazySearchList = React.lazy(() => import('components/SearchList'));
-const LazyFavoriteList = React.lazy(() => import('components/FavoriteList'));
+const LazyCard = lazy(() => import('components/Card'));
+const LazyReposList = lazy(() => import('components/ReposList'));
+const LazyUsersList = lazy(() => import('components/UsersList'));
+const LazyModal = lazy(() => import('components/Modal'));
+const LazyNote = lazy(() => import('components/Note'));
+const LazyError = lazy(() => import('components/Error'));
+const LazySearchList = lazy(() => import('components/SearchList'));
+const LazyFavoriteList = lazy(() => import('components/FavoriteList'));
 
-export const Root: React.FC = () => {
+export const Root: FC = () => {
   const dispatch = useDispatch();
 
   const favoriteList = useSelector(favoriteListSelect);
