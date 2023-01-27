@@ -41,6 +41,7 @@ import { searhInitFetchSaga } from 'store/SearchReducer/actions/actionsSagas';
 
 import styles from './styles.module.css';
 
+const LazyButton = lazy(() => import('ui/Button'));
 const LazyCard = lazy(() => import('components/Card'));
 const LazyReposList = lazy(() => import('components/ReposList'));
 const LazyUsersList = lazy(() => import('components/UsersList'));
@@ -138,14 +139,9 @@ export const Root: FC = () => {
                 <SearchForm />
 
                 {!isMobile && (isUsersList || isReposList) && (
-                  <button
-                    type="button"
-                    onClick={backBtnHandler}
-                    className={styles.rootBtn}
-                  >
-                    Back
-                  </button>
-                  // eslint-disable-next-line indent
+                  <Suspense fallback={<Loader />}>
+                    <LazyButton onClick={backBtnHandler} text="Back" />
+                  </Suspense>
                 )}
               </div>
 
