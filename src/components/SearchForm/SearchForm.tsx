@@ -11,7 +11,6 @@ import {
   isReposListSelect,
   isSearchListSelect,
   isUsersListSelect,
-  searchedUserSelect,
 } from 'selectors/search';
 
 import {
@@ -34,7 +33,6 @@ export const SearchForm: FC = () => {
   const isCard = useSelector(isCardSelect);
   const isReposList = useSelector(isReposListSelect);
   const isUsersList = useSelector(isUsersListSelect);
-  const searchedUser = useSelector(searchedUserSelect);
 
   const [focusInMobiles, setFocusInMobiles] = useState(false);
 
@@ -46,8 +44,7 @@ export const SearchForm: FC = () => {
           isFavoriteList ||
           isCard ||
           isReposList ||
-          isUsersList ||
-          searchedUser
+          isUsersList
         ),
       );
     } else {
@@ -60,7 +57,6 @@ export const SearchForm: FC = () => {
     isSearchList,
     isReposList,
     isUsersList,
-    searchedUser,
   ]);
 
   // auto focus on input
@@ -136,7 +132,7 @@ export const SearchForm: FC = () => {
         </div>
       </form>
 
-      {searchedUser && <SearchTitle />}
+      <SearchTitle />
     </Flex>
   );
 };
