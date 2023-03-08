@@ -7,12 +7,21 @@ import {
   setError,
   setLoading,
   setPage,
+  setSearchList,
 } from '../actions/actions';
 
 import { getListSearchedUsers } from 'api/searchRequest';
 import { caching } from 'utils/caching';
+import { select } from 'utils/select';
 
-import { fetchNote, setNoteBtn } from 'store/FavoriteReduser/favoriteReducer';
+import { isFavoriteListSelect } from 'selectors/favorite';
+import { isMobileSelect, isSearchListSelect } from 'selectors/search';
+
+import {
+  fetchNote,
+  setFavoriteList,
+  setNoteBtn,
+} from 'store/FavoriteReduser/favoriteReducer';
 
 import { ISearchedUsersList } from 'model/search/types';
 
@@ -27,9 +36,16 @@ interface IProps {
 function* sagaWorker(action: IProps) {
   if (!action.searchStr) return;
 
+  const isMobile = yield* select(isMobileSelect);
+  const isFavoriteList = yield* select(isFavoriteListSelect);
+  const isSearchList = yield* select(isSearchListSelect);
+
   try {
     yield put(getSearchedUser(action.searchStr));
     yield put(setPage(1));
+
+    if (isMobile && isSearchList) yield put(setSearchList(false));
+    if (isMobile && isFavoriteList) yield put(setFavoriteList(false));
 
     yield all([
       put(getSearchedUsersList(defaultSearchUsersList)),
