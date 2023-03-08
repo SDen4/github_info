@@ -1,26 +1,19 @@
-import React, { FC } from 'react';
-import { useSelector } from 'react-redux';
+import React, { FC, memo } from 'react';
 
 import { FavoriteButton } from 'ui/FavoriteButton';
 import { SearchHistoryButton } from 'ui/SearchHistoryButton';
 
-import { favoriteListSelect } from 'selectors/favorite';
-import { searchListSelect } from 'selectors/search';
-
 import styles from './styles.module.css';
 
-export const Header: FC = () => {
-  const searchList = useSelector(searchListSelect);
-  const favoriteList = useSelector(favoriteListSelect);
-
+export const Header: FC = memo(() => {
   return (
     <header className={styles.rootHeader}>
       <h1>Find github&apos;s user</h1>
 
       <div className={styles.buttonsWrapper}>
-        {searchList.length ? <SearchHistoryButton /> : ''}
-        {favoriteList.length ? <FavoriteButton /> : ''}
+        <SearchHistoryButton />
+        <FavoriteButton />
       </div>
     </header>
   );
-};
+});

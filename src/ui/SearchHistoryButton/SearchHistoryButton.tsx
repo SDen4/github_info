@@ -26,7 +26,7 @@ import styles from './styles.module.css';
 export const SearchHistoryButton: FC = () => {
   const dispatch = useDispatch();
 
-  const history = useSelector(searchListSelect);
+  const searchList = useSelector(searchListSelect);
   const searchHistoryListStatus = useSelector(isSearchListSelect);
   const isFavoriteList = useSelector(isFavoriteListSelect);
   const isMobile = useSelector(isMobileSelect);
@@ -53,6 +53,8 @@ export const SearchHistoryButton: FC = () => {
     }
   };
 
+  if (!searchList.length) return null;
+
   return (
     <button
       type="button"
@@ -62,7 +64,7 @@ export const SearchHistoryButton: FC = () => {
       )}
       onClick={onSearchHistoryBtnHandler}
     >
-      Search history <span>({history.length})</span>
+      Search searchList <span>({searchList.length})</span>
     </button>
   );
 };

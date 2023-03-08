@@ -52,6 +52,8 @@ export const FavoriteButton: React.FC = () => {
     }
   };
 
+  if (!favoriteList.length) return null;
+
   return (
     <button
       type="button"
