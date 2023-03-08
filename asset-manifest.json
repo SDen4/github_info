@@ -1,7 +1,9 @@
 {
   "files": {
-    "main.css": "/github_info/static/css/main.c1bba833.css",
-    "main.js": "/github_info/static/js/main.2182f932.js",
+    "main.css": "/github_info/static/css/main.462792aa.css",
+    "main.js": "/github_info/static/js/main.6feb1e32.js",
+    "static/css/604.c2333117.chunk.css": "/github_info/static/css/604.c2333117.chunk.css",
+    "static/js/604.cf0fbcac.chunk.js": "/github_info/static/js/604.cf0fbcac.chunk.js",
     "static/css/108.e6beeb13.chunk.css": "/github_info/static/css/108.e6beeb13.chunk.css",
     "static/js/108.0600c837.chunk.js": "/github_info/static/js/108.0600c837.chunk.js",
     "static/css/95.26f5645f.chunk.css": "/github_info/static/css/95.26f5645f.chunk.css",
@@ -9,7 +11,7 @@
     "static/css/981.8f528eb0.chunk.css": "/github_info/static/css/981.8f528eb0.chunk.css",
     "static/js/981.94b3bdcd.chunk.js": "/github_info/static/js/981.94b3bdcd.chunk.js",
     "static/css/52.2de20a3f.chunk.css": "/github_info/static/css/52.2de20a3f.chunk.css",
-    "static/js/52.e86bfc41.chunk.js": "/github_info/static/js/52.e86bfc41.chunk.js",
+    "static/js/52.ec594647.chunk.js": "/github_info/static/js/52.ec594647.chunk.js",
     "static/css/57.d9dde0f2.chunk.css": "/github_info/static/css/57.d9dde0f2.chunk.css",
     "static/js/57.f246e798.chunk.js": "/github_info/static/js/57.f246e798.chunk.js",
     "static/css/474.8084379a.chunk.css": "/github_info/static/css/474.8084379a.chunk.css",
@@ -17,12 +19,14 @@
     "static/css/937.26568aac.chunk.css": "/github_info/static/css/937.26568aac.chunk.css",
     "static/js/937.0dbb5e17.chunk.js": "/github_info/static/js/937.0dbb5e17.chunk.js",
     "static/css/90.e3647e27.chunk.css": "/github_info/static/css/90.e3647e27.chunk.css",
-    "static/js/90.1293217f.chunk.js": "/github_info/static/js/90.1293217f.chunk.js",
+    "static/js/90.c94d1dcb.chunk.js": "/github_info/static/js/90.c94d1dcb.chunk.js",
     "static/media/github-logo.png": "/github_info/static/media/github-logo.40937c9e7964594ff658.png",
     "static/media/unnamed.jpg": "/github_info/static/media/unnamed.512d8528e72b0b1afa97.jpg",
     "index.html": "/github_info/index.html",
-    "main.c1bba833.css.map": "/github_info/static/css/main.c1bba833.css.map",
-    "main.2182f932.js.map": "/github_info/static/js/main.2182f932.js.map",
+    "main.462792aa.css.map": "/github_info/static/css/main.462792aa.css.map",
+    "main.6feb1e32.js.map": "/github_info/static/js/main.6feb1e32.js.map",
+    "604.c2333117.chunk.css.map": "/github_info/static/css/604.c2333117.chunk.css.map",
+    "604.cf0fbcac.chunk.js.map": "/github_info/static/js/604.cf0fbcac.chunk.js.map",
     "108.e6beeb13.chunk.css.map": "/github_info/static/css/108.e6beeb13.chunk.css.map",
     "108.0600c837.chunk.js.map": "/github_info/static/js/108.0600c837.chunk.js.map",
     "95.26f5645f.chunk.css.map": "/github_info/static/css/95.26f5645f.chunk.css.map",
@@ -30,7 +34,7 @@
     "981.8f528eb0.chunk.css.map": "/github_info/static/css/981.8f528eb0.chunk.css.map",
     "981.94b3bdcd.chunk.js.map": "/github_info/static/js/981.94b3bdcd.chunk.js.map",
     "52.2de20a3f.chunk.css.map": "/github_info/static/css/52.2de20a3f.chunk.css.map",
-    "52.e86bfc41.chunk.js.map": "/github_info/static/js/52.e86bfc41.chunk.js.map",
+    "52.ec594647.chunk.js.map": "/github_info/static/js/52.ec594647.chunk.js.map",
     "57.d9dde0f2.chunk.css.map": "/github_info/static/css/57.d9dde0f2.chunk.css.map",
     "57.f246e798.chunk.js.map": "/github_info/static/js/57.f246e798.chunk.js.map",
     "474.8084379a.chunk.css.map": "/github_info/static/css/474.8084379a.chunk.css.map",
@@ -38,10 +42,10 @@
     "937.26568aac.chunk.css.map": "/github_info/static/css/937.26568aac.chunk.css.map",
     "937.0dbb5e17.chunk.js.map": "/github_info/static/js/937.0dbb5e17.chunk.js.map",
     "90.e3647e27.chunk.css.map": "/github_info/static/css/90.e3647e27.chunk.css.map",
-    "90.1293217f.chunk.js.map": "/github_info/static/js/90.1293217f.chunk.js.map"
+    "90.c94d1dcb.chunk.js.map": "/github_info/static/js/90.c94d1dcb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c1bba833.css",
-    "static/js/main.2182f932.js"
+    "static/css/main.462792aa.css",
+    "static/js/main.6feb1e32.js"
   ]
 }

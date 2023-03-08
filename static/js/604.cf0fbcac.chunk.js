@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkgithub_info=self.webpackChunkgithub_info||[]).push([[604],{2604:function(t,n,u){u.r(n),u.d(n,{default:function(){return o}});u(2791);var e="styles_rootBtn__EzC2V",i=u(184),o=function(t){var n=t.onClick,u=t.text;return(0,i.jsx)("button",{type:"button",onClick:n,className:e,children:u})}}}]);
+//# sourceMappingURL=604.cf0fbcac.chunk.js.map
