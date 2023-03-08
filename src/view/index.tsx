@@ -114,7 +114,7 @@ export const Root: FC = () => {
     if (!favoriteList.length) {
       dispatch(setFavoriteList(false));
     }
-  }, [dispatch, favoriteList]);
+  }, [dispatch, favoriteList.length]);
 
   const backBtnHandler = () => {
     dispatch(setUsersList(false));
