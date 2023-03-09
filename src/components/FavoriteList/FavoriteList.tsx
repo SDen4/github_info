@@ -9,8 +9,6 @@ import { favoriteListSelect } from 'selectors/favorite';
 import {
   isLoadingSelect,
   isMobileSelect,
-  isReposListSelect,
-  isUsersListSelect,
   searchListSelect,
   userSelect,
 } from 'selectors/search';
@@ -20,11 +18,7 @@ import {
   setFavoriteList,
   setFavoriteUser,
 } from 'store/FavoriteReduser/favoriteReducer';
-import {
-  setModal,
-  setReposList,
-  setUsersList,
-} from 'store/SearchReducer/actions/actions';
+import { setModal } from 'store/SearchReducer/actions/actions';
 import { getGithubUserSaga } from 'store/SearchReducer/actions/actionsSagas';
 
 import styles from './styles.module.css';
@@ -35,8 +29,6 @@ const FavoriteList: FC = () => {
   const favoriteList = useSelector(favoriteListSelect);
   const searchList = useSelector(searchListSelect);
   const user = useSelector(userSelect);
-  const isUsersList = useSelector(isUsersListSelect);
-  const isReposList = useSelector(isReposListSelect);
   const isMobile = useSelector(isMobileSelect);
   const isLoading = useSelector(isLoadingSelect);
 
@@ -48,15 +40,8 @@ const FavoriteList: FC = () => {
   };
 
   const searchHistoriListBtnHandler = (login: string) => {
-    if (login === user.login) {
-      if (isUsersList) {
-        dispatch(setUsersList(false));
-      }
-      if (isReposList) {
-        dispatch(setReposList(false));
-      }
-      return;
-    }
+    if (!login?.length) return;
+
     dispatch(getGithubUserSaga(login, searchList, favoriteList));
   };
 

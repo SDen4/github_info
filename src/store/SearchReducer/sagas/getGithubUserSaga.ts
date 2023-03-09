@@ -10,6 +10,7 @@ import {
   setError,
   setLoading,
   setPageRepos,
+  setReposList,
   setSearchList,
   setUsersList,
 } from '../actions/actions';
@@ -17,7 +18,14 @@ import {
 import { getLastActivityDate, getUserInfo } from 'api/searchRequest';
 import { select } from 'utils/select';
 
-import { isMobileSelect } from 'selectors/search';
+import { isFavoriteListSelect } from 'selectors/favorite';
+import {
+  isMobileSelect,
+  isReposListSelect,
+  isSearchListSelect,
+  isUsersListSelect,
+  userSelect,
+} from 'selectors/search';
 
 import {
   fetchNote,
@@ -41,8 +49,22 @@ export interface IProps {
 
 function* sagaWorker(action: IProps) {
   const isMobile = yield* select(isMobileSelect);
+  const isFavoriteList = yield* select(isFavoriteListSelect);
+  const isSearchList = yield* select(isSearchListSelect);
+  const user = yield* select(userSelect);
+  const isUsersList = yield* select(isUsersListSelect);
+  const isReposList = yield* select(isReposListSelect);
 
   try {
+    if (isMobile && isSearchList) yield put(setSearchList(false));
+    if (isMobile && isFavoriteList) yield put(setFavoriteList(false));
+
+    if (action.login === user.login) {
+      if (isUsersList) yield put(setUsersList(false));
+      if (isReposList) yield put(setReposList(false));
+      return;
+    }
+
     yield put(getSearchedUsersList(defaultSearchUsersList));
     yield put(getSearchedUser(''));
     yield put(setPageRepos(1));
