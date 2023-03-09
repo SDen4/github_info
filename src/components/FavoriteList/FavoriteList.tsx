@@ -35,9 +35,7 @@ const FavoriteList: FC = () => {
   const [deleteModal, setDeleteModal] = useState(false);
   const [deletedElem, setDeletedElem] = useState('');
 
-  const closeBtnHandler = () => {
-    dispatch(setFavoriteList(false));
-  };
+  const closeBtnHandler = () => dispatch(setFavoriteList(false));
 
   const searchHistoriListBtnHandler = (login: string) => {
     if (!login?.length) return;
@@ -64,15 +62,17 @@ const FavoriteList: FC = () => {
     setDeletedElem(delElem);
   };
 
-  const deleteBtnHandler = (delElem: string) => {
+  const deleteBtnHandler = () => {
     const newFavoriteUsersList = favoriteList.filter(
-      (el) => el.name !== delElem,
+      (el) => el.name !== deletedElem,
     );
+
     dispatch(fetchFavoriteList(newFavoriteUsersList));
+
     localStorage.setItem('favorite', JSON.stringify(newFavoriteUsersList));
-    if (user.login === delElem) {
-      dispatch(setFavoriteUser(false));
-    }
+
+    if (user.login === deletedElem) dispatch(setFavoriteUser(false));
+
     setDeleteModal(false);
     setDeletedElem('');
   };
@@ -161,10 +161,10 @@ const FavoriteList: FC = () => {
             favorite list?
           </span>
           <div className={styles.btnsWrapper}>
-            <button type="button" onClick={() => deleteBtnHandler(deletedElem)}>
+            <button type="button" onClick={deleteBtnHandler}>
               Delete
             </button>
-            <button type="button" onClick={() => cancelDelete()}>
+            <button type="button" onClick={cancelDelete}>
               Cansel
             </button>
           </div>

@@ -34,9 +34,7 @@ const SearchList: FC = () => {
     dispatch(getGithubUserSaga(login, searchList, favoriteList));
   };
 
-  const closeBtnHandler = () => {
-    dispatch(setSearchList(false));
-  };
+  const closeBtnHandler = () => dispatch(setSearchList(false));
 
   const clearBtnHandler = () => {
     dispatch(
