@@ -34,14 +34,11 @@
   transform: rotate(-45deg);
 }
 
-.tooltip {
-  position: relative;
-}
-.tooltip:hover .tooltipText {
+.closeBtn:hover .tooltipText {
   opacity: 1;
   right: 20px;
 }
-.tooltip .tooltipText {
+.closeBtn .tooltipText {
   position: absolute;
   top: 25px;
   right: 9999px;

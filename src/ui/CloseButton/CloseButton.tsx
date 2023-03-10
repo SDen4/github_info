@@ -1,12 +1,11 @@
 import React from 'react';
-import clsx from 'clsx';
 
 import styles from './styles.module.css';
 
 export const CloseButton: React.FC<{ onClick: () => void }> = ({ onClick }) => {
   return (
     <button
-      className={clsx(styles.closeBtn, styles.tooltip)}
+      className={styles.closeBtn}
       type="button"
       aria-label="Close"
       onClick={onClick}
