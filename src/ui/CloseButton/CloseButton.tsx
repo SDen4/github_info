@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import styles from './styles.module.css';
 
-export const CloseButton: React.FC<{ onClick: () => void }> = ({ onClick }) => {
+export const CloseButton: FC<{ onClick: () => void }> = ({ onClick }) => {
   return (
     <button
       className={styles.closeBtn}

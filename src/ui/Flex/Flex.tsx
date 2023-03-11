@@ -1,8 +1,8 @@
-import React, { HTMLAttributes } from 'react';
+import React, { FC, HTMLAttributes } from 'react';
 
 import classes from './styles.module.css';
 
-export const Flex: React.FC<HTMLAttributes<HTMLDivElement>> = ({
+export const Flex: FC<HTMLAttributes<HTMLDivElement>> = ({
   children,
   className,
   style,

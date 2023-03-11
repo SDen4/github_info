@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
@@ -22,7 +22,7 @@ import { defaultSearchUsersList } from 'constants/searchConstants';
 
 import styles from './styles.module.css';
 
-export const FavoriteButton: React.FC = () => {
+export const FavoriteButton: FC = () => {
   const dispatch = useDispatch();
 
   const isFavoriteList = useSelector(isFavoriteListSelect);
