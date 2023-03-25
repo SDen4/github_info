@@ -35,7 +35,7 @@ import {
 } from 'store/FavoriteReduser/favoriteReducer';
 
 import { IFavoriteUser } from 'model/favorite/types';
-import { ISearhHistoryItem, IUserInner } from 'model/search/types';
+import { ISearhHistoryItem } from 'model/search/types';
 
 import { GET_GITHUB_USER_SAGA } from '../constants';
 import { defaultSearchUsersList } from 'constants/searchConstants';
@@ -71,8 +71,10 @@ function* sagaWorker(action: IProps) {
 
     yield all([put(getStart()), put(fetchNote('')), put(setNoteBtn(false))]);
 
-    const allData: IUserInner = yield getUserInfo(action.login);
-    const lastActivityDate: string = yield getLastActivityDate(action.login);
+    const [allData, lastActivityDate] = yield all([
+      getUserInfo(action.login),
+      getLastActivityDate(action.login),
+    ]);
 
     yield put(
       fetchLogin({
