@@ -25,6 +25,7 @@ Responsive design for easy viewing on mobile, tablets and desktops.
 - typescript
 - react
 - redux
+- @reduxjs/toolkit
 - redux-saga
 - axios
 - clsx
