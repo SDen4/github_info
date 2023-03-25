@@ -30,5 +30,3 @@ Responsive design for easy viewing on mobile, tablets and desktops.
 - clsx
 - gh-pages
 - browser local storage
-
----
