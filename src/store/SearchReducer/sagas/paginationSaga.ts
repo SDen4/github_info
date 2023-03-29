@@ -1,4 +1,4 @@
-import { all, put, select, takeEvery } from 'redux-saga/effects';
+import { all, put, takeEvery } from 'redux-saga/effects';
 
 import {
   getSearchedUsersList,
@@ -9,6 +9,7 @@ import {
 } from '../actions/actions';
 
 import { getListSearchedUsers } from 'api/searchRequest';
+import { select } from 'utils/select';
 
 import { searchedUserSelect } from 'selectors/search';
 
@@ -25,7 +26,7 @@ interface IProps {
 }
 
 function* sagaWorker(action: IProps) {
-  const searchedUser: string = yield select(searchedUserSelect);
+  const searchedUser: string = yield* select(searchedUserSelect);
 
   try {
     yield all([

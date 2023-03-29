@@ -1,4 +1,4 @@
-import { all, put, select, takeEvery } from 'redux-saga/effects';
+import { all, put, takeEvery } from 'redux-saga/effects';
 
 import {
   fetchReposList,
@@ -8,6 +8,7 @@ import {
 } from '../actions/actions';
 
 import { getReposInfo } from 'api/searchRequest';
+import { select } from 'utils/select';
 
 import { userSelect } from 'selectors/search';
 
@@ -21,7 +22,7 @@ interface IProps {
 }
 
 function* sagaWorker(action: IProps) {
-  const user: IUser = yield select(userSelect);
+  const user: IUser = yield* select(userSelect);
 
   try {
     yield put(setLoading(true));
