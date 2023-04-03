@@ -34,8 +34,8 @@ import {
   setNoteBtn,
 } from 'store/FavoriteReduser/favoriteReducer';
 
-import { IFavoriteUser } from 'model/favorite/types';
-import { ISearhHistoryItem } from 'model/search/types';
+import type { IFavoriteUser } from 'model/favorite/types';
+import type { ISearhHistoryItem } from 'model/search/types';
 
 import { GET_GITHUB_USER_SAGA } from '../constants';
 import { defaultSearchUsersList } from 'constants/searchConstants';

@@ -23,7 +23,7 @@ import {
   setNoteBtn,
 } from 'store/FavoriteReduser/favoriteReducer';
 
-import { ISearchedUsersList } from 'model/search/types';
+import type { ISearchedUsersList } from 'model/search/types';
 
 import { SEARCH_USERS_SAGA } from '../constants';
 import { defaultSearchUsersList } from 'constants/searchConstants';

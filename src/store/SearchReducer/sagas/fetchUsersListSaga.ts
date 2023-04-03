@@ -13,7 +13,7 @@ import { select } from 'utils/select';
 
 import { userSelect } from 'selectors/search';
 
-import { IUserInner } from 'model/search/types';
+import type { IUserInner } from 'model/search/types';
 
 import { FETCH_USERS_LIST_SAGA } from '../constants';
 

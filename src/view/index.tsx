@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable indent */
-import React, { FC, lazy, Suspense, useEffect, useState } from 'react';
+import type { FC } from 'react';
+import React, { lazy, Suspense, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 

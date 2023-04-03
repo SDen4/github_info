@@ -1,4 +1,5 @@
-import React, { FC, useCallback, useEffect, useRef, useState } from 'react';
+import type { FC } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Flex } from 'ui/Flex';

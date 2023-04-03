@@ -15,7 +15,7 @@ import { searchedUserSelect } from 'selectors/search';
 
 import { fetchNote, setNoteBtn } from 'store/FavoriteReduser/favoriteReducer';
 
-import { ISearchedUsersList } from 'model/search/types';
+import type { ISearchedUsersList } from 'model/search/types';
 
 import { PAGINATION_SAGA } from '../constants';
 import { defaultSearchUsersList } from 'constants/searchConstants';

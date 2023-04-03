@@ -1,5 +1,5 @@
-import { IFavoriteUser } from 'model/favorite/types';
-import { ISearhHistoryItem } from 'model/search/types';
+import type { IFavoriteUser } from 'model/favorite/types';
+import type { ISearhHistoryItem } from 'model/search/types';
 
 import * as CONST from '../constants';
 

@@ -3,7 +3,7 @@ import { put, takeEvery } from 'redux-saga/effects';
 import { FAVORITE_LIST_SAGA } from '../actions/actions';
 import { fetchFavoriteList } from '../favoriteReducer';
 
-import { IFavoriteUser } from 'model/favorite/types';
+import type { IFavoriteUser } from 'model/favorite/types';
 
 function* sagaWorker() {
   try {

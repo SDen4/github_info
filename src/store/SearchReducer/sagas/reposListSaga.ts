@@ -12,7 +12,7 @@ import { select } from 'utils/select';
 
 import { userSelect } from 'selectors/search';
 
-import { IRepoItem } from 'model/search/types';
+import type { IRepoItem } from 'model/search/types';
 
 import { REPOS_LIST_SAGA } from '../constants';
 

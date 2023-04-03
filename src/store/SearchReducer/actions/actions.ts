@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import {
+import type {
   IRepoItem,
   ISearchedUsersList,
   ISearhHistoryItem,

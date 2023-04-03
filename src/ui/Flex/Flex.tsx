@@ -1,4 +1,5 @@
-import React, { FC, HTMLAttributes } from 'react';
+import type { FC, HTMLAttributes } from 'react';
+import React from 'react';
 
 import classes from './styles.module.css';
 

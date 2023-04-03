@@ -1,6 +1,7 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
-import { IFavoriteUser } from 'model/favorite/types';
+import type { IFavoriteUser } from 'model/favorite/types';
 
 interface IInitialFavoriteState {
   isFavoriteBtn: boolean;

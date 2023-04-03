@@ -1,4 +1,5 @@
-import React, { FC, memo } from 'react';
+import type { FC } from 'react';
+import React, { memo } from 'react';
 import { useSelector } from 'react-redux';
 
 import { Ul } from 'ui/Ul';
@@ -14,7 +15,7 @@ import {
 
 import { paginationReposSaga } from 'store/SearchReducer/actions/actionsSagas';
 
-import { IRepoItem } from 'model/search/types';
+import type { IRepoItem } from 'model/search/types';
 
 import { reposPerPage } from 'constants/searchConstants';
 

@@ -1,6 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-import { AppStateType } from 'store/rootReducer';
+import type { AppStateType } from 'store/rootReducer';
 
 export const isMobileStartSelect = createSelector(
   (store: AppStateType) => store.search.isMobileStart,

@@ -2,7 +2,7 @@ import { put, takeEvery } from 'redux-saga/effects';
 
 import { fetchSearchList } from '../actions/actions';
 
-import { ISearhHistoryItem } from 'model/search/types';
+import type { ISearhHistoryItem } from 'model/search/types';
 
 import { GET_LOCAL_HISTORY_SAGA } from '../constants';
 

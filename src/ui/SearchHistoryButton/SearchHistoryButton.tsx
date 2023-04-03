@@ -1,4 +1,5 @@
-import React, { FC } from 'react';
+import type { FC } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 

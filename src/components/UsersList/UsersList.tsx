@@ -1,4 +1,5 @@
-import React, { FC, memo } from 'react';
+import type { FC } from 'react';
+import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
@@ -19,7 +20,7 @@ import {
   setUsersList,
 } from 'store/SearchReducer/actions/actions';
 
-import { IUserInner } from 'model/search/types';
+import type { IUserInner } from 'model/search/types';
 
 import styles from './styles.module.css';
 

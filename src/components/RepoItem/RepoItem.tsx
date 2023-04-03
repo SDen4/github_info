@@ -1,11 +1,12 @@
-import React, { FC } from 'react';
+import type { FC } from 'react';
+import React from 'react';
 import clsx from 'clsx';
 
 import { Flex } from 'ui/Flex';
 
 import { dateFormatter } from 'utils/dateFormatter';
 
-import { IRepoItem } from 'model/search/types';
+import type { IRepoItem } from 'model/search/types';
 
 import styles from './styles.module.css';
 

@@ -1,4 +1,5 @@
-import React, { FC } from 'react';
+import type { FC } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Flex } from 'ui/Flex';
@@ -7,7 +8,7 @@ import { searchListSelect } from 'selectors/search';
 
 import { getGithubUserSaga } from 'store/SearchReducer/actions/actionsSagas';
 
-import { ISearchedUser, IUserInner } from 'model/search/types';
+import type { ISearchedUser, IUserInner } from 'model/search/types';
 
 import styles from './styles.module.css';
 

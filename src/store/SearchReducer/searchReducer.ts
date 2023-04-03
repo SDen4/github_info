@@ -1,6 +1,6 @@
-import { ActionsType } from './actions/actions';
+import type { ActionsType } from './actions/actions';
 
-import { IInitialState } from 'model/search/types';
+import type { IInitialState } from 'model/search/types';
 
 import * as CONST from './constants';
 import {
