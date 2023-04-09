@@ -19,8 +19,8 @@ import {
   setFavoriteList,
   setFavoriteUser,
 } from 'store/FavoriteReduser/favoriteReducer';
-import { setModal } from 'store/SearchReducer/actions/actions';
 import { getGithubUserSaga } from 'store/SearchReducer/actions/actionsSagas';
+import { setModal } from 'store/SearchReducer/searchReducer';
 
 import styles from './styles.module.css';
 

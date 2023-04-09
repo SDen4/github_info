@@ -13,7 +13,7 @@ import {
   setReposList,
   setSearchList,
   setUsersList,
-} from '../actions/actions';
+} from '../searchReducer';
 
 import { getLastActivityDate, getUserInfo } from 'api/searchRequest';
 import { select } from 'utils/select';

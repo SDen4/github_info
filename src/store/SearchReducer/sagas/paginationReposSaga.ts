@@ -5,7 +5,7 @@ import {
   setError,
   setLoading,
   setPageRepos,
-} from '../actions/actions';
+} from '../searchReducer';
 
 import { getReposInfo } from 'api/searchRequest';
 import { select } from 'utils/select';

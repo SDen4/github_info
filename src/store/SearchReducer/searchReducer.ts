@@ -1,8 +1,15 @@
-import type { ActionsType } from './actions/actions';
+/* eslint-disable camelcase */
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
-import type { IInitialState } from 'model/search/types';
+import type {
+  IInitialState,
+  IRepoItem,
+  ISearchedUsersList,
+  ISearhHistoryItem,
+  IUserInner,
+} from 'model/search/types';
 
-import * as CONST from './constants';
 import {
   defaultSearchUsersList,
   searchUserDefault,
@@ -32,12 +39,29 @@ const initialState: IInitialState = {
   pageRepos: 1,
 };
 
-export const searchReducer = (
-  state = initialState,
-  action: ActionsType,
-): typeof state => {
-  switch (action.type) {
-    case CONST.FETCH_LOGIN:
+const searchSlice = createSlice({
+  name: 'SEARCH',
+  initialState,
+  reducers: {
+    fetchLogin(
+      state,
+      action: PayloadAction<{
+        name: string;
+        login: string;
+        followers_url: string;
+        following_url: string;
+        followers: number;
+        following: number;
+        created_at: Date;
+        avatar_url?: string;
+        company?: string;
+        email?: string;
+        public_repos?: number;
+        repos_url?: string;
+        location?: string;
+        lastActivityDate?: string;
+      }>,
+    ) {
       return {
         ...state,
         user: {
@@ -57,53 +81,63 @@ export const searchReducer = (
           lastActivityDate: action.payload.lastActivityDate,
         },
       };
-
-    case CONST.CARD_OPEN_FLAG:
+    },
+    setCard(state, action: PayloadAction<boolean>) {
       return { ...state, isCard: action.payload };
-
-    case CONST.LOADING:
+    },
+    setLoading(state, action: PayloadAction<boolean>) {
       return { ...state, isLoading: action.payload };
-
-    case CONST.ERROR:
+    },
+    setError(state, action: PayloadAction<boolean>) {
       return { ...state, isError: action.payload };
-
-    case CONST.USERS_LIST_OPENED_FLAG:
+    },
+    setUsersList(state, action: PayloadAction<boolean>) {
       return { ...state, isUsersList: action.payload };
-
-    case CONST.FETCH_USERS_LIST:
+    },
+    fetchUsersList(
+      state,
+      action: PayloadAction<{
+        usersList: IUserInner[];
+        lastRequestType: string;
+      }>,
+    ) {
       return {
         ...state,
         usersList: action.payload.usersList,
         lastRequestType: action.payload.lastRequestType,
       };
-
-    case CONST.FETCH_SEARCH_HISTORY:
-      return {
-        ...state,
-        searchList: [...state.searchList, action.payload],
-      };
-
-    case CONST.FETCH_ALL_HISTORY:
-      return { ...state, searchList: action.payload };
-
-    case CONST.SEARCH_HISTORY_LIST_FLAG:
+    },
+    fetchSearhHistory(state, action: PayloadAction<ISearhHistoryItem>) {
+      return { ...state, searchList: [...state.searchList, action.payload] };
+    },
+    setSearchList(state, action: PayloadAction<boolean>) {
       return { ...state, isSearchList: action.payload };
-
-    case CONST.FETCH_REPOS_LIST:
+    },
+    fetchSearchList(state, action: PayloadAction<ISearhHistoryItem[]>) {
+      return { ...state, searchList: action.payload };
+    },
+    fetchReposList(state, action: PayloadAction<IRepoItem[]>) {
       return { ...state, reposList: action.payload };
-
-    case CONST.REPOS_OPENED_LIST_FLAG:
+    },
+    setReposList(state, action: PayloadAction<boolean>) {
       return { ...state, isReposList: action.payload };
-
-    case CONST.SEARCH_HISTORY_MODAL_FLAG:
+    },
+    setModal(
+      state,
+      action: PayloadAction<{
+        isModal: boolean;
+        modalText: string;
+        modalType: 'search' | 'favorite';
+      }>,
+    ) {
       return {
         ...state,
         isModal: action.payload.isModal,
         modalText: action.payload.modalText,
         modalType: action.payload.modalType,
       };
-
-    case CONST.SEARCH_START:
+    },
+    getStart(state) {
       return {
         ...state,
         isError: false,
@@ -114,33 +148,56 @@ export const searchReducer = (
         usersList: [],
         isLoading: true,
       };
-
-    case CONST.SEARCH_IS_MOBILE:
+    },
+    setMobile(state, action: PayloadAction<boolean>) {
       return { ...state, isMobile: action.payload };
-
-    case CONST.SEARCH_IS_ANDROID:
+    },
+    setAndroid(state, action: PayloadAction<boolean>) {
       return { ...state, isAndroid: action.payload };
-
-    case CONST.SEARCH_IS_MOBILE_START:
+    },
+    setMobileStart(state, action: PayloadAction<boolean>) {
       return { ...state, isMobileStart: action.payload };
-
-    case CONST.GET_SEARCHED_USERS_LIST:
+    },
+    getSearchedUsersList(state, action: PayloadAction<ISearchedUsersList>) {
       return {
         ...state,
         searchedUsersList: action.payload,
         isLoading: false,
       };
-
-    case CONST.GET_SEARCHED_USER:
-      return { ...state, searchedUser: action.payload };
-
-    case CONST.PAGE:
+    },
+    setPage(state, action: PayloadAction<number>) {
       return { ...state, page: action.payload };
-
-    case CONST.PAGE_REPOS:
+    },
+    setPageRepos(state, action: PayloadAction<number>) {
       return { ...state, pageRepos: action.payload };
+    },
+    getSearchedUser(state, action: PayloadAction<string>) {
+      return { ...state, searchedUser: action.payload };
+    },
+  },
+});
 
-    default:
-      return state;
-  }
-};
+export const {
+  setCard,
+  setLoading,
+  setError,
+  setUsersList,
+  fetchUsersList,
+  fetchSearhHistory,
+  fetchReposList,
+  setSearchList,
+  fetchSearchList,
+  setReposList,
+  setModal,
+  getStart,
+  setMobile,
+  setAndroid,
+  setMobileStart,
+  getSearchedUsersList,
+  setPage,
+  setPageRepos,
+  getSearchedUser,
+  fetchLogin,
+} = searchSlice.actions;
+const searchReducer = searchSlice.reducer;
+export { searchReducer };

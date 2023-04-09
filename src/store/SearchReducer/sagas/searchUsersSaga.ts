@@ -8,7 +8,7 @@ import {
   setLoading,
   setPage,
   setSearchList,
-} from '../actions/actions';
+} from '../searchReducer';
 
 import { getListSearchedUsers } from 'api/searchRequest';
 import { caching } from 'utils/caching';

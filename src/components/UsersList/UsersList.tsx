@@ -18,7 +18,7 @@ import {
   setCard,
   setReposList,
   setUsersList,
-} from 'store/SearchReducer/actions/actions';
+} from 'store/SearchReducer/searchReducer';
 
 import type { IUserInner } from 'model/search/types';
 

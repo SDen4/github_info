@@ -6,7 +6,7 @@ import {
   setError,
   setLoading,
   setPage,
-} from '../actions/actions';
+} from '../searchReducer';
 
 import { getListSearchedUsers } from 'api/searchRequest';
 import { select } from 'utils/select';

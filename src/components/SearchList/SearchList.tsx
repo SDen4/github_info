@@ -16,8 +16,8 @@ import {
   searchListSelect,
 } from 'selectors/search';
 
-import { setModal, setSearchList } from 'store/SearchReducer/actions/actions';
 import { getGithubUserSaga } from 'store/SearchReducer/actions/actionsSagas';
+import { setModal, setSearchList } from 'store/SearchReducer/searchReducer';
 
 import styles from './styles.module.css';
 

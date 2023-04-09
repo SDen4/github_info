@@ -18,7 +18,7 @@ import {
   setReposList,
   setSearchList,
   setUsersList,
-} from 'store/SearchReducer/actions/actions';
+} from 'store/SearchReducer/searchReducer';
 
 import { defaultSearchUsersList } from 'constants/searchConstants';
 

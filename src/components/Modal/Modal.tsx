@@ -16,7 +16,7 @@ import {
   fetchSearchList,
   setModal,
   setSearchList,
-} from 'store/SearchReducer/actions/actions';
+} from 'store/SearchReducer/searchReducer';
 
 import styles from './styles.module.css';
 

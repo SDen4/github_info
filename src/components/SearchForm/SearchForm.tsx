@@ -14,12 +14,12 @@ import {
   isUsersListSelect,
 } from 'selectors/search';
 
+import { searchUsersSaga } from 'store/SearchReducer/actions/actionsSagas';
 import {
   setCard,
   setReposList,
   setUsersList,
-} from 'store/SearchReducer/actions/actions';
-import { searchUsersSaga } from 'store/SearchReducer/actions/actionsSagas';
+} from 'store/SearchReducer/searchReducer';
 
 import styles from './styles.module.css';
 

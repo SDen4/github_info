@@ -5,7 +5,7 @@ import {
   setCard,
   setLoading,
   setUsersList,
-} from '../actions/actions';
+} from '../searchReducer';
 
 import { getUsersInfo } from 'api/searchRequest';
 import { caching } from 'utils/caching';

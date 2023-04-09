@@ -32,13 +32,13 @@ import {
 } from 'selectors/search';
 
 import { setFavoriteList } from 'store/FavoriteReduser/favoriteReducer';
+import { searhInitFetchSaga } from 'store/SearchReducer/actions/actionsSagas';
 import {
   setCard,
   setMobileStart,
   setReposList,
   setUsersList,
-} from 'store/SearchReducer/actions/actions';
-import { searhInitFetchSaga } from 'store/SearchReducer/actions/actionsSagas';
+} from 'store/SearchReducer/searchReducer';
 
 import styles from './styles.module.css';
 

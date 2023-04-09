@@ -26,11 +26,11 @@ import {
   setFavoriteUser,
   setNote,
 } from 'store/FavoriteReduser/favoriteReducer';
-import { fetchLogin, setCard } from 'store/SearchReducer/actions/actions';
 import {
   fetchUsersListSaga,
   reposListSaga,
 } from 'store/SearchReducer/actions/actionsSagas';
+import { fetchLogin, setCard } from 'store/SearchReducer/searchReducer';
 
 import styles from './styles.module.css';
 

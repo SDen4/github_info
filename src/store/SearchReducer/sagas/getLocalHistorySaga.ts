@@ -1,6 +1,6 @@
 import { put, takeEvery } from 'redux-saga/effects';
 
-import { fetchSearchList } from '../actions/actions';
+import { fetchSearchList } from '../searchReducer';
 
 import type { ISearhHistoryItem } from 'model/search/types';
 
