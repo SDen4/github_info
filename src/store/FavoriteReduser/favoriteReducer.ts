@@ -60,4 +60,6 @@ export const {
   fetchNote,
   setNoteBtn,
 } = favoriteSlice.actions;
-export default favoriteSlice.reducer;
+
+const favoriteReducer = favoriteSlice.reducer;
+export { favoriteReducer };
