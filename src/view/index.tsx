@@ -32,7 +32,7 @@ import {
 } from 'selectors/search';
 
 import { setFavoriteList } from 'store/FavoriteReduser/favoriteReducer';
-import { searhInitFetchSaga } from 'store/SearchReducer/actions/actionsSagas';
+import { searhInitFetchSaga } from 'store/SearchReducer/actions';
 import {
   setCard,
   setMobileStart,

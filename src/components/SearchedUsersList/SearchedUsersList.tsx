@@ -9,7 +9,7 @@ import { Pagination } from 'components/Pagination';
 
 import { pageSelect, searchedUsersListSelect } from 'selectors/search';
 
-import { paginationSaga } from 'store/SearchReducer/actions/actionsSagas';
+import { paginationSaga } from 'store/SearchReducer/actions';
 
 import { usersPerPage } from 'constants/searchConstants';
 

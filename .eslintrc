@@ -22,13 +22,6 @@
     "jest": true
   },
   "rules": {
-    "no-restricted-properties": [
-      "warn",
-      {
-        "selector": "TSInterfaceDeclaration ~ TSInterfaceDeclaration",
-        "message": "Кол-во интерфейсов больше одного, перенесите в отдельный файл!"
-      }
-    ],
     "no-shadow": "off",
     "no-plusplus": "off",
     "no-confusing-arrow": "off",

@@ -1,6 +1,6 @@
 import { all, put, takeEvery } from 'redux-saga/effects';
 
-import { getLocalHistorySaga } from '../actions/actionsSagas';
+import { getLocalHistorySaga } from '../actions';
 import { setAndroid, setError, setLoading, setMobile } from '../searchReducer';
 
 import { getFavoriteListSaga } from 'store/FavoriteReduser/actions/actions';

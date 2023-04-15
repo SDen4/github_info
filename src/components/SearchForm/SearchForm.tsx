@@ -14,7 +14,7 @@ import {
   isUsersListSelect,
 } from 'selectors/search';
 
-import { searchUsersSaga } from 'store/SearchReducer/actions/actionsSagas';
+import { searchUsersSaga } from 'store/SearchReducer/actions';
 import {
   setCard,
   setReposList,

@@ -6,7 +6,7 @@ import { Flex } from 'ui/Flex';
 
 import { searchListSelect } from 'selectors/search';
 
-import { getGithubUserSaga } from 'store/SearchReducer/actions/actionsSagas';
+import { getGithubUserSaga } from 'store/SearchReducer/actions';
 
 import type { ISearchedUser, IUserInner } from 'model/search/types';
 

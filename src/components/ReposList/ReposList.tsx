@@ -13,7 +13,7 @@ import {
   userSelect,
 } from 'selectors/search';
 
-import { paginationReposSaga } from 'store/SearchReducer/actions/actionsSagas';
+import { paginationReposSaga } from 'store/SearchReducer/actions';
 
 import type { IRepoItem } from 'model/search/types';
 

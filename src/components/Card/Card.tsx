@@ -29,7 +29,7 @@ import {
 import {
   fetchUsersListSaga,
   reposListSaga,
-} from 'store/SearchReducer/actions/actionsSagas';
+} from 'store/SearchReducer/actions';
 import { fetchLogin, setCard } from 'store/SearchReducer/searchReducer';
 
 import styles from './styles.module.css';
