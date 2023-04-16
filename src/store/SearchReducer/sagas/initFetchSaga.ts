@@ -3,7 +3,7 @@ import { all, put, takeEvery } from 'redux-saga/effects';
 import { getLocalHistorySaga } from '../actions';
 import { setAndroid, setError, setLoading, setMobile } from '../searchReducer';
 
-import { getFavoriteListSaga } from 'store/FavoriteReduser/actions/actions';
+import { getFavoriteListSaga } from 'store/FavoriteReduser/actions';
 
 import { SEARCH_INIT_SAGA } from '../constants';
 import { mobileWidth } from 'constants/searchConstants';
