@@ -85,10 +85,10 @@ const searchSlice = createSlice({
     setCard(state, action: PayloadAction<boolean>) {
       return { ...state, isCard: action.payload };
     },
-    setLoading(state, action: PayloadAction<boolean>) {
+    setLoading(state, action: PayloadAction<typeof initialState.isLoading>) {
       return { ...state, isLoading: action.payload };
     },
-    setError(state, action: PayloadAction<boolean>) {
+    setError(state, action: PayloadAction<(typeof initialState)['isError']>) {
       return { ...state, isError: action.payload };
     },
     setUsersList(state, action: PayloadAction<boolean>) {
