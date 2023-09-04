@@ -5,11 +5,7 @@
     "jsx": true,
     "useJSXTextNode": true
   },
-  "plugins": [
-    "react",
-    "@typescript-eslint",
-    "simple-import-sort"
-  ],
+  "plugins": ["react", "@typescript-eslint", "simple-import-sort"],
   "extends": [
     "airbnb",
     "airbnb/hooks",
@@ -44,19 +40,13 @@
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [
-          ".js",
-          ".jsx",
-          ".tsx"
-        ]
+        "extensions": [".js", ".jsx", ".tsx"]
       }
     ],
-    "@typescript-eslint/consistent-type-definitions": [
-      "error",
-      "interface"
-    ],
+    "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
     "@typescript-eslint/consistent-type-imports": [
-      "warn", {"prefer": "type-imports"}
+      "warn",
+      { "prefer": "type-imports" }
     ],
     "@typescript-eslint/no-unused-vars": "warn",
     "@typescript-eslint/no-var-requires": "error",
@@ -66,9 +56,7 @@
     "@typescript-eslint/interface-name-prefix": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
     "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": [
-      "error"
-    ],
+    "@typescript-eslint/no-use-before-define": ["error"],
     "@typescript-eslint/unbound-method": "off",
     "@typescript-eslint/ban-ts-comment": "off",
     "max-classes-per-file": "off",
@@ -78,14 +66,8 @@
     "react/prefer-stateless-function": "off",
     "react/jsx-props-no-spreading": "off",
     "react/jsx-wrap-multilines": "off",
-    "comma-dangle": [
-      "error",
-      "always-multiline"
-    ],
-    "curly": [
-      "warn",
-      "multi-line"
-    ],
+    "comma-dangle": ["error", "always-multiline"],
+    "curly": ["warn", "multi-line"],
     "no-mixed-operators": "error",
     "camelcase": "warn",
     "no-console": "warn",
@@ -126,7 +108,8 @@
       "files": ["*.ts*"],
       "rules": {
         "simple-import-sort/imports": [
-          "warn", {
+          "warn",
+          {
             "groups": [
               [
                 "^react",
