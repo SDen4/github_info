@@ -1,5 +1,4 @@
-import type { FC } from 'react';
-import React, { memo } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 
 import { Flex } from 'ui/Flex';
@@ -8,31 +7,29 @@ import { setMobileStart } from 'store/SearchReducer/searchReducer';
 
 import styles from './styles.module.css';
 
-export const StartMobile: FC<{ appHeight: number }> = memo(
-  ({ appHeight }): JSX.Element => {
-    const dispatch = useDispatch();
+export const StartMobile = ({ appHeight }: { appHeight: number }) => {
+  const dispatch = useDispatch();
 
-    const onBtnClickHandler = () => {
-      document.body.requestFullscreen();
+  const onBtnClickHandler = () => {
+    document.body.requestFullscreen();
 
-      const timer = window.setTimeout(() => {
-        dispatch(setMobileStart(false));
-        window.clearTimeout(timer);
-      }, 50);
-    };
+    const timer = window.setTimeout(() => {
+      dispatch(setMobileStart(false));
+      window.clearTimeout(timer);
+    }, 50);
+  };
 
-    return (
-      <Flex className={styles.startMobileWrap} style={{ minHeight: appHeight }}>
-        <div className={styles.button__wrapper}>
-          <button
-            type="button"
-            className={styles.button}
-            onClick={onBtnClickHandler}
-          >
-            Go!
-          </button>
-        </div>
-      </Flex>
-    );
-  },
-);
+  return (
+    <Flex className={styles.startMobileWrap} style={{ minHeight: appHeight }}>
+      <div className={styles.button__wrapper}>
+        <button
+          type="button"
+          className={styles.button}
+          onClick={onBtnClickHandler}
+        >
+          Go!
+        </button>
+      </div>
+    </Flex>
+  );
+};

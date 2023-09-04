@@ -1,5 +1,4 @@
-import type { FC } from 'react';
-import React, { memo, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
@@ -19,7 +18,7 @@ import {
 
 import styles from './styles.module.css';
 
-const Note: FC = () => {
+const Note = () => {
   const dispatch = useDispatch();
   const ref: any = useRef();
 
@@ -170,4 +169,4 @@ const Note: FC = () => {
   );
 };
 
-export default memo(Note);
+export default Note;

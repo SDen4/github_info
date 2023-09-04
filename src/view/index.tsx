@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-indent */
 /* eslint-disable indent */
-import type { FC } from 'react';
 import React, { lazy, Suspense, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
@@ -52,7 +51,7 @@ const LazyError = lazy(() => import('components/Error'));
 const LazySearchList = lazy(() => import('components/SearchList'));
 const LazyFavoriteList = lazy(() => import('components/FavoriteList'));
 
-export const Root: FC = () => {
+export const Root = () => {
   const dispatch = useDispatch();
 
   const favoriteList = useSelector(favoriteListSelect);

@@ -1,4 +1,3 @@
-import type { FC } from 'react';
 import React from 'react';
 import clsx from 'clsx';
 
@@ -10,7 +9,7 @@ import type { IRepoItem } from 'model/search/types';
 
 import styles from './styles.module.css';
 
-export const RepoItem: FC<{ repoItem: IRepoItem }> = ({ repoItem }) => {
+export const RepoItem = ({ repoItem }: { repoItem: IRepoItem }) => {
   return (
     <Flex className={styles.repoItemWrapper}>
       <Flex className={styles.repoItemUnit}>

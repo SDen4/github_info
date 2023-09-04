@@ -1,4 +1,3 @@
-import type { FC } from 'react';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -25,7 +24,7 @@ import styles from './styles.module.css';
 
 let timeout: string | number | NodeJS.Timeout | undefined;
 
-export const SearchForm: FC = () => {
+export const SearchForm = () => {
   const dispatch = useDispatch();
 
   const isFavoriteList = useSelector(isFavoriteListSelect);

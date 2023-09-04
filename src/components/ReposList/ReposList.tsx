@@ -1,5 +1,4 @@
-import type { FC } from 'react';
-import React, { memo } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 
 import { Ul } from 'ui/Ul';
@@ -21,7 +20,7 @@ import { reposPerPage } from 'constants/searchConstants';
 
 import styles from './styles.module.css';
 
-const ReposList: FC = () => {
+const ReposList = () => {
   const reposList = useSelector(reposListSelect);
   const pageRepos = useSelector(pageReposSelect);
   const user = useSelector(userSelect);
@@ -47,4 +46,4 @@ const ReposList: FC = () => {
   );
 };
 
-export default memo(ReposList);
+export default ReposList;

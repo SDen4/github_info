@@ -1,17 +1,18 @@
-import type { FC } from 'react';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
 import styles from './styles.module.css';
 
-export const PaginationButton: FC<{
+interface Iprops {
   num: number | string | null;
   active: boolean;
   func: (page: number | string) => {
     readonly type: string;
     readonly payload: string | number;
   };
-}> = ({ num, active, func }) => {
+}
+
+export const PaginationButton = ({ num, active, func }: Iprops) => {
   const dispatch = useDispatch();
 
   const onClick = () => {

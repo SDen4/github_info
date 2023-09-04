@@ -1,5 +1,4 @@
-import type { FC } from 'react';
-import React, { memo } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
@@ -24,7 +23,7 @@ import type { IUserInner } from 'model/search/types';
 
 import styles from './styles.module.css';
 
-const UsersList: FC = () => {
+const UsersList = () => {
   const dispatch = useDispatch();
 
   const user = useSelector(userSelect);
@@ -70,4 +69,4 @@ const UsersList: FC = () => {
   );
 };
 
-export default memo(UsersList);
+export default UsersList;

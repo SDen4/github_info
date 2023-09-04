@@ -1,4 +1,3 @@
-import type { FC } from 'react';
 import React from 'react';
 
 import styles from './styles.module.css';
@@ -9,9 +8,11 @@ interface IProps {
   itemsPerPage: number;
 }
 
-export const PaginationInfo: FC<IProps> = (props) => {
-  const { totalElements, page, itemsPerPage } = props;
-
+export const PaginationInfo = ({
+  totalElements,
+  page,
+  itemsPerPage,
+}: IProps) => {
   const start = 1 + itemsPerPage * (page - 1);
   const preEnd = start + itemsPerPage - 1;
   const end = preEnd > totalElements! ? totalElements : preEnd;

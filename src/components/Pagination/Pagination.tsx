@@ -1,4 +1,3 @@
-import type { FC } from 'react';
 import React from 'react';
 
 import { PaginationButton } from './PaginationButton';
@@ -18,9 +17,12 @@ interface IProps {
   };
 }
 
-export const Pagination: FC<IProps> = (props) => {
-  const { itemsPerPage, totalElements, page, func } = props;
-
+export const Pagination = ({
+  itemsPerPage,
+  totalElements,
+  page,
+  func,
+}: IProps) => {
   const paginationLength = 7;
   const paginationLengthHalf = paginationLength / 2;
   let leftArr = [];

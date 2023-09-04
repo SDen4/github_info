@@ -1,4 +1,3 @@
-import type { FC } from 'react';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -12,9 +11,7 @@ import type { ISearchedUser, IUserInner } from 'model/search/types';
 
 import styles from './styles.module.css';
 
-export const UserItem: FC<{ user: IUserInner | ISearchedUser }> = ({
-  user,
-}) => {
+export const UserItem = ({ user }: { user: IUserInner | ISearchedUser }) => {
   const dispatch = useDispatch();
 
   const searchList = useSelector(searchListSelect);

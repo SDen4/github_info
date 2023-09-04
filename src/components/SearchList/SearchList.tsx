@@ -1,5 +1,4 @@
-import type { FC } from 'react';
-import React, { memo } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
@@ -21,7 +20,7 @@ import { setModal, setSearchList } from 'store/SearchReducer/searchReducer';
 
 import styles from './styles.module.css';
 
-const SearchList: FC = () => {
+const SearchList = () => {
   const dispatch = useDispatch();
 
   const searchList = useSelector(searchListSelect);
@@ -89,4 +88,4 @@ const SearchList: FC = () => {
   );
 };
 
-export default memo(SearchList);
+export default SearchList;

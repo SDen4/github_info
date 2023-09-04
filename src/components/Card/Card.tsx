@@ -1,5 +1,4 @@
-import type { FC } from 'react';
-import React, { memo } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
@@ -26,15 +25,12 @@ import {
   setFavoriteUser,
   setNote,
 } from 'store/FavoriteReduser/favoriteReducer';
-import {
-  fetchUsersListSaga,
-  reposListSaga,
-} from 'store/SearchReducer/actions';
+import { fetchUsersListSaga, reposListSaga } from 'store/SearchReducer/actions';
 import { fetchLogin, setCard } from 'store/SearchReducer/searchReducer';
 
 import styles from './styles.module.css';
 
-const Card: FC = (): JSX.Element => {
+const Card = () => {
   const dispatch = useDispatch();
 
   const favoriteList = useSelector(favoriteListSelect);
@@ -282,4 +278,4 @@ const Card: FC = (): JSX.Element => {
   );
 };
 
-export default memo(Card);
+export default Card;

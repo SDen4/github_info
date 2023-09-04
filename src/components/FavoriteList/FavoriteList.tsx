@@ -1,5 +1,4 @@
-import type { FC } from 'react';
-import React, { memo, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
 
@@ -24,7 +23,7 @@ import { setModal } from 'store/SearchReducer/searchReducer';
 
 import styles from './styles.module.css';
 
-const FavoriteList: FC = () => {
+const FavoriteList = () => {
   const dispatch = useDispatch();
 
   const favoriteList = useSelector(favoriteListSelect);
@@ -175,4 +174,4 @@ const FavoriteList: FC = () => {
   );
 };
 
-export default memo(FavoriteList);
+export default FavoriteList;
