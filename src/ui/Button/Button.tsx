@@ -1,4 +1,3 @@
-import type { FC } from 'react';
 import React from 'react';
 
 import styles from './styles.module.css';
@@ -8,7 +7,7 @@ interface IProps {
   text: string;
 }
 
-const Button: FC<IProps> = ({ onClick, text }) => {
+const Button = ({ onClick, text }: IProps) => {
   return (
     <button type="button" onClick={onClick} className={styles.rootBtn}>
       {text}

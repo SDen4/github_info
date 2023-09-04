@@ -1,4 +1,3 @@
-import type { FC } from 'react';
 import React from 'react';
 
 import styles from './styles.module.css';
@@ -9,7 +8,12 @@ interface IProps {
   style?: React.CSSProperties;
 }
 
-export const Ul: FC<IProps> = ({ children, className, style, ...props }) => {
+export const Ul: React.FC<IProps> = ({
+  children,
+  className,
+  style,
+  ...props
+}) => {
   return (
     <ul className={`${styles.ulWrapper} ${className}`} style={style} {...props}>
       {children}
