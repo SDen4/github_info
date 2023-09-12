@@ -17,6 +17,8 @@ import {
   setSearchList,
 } from 'store/SearchReducer/searchReducer';
 
+import { localStorageKeys } from 'constants/searchConstants';
+
 import styles from './styles.module.css';
 
 const Modal = () => {
@@ -30,12 +32,12 @@ const Modal = () => {
       if (modalType === 'search') {
         dispatch(setSearchList(false));
         dispatch(fetchSearchList([]));
-        localStorage.removeItem('saves');
+        localStorage.removeItem(localStorageKeys.saves);
       } else if (modalType === 'favorite') {
         dispatch(setFavoriteList(false));
         dispatch(setFavoriteUser(false));
         dispatch(fetchFavoriteList([]));
-        localStorage.removeItem('favorite');
+        localStorage.removeItem(localStorageKeys.favorite);
       }
       dispatch(
         setModal({ isModal: false, modalText: '', modalType: 'search' }),

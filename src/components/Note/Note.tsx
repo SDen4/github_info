@@ -16,6 +16,8 @@ import {
   setNoteBtn,
 } from 'store/FavoriteReduser/favoriteReducer';
 
+import { localStorageKeys } from 'constants/searchConstants';
+
 import styles from './styles.module.css';
 
 const Note = () => {
@@ -71,7 +73,10 @@ const Note = () => {
       newFavorites[index] = newfavoriteUser;
 
       dispatch(fetchFavoriteList(newFavorites));
-      localStorage.setItem('favorite', JSON.stringify(newFavorites));
+      localStorage.setItem(
+        localStorageKeys.favorite,
+        JSON.stringify(newFavorites),
+      );
     } else {
       // user isn't in favoriteList yet
 
@@ -83,7 +88,7 @@ const Note = () => {
       const newfavoriteUser = { name: user.login, note: value };
       dispatch(fetchFavoriteList([...favoriteList, newfavoriteUser]));
       localStorage.setItem(
-        'favorite',
+        localStorageKeys.favorite,
         JSON.stringify([...favoriteList, newfavoriteUser]),
       );
 
@@ -103,7 +108,10 @@ const Note = () => {
         return el;
       });
 
-      localStorage.setItem('favorite', JSON.stringify(newfavoriteUserList));
+      localStorage.setItem(
+        localStorageKeys.favorite,
+        JSON.stringify(newfavoriteUserList),
+      );
 
       dispatch(fetchNote(''));
       dispatch(fetchFavoriteList(newfavoriteUserList));

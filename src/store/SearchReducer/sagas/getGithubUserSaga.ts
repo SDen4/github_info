@@ -38,7 +38,10 @@ import type { IFavoriteUser } from 'model/favorite/types';
 import type { ISearhHistoryItem } from 'model/search/types';
 
 import { GET_GITHUB_USER_SAGA } from '../constants';
-import { defaultSearchUsersList } from 'constants/searchConstants';
+import {
+  defaultSearchUsersList,
+  localStorageKeys,
+} from 'constants/searchConstants';
 
 export interface IProps {
   type: typeof GET_GITHUB_USER_SAGA;
@@ -122,7 +125,7 @@ function* sagaWorker(action: IProps) {
     };
     yield put(fetchSearhHistory(newHistoryItem));
     yield localStorage.setItem(
-      'saves',
+      localStorageKeys.saves,
       JSON.stringify([...action.history, newHistoryItem]),
     );
 

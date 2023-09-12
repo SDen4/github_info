@@ -1,3 +1,4 @@
+import styles from './styles.module.css';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import clsx from 'clsx';
@@ -18,10 +19,10 @@ import {
   setFavoriteList,
   setFavoriteUser,
 } from 'store/FavoriteReduser/favoriteReducer';
-import { getGithubUserSaga } from 'store/SearchReducer/actions';
 import { setModal } from 'store/SearchReducer/searchReducer';
+import { getGithubUserSaga } from 'store/SearchReducer/actions';
 
-import styles from './styles.module.css';
+import { localStorageKeys } from 'constants/searchConstants';
 
 const FavoriteList = () => {
   const dispatch = useDispatch();
@@ -69,7 +70,10 @@ const FavoriteList = () => {
 
     dispatch(fetchFavoriteList(newFavoriteUsersList));
 
-    localStorage.setItem('favorite', JSON.stringify(newFavoriteUsersList));
+    localStorage.setItem(
+      localStorageKeys.favorite,
+      JSON.stringify(newFavoriteUsersList),
+    );
 
     if (user.login === deletedElem) dispatch(setFavoriteUser(false));
 

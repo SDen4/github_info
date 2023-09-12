@@ -28,6 +28,8 @@ import {
 import { fetchUsersListSaga, reposListSaga } from 'store/SearchReducer/actions';
 import { fetchLogin, setCard } from 'store/SearchReducer/searchReducer';
 
+import { localStorageKeys } from 'constants/searchConstants';
+
 import styles from './styles.module.css';
 
 const Card = () => {
@@ -40,6 +42,8 @@ const Card = () => {
   const isLoading = useSelector(isLoadingSelect);
   const isNoteBtn = useSelector(isNoteBtnSelect);
   const isFavoriteUser = useSelector(isFavoriteUserSelect);
+
+  const userName = user.name ? `${user.name} (${user.login})` : user.login;
 
   const onClickCloseBtnHandler = () => {
     dispatch(setCard(false));
@@ -82,13 +86,16 @@ const Card = () => {
       );
       dispatch(setFavoriteUser(false));
       dispatch(fetchFavoriteList(newFavoriteUsersList));
-      localStorage.setItem('favorite', JSON.stringify(newFavoriteUsersList));
+      localStorage.setItem(
+        localStorageKeys.favorite,
+        JSON.stringify(newFavoriteUsersList),
+      );
     } else {
       dispatch(setFavoriteUser(true));
       const newfavoriteUser = { name: user.login };
       dispatch(fetchFavoriteList([...favoriteList, newfavoriteUser]));
       localStorage.setItem(
-        'favorite',
+        localStorageKeys.favorite,
         JSON.stringify([...favoriteList, newfavoriteUser]),
       );
       dispatch(setFavoriteBtnFlag(true));
@@ -130,21 +137,12 @@ const Card = () => {
 
       <Flex className={styles.cardElement}>
         <header className={styles.cardSubElem}>
-          {user.name ? (
-            <a
-              href={`https://github.com/${user.login}`}
-              className={styles.cardLogin}
-            >
-              {user.name} &#40;{user.login}&#41;
-            </a>
-          ) : (
-            <a
-              href={`https://github.com/${user.login}`}
-              className={styles.cardLogin}
-            >
-              {user.login}
-            </a>
-          )}
+          <a
+            href={`https://github.com/${user.login}`}
+            className={styles.cardLogin}
+          >
+            {userName}
+          </a>
         </header>
 
         {user.company && (

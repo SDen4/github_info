@@ -30,14 +30,20 @@ import {
   searchedUsersListSelect,
 } from 'selectors/search';
 
+import { getFavoriteListSaga } from 'store/FavoriteReduser/actions';
 import { setFavoriteList } from 'store/FavoriteReduser/favoriteReducer';
-import { searhInitFetchSaga } from 'store/SearchReducer/actions';
+import {
+  getLocalHistorySaga,
+  searhInitFetchSaga,
+} from 'store/SearchReducer/actions';
 import {
   setCard,
   setMobileStart,
   setReposList,
   setUsersList,
 } from 'store/SearchReducer/searchReducer';
+
+import { localStorageKeys } from 'constants/searchConstants';
 
 import styles from './styles.module.css';
 
@@ -121,6 +127,25 @@ export const Root = () => {
     dispatch(setReposList(false));
     dispatch(setCard(true));
   };
+
+  // share events of saving favorite users to all opened tabs in browser
+  useEffect(() => {
+    window.addEventListener('storage', (event) => {
+      if (event.key === localStorageKeys.favorite) {
+        dispatch(getFavoriteListSaga());
+      }
+    });
+  }, [favoriteList, dispatch]);
+
+  // share events of saving search history to all opened tabs in browser
+  useEffect(() => {
+    window.addEventListener('storage', (event) => {
+      console.log(event.key);
+      if (event.key === localStorageKeys.saves) {
+        dispatch(getLocalHistorySaga());
+      }
+    });
+  }, [searchedUsersList, dispatch]);
 
   return (
     <Flex className={styles.appContainer}>

@@ -6,10 +6,12 @@ import type { ISearhHistoryItem } from 'model/search/types';
 
 import { GET_LOCAL_HISTORY_SAGA } from '../constants';
 
+import { localStorageKeys } from 'constants/searchConstants';
+
 function* sagaWorker() {
   try {
     const saved: ISearhHistoryItem[] = yield JSON.parse(
-      localStorage.getItem('saves') || '[]',
+      localStorage.getItem(localStorageKeys.saves) || '[]',
     );
 
     yield put(fetchSearchList(saved));

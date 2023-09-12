@@ -25,3 +25,5 @@ export const defaultSearchUsersList = {
 
 export const usersPerPage = 10;
 export const reposPerPage = 30;
+
+export const localStorageKeys = { favorite: 'favorite', saves: 'saves' };
